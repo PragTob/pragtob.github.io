@@ -1,1 +1,23 @@
 /*Here be CSS*/
+.navbar-green {
+  background-color: rgb(42, 158, 0);
+  border-color:     rgb(27, 102, 0);
+}
+
+.navbar-green .navbar-brand {
+  color: #FFFFFF;
+}
+
+.navbar-green .navbar-brand:hover,
+.navbar-green .navbar-brand:focus {
+  color: #FFFFFF;
+}
+
+.navbar-green .navbar-nav > li > a {
+  color: #C8FFB8;
+}
+
+.navbar-green .navbar-nav > li > a:hover,
+.navbar-green .navbar-nav > li > a:focus {
+  color: #FFFFFF;
+}
