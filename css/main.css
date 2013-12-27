@@ -21,3 +21,8 @@
 .navbar-green .navbar-nav > li > a:focus {
   color: #FFFFFF;
 }
+
+.my-icon {
+  color: rgb(42, 158, 0);
+  font-size: 12vw;
+}
