@@ -26,3 +26,9 @@
   color: rgb(42, 158, 0);
   font-size: 12vw;
 }
+
+#profile-picture {
+  /*height: 60vh;*/
+  border-radius: 6px;
+  width: 100%;
+}
