@@ -37,3 +37,11 @@
 #short-description ul i {
   color: rgb(42, 158, 0);
 }
+
+a {
+  color: rgb(42, 158, 0);
+}
+
+a:hover, a:focus {
+  color: rgb(27, 102, 0);
+}
