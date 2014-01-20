@@ -26,7 +26,7 @@
 
 .my-icon {
   color: rgb(42, 158, 0);
-  font-size: 12vw;
+  font-size: 11vw;
 }
 
 #profile-picture {
@@ -36,6 +36,11 @@
 
 #short-description ul i {
   color: rgb(42, 158, 0);
+  font-size: large;
+}
+
+#short-description ul li {
+  margin-bottom: 5px;
 }
 
 a {
