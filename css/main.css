@@ -45,3 +45,7 @@ a {
 a:hover, a:focus {
   color: rgb(27, 102, 0);
 }
+
+.container {
+  max-width: 970px;
+}
