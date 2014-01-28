@@ -75,3 +75,12 @@ h1, h2, h3, h4, h5, h6 {
 #introduction {
   margin-top: 80px;
 }
+
+#my-navbar-toggle {
+  border: 0px;
+}
+
+#my-navbar-toggle:hover,
+#my-navbar-toggle:focus {
+  background-color: rgb(35, 128, 0);
+}
