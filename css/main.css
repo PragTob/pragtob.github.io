@@ -84,3 +84,16 @@ h1, h2, h3, h4, h5, h6 {
 #my-navbar-toggle:focus {
   background-color: rgb(35, 128, 0);
 }
+
+@font-face {
+  font-family: fira;
+  src: url('fonts/FiraSansOT-Regular.otf') format('opentype');
+}
+
+body {
+  font-family: fira;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: fira;
+}
