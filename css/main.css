@@ -72,10 +72,6 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 20px;
 }
 
-#introduction {
-  margin-top: 80px;
-}
-
 #my-navbar-toggle {
   border: 0px;
 }
@@ -96,4 +92,8 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: fira;
+}
+
+.my-container {
+  margin-top: 80px;
 }
