@@ -83,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @font-face {
   font-family: fira;
-  src: url('fonts/FiraSansOT-Regular.otf') format('opentype');
+  src: url('/fonts/fira/FiraSansOT-Regular.otf') format('opentype');
 }
 
 body {
