@@ -78,7 +78,11 @@ h1, h2, h3, h4, h5, h6 {
 
 #my-navbar-toggle:hover,
 #my-navbar-toggle:focus {
-  background-color: rgb(35, 128, 0);
+  background-color: rgb(44, 188, 10);
+}
+
+#my-navbar-toggle .icon-bar {
+  background-color: white;
 }
 
 @font-face {
