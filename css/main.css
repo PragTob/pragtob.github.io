@@ -1,6 +1,6 @@
 /*Here be CSS*/
 .navbar-green {
-  background-color: rgb(42, 158, 0);
+  background-color: #45cb14;
   border-color:     rgb(27, 102, 0);
   border:           0px;
   border-radius:    0px;
@@ -16,7 +16,7 @@
 }
 
 .navbar-green .navbar-nav > li > a {
-  color: #C8FFB8;
+  color: #D8FFC8;
 }
 
 .navbar-green .navbar-nav > li > a:hover,
@@ -25,7 +25,7 @@
 }
 
 .my-icon {
-  color: rgb(42, 158, 0);
+  color: #45cb14;
   font-size: 11vw;
 }
 
@@ -35,7 +35,7 @@
 }
 
 #short-description ul i {
-  color: rgb(42, 158, 0);
+  color: #45cb14;
   font-size: large;
 }
 
@@ -44,11 +44,11 @@
 }
 
 a {
-  color: rgb(42, 158, 0);
+  color: #45cb14;
 }
 
 a:hover, a:focus {
-  color: rgb(27, 102, 0);
+  color: rgb(42, 175, 12);
 }
 
 .container {
@@ -78,12 +78,16 @@ h1, h2, h3, h4, h5, h6 {
 
 #my-navbar-toggle:hover,
 #my-navbar-toggle:focus {
-  background-color: rgb(35, 128, 0);
+  background-color: rgb(44, 188, 10);
+}
+
+#my-navbar-toggle .icon-bar {
+  background-color: white;
 }
 
 @font-face {
   font-family: fira;
-  src: url('fonts/FiraSansOT-Regular.otf') format('opentype');
+  src: url('/fonts/fira/FiraSansOT-Regular.otf') format('opentype');
 }
 
 body {
@@ -96,4 +100,16 @@ h1, h2, h3, h4, h5, h6 {
 
 .my-container {
   margin-top: 80px;
+}
+
+.my-status {
+  margin-left: 5px;
+  margin-bottom: 21px;
+}
+
+#main-navigation {
+  border: 0px;
+  -webkit-box-shadow : 0 0 0;
+  -moz-box-shadow    : 0 0 0;
+  box-shadow         : 0 0 0;
 }
