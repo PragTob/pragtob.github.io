@@ -1,0 +1,257 @@
+{
+  "basics": {
+    "name": "Tobias Pfeiffer",
+    "label": "Software Engineer",
+    "picture": "",
+    "email": "pragtob@gmail.com",
+    "phone": "+49 160 206 0792",
+    "website": "pragtob.info",
+    "summary": "I am a software engineer, deeply interested in agile methodologies, teaching, the Internet, object oriented programming and developing software systems in a team-oriented approach. I contribute to a variety of open source projects, engage in a multitude of community events and enjoy going to and speaking at conferences.",
+    "location": {
+      "address": "Kaiserdamm 84",
+      "postalCode": "14057",
+      "city": "Berlin",
+      "countryCode": "DE",
+      "region": "Berlin"
+    },
+    "profiles": [
+      {
+        "network": "Twitter",
+        "username": "PragTob",
+        "url": "https://twitter.com/PragTob"
+      },
+      {
+        "network": "GitHub",
+        "username": "PragTob",
+        "url": "https://github.com/PragTob"
+      },
+      {
+        "network": "Wordpress (Blog)",
+        "username": "PragTob",
+        "url": "https://pragtob.wordpress.com/"
+      },
+      {
+        "network": "",
+        "username": "",
+        "url": ""
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "Self-employed",
+      "position": "Freelancer",
+      "website": "",
+      "startDate": "05/2013",
+      "endDate": "current",
+      "summary": "Software Engineer and lecturer",
+      "highlights": [
+        "Taught 3 introductory level Ruby on Rails courses at the Humboldt-University Berlin",
+        "Prepared material for an advanced level Ruby on Rails course",
+        "Built a website to show screencasts in a HTML friendly way using HTML5 and popcorn.s"
+      ]
+    },
+    {
+      "company": "Google Summer of Code (JRuby)",
+      "position": "Google Summer of Code student",
+      "website": "https://www.google-melange.com/",
+      "startDate": "06/2013",
+      "endDate": "09/2013",
+      "summary": "Was selected as a student for Google Summer of Code by the JRuby organization. Worked on the Shoes 4 code base improving performance, enhancing functionality and refactoring the code base to achieve better readability and maintainability.",
+      "highlights": []
+    },
+    {
+      "company": "d:evolute",
+      "position": "Ruby on Rails developer",
+      "website": "http://devolute.org",
+      "startDate": "09/2012",
+      "endDate": "03/2013",
+      "summary": "Working on a spree ecommerce appllication.",
+      "highlights": []
+    },
+    {
+      "company": "Hasso Plattner Institute",
+      "position": "Student Assistant",
+      "website": "http://hpi.de",
+      "startDate": "04/2010",
+      "endDate": "07/2011",
+      "summary": "Various jobs at the working group for Internet Technologies at the Hasso-Plattner Institute including working as a corrector for the lectures „Internet and WWW Technologies“ and „Internet Security“.",
+      "highlights": []
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Ruby User Group Berlin",
+      "position": "Main organizer",
+      "website": "http://www.rug-b.de/",
+      "startDate": "10/2012",
+      "endDate": "current",
+      "summary": "The Ruby User Group Berlin is a monthly meetup of people interested in Ruby and related topics. Each meeting consists of 3 presentations and a couple of lightning talks. Currently the user group attracts between 80 and 120 attendees per meeting. My main responsibilities are organizing venues, contacting speakers and moderating the meetings as well as the mailing list.",
+      "highlights": []
+    },
+    {
+      "organization": "Rails Girls Berlin",
+      "position": "Coach & Project Group",
+      "website": "http://railsgirlsberlin.de/",
+      "startDate": "06/2012",
+      "endDate": "current",
+      "summary": "Rails Girls Berlin helps to diversify the tech community. I help by coaching at workshops and hackdays, as well as often giving the introductory presentation. Moreover I co-host a weekly project group since March 2013 to help interested attendees to dig deeper into the topic.",
+      "highlights": [
+        "Helped multiple attendees to grow into a junior developer position from absolute beginners",
+        "Created a well received and often reused introductory slide deck"
+      ]
+    },
+    {
+      "organization": "Rails Girls Summer of Code",
+      "position": "Mentor and support",
+      "website": "http://railsgirlssummerofcode.org/",
+      "startDate": "06/2013",
+      "endDate": "09/2013",
+      "summary": "Mentored two Rails Girls Summer of Code teams, as well as helping with the selection process the teams application.",
+      "highlights": []
+    },
+    {
+      "organization": "Shoes",
+      "position": "Maintainer",
+      "website": "http://shoesrb.com/",
+      "startDate": "06/2012",
+      "endDate": "current",
+      "summary": "I've been part of the Shoes community for a long time and since roughly September 2013 assume a maintainer like role for the Shoes 4 project. This means besides contributing code I watch over issues and review pull requests as well as taking care of releases etc.",
+      "highlights": []
+    },
+    {
+      "organization": "Conferences",
+      "position": "Student volunteer and Program Committe member",
+      "website": "",
+      "startDate": "05/2012",
+      "endDate": "current",
+      "summary": "Over time I've helped with multiple conferences. This includes student volunteer organizer at XP2012, volunteer at Agile Dev Practices 2013, volunteer at Goto Berlin 2013 and volunteer at eurucamp 2014. Most recently I was part of the program committee and a track host for goto; Berlin 2014.",
+      "highlights": []
+    }
+  ],
+  "education": [
+    {
+      "institution": "Hasso Plattner Institute",
+      "area": "IT-Systems Engineering",
+      "studyType": "Master",
+      "startDate": "2011",
+      "endDate": "2014",
+      "gpa": "1.2 (A)",
+      "courses": []
+    },
+    {
+      "institution": "Blekinge Institute of Technology",
+      "area": "Software Engineering",
+      "studyType": "ERASMUS Master",
+      "startDate": "08/2011",
+      "endDate": "03/2012",
+      "gpa": "",
+      "courses": []
+    },
+    {
+      "institution": "Hasso Plattner Institute",
+      "area": "It-Systems Engineering",
+      "studyType": "Bachelor",
+      "startDate": "2008",
+      "endDate": "2011",
+      "gpa": "1.3 (A-)",
+      "courses": []
+    },
+    {
+      "institution": "Friedrich Schiller Gymnasium",
+      "area": "Highschool",
+      "studyType": "",
+      "startDate": "2001",
+      "endDate": "2008",
+      "gpa": "1.0 (A)",
+      "courses": []
+    }
+  ],
+  "awards": [],
+  "publications": [],
+  "skills": [
+    {
+      "name": "Object Oriented Programming",
+      "level": "Expert",
+      "keywords": [
+        "Ruby",
+        "Smalltalk",
+        "Java",
+        "Design Patterns"
+      ]
+    },
+    {
+      "name": "Web Development",
+      "level": "Advanced",
+      "keywords": [
+        "JavaScript/CoffeeScript",
+        "HTML",
+        "CSS",
+        "Webframeworks (Ruby on Rails)"
+      ]
+    },
+    {
+      "name": "Enginneering Practices",
+      "level": "Advanced",
+      "keywords": [
+        "Test Driven Development (TDD)",
+        "Pair Programming",
+        "Version Control (Git)"
+      ]
+    },
+    {
+      "name": "Agile Software Development",
+      "level": "Advanced",
+      "keywords": [
+        "eXtreme Programming",
+        "Scrum",
+        "Project Inception"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "German",
+      "fluency": "Native Speaker"
+    },
+    {
+      "language": "English",
+      "fluency": "Full working proficiency"
+    },
+    {
+      "language": "Swedish",
+      "fluency": "Limited Working proficiency"
+    },
+    {
+      "language": "French",
+      "fluency": "Basic knowledge"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Community & Conferences",
+      "keywords": []
+    },
+    {
+      "name": "Software Development",
+      "keywords": [
+        "Programming Languages",
+        "Patterns",
+        "Practices and Processes"
+      ]
+    },
+    {
+      "name": "Teaching",
+      "keywords": []
+    },
+    {
+      "name": "Basketball",
+      "keywords": []
+    },
+    {
+      "name": "Music",
+      "keywords": []
+    }
+  ],
+  "references": []
+}
