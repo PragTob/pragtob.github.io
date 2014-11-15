@@ -48,3 +48,13 @@
 .full-entry {
   margin-top: 20px;
 }
+
+.about-content .full-entry {
+  page-break-inside: avoid;
+}
+
+@media print {
+  a[href]:after {
+    content: none !important;
+  }
+}

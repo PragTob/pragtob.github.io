@@ -1,27 +1,26 @@
 .header {
-  @extend .col-xs-10;
-  @extend .col-xs-push-2;
+  @extend .col-xs-12;
 }
 
 .section-headline {
-  @extend .col-xs-2;
+  @extend .col-xs-12;
 }
 
 .section-content {
-  @extend .col-xs-10;
+  @extend .col-xs-12;
   @extend .row;
 }
 
 .about-content {
-  @extend .col-xs-9;
+  @extend .col-xs-12;
 }
 
 .profile {
-  @extend .col-xs-4;
+  @extend .col-xs-3;
 }
 
 .contact {
-  @extend .col-xs-4;
+  @extend .col-xs-3;
 }
 
 .full-entry {
@@ -30,9 +29,9 @@
 
 
 .skill {
-  @extend .col-xs-6;
+  @extend .col-xs-5;
 }
 
 .language-container {
-  @extend .col-xs-3;
+  @extend .col-xs-4;
 }
