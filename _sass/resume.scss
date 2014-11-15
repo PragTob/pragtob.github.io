@@ -1,0 +1,85 @@
+.resume {
+  h1, h2, h3, h4, h5 {
+    margin-top: 0px;
+  }
+}
+
+.section {
+  @extend .row;
+  margin-top: 30px;
+}
+
+.header {
+  @extend .col-sm-10;
+  @extend .col-sm-push-2;
+}
+
+.section-headline {
+  @extend .col-sm-2;
+}
+
+.section-content {
+  @extend .col-sm-10;
+  @extend .row;
+}
+
+.about-content {
+  @extend .col-sm-9;
+}
+
+.profile {
+  @extend .col-sm-4;
+}
+
+.contact {
+  @extend .col-sm-4;
+}
+
+.full-entry {
+  @extend .col-sm-12;
+  margin-top: 20px;
+}
+
+.position {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.entry-header {
+  border-top: 1px solid #f4f6f6;
+  height: 20px;
+  margin-top: 12px;
+  margin-bottom: -2px;
+  position: relative;
+}
+.entry-header span,
+.entry-header a {
+  background: #fff;
+  position: absolute;
+}
+.entry-header .institution {
+  padding-right: 20px;
+  margin-top: -12px;
+}
+.entry-header .date {
+  font-size: 14px;
+  margin-top: -10px;
+  padding-left: 20px;
+  right: 0;
+}
+
+#education .area {
+  font-weight: bold;
+}
+
+#education .study-type {
+  margin-left: 23px;
+}
+
+.skill {
+  @extend .col-sm-6;
+}
+
+.language-container {
+  @extend .col-sm-3;
+}

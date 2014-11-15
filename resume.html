@@ -9,206 +9,186 @@ theme https://github.com/erming/jsonresume-theme-flat-->
 {% assign resume = site.data.resume%}
 {% assign basics = resume.basics %}
 
-
-<header id="header">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-9 col-sm-push-3">
-        <h1>
-          {{basics.name}}
-        </h1>
-      </div>
+<article class="resume">
+  <header id="header" class="section" >
+    <div class="header">
+      <h1>
+        {{basics.name}}
+      </h1>
     </div>
-  </div>
-</header>
+  </header>
 
-<div id="content" class="container">
-  <section id="contact" class="row">
-    <aside class="col-sm-3">
+  <section id="contact" class="section">
+    <aside class="section-headline">
       <h3>Contact</h3>
     </aside>
-    <div class="col-sm-9">
-      <div class="row">
-        <div class="col-sm-6">
-          <strong>Email</strong>
-          <div class="email">{{basics.email}}</div>
-        </div>
-        <div class="col-sm-6">
-          <strong>Phone</strong>
-          <div class="phone">{{basics.phone}}</div>
-        </div>
-        <div class="col-sm-6">
-          <strong>Website</strong>
-          <div class="website">
-            <a href="http://{{basics.website}}">{{basics.website}}</a>
-          </div>
+    <div class="section-content">
+      <div class="contact">
+        <strong>Email</strong>
+        <div class="email"><a href="mailto:{{basics.email}}">{{basics.email}}</a></div>
+      </div>
+      <div class="contact">
+        <strong>Phone</strong>
+        <div class="phone">{{basics.phone}}</div>
+      </div>
+      <div class="contact">
+        <strong>Website</strong>
+        <div class="website">
+          <a href="http://{{basics.website}}">{{basics.website}}</a>
         </div>
       </div>
     </div>
   </section>
-  <section id="about" class="row">
-    <aside class="col-sm-3">
+
+  <section id="about" class="section">
+    <aside class="section-headline">
       <h3>About</h3>
     </aside>
-    <div class="col-sm-9">
+    <div class="about-content">
       <p>{{basics.summary}}</p>
     </div>
   </section>
 
-  <section id="profiles" class="row">
-    <aside class="col-sm-3">
+  <section id="profiles" class="section">
+    <aside class="section-headline">
       <h3>Profiles</h3>
     </aside>
-    <div class="col-sm-9">
-      <div class="row">
-        {% for profile in basics.profiles %}
-          <div class="col-sm-6">
-            <strong class="network">
-              {{profile.network}}
-            </strong>
-            <div class="username">
-              <div class="url">
-                <a href="https://{{profile.url}}">{{profile.username}}</a>
-              </div>
-            </div>
+    <div class="section-content">
+      {% for profile in basics.profiles %}
+        <div class="profile">
+          <strong class="network">
+            {{profile.network}}
+          </strong>
+          <div class="username">
+            <a href="https://{{profile.url}}">{{profile.username}}</a>
           </div>
-        {% endfor %}
-      </div>
+        </div>
+      {% endfor %}
     </div>
   </section>
 
-  <section id="work" class="row">
-    <aside class="col-sm-3">
+  <section id="work" class="section">
+    <aside class="section-headline">
       <h3>Work</h3>
     </aside>
-    <div class="col-sm-9">
-      <div class="row">
-        {% for work in resume.work %}
-          <div class="col-sm-12">
-            <h4 class="strike-through">
-              <span>{{work.company}}</span>
+    <div class="section-content">
+      {% for work in resume.work %}
+        <div class="full-entry">
+          <h4 class="entry-header">
+            <span class="institution">{{work.company}}</span>
             <span class="date">
               {{work.startDate}} — {{work.endDate}}
             </span>
-            </h4>
-            <div class="website pull-right">
-              <a href="{{work.websiteLink}}">{{work.website}}</a>
-            </div>
-            <div class="position">
-              {{work.position}}
-            </div>
-            <div class="summary">
-              <p>{{work.summary}}</p>
-            </div>
-            {% include highlights.html highlights=work.highlights %}
+          </h4>
+          <div class="website pull-right">
+            <a href="{{work.websiteLink}}">{{work.website}}</a>
           </div>
-        {% endfor %}
-      </div>
+          <div class="position">
+            {{work.position}}
+          </div>
+          <div class="summary">
+            <p>{{work.summary}}</p>
+          </div>
+          {% include highlights.html highlights=work.highlights %}
+        </div>
+      {% endfor %}
     </div>
   </section>
 
   {% if resume.volunteer %}
-    <section id="volunteer" class="row">
-      <aside class="col-sm-3">
+    <section id="volunteer" class="section">
+      <aside class="section-headline">
         <h3>Volunteer</h3>
       </aside>
-      <div class="col-sm-9">
-        <div class="row">
-          {% for volunteer in resume.volunteer %}
-            <div class="col-sm-12">
-              <h4 class="strike-through">
-                <span>{{volunteer.organization}}</span>
+      <div class="section-content">
+        {% for volunteer in resume.volunteer %}
+          <div class="full-entry">
+            <h4 class="entry-header">
+              <span class="institution">{{volunteer.organization}}</span>
               <span class="date">
                 {{volunteer.startDate}} — {{volunteer.endDate}}
               </span>
-              </h4>
-              <div class="website pull-right">
-                <a href="{{volunteer.websiteLink}}">{{volunteer.website}}</a>
-              </div>
-              <div class="position">
-                {{volunteer.position}}
-              </div>
-              <div class="summary">
-                <p>{{volunteer.summary}}</p>
-              </div>
-              {% include highlights.html highlights=volunteer.highlights %}
+            </h4>
+            <div class="website pull-right">
+              <a href="{{volunteer.websiteLink}}">{{volunteer.website}}</a>
             </div>
-          {% endfor %}
-        </div>
+            <div class="position">
+              {{volunteer.position}}
+            </div>
+            <div class="summary">
+              <p>{{volunteer.summary}}</p>
+            </div>
+            {% include highlights.html highlights=volunteer.highlights %}
+          </div>
+        {% endfor %}
       </div>
     </section>
   {% endif %}
 
   {% if resume.education.size > 0 %}
-    <section id="education" class="row">
-      <aside class="col-sm-3">
+    <section id="education" class="section">
+      <aside class="section-headline">
         <h3>Education</h3>
       </aside>
-      <div class="col-sm-9">
-        <div class="row">
-          {% for education in resume.education %}
-            <div class="col-sm-12">
-              <h4 class="strike-through">
-                <span>{{education.institution}}</span>
+      <div class="section-content">
+        {% for education in resume.education %}
+          <div class="full-entry">
+            <h4 class="entry-header">
+              <span class="institution">{{education.institution}}</span>
               <span class="date">
                 {{education.startDate}} — {{education.endDate}}
               </span>
-              </h4>
-              <div class="area">
-                {{education.area}}
-              </div>
-              <div class="studyType">
-                {{education.studyType}}
-              </div>
+            </h4>
+            <div class="area">
+              <i class="fa fa-graduation-cap"></i> {{education.area}}
             </div>
-          <!--Specializationa and highlights-->
-          {% endfor %}
-        </div>
+            <div class="study-type">
+              {{education.studyType}}
+            </div>
+          </div>
+        <!--Specializationa and highlights-->
+        {% endfor %}
       </div>
     </section>
   {% endif %}
 
-  <section id="skills" class="row">
-    <aside class="col-sm-3">
+  <section id="skills" class="section">
+    <aside class="section-headline">
       <h3>Skills</h3>
     </aside>
-    <div class="col-sm-9">
-      <div class="row">
-        {% for skill in resume.skills %}
-          <div class="col-sm-6">
-            <div class="name">
-              <h4>{{skill.name}}</h4>
-            </div>
-            {% if skill.keywords.size > 0 %}
-              <ul class="keywords">
-                {% for keyword in skill.keywords %}
-                <li>{{keyword}}</li>
-                {% endfor %}
-              </ul>
-            {% endif %}
+    <div class="section-content">
+      {% for skill in resume.skills %}
+        <div class="skill">
+          <div class="name">
+            <h4>{{skill.name}}</h4>
           </div>
-        {% endfor %}
-      </div>
+          {% if skill.keywords.size > 0 %}
+            <ul class="keywords">
+              {% for keyword in skill.keywords %}
+              <li>{{keyword}}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      {% endfor %}
     </div>
   </section>
 
-  <section id="languages" class="row">
-    <aside class="col-sm-3">
+  <section id="languages" class="section">
+    <aside class="section-headline">
       <h3>Languages</h3>
     </aside>
-    <div class="col-sm-9">
-      <div class="row">
-        {% for language in resume.languages %}
-        <div class="col-sm-6">
-          <div class="language">
-            <strong>{{language.language}}</strong>
-          </div>
-          <div class="fluency">
-            {{language.fluency}}
-          </div>
+    <div class="section-content">
+      {% for language in resume.languages %}
+      <div class="language-container">
+        <div class="language">
+          <strong>{{language.language}}</strong>
         </div>
-        {% endfor %}
+        <div class="fluency">
+          {{language.fluency}}
+        </div>
       </div>
+      {% endfor %}
     </div>
   </section>
-</div>
+</article>
