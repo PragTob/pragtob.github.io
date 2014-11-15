@@ -18,17 +18,17 @@
       {
         "network": "Twitter",
         "username": "PragTob",
-        "url": "https://twitter.com/PragTob"
+        "url": "twitter.com/PragTob"
       },
       {
         "network": "GitHub",
         "username": "PragTob",
-        "url": "https://github.com/PragTob"
+        "url": "github.com/PragTob"
       },
       {
         "network": "Wordpress (Blog)",
         "username": "PragTob",
-        "url": "https://pragtob.wordpress.com/"
+        "url": "pragtob.wordpress.com/"
       },
       {
         "network": "",
@@ -54,7 +54,8 @@
     {
       "company": "Google Summer of Code (JRuby)",
       "position": "Google Summer of Code student",
-      "website": "https://www.google-melange.com/",
+      "website": "google-melange.com/",
+      "websiteLink": "https://google-melange.com/",
       "startDate": "06/2013",
       "endDate": "09/2013",
       "summary": "Was selected as a student for Google Summer of Code by the JRuby organization. Worked on the Shoes 4 code base improving performance, enhancing functionality and refactoring the code base to achieve better readability and maintainability.",
@@ -63,7 +64,8 @@
     {
       "company": "d:evolute",
       "position": "Ruby on Rails developer",
-      "website": "http://devolute.org",
+      "website": "devolute.org",
+      "websiteLink": "http://devolute.org",
       "startDate": "09/2012",
       "endDate": "03/2013",
       "summary": "Working on a spree ecommerce appllication.",
@@ -72,7 +74,8 @@
     {
       "company": "Hasso Plattner Institute",
       "position": "Student Assistant",
-      "website": "http://hpi.de",
+      "website": "hpi.de",
+      "websiteLink": "http://hpi.de",
       "startDate": "04/2010",
       "endDate": "07/2011",
       "summary": "Various jobs at the working group for Internet Technologies at the Hasso-Plattner Institute including working as a corrector for the lectures „Internet and WWW Technologies“ and „Internet Security“.",
@@ -83,7 +86,8 @@
     {
       "organization": "Ruby User Group Berlin",
       "position": "Main organizer",
-      "website": "http://www.rug-b.de/",
+      "website": "rug-b.de",
+      "websiteLink": "http://rug-b.de",
       "startDate": "10/2012",
       "endDate": "current",
       "summary": "The Ruby User Group Berlin is a monthly meetup of people interested in Ruby and related topics. Each meeting consists of 3 presentations and a couple of lightning talks. Currently the user group attracts between 80 and 120 attendees per meeting. My main responsibilities are organizing venues, contacting speakers and moderating the meetings as well as the mailing list.",
@@ -92,7 +96,8 @@
     {
       "organization": "Rails Girls Berlin",
       "position": "Coach & Project Group",
-      "website": "http://railsgirlsberlin.de/",
+      "website": "railsgirlsberlin.de/",
+      "websiteLink": "http://railsgirlsberlin.de/",
       "startDate": "06/2012",
       "endDate": "current",
       "summary": "Rails Girls Berlin helps to diversify the tech community. I help by coaching at workshops and hackdays, as well as often giving the introductory presentation. Moreover I co-host a weekly project group since March 2013 to help interested attendees to dig deeper into the topic.",
@@ -104,7 +109,8 @@
     {
       "organization": "Rails Girls Summer of Code",
       "position": "Mentor and support",
-      "website": "http://railsgirlssummerofcode.org/",
+      "website": "railsgirlssummerofcode.org",
+      "websiteLink": "http://railsgirlssummerofcode.org/",
       "startDate": "06/2013",
       "endDate": "09/2013",
       "summary": "Mentored two Rails Girls Summer of Code teams, as well as helping with the selection process the teams application.",
@@ -113,7 +119,8 @@
     {
       "organization": "Shoes",
       "position": "Maintainer",
-      "website": "http://shoesrb.com/",
+      "website": "shoesrb.com",
+      "websiteLink": "http://shoesrb.com",
       "startDate": "06/2012",
       "endDate": "current",
       "summary": "I've been part of the Shoes community for a long time and since roughly September 2013 assume a maintainer like role for the Shoes 4 project. This means besides contributing code I watch over issues and review pull requests as well as taking care of releases etc.",

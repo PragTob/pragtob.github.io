@@ -1,0 +1,9 @@
+{% assign highlights = include.highlights %}
+{% if highlights.size > 0 %}
+  <h4>Highlights</h4>
+  <ul class="highlights">
+    {% for highlight in highlights %}
+      <li class="bullet">{{highlight}}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
