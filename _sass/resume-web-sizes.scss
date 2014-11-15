@@ -1,0 +1,38 @@
+.header {
+  @extend .col-sm-10;
+  @extend .col-sm-push-2;
+}
+
+.section-headline {
+  @extend .col-sm-2;
+}
+
+.section-content {
+  @extend .col-sm-10;
+  @extend .row;
+}
+
+.about-content {
+  @extend .col-sm-9;
+}
+
+.profile {
+  @extend .col-sm-4;
+}
+
+.contact {
+  @extend .col-sm-4;
+}
+
+.full-entry {
+  @extend .col-sm-12;
+}
+
+
+.skill {
+  @extend .col-sm-6;
+}
+
+.language-container {
+  @extend .col-sm-3;
+}

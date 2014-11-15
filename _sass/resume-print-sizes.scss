@@ -1,0 +1,38 @@
+.header {
+  @extend .col-xs-10;
+  @extend .col-xs-push-2;
+}
+
+.section-headline {
+  @extend .col-xs-2;
+}
+
+.section-content {
+  @extend .col-xs-10;
+  @extend .row;
+}
+
+.about-content {
+  @extend .col-xs-9;
+}
+
+.profile {
+  @extend .col-xs-4;
+}
+
+.contact {
+  @extend .col-xs-4;
+}
+
+.full-entry {
+  @extend .col-xs-12;
+}
+
+
+.skill {
+  @extend .col-xs-6;
+}
+
+.language-container {
+  @extend .col-xs-3;
+}
