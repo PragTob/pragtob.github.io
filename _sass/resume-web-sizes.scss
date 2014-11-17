@@ -16,17 +16,19 @@
 }
 
 .intro-left {
-  @extend .col-sm-8
+  @extend .col-sm-8;
+  @extend .pull-left;
 }
 
 .cv-profile-picture {
-  @extend .col-sm-4;
+  @extend .col-sm-offset-1;
+  @extend .col-sm-3;
+  @extend .col-xs-12;
+  @extend .pull-right;
 }
 
 #cv-picture {
-  max-width: 100%;
   height: 30vh;
-  float: right;
 }
 
 .section-headline {
@@ -36,12 +38,6 @@
 .section-content {
   @extend .col-sm-10;
   @extend .row;
-}
-
-#cv-picture {
-  max-width: 100%;
-  max-height: 30vh;
-  float: right;
 }
 
 .profile {

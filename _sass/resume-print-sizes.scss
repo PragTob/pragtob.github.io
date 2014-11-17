@@ -22,12 +22,10 @@
 }
 
 #cv-picture {
-  max-width: 100%;
   height: 250px;
-  float: right;
   position: absolute;
-  left: 540px;
-  top: 70px;
+  right: 40px;
+  top: 20px;
 }
 
 .section-headline {
@@ -57,15 +55,15 @@
 
 
 .skill {
-  @extend .col-xs-5;
+  @extend .col-xs-6;
 }
 
 .language-container {
-  @extend .col-xs-5;
+  @extend .col-xs-3;
 }
 
 .study-keyword {
-  @extend .col-xs-2;
+  @extend .col-xs-3;
   padding-left: 7px;
 }
 
@@ -76,4 +74,8 @@
 
 .study-value {
   @extend .col-xs-9;
+}
+
+.section {
+  margin-top: 15px;
 }
