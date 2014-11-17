@@ -6,7 +6,7 @@
     "email": "tobias.pfeiffer@pragtob.info",
     "phone": "+49 160 206 0792",
     "website": "pragtob.info",
-    "summary": "I am a software engineer, deeply interested in agile methodologies, teaching, the Internet, object oriented programming and developing applications in a team-oriented approach. I contribute to a variety of open source projects (for instance Shoes, Hackety Hack and after_do), engage in a multitude of community events (e.g. Ruby user Group berlin) and enjoy going to and speaking at conferences.",
+    "summary": "I am a software engineer, deeply interested in agile methodologies, teaching, web technologies, object oriented programming and developing applications in a team-oriented approach. I contribute to a variety of open source projects (for instance Shoes, Hackety Hack and after_do), engage in a multitude of community events (e.g. Ruby user Group berlin) and enjoy attending and speaking at conferences.",
     "location": {
       "address": "Kaiserdamm 84",
       "postalCode": "14057",
@@ -46,9 +46,9 @@
       "endDate": "current",
       "summary": "Software engineer and lecturer teaching courses and working on projects.",
       "highlights": [
-        "Taught 3 introductory level Ruby on Rails courses at the Humboldt-University Berlin",
+        "Taught three introductory level web development courses at the Humboldt-University Berlin",
         "Prepared material for an advanced level Ruby on Rails course",
-        "Built a website to show screencasts in a HTML friendly way using HTML5 and popcorn.s"
+        "Built a website to show screencasts in a HTML friendly way using HTML5 and popcorn.js"
       ]
     },
     {
@@ -100,7 +100,7 @@
       "websiteLink": "http://railsgirlsberlin.de/",
       "startDate": "06/2012",
       "endDate": "current",
-      "summary": "Rails Girls helps to diversify the tech community by teaching beginners how to program. I help Rails Girls Berlin by coaching at workshops and hackdays. Moreover I coach a weekly project group to help interested attendees dig deeper into programming since March 2013. I also helped Rails Girls Summer of Code 2013 with the team selection process, as well as mentoring two Rails Girls Summer of Code teams.",
+      "summary": "Rails Girls helps to diversify the tech community by teaching beginners how to program. I support Rails Girls Berlin by coaching at workshops and hackdays. Since March 2013 I coach a weekly project group to help interested attendees dig deeper into programming. I also helped Rails Girls Summer of Code 2013 with the team selection process, as well as mentoring two Rails Girls Summer of Code teams.",
       "highlights": [
         "Helped multiple attendees to grow into a junior developer position from absolute beginners",
         "Created a well received introductory presentation, which I presented multiple times"
@@ -113,7 +113,7 @@
       "websiteLink": "http://shoesrb.com",
       "startDate": "06/2012",
       "endDate": "current",
-      "summary": "I'm part of the Shoes community for over 3 years now and since September 2013 I am the maintainer of the Shoes 4 project.",
+      "summary": "I'm part of the Shoes community for over three years now and since September 2013 I am the maintainer of the Shoes 4 project.",
       "highlights": []
     },
     {
@@ -156,8 +156,8 @@
       "gpa": "1.3 (A-)",
       "specialization": "software architecture and online security. Wrote my bachelor's thesis about the topic \"Event Adapters and Correlation in Process Engines\"",
       "highlights": [
-        "Participated in a 9 month, near full time team project develloping a process engine",
-        "Participated in 50 person Scrum project to build a Customer Relationship Management system"
+        "Participated in a nine month, near full time team project develloping a process engine",
+        "Participated in fifty person Scrum project to build a Customer Relationship Management system"
       ]
     },
     {
