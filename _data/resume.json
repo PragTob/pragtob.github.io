@@ -6,7 +6,7 @@
     "email": "tobias.pfeiffer@pragtob.info",
     "phone": "+49 160 206 0792",
     "website": "pragtob.info",
-    "summary": "I am a software engineer deeply interested in agile methodologies, web technologies, software craftsmanship and teaching. I contribute to a variety of open source projects (e.g. Shoes, Hackety Hack and after_do), engage in a multitude of community events (e.g. Ruby user Group berlin) and enjoy attending and speaking at conferences.",
+    "summary": "I am a full-stack engineer deeply interested in agile methodologies, web technologies, software craftsmanship and teaching. I contribute to a variety of open source projects (e.g. Shoes, Hackety Hack and after_do), engage in a multitude of community events (e.g. Ruby user Group berlin) and enjoy attending and speaking at conferences.",
     "location": {
       "address": "Kaiserdamm 84",
       "postalCode": "14057",
@@ -44,7 +44,7 @@
       "website": "",
       "startDate": "05/2013",
       "endDate": "current",
-      "summary": "Software engineer and lecturer teaching courses and working on projects.",
+      "summary": "Software engineer and lecturer teaching courses.",
       "highlights": [
         "Taught three introductory level web development courses at the Humboldt-University Berlin",
         "Prepared material for an advanced level Ruby on Rails course",
@@ -162,7 +162,7 @@
       "specialization": "software architecture and online security",
       "thesis": "Event Adapters and Correlation in Process Engines",
       "highlights": [
-        "Participated in a nine month, near full time team project develloping a process engine",
+        "Participated in a nine month, near full time team project developing a process engine",
         "Participated in fifty person Scrum project to build a Customer Relationship Management system"
       ]
     },
