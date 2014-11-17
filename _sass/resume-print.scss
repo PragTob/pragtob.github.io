@@ -4,3 +4,13 @@
 a {
   color: #45cb14;
 }
+
+.signature {
+  @extend .col-xs-4;
+  @extend .col-xs-offset-8;
+  padding-top: 200px;
+}
+
+.signature-text {
+  border-top: 1px solid;
+}
