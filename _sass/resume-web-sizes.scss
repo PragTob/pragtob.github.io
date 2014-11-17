@@ -3,6 +3,32 @@
   @extend .col-sm-push-2;
 }
 
+#intro {
+  @extend .row;
+}
+
+.intro-headline {
+  @extend .col-sm-3;
+}
+
+.intro-content {
+  @extend .col-sm-9;
+}
+
+.intro-left {
+  @extend .col-sm-8
+}
+
+.cv-profile-picture {
+  @extend .col-sm-4;
+}
+
+#cv-picture {
+  max-width: 100%;
+  height: 30vh;
+  float: right;
+}
+
 .section-headline {
   @extend .col-sm-2;
 }
@@ -12,8 +38,14 @@
   @extend .row;
 }
 
-.about-content {
-  @extend .col-sm-9;
+.cv-profile-picture {
+  @extend .col-sm-4;
+}
+
+#cv-picture {
+  max-width: 100%;
+  height: 30vh;
+  float: right;
 }
 
 .profile {
@@ -21,7 +53,7 @@
 }
 
 .contact {
-  @extend .col-sm-3;
+  margin-bottom: 5px;
 }
 
 .full-entry {
@@ -36,3 +68,4 @@
 .language-container {
   @extend .col-sm-3;
 }
+

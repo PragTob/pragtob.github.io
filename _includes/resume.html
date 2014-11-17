@@ -13,36 +13,45 @@ theme https://github.com/erming/jsonresume-theme-flat-->
     </div>
   </header>
 
-  <section id="contact" class="section">
-    <aside class="section-headline">
-      <h3>Contact</h3>
-    </aside>
-    <div class="section-content">
-      <div class="contact">
-        <strong>Email</strong>
-        <div class="email"><a href="mailto:{{basics.email}}">{{basics.email}}</a></div>
-      </div>
-      <div class="contact">
-        <strong>Phone</strong>
-        <div class="phone">{{basics.phone}}</div>
-      </div>
-      <div class="contact">
-        <strong>Website</strong>
-        <div class="website">
-          <a href="http://{{basics.website}}">{{basics.website}}</a>
+  <div id="intro">
+    <div class="intro-left">
+      <section id="contact" class="section">
+        <aside class="intro-headline">
+          <h3>Contact</h3>
+        </aside>
+        <div class="intro-content">
+          <div class="contact">
+            <strong>Email</strong>
+            <div class="email"><a href="mailto:{{basics.email}}">{{basics.email}}</a></div>
+          </div>
+          <div class="contact">
+            <strong>Phone</strong>
+            <div class="phone">{{basics.phone}}</div>
+          </div>
+          <div class="contact">
+            <strong>Website</strong>
+            <div class="website">
+              <a href="http://{{basics.website}}">{{basics.website}}</a>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <section id="about" class="section">
-    <aside class="section-headline">
-      <h3>About</h3>
-    </aside>
-    <div class="about-content">
-      <p>{{basics.summary}}</p>
+      <section id="about" class="section">
+        <aside class="intro-headline">
+          <h3>About</h3>
+        </aside>
+        <div class="intro-content">
+          <p>{{basics.summary}}</p>
+        </div>
+      </section>
     </div>
-  </section>
+
+    <div class="cv-profile-picture">
+      <img id="cv-picture" src="images/profile_minimized.jpg" alt="profile_picture">
+    </div>
+
+  </div>
 
   <section id="profiles" class="section">
     <aside class="section-headline">
