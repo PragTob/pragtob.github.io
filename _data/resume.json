@@ -122,8 +122,13 @@
       "website": "",
       "startDate": "05/2012",
       "endDate": "current",
-      "summary": "Over time I've helped with multiple conferences. This includes student volunteer organizer at XP2012, volunteer at Agile Dev Practices 2013, GOTO Berlin 2013 and JRubyConf.eu 2014, eurucamp 2014. I also spoke at JRubyConf.eu 2013. Most recently I was part of the program committee and a track host for GOTO Berlin 2014.",
-      "highlights": []
+      "summary": "I like to go to conferences and helped organize some of them.",
+      "highlights": [
+        "speaker at JRubyConf.eu 2013",
+        "member of the program committee and a track host for \"Monoliths and Microservices\" and \"Software Craftsmanship\" at GOTO Berlin 2014",
+        "student volunteer organizer at XP2012",
+        "volunteer at Agile Dev Practices 2013, GOTO Berlin 2013, JRubyConf.eu 2014 and eurucamp 2014"
+      ]
     }
   ],
   "education": [
