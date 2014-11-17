@@ -63,3 +63,17 @@
 .language-container {
   @extend .col-xs-4;
 }
+
+.study-keyword {
+  @extend .col-xs-2;
+  padding-left: 7px;
+}
+
+.study-detail {
+  margin-bottom: 5px;
+  @extend .col-xs-12;
+}
+
+.study-value {
+  @extend .col-xs-9;
+}

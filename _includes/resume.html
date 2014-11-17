@@ -149,9 +149,9 @@ theme https://github.com/erming/jsonresume-theme-flat-->
         <div class="study-type">
           {{education.studyType}}
         </div>
-        <p>
-          Specialized in {{education.specialization}}.
-        </p>
+        {% include studydetail.html value=education.specialization key="Specialization" %}
+        {% include studydetail.html value=education.thesis key="Thesis" %}
+        {% include studydetail.html value=education.gpa key="Final Grade" %}
         {% include highlights.html highlights=education.highlights %}
       </div>
 

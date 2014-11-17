@@ -69,3 +69,16 @@
   @extend .col-sm-3;
 }
 
+.study-detail {
+  margin-bottom: 5px;
+  @extend .col-sm-12;
+}
+
+.study-keyword {
+  @extend .col-sm-2;
+  padding-left: 7px;
+}
+
+.study-value {
+  @extend .col-sm-10;
+}

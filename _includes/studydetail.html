@@ -1,0 +1,15 @@
+{% assign value = include.value %}
+{% assign key = include.key %}
+
+{% if value %}
+  <div class="study-detail">
+    <div class="study-keyword">
+      <strong>
+        {{key}}:
+      </strong>
+    </div>
+    <div class="study-value">
+      {{value}}
+    </div>
+  </div>
+{% endif %}
