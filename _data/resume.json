@@ -44,7 +44,7 @@
       "website": "",
       "startDate": "05/2013",
       "endDate": "current",
-      "summary": "Software engineer and lecturer teaching courses.",
+      "summary": "Software engineer and instructor.",
       "highlights": [
         "Taught three introductory level web development courses at the Humboldt-University Berlin",
         "Prepared material for an advanced level Ruby on Rails course",
@@ -78,7 +78,7 @@
       "websiteLink": "http://hpi.de",
       "startDate": "04/2010",
       "endDate": "07/2011",
-      "summary": "Various jobs at the working group for Internet Technologies at the Hasso Plattner Institute including working as a corrector for the lectures „Internet- and WWW-Technologies“ and „Internet Security“.",
+      "summary": "Various jobs at the working group for Internet Technologies and Systems including working as a corrector for the lectures „Internet- and WWW-Technologies“ and „Internet Security“.",
       "highlights": []
     }
   ],
@@ -113,21 +113,21 @@
       "websiteLink": "http://shoesrb.com",
       "startDate": "06/2012",
       "endDate": "current",
-      "summary": "I'm part of the Shoes community for over three years now and since September 2013 I am the maintainer of the Shoes 4 project.",
+      "summary": "I've been part of the Shoes community for over three years now and since September 2013 I am the maintainer of the Shoes 4 project.",
       "highlights": []
     },
     {
       "organization": "Conferences",
-      "position": "Speaker, Volunteer and Program Committee",
+      "position": "Speaker, Volunteer and Program Committee Member",
       "website": "",
       "startDate": "05/2012",
       "endDate": "current",
       "summary": "I like to go to conferences and helped organize some of them.",
       "highlights": [
-        "Speaker at JRubyConf.eu 2013",
+        "Speaker at JRubyConf 2013",
         "Member of the program committee and a track host for \"Monoliths and Microservices\" and \"Software Craftsmanship\" at GOTO Berlin 2014",
         "International Volunteers Program Chair at XP2012",
-        "Volunteer at Agile Dev Practices 2013, GOTO Berlin 2013, JRubyConf.eu 2014 and eurucamp 2014"
+        "Volunteer at Agile Dev Practices 2013, GOTO Berlin 2013, JRubyConf 2014 and eurucamp 2014"
       ]
     }
   ],
