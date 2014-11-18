@@ -12,6 +12,7 @@
 
 .intro-content {
   @extend .col-xs-12;
+  padding-right: 20px;
 }
 
 .intro-left {
@@ -35,10 +36,6 @@
 .section-content {
   @extend .col-xs-12;
   @extend .row;
-}
-
-.about-content {
-  @extend .col-xs-12;
 }
 
 .profile {

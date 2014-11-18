@@ -21,14 +21,14 @@
 }
 
 .cv-profile-picture {
-  @extend .col-sm-offset-1;
   @extend .col-sm-3;
   @extend .col-xs-12;
   @extend .pull-right;
 }
 
 #cv-picture {
-  height: 30vh;
+  max-height: 30vh;
+  max-width: 100%;
 }
 
 .section-headline {
