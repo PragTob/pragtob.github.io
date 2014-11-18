@@ -148,7 +148,11 @@ theme https://github.com/erming/jsonresume-theme-flat-->
               </span>
         </h4>
         <div class="area">
-          <i class="fa fa-graduation-cap"></i> {{education.studyType}} in {{education.area}}
+          <i class="fa fa-graduation-cap"></i>
+          {% if education.studyType %}
+            {{education.studyType}} in
+          {% endif %}
+          {{education.area}}
         </div>
         {% include studydetail.html value=education.specialization key="Specialization" %}
         {% include studydetail.html value=education.thesis key="Thesis" %}
