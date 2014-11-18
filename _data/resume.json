@@ -55,7 +55,7 @@
       "company": "Google Summer of Code (JRuby)",
       "position": "Google Summer of Code student",
       "website": "google-melange.com/",
-      "websiteLink": "https://google-melange.com/",
+      "websiteLink": "https://google-melange.com",
       "startDate": "06/2013",
       "endDate": "09/2013",
       "summary": "Student for the JRuby organization, working on the Shoes 4 code base improving performance, enhancing functionality and refactoring the code to achieve better readability and maintainability.",

@@ -9,6 +9,9 @@ theme https://github.com/erming/jsonresume-theme-flat-->
     <div class="header">
       <h1>
         {{basics.name}}
+        {% if include.pdf %}
+          <a href="/tobias_pfeiffer_resume.pdf" title="Download PDF version" target="_blank"><i id="pdf-download" class="fa fa-file-pdf-o"></i></a>
+        {% endif %}
       </h1>
     </div>
   </header>
