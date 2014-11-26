@@ -7,6 +7,7 @@
     "phone": "+49 160 206 0792",
     "website": "pragtob.info",
     "summary": "I am a full-stack engineer deeply interested in agile methodologies, web technologies, software craftsmanship and teaching. I contribute to a variety of open source projects (e.g. Shoes, Hackety Hack and after_do), engage in a multitude of community events (e.g. Ruby User Group Berlin), enjoy attending and speaking at conferences.",
+    "anonymous_summary": "I am a full-stack engineer deeply interested in agile methodologies, web technologies, software craftsmanship and teaching. I contribute to a variety of open source projects, engage in a multitude of community events, enjoy attending and speaking at conferences.",
     "location": {
       "address": "Kaiserdamm 84",
       "postalCode": "14057",
@@ -59,7 +60,10 @@
       "startDate": "06/2013",
       "endDate": "09/2013",
       "summary": "Student for the JRuby organization, working on the Shoes 4 code base improving performance, enhancing functionality and refactoring the code to achieve better readability and maintainability.",
-      "highlights": []
+      "highlights": [],
+      "anonymous": {
+        "summary": "Student for the JRuby organization, working on the code base of a related project improving performance, enhancing functionality and refactoring the code to achieve better readability and maintainability."
+      }
     },
     {
       "company": "d:evolute",
@@ -90,8 +94,15 @@
       "websiteLink": "http://rug-b.de",
       "startDate": "10/2012",
       "endDate": "current",
-      "summary": "The Ruby User Group Berlin is a monthly meetup of people interested in Ruby and related topics. Each meeting consists of 3 presentations and a couple of lightning talks. Currently the user group attracts between 80 and 120 attendees per meeting. My main responsibilities are organizing venues, contacting speakers and moderating the meetings as well as the mailing list. Sometimes I also give presentations.",
-      "highlights": []
+      "summary": "The Ruby User Group Berlin is a monthly meetup of people interested in Ruby and related topics. Each meeting consists of three presentations and a couple of lightning talks. Currently the user group attracts between 80 and 120 attendees per meeting. My main responsibilities are organizing venues, contacting speakers and moderating the meetings as well as the mailing list. Sometimes I also give presentations.",
+      "highlights": [],
+      "anonymous": {
+        "organization": "Programming Language Related User Group",
+        "website": "",
+        "websiteLink": "",
+        "summary": "The user group is a monthly meetup of people interested in a specific programming language and related topics. Each meeting consists of three presentations and a couple of lightning talks. Currently the user group attracts between 80 and 120 attendees per meeting. My main responsibilities are organizing venues, contacting speakers and moderating the meetings as well as the mailing list. Sometimes I also give presentations.",
+        "highlights": []
+      }
     },
     {
       "organization": "Rails Girls",
@@ -114,7 +125,14 @@
       "startDate": "06/2012",
       "endDate": "current",
       "summary": "I've been part of the Shoes community for over three years now and since September 2013 I am the maintainer of the Shoes 4 project.",
-      "highlights": []
+      "highlights": [],
+      "anonymous": {
+        "organization": "Open Source",
+        "website": "",
+        "websiteLink": "",
+        "summary": "I've been part of an open source community for over three years now and since September 2013 I am the maintainer of the main project.",
+        "highlights": []
+      }
     },
     {
       "organization": "Conferences",
@@ -163,7 +181,7 @@
       "thesis": "Event Adapters and Correlation in Process Engines",
       "highlights": [
         "Participated in a nine month, near full time team project developing a process engine",
-        "Participated in fifty person Scrum project to build a Customer Relationship Management system"
+        "Participated in a fifty person Scrum project to build a Customer Relationship Management system"
       ]
     },
     {

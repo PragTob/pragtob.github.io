@@ -3,6 +3,7 @@ theme https://github.com/erming/jsonresume-theme-flat-->
 
 {% assign resume = site.data.resume%}
 {% assign basics = resume.basics %}
+{% assign anonymous = include.anonymous %}
 
 <article class="resume">
   <header id="header" class="section" >
@@ -49,8 +50,13 @@ theme https://github.com/erming/jsonresume-theme-flat-->
         <aside class="intro-headline">
           <h3>About</h3>
         </aside>
+        {% if anonymous %}
+          {% assign summary = basics.anonymous_summary %}
+        {% else %}
+          {% assign summary = basics.summary %}
+        {% endif %}
         <div class="intro-content">
-          <p>{{basics.summary}}</p>
+          <p>{{summary}}</p>
         </div>
       </section>
     </div>
@@ -81,6 +87,11 @@ theme https://github.com/erming/jsonresume-theme-flat-->
     </aside>
     <div class="section-content">
       {% for work in resume.work %}
+      {% if anonymous and work.anonymous %}
+        {% assign summary = work.anonymous.summary %}
+      {% else %}
+        {% assign summary = work.summary %}
+      {% endif %}
       <div class="full-entry">
         <h4 class="entry-header">
           <span class="institution">{{work.company}}</span>
@@ -95,7 +106,7 @@ theme https://github.com/erming/jsonresume-theme-flat-->
           {{work.position}}
         </div>
         <div class="summary">
-          <p>{{work.summary}}</p>
+          <p>{{summary}}</p>
         </div>
         {% include highlights.html highlights=work.highlights %}
       </div>
@@ -110,24 +121,33 @@ theme https://github.com/erming/jsonresume-theme-flat-->
     </aside>
     <div class="section-content">
       {% for volunteer in resume.volunteer %}
-      <div class="full-entry">
-        <h4 class="entry-header">
-          <span class="institution">{{volunteer.organization}}</span>
-              <span class="date">
-                {{volunteer.startDate}} — {{volunteer.endDate}}
-              </span>
-        </h4>
-        <div class="website pull-right">
-          <a href="{{volunteer.websiteLink}}">{{volunteer.website}}</a>
+        {% if anonymous and volunteer.anonymous %}
+          {% assign organization = volunteer.anonymous.organization %}
+          {% assign summary = volunteer.anonymous.summary %}
+          {% assign website = volunteer.anonymous.website %}
+        {% else %}
+          {% assign organization = volunteer.organization %}
+          {% assign summary = volunteer.summary %}
+          {% assign website = volunteer.website %}
+      {% endif %}
+        <div class="full-entry">
+          <h4 class="entry-header">
+            <span class="institution">{{organization}}</span>
+                <span class="date">
+                  {{volunteer.startDate}} — {{volunteer.endDate}}
+                </span>
+          </h4>
+          <div class="website pull-right">
+            <a href="{{volunteer.websiteLink}}">{{website}}</a>
+          </div>
+          <div class="position">
+            {{volunteer.position}}
+          </div>
+          <div class="summary">
+            <p>{{summary}}</p>
+          </div>
+          {% include highlights.html highlights=volunteer.highlights %}
         </div>
-        <div class="position">
-          {{volunteer.position}}
-        </div>
-        <div class="summary">
-          <p>{{volunteer.summary}}</p>
-        </div>
-        {% include highlights.html highlights=volunteer.highlights %}
-      </div>
       {% endfor %}
     </div>
   </section>
