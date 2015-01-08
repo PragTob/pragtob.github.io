@@ -40,11 +40,19 @@
   },
   "work": [
     {
+      "company": "bitcrowd",
+      "position": "Software Engineer and consultnt",
+      "website": "http://bitcrowd.net/",
+      "startDate": "01/2014",
+      "endDate": "current",
+      "summary": "Building great applications, helping companies blossom. Also pushing forward open source efforts."
+    },
+    {
       "company": "Self-employed",
       "position": "Freelancer",
       "website": "",
       "startDate": "05/2013",
-      "endDate": "current",
+      "endDate": "12/2014",
       "summary": "Software engineer and instructor.",
       "highlights": [
         "Taught three introductory level web development courses at the Humboldt-University Berlin",
