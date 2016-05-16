@@ -27,7 +27,7 @@
         "url": "github.com/PragTob"
       },
       {
-        "network": "Wordpress (Blog)",
+        "network": "Blog",
         "username": "PragTob",
         "url": "pragtob.wordpress.com"
       },
@@ -150,7 +150,7 @@
       "endDate": "current",
       "summary": "I like to go to conferences and helped organize some of them.",
       "highlights": [
-        "Speaker at JRubyConf 2013",
+        "Speaker at Rubyconf 2015, Codemotion Berlin 2015, JRubyConf 2013",
         "Member of the program committee and a track host for \"Monoliths and Microservices\" and \"Software Craftsmanship\" at GOTO Berlin 2014",
         "International Volunteers Program Chair at XP2012",
         "Volunteer at Agile Dev Practices 2013, GOTO Berlin 2013, JRubyConf 2014 and eurucamp 2014"
