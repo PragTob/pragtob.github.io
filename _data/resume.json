@@ -40,6 +40,14 @@
   },
   "work": [
     {
+      "company": "LieferFactory GmbH",
+      "position": "Senior Software Developer",
+      "website": "https://www.liefery.com",
+      "startDate": "01/2016",
+      "endDate": "now",
+      "summary": "Helping customers and partners deliver packages on the same day. Build and maintain applications to track shipments, plan tours and manage all required logistics data."
+    },
+    {
       "company": "bitcrowd",
       "position": "Software Engineer and consultant",
       "website": "http://bitcrowd.net/",
