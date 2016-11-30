@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Benchee Report</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/benchee.css">
+    <link rel="stylesheet" type="text/css" href="assets/fontello/css/fontello.css">
+  </head>
+  <body>
+
+    <div class="header">
+      <h1>benchee report</h1>
+      
+        <span class="input-label">
+          Big (1 Million)
+        </span>
+      
+      <span class="version-note">
+        Elixir 1.3.4, Erlang 19.1
+      </span>
+    </div>
+
+    <article>
+      <h2>
+        Comparison
+        <a href="https://github.com/PragTob/benchee_html/wiki/Chart-Types#comparison">
+          <i
+          class="benchee-help-icon icon-question-circle-o"
+          title="Comparisons of the different benchmarking jobs.
+  For Iterations per Second higher is better, the black whiskers denote standard deviation. otherwise it is runtime so lower is better.
+  The Box Plot shows a distribution of run times with the median and outliers."
+          ></i>
+        </a>
+      </h2>
+      <section>
+        <h3>Data Table</h3>
+        <table>
+          <thead>
+            <tr>
+              <th class="text-left">Name</th>
+              <th>Iterations per Second</th>
+              <th>Average</th>
+              <th>Deviation</th>
+              <th>median</th>
+              <th>minimum</th>
+              <th>maximum</th>
+              <th>Sample size</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td class="text-left"><a href="#tail-rec arg-order">tail-rec arg-order</a></td>
+                <td>38.35</td>
+                <td>26078.67 μs</td>
+                <td>±11.95%</td>
+                <td>25201.50 μs</td>
+                <td>18825.00 μs</td>
+                <td>41104.00 μs</td>
+                <td>384</td>
+              </tr>
+            
+              <tr>
+                <td class="text-left"><a href="#tail-recursive">tail-recursive</a></td>
+                <td>34.20</td>
+                <td>29237.38 μs</td>
+                <td>±13.10%</td>
+                <td>28259.50 μs</td>
+                <td>23093.00 μs</td>
+                <td>41430.00 μs</td>
+                <td>342</td>
+              </tr>
+            
+              <tr>
+                <td class="text-left"><a href="#body-recursive">body-recursive</a></td>
+                <td>24.69</td>
+                <td>40499.67 μs</td>
+                <td>±9.19%</td>
+                <td>39498.00 μs</td>
+                <td>20402.00 μs</td>
+                <td>66261.00 μs</td>
+                <td>247</td>
+              </tr>
+            
+              <tr>
+                <td class="text-left"><a href="#stdlib map">stdlib map</a></td>
+                <td>24.43</td>
+                <td>40934.42 μs</td>
+                <td>±8.44%</td>
+                <td>39908.00 μs</td>
+                <td>21067.00 μs</td>
+                <td>59645.00 μs</td>
+                <td>245</td>
+              </tr>
+            
+          </tbody>
+        </table>
+      </section>
+
+      <section class="benchee-plot-container">
+        <div id="ips-comparison" class="job-count-4 plot"></div>
+      </section>
+
+      <section class="benchee-plot-container">
+        <div id="box-plot" class="job-count-4 plot"></div>
+      </section>
+    </article>
+
+    
+      <article>
+        <h2>
+          <a name="tail-rec arg-order"></a>
+          tail-rec arg-order
+          <a href="https://github.com/PragTob/benchee_html/wiki/Chart-Types#individual">
+            <i
+              class="benchee-help-icon icon-question-circle-o"
+              title="Graphs showing the individual run time distribution for tail-rec arg-order.
+  Run Times Histpgram shows the distribution of occurences of specific run times in buckets.
+  Raw Run Times shows all individual recorded run times in the order they were recorded in."
+            ></i>
+          </a>
+        </h2>
+
+        <section class="benchee-plot-container">
+          <div class="sorted-run-times plot" data-job-name="tail-rec arg-order"></div>
+        </section>
+        <section class="benchee-plot-container">
+          <div class="raw-run-times plot" data-job-name="tail-rec arg-order"></div>
+        </section>
+      </article>
+    
+      <article>
+        <h2>
+          <a name="tail-recursive"></a>
+          tail-recursive
+          <a href="https://github.com/PragTob/benchee_html/wiki/Chart-Types#individual">
+            <i
+              class="benchee-help-icon icon-question-circle-o"
+              title="Graphs showing the individual run time distribution for tail-recursive.
+  Run Times Histpgram shows the distribution of occurences of specific run times in buckets.
+  Raw Run Times shows all individual recorded run times in the order they were recorded in."
+            ></i>
+          </a>
+        </h2>
+
+        <section class="benchee-plot-container">
+          <div class="sorted-run-times plot" data-job-name="tail-recursive"></div>
+        </section>
+        <section class="benchee-plot-container">
+          <div class="raw-run-times plot" data-job-name="tail-recursive"></div>
+        </section>
+      </article>
+    
+      <article>
+        <h2>
+          <a name="body-recursive"></a>
+          body-recursive
+          <a href="https://github.com/PragTob/benchee_html/wiki/Chart-Types#individual">
+            <i
+              class="benchee-help-icon icon-question-circle-o"
+              title="Graphs showing the individual run time distribution for body-recursive.
+  Run Times Histpgram shows the distribution of occurences of specific run times in buckets.
+  Raw Run Times shows all individual recorded run times in the order they were recorded in."
+            ></i>
+          </a>
+        </h2>
+
+        <section class="benchee-plot-container">
+          <div class="sorted-run-times plot" data-job-name="body-recursive"></div>
+        </section>
+        <section class="benchee-plot-container">
+          <div class="raw-run-times plot" data-job-name="body-recursive"></div>
+        </section>
+      </article>
+    
+      <article>
+        <h2>
+          <a name="stdlib map"></a>
+          stdlib map
+          <a href="https://github.com/PragTob/benchee_html/wiki/Chart-Types#individual">
+            <i
+              class="benchee-help-icon icon-question-circle-o"
+              title="Graphs showing the individual run time distribution for stdlib map.
+  Run Times Histpgram shows the distribution of occurences of specific run times in buckets.
+  Raw Run Times shows all individual recorded run times in the order they were recorded in."
+            ></i>
+          </a>
+        </h2>
+
+        <section class="benchee-plot-container">
+          <div class="sorted-run-times plot" data-job-name="stdlib map"></div>
+        </section>
+        <section class="benchee-plot-container">
+          <div class="raw-run-times plot" data-job-name="stdlib map"></div>
+        </section>
+      </article>
+    
+
+    <script src="assets/javascripts/plotly-1.20.5.min.js"></script>
+    <script src="assets/javascripts/benchee.js"></script>
+
+    <script>
+      var suite      = {"statistics":{"tail-recursive":{"std_dev_ratio":0.13096194389646437,"std_dev_ips":4.4792635412376915,"std_dev":3828.9845174864568,"sample_size":342,"minimum":23093,"median":28259.5,"maximum":41430,"ips":34.20278752718346,"average":29237.383040935674},"tail-rec arg-order":{"std_dev_ratio":0.11947368060539285,"std_dev_ips":4.581278879830957,"std_dev":3115.715225335968,"sample_size":384,"minimum":18825,"median":25201.5,"maximum":41104,"ips":38.345507199718476,"average":26078.674479166668},"stdlib map":{"std_dev_ratio":0.084396898663137,"std_dev_ips":2.0617585251302444,"std_dev":3454.73847549914,"sample_size":245,"minimum":21067,"median":39908.0,"maximum":59645,"ips":24.429316216459295,"average":40934.42448979592},"body-recursive":{"std_dev_ratio":0.091859036213148,"std_dev_ips":2.2681427164699945,"std_dev":3720.260842818999,"sample_size":247,"minimum":20402,"median":39498.0,"maximum":66261,"ips":24.69155795633473,"average":40499.672064777325}},"sort_order":["tail-rec arg-order","tail-recursive","body-recursive","stdlib map"],"run_times":{"tail-recursive":[33365,24834,29295,26294,26586,28823,25863,26491,28906,26510,28430,29349,25861,26639,29004,26326,26424,28930,25969,27161,28716,25971,26821,28863,25825,26647,28921,25871,31797,23094,36938,35800,34044,32729,32936,33934,37561,24809,28241,27714,27501,29933,27508,27151,30520,26830,27558,28979,26198,26571,28545,26512,27148,28722,25711,35540,31783,25944,26144,28885,26122,26461,28990,26274,31567,23214,35932,35127,34122,33456,38655,32990,37171,29862,29686,27120,25582,31445,26564,26289,28766,25871,26434,28598,26380,26908,29237,25978,26076,28616,25853,28263,28875,25859,26555,29189,26111,26684,29429,26090,31240,23319,36268,34925,33909,33092,32513,32759,37309,24853,28847,26104,25833,29211,26194,27082,28582,26283,26550,29137,26001,26968,29022,26191,26645,29178,25961,26662,28929,29237,27089,29093,26130,28256,29195,26340,33676,23517,41430,35780,35987,34696,33109,41038,40594,26043,29876,28800,27375,29697,31094,30477,30457,27502,27689,31092,27067,29464,31461,26336,28607,30074,27005,27898,30228,27845,27819,30123,28232,28652,30303,27072,34246,25553,37829,36487,35337,34697,35309,34623,39888,26245,33095,26994,24976,28676,26099,26794,28989,26123,26649,29327,26260,26688,29082,26336,26974,29132,26223,27759,29578,26462,27111,30072,26576,26904,30029,26604,37114,25313,38475,37103,36413,35049,40410,34634,39276,25804,30802,27042,26224,29239,26269,26672,28996,26320,26851,29050,26867,27468,29261,26223,27249,29559,26183,26730,28869,25956,26882,29236,26487,27121,35320,27362,32063,24454,37469,35808,40311,34985,32518,32662,37748,24885,28006,25694,24782,27933,30031,28896,37182,33491,34493,29046,25753,26621,28710,26235,26013,29831,25980,26661,29129,26957,26764,29088,26074,26832,29203,25848,31227,23093,37852,35081,33847,32851,32935,32756,36130,25042,28323,25696,24806,27970,25862,26261,28566,25759,26183,28657,26031,26485,29020,25833,26465,28640,25921,26684,29276,26345,26811,29328,26211,26776,29323,26172,31865,23326,39554,35436,34847,34775,33588,33514,37940,25404,29040,26622,26195,28821,26498,27526,29659,26158,27397,30572,26671,27027,29998,26651,27171,29603],"tail-rec arg-order":[20949,28562,31595,31499,30831,35661,24724,20539,24193,37150,28108,36515,33156,25287,19284,26150,23848,24431,27250,23743,26347,26324,23851,25405,26733,23633,23824,26636,23345,23853,26525,23495,23924,26877,23458,24369,27274,23424,23978,26590,23644,24465,26553,24127,23907,26393,23428,23911,26983,24111,24327,26501,23520,24029,26502,23336,23785,26773,23539,23872,26789,23529,23948,26387,23456,25008,27972,25430,26331,27955,25571,25721,31530,26006,27287,29475,25682,25832,28055,25654,25840,26334,23857,25866,27901,24517,24470,30546,25318,23991,26312,23309,24461,27408,23976,24381,27452,23514,24053,26482,23413,24132,26479,23386,24540,26478,23779,24109,26486,23412,24182,26438,23975,23834,26346,23249,23434,26366,23421,29812,30359,30295,29994,33991,40285,26210,21830,25695,35025,27702,37379,38202,26580,19882,26590,24164,24633,31570,24557,24106,27704,29227,24694,27124,23569,23830,26421,24384,24177,27773,23757,24599,27007,23925,24928,26611,23658,25382,27687,24589,24289,27289,23828,24513,27335,23814,24487,26624,23863,24296,27147,23792,24313,27180,24625,24199,26835,23777,24390,26741,23845,24039,26616,23739,24043,27461,24033,24444,27263,29085,25059,27787,24304,24185,26925,24259,25675,27418,24400,24975,27591,24310,24909,29508,25724,25202,26761,24284,24501,27165,23559,23505,26543,24006,24317,26827,23595,24208,26591,23654,24570,27128,23912,24248,26693,23538,24275,27160,24677,25423,27978,24851,24869,27986,26209,29382,27845,25649,32353,31947,31136,31913,30420,39323,28172,21975,25542,35299,27510,41104,34122,25276,19360,26766,25162,24706,26833,23560,24207,26717,23645,24166,31359,25452,25352,28009,24402,25491,31563,24254,24551,27888,24838,24668,27598,24893,24858,27433,26239,24879,27349,24195,25274,32647,24492,24588,27417,24041,24611,27202,25176,24759,27155,24117,24576,27252,24564,24729,28150,23999,28598,27742,24314,24834,28057,28659,26175,27643,28561,25732,27645,24222,24734,29551,27882,24736,31472,26259,24618,29084,27237,25201,27355,23630,24349,26313,24005,24363,26590,23400,23763,26270,23500,23739,26586,23423,24142,26662,23735,24375,26613,23590,24013,26728,24057,24280,26876,23457,24012,26843,23651,24070,26485,23663,24548,27164,23499,29496,29709,30040,30344,29581,34980,24865,20641,23981,33641,27427,37647,32187,24885,18825,25962,23502,23705,26060,23641,24378,26083,23522,23759,26416,23247,23685],"stdlib map":[21067,44353,38929,40539,39883,39884,40310,39432,39723,40100,41736,39554,39268,39122,39721,42221,40257,39340,39058,38546,39889,39101,38947,38510,38793,39322,39908,39250,40254,42898,43257,42820,43366,44869,42035,40443,41112,40576,40495,40474,41002,44599,42109,41576,41148,40239,40649,42911,41287,42760,44383,46955,51142,40698,40718,42497,41810,42394,41961,42097,41382,41400,42010,41877,45937,54706,43370,46809,59645,52279,39445,39275,39858,39867,39293,42449,41729,38523,38655,38528,40378,45641,41938,43479,40362,39079,47609,39871,39487,38048,39153,41816,42277,42728,49110,39870,38726,39006,39325,45152,40227,38088,38669,38954,41120,39545,43752,42018,42542,40504,41174,40117,38788,39368,39699,39923,40851,38937,39954,39314,40524,38971,39054,38149,39110,39024,38993,38608,39468,38409,39533,39096,39804,39122,41493,39072,41332,40190,43658,49884,42611,41635,48257,45991,44641,43744,42977,42425,39394,41652,39101,38982,38809,50992,47376,38232,38827,38230,39741,38715,41364,39177,39642,39363,39912,37933,38547,39299,38640,38294,38555,37741,38400,38909,39320,38259,39172,38368,38477,39044,40555,39149,38791,38656,39707,38901,39268,38521,38932,38253,40003,38170,39109,38829,39220,38670,38869,38618,39105,40182,39729,38960,39587,38817,40474,39913,40365,38817,39285,39135,40514,38576,41972,48109,39756,39962,51257,41158,39871,49226,41534,38718,40000,40114,40548,39689,38712,38830,46849,54415,44596,46735,45569,39919,42118,40100,46655,40319,40427,40358,39403,40515,38914,37955,38776],"body-recursive":[20402,42191,39469,39968,38208,38734,38323,38604,44047,39083,39297,38995,37367,38211,38230,37713,39168,40392,42111,39706,38202,38190,38496,38163,37399,38760,38869,38328,40475,40794,37608,39983,39818,38837,39789,39498,38575,39491,38343,44415,38325,38477,38361,38651,39874,38232,38452,39601,37504,43364,39330,38038,38885,38096,37436,38479,38312,38514,38376,42788,37800,38527,38685,37736,38290,38248,37267,38435,38338,37998,41439,38126,37384,38905,38205,37872,38610,38241,37634,38200,42364,37653,38254,38341,37246,38241,38196,38103,38501,38316,41476,38465,38178,38049,38395,38296,37448,38226,38124,38400,38195,43790,37978,38439,38278,37722,38381,38157,37331,38638,38347,41982,38517,38825,37988,38251,38163,37898,46863,38876,38565,46830,41181,39865,41193,50156,41668,42710,38739,41269,39213,44684,38078,40641,39794,38671,39730,39925,45700,42723,49757,41991,42558,45237,44505,42616,41713,40639,42490,41370,45038,44103,41577,41255,41307,42640,41665,45638,39386,44112,39819,40848,40492,39256,39192,38328,38830,39397,42869,44855,40602,42063,41622,40308,55510,57692,66261,54935,51277,42074,39609,40000,42747,39246,40445,40552,40074,40340,39547,38381,39185,42509,41612,40490,40990,39919,39813,40226,43624,46021,43237,39922,40210,40188,40053,40868,39290,38600,39168,39842,40772,41166,40245,39725,39938,40967,39398,39107,38959,37792,38987,39231,39170,41579,40191,38927,39229,40545,41382,44650,43770,42459,40069,40627,42563,41945,42415,42204,44939,44645,49186,47805,47198,42251,47282,44329,41724]}};
+      var runTimes   = suite.run_times;
+      var statistics = suite.statistics;
+      var sortOrder  = suite.sort_order;
+
+      var inputHeadline = " (Big (1 Million))"
+
+      drawIpsComparisonChart(statistics, sortOrder, inputHeadline);
+      drawComparisonBoxPlot(runTimes, sortOrder, inputHeadline);
+      drawRawRunTimeCharts(runTimes, inputHeadline);
+      drawRunTimeHistograms(runTimes, inputHeadline);
+    </script>
+  </body>
+</html>
