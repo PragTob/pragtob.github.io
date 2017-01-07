@@ -4,8 +4,10 @@
 @import "vendor/bootstrap";
 @import "resume";
 
+$tobi-green: rgb(21, 214, 66);
+
 .navbar-green {
-  background-color: #45cb14;
+  background-color: $tobi-green;
   border-color:     rgb(27, 102, 0);
   border:           0px;
   border-radius:    0px;
@@ -30,7 +32,7 @@
 }
 
 .my-icon {
-  color: #45cb14;
+  color: $tobi-green;
   font-size: 11vw;
 }
 
@@ -41,7 +43,7 @@
 }
 
 #short-description ul i {
-  color: #45cb14;
+  color: $tobi-green;
   font-size: large;
 }
 
@@ -50,7 +52,7 @@
 }
 
 a {
-  color: #45cb14;
+  color: $tobi-green;
 }
 
 a:hover, a:focus {
