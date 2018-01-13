@@ -48,7 +48,7 @@
       "summary": "Helping customers and partners deliver packages on the same day. Mentor & guide colleagues. Design and implement new features and applications to help customers, operations and partners. Help customers integration efforts. Run retrospective and iteration meetings. Interview candidates."
     },
     {
-      "company": "Liefery GmbH",
+      "company": "Liefery",
       "position": "Senior Software Developer",
       "website": "https://www.liefery.com",
       "startDate": "01/2017",
@@ -61,7 +61,12 @@
       "website": "http://bitcrowd.net/",
       "startDate": "01/2015",
       "endDate": "10/2016",
-      "summary": "Building great applications, helping companies blossom. Also pushing forward open source efforts."
+      "summary": "Building great applications, helping companies blossom. Also pushing forward open source efforts.",
+      "highlights": [
+        "Introduced practices such as retrospectives and CI-servers",
+        "built the payment system for a big festival",
+        "Mentoring juniors"
+      ]
     },
     {
       "company": "Self-employed",
@@ -159,6 +164,23 @@
       }
     },
     {
+      "organization": "benchee",
+      "position": "Maintainer",
+      "website": "benchee",
+      "websiteLink": "https://github.com/PragTob/benchee",
+      "startDate": "06/2016",
+      "endDate": "current",
+      "summary": "elixir benchmarking library I created providing extensive statistics, hooks and an extensible formatting system",
+      "highlights": [],
+      "anonymous": {
+        "organization": "Open Source",
+        "website": "",
+        "websiteLink": "",
+        "summary": "fill me in",
+        "highlights": []
+      }
+    },
+    {
       "organization": "Conferences",
       "position": "Speaker, Volunteer and Program Committee Member",
       "website": "",
@@ -166,9 +188,9 @@
       "endDate": "current",
       "summary": "I like to go to conferences and helped organize some of them.",
       "highlights": [
-        "Speaker at Rubyconf 2015, Codemotion Berlin 2015, JRubyConf 2013",
+        "Speaker at Polyconf 2017, Full Stack Fest 2016, Rubyconf Portugal 2016,  Rubyconf 2015 & more",
         "Member of the program committee and a track host for \"Monoliths and Microservices\" and \"Software Craftsmanship\" at GOTO Berlin 2014",
-        "International Volunteers Program Chair at XP2012",
+        "International Volunteers Program Chair at XP 2012",
         "Volunteer at Agile Dev Practices 2013, GOTO Berlin 2013, JRubyConf 2014 and eurucamp 2014"
       ]
     }
