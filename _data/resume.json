@@ -140,6 +140,40 @@
       ]
     },
     {
+      "organization": "benchee",
+      "position": "Maintainer",
+      "website": "benchee",
+      "websiteLink": "https://github.com/PragTob/benchee",
+      "startDate": "06/2016",
+      "endDate": "current",
+      "summary": "Benchmarking library for elixir I created providing extensive statistics, hooks and an extensible formatting system.",
+      "highlights": [],
+      "anonymous": {
+        "organization": "Open Source",
+        "website": "",
+        "websiteLink": "",
+        "summary": "fill me in",
+        "highlights": []
+      }
+    },
+    {
+      "organization": "simplecov",
+      "position": "Maintainer",
+      "website": "simplecov",
+      "websiteLink": "https://github.com/colszowka/simplecov",
+      "startDate": "01/2017",
+      "endDate": "current",
+      "summary": "Premiere library for code coverage in Ruby. Cleaned up open PRs/issues and keep it clean and fixes released.",
+      "highlights": [],
+      "anonymous": {
+        "organization": "Open Source",
+        "website": "",
+        "websiteLink": "",
+        "summary": "fill me in",
+        "highlights": []
+      }
+    },
+    {
       "organization": "Shoes",
       "position": "Maintainer",
       "website": "shoesrb.com",
@@ -157,31 +191,14 @@
       }
     },
     {
-      "organization": "benchee",
-      "position": "Maintainer",
-      "website": "benchee",
-      "websiteLink": "https://github.com/PragTob/benchee",
-      "startDate": "06/2016",
-      "endDate": "current",
-      "summary": "elixir benchmarking library I created providing extensive statistics, hooks and an extensible formatting system",
-      "highlights": [],
-      "anonymous": {
-        "organization": "Open Source",
-        "website": "",
-        "websiteLink": "",
-        "summary": "fill me in",
-        "highlights": []
-      }
-    },
-    {
       "organization": "Conferences",
       "position": "Speaker, Volunteer and Program Committee Member",
       "website": "",
       "startDate": "05/2012",
       "endDate": "current",
-      "summary": "I like to go to conferences and helped organize some of them.",
+      "summary": "I like to go to conferences, speak at them and helped organize some of them.",
       "highlights": [
-        "Speaker at Polyconf 2017, Full Stack Fest 2016, Rubyconf Portugal 2016,  Rubyconf 2015 & more",
+        "Speaker at Lambdadays 2018, Polyconf 2017, Full Stack Fest 2016, Rubyconf Portugal 2016,  Rubyconf 2015 & more",
         "Member of the program committee and a track host for \"Monoliths and Microservices\" and \"Software Craftsmanship\" at GOTO Berlin 2014",
         "International Volunteers Program Chair at XP 2012",
         "Volunteer at Agile Dev Practices 2013, GOTO Berlin 2013, JRubyConf 2014 and eurucamp 2014"
@@ -237,12 +254,12 @@
   "publications": [],
   "skills": [
     {
-      "name": "Object Oriented Programming",
+      "name": "Programming",
       "level": "Expert",
       "keywords": [
-        "Ruby",
-        "Smalltalk",
-        "Java",
+        "Object Oriented Programming (Ruby, Smalltalk, Java)",
+        "Functional Programming (Elixir, functional JavaScript)",
+        "Web frameworks (Ruby on Rails, Phoenix)",
         "Design Patterns"
       ]
     },
@@ -251,26 +268,30 @@
       "level": "Advanced",
       "keywords": [
         "JavaScript/CoffeeScript",
+        "React",
+        "Angular",
         "HTML",
-        "CSS",
-        "Web frameworks (Ruby on Rails)"
+        "CSS"
       ]
     },
     {
       "name": "Enginneering Practices",
-      "level": "Advanced",
-      "keywords": [
-        "Test Driven Development (TDD)",
-        "Pair Programming",
-        "Version Control (Git)"
-      ]
-    },
-    {
-      "name": "Agile Software Development",
-      "level": "Advanced",
+      "level": "Expert",
       "keywords": [
         "eXtreme Programming",
         "Scrum",
+        "Test Driven Development (RSpec, EXUnit, Jasmine...)",
+        "Pair Programming",
+        "Version Control (git)"
+      ]
+    },
+    {
+      "name": "Soft Skills",
+      "level": "Advanced",
+      "keywords": [
+        "Retrospectives",
+        "one-on-ones",
+        "Mentoring and Teaching",
         "Project Inception"
       ]
     }

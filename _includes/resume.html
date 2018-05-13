@@ -192,6 +192,11 @@ theme https://github.com/erming/jsonresume-theme-flat-->
     </aside>
     <div class="section-content">
       {% for skill in resume.skills %}
+      {% capture modulo %}{{ forloop.index | modulo: 2 }}{% endcapture %}
+
+      {% if modulo == '1' %}
+        <div class="row">
+      {% endif %}
       <div class="skill">
         <div class="name">
           <h4>{{skill.name}}</h4>
@@ -204,6 +209,9 @@ theme https://github.com/erming/jsonresume-theme-flat-->
         </ul>
         {% endif %}
       </div>
+      {% if modulo == '0' or forloop.last %}
+      </div>
+      {% endif %}
       {% endfor %}
     </div>
   </section>
