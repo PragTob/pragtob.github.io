@@ -5,6 +5,7 @@
 @import "resume";
 
 $tobi-green: rgb(21, 214, 66);
+$light-green: rgba(21, 214, 66, 0.9);
 
 .navbar-green {
   background-color: $tobi-green;
@@ -123,7 +124,7 @@ h1, h2, h3, h4, h5, h6 {
   @extend .img-rounded;
   max-width: 100%;
   position: relative;
-  background-color: rgba(0,0, 0, 0.05);
+  background-color: $light-green;
   background-size: cover;
   background-position: center;
 
