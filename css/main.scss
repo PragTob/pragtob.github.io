@@ -36,12 +36,6 @@ $tobi-green: rgb(21, 214, 66);
   font-size: 11vw;
 }
 
-#profile-picture {
-  margin-top: 20px; // align with headline
-  max-width: 100%;
-  max-height: 45vh;
-}
-
 #short-description ul i {
   color: $tobi-green;
 }
@@ -123,4 +117,21 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-shadow : 0 0 0;
   -moz-box-shadow    : 0 0 0;
   box-shadow         : 0 0 0;
+}
+
+.profile-picture {
+  @extend .img-rounded;
+  max-width: 100%;
+  position: relative;
+  background-color: rgba(0,0, 0, 0.05);
+  background-size: cover;
+  background-position: center;
+
+  margin-top: 20px; // align with headline
+
+  &:before {
+    content: "";
+    padding-top: 100%;
+    display: block;
+  }
 }
