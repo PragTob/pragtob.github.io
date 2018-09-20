@@ -7,7 +7,7 @@ $(document).ready(function() {
   };
 
   const randomArrayElement = function(array) {
-    return array[Math.floor(Math.random() * array.length)]
+    return array[Math.floor(Math.random() * array.length)];
   }
 
   const displayRandomProfilePicture = function(pictures) {
@@ -22,8 +22,11 @@ $(document).ready(function() {
     "thea2_cut.jpg"
   ];
 
+  const minute = 60000;
+
   displayRandomProfilePicture(profilePictures);
   resizeLogos();
 
   $(window).resize(resizeLogos);
+  setInterval(function(){displayRandomProfilePicture(profilePictures);}, minute)
 });
