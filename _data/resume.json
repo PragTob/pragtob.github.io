@@ -37,8 +37,17 @@
       "position": "Tech Lead",
       "website": "https://www.liefery.com",
       "startDate": "11/2017",
-      "endDate": "now",
-      "summary": "Helping customers and partners deliver packages on the same day. Mentor & guide colleagues. Design and implement new features and applications to help customers, operations and partners. Help customers integration efforts. Run retrospective and iteration meetings. Interview candidates."
+      "endDate": "2/2019",
+      "summary": "Helping operations and partners deliver packages on the same day. Lead a team of 15 together with the CTO, handling the day-to-day needs of the team.",
+      "highlights": [
+        "Help, mentor & guide colleagues through 1o1s, pairing sessions, pull request reviews and knowledge sharing sessions",
+        "Run retrospective and iteration meetings, continously adapting and improving processes",
+        "Architect and design features with the teams",
+        "Monitor application performance and fix performance problems",
+        "Screen and interview candidates",
+        "Gather problems and requirements to define and discuss solutions",
+        "Run integration projects with customers and other involved partners"
+      ]
     },
     {
       "company": "Liefery",
@@ -46,7 +55,13 @@
       "website": "https://www.liefery.com",
       "startDate": "01/2017",
       "endDate": "11/2017",
-      "summary": "Helping customers and partners deliver packages on the same day. Build and maintain applications to track shipments, plan tours and manage all required logistics data."
+      "summary": "Helping operations and partners deliver packages on the same day.",
+      "highlights": [
+        "Stepped in for the CTO during a sabbatical",
+        "Build and maintain applications to track shipments, plan tours and manage all required logistics data in Ruby on Rails, Elixir & Phoenix as well as JavaScript (AngularJS, ReactJS)",
+        "Identify and fix performance bottlenecks",
+        "Run retrospectives and others meetings"
+      ]
     },
     {
       "company": "bitcrowd",
