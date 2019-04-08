@@ -125,6 +125,19 @@
   ],
   "volunteer": [
     {
+      "organization": "Conferences",
+      "position": "Speaker, Program Committee Member & Organizer",
+      "website": "",
+      "startDate": "05/2012",
+      "endDate": "current",
+      "summary": "I like to go to conferences, speak at them and helped organize some of them.",
+      "highlights": [
+        "Speaker at Ruby On Ice 2018 & 2019, Lambdadays 2018, Polyconf 2017, Full Stack Fest 2016, Rubyconf Portugal 2016,  Rubyconf 2015 <a href='/talks'>& more</a>",
+        "Member of the program committee and a track host for \"Monoliths and Microservices\" and \"Software Craftsmanship\" at GOTO Berlin 2014",
+        "Organizer JRubyConf & eurucamp 2015"
+      ]
+    },
+    {
       "organization": "Ruby User Group Berlin",
       "position": "Main organizer",
       "website": "rug-b.de",
@@ -205,19 +218,6 @@
         "summary": "fill me in",
         "highlights": []
       }
-    },
-    {
-      "organization": "Conferences",
-      "position": "Speaker, Program Committee Member & Organizer",
-      "website": "",
-      "startDate": "05/2012",
-      "endDate": "current",
-      "summary": "I like to go to conferences, speak at them and helped organize some of them.",
-      "highlights": [
-        "Speaker at Ruby On Ice 2018 & 2019, Lambdadays 2018, Polyconf 2017, Full Stack Fest 2016, Rubyconf Portugal 2016,  Rubyconf 2015 <a href='/talks'>& more</a>",
-        "Member of the program committee and a track host for \"Monoliths and Microservices\" and \"Software Craftsmanship\" at GOTO Berlin 2014",
-        "Organizer JRubyConf & eurucamp 2015"
-      ]
     }
   ],
   "education": [
