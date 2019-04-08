@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Benchee Report</title>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/benchee.css">
+    <link rel="stylesheet" type="text/css" href="assets/fontello/css/fontello.css">
+  
+</head>
+
+  <body>
+
+    <div class="header">
+  <h1>benchee report</h1>
+  
+  <span class="input-label">
+    Small (10 Thousand)
+  </span>
+
+
+  <span class="version-note">
+  <a href="javascript:toggleSystemDataInfo();" title="Click to toggle system info">System info</a>
+</span>
+
+</div>
+
+
+    <article id="system-info" class="benchee-systeminfo" >
+  <h3>System info</h3>
+  <ul class="benchee-systeminfo-list">
+    <li>Elixir: 1.8.1</li>
+    <li>Erlang: 21.3.2</li>
+    <li>Operating system: Linux</li>
+    <li>Available memory: 15.61 GB</li>
+    <li>CPU Information: Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz</li>
+    <li>Number of Available Cores: 8</li>
+  </ul>
+</article>
+
+
+    
+      <article>
+        <h2>
+          <a name="run_time" href="#run_time">body-recursive Run Time</a>
+          <a href="https://github.com/PragTob/benchee_html/wiki/Chart-Types#individual">
+            <i
+              class="benchee-help-icon icon-question-circle-o"
+              title="Graphs showing the individual run time distribution for body-recursive.
+  Run Times Histogram shows the distribution of occurrences of specific run times in buckets.
+  Raw Run Times shows all individual recorded run times in the order they were recorded in."
+            ></i>
+          </a>
+        </h2>
+
+        <section>
+          <table>
+  <thead>
+    <tr>
+      <th class="text-left">Name</th>
+      
+        <th>Iterations per Second</th>
+      
+      <th>Average</th>
+      <th>Deviation</th>
+      <th>Median</th>
+      <th>Mode</th>
+      <th>Minimum</th>
+      <th>Maximum</th>
+      <th>Sample size</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      
+      <tr>
+        
+          <td class="text-left">body-recursive</td>
+        
+        
+          <td>4.83 K</td>
+          <td>207.13 μs</td>
+          <td>±3.65%</td>
+          <td>207.59 μs</td>
+          <td>200.08 μs</td>
+          <td>198.12 μs</td>
+          <td>235.51 μs</td>
+        
+        <td>34</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+        </section>
+
+        <section class="benchee-plot-container">
+          <div id="run-times-histogram" class="plot"></div>
+        </section>
+        <section class="benchee-plot-container">
+          <div id="raw-run-times" class="plot"></div>
+        </section>
+      </article>
+    
+
+    
+      <article>
+        <h2>
+          <a name="memory" href="#memory">body-recursive Memory</a>
+          <a href="https://github.com/PragTob/benchee_html/wiki/Chart-Types#individual">
+            <i
+              class="benchee-help-icon icon-question-circle-o"
+              title="Graphs showing the individual memory usage distribution for body-recursive.
+  Run Times Histogram shows the distribution of occurrences of specific run times in buckets.
+  Raw Run Times shows all individual recorded run times in the order they were recorded in."
+            ></i>
+          </a>
+        </h2>
+
+        <section>
+          <table>
+  <thead>
+    <tr>
+      <th class="text-left">Name</th>
+      
+      <th>Average</th>
+      <th>Deviation</th>
+      <th>Median</th>
+      <th>Mode</th>
+      <th>Minimum</th>
+      <th>Maximum</th>
+      <th>Sample size</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      
+      <tr>
+        
+          <td class="text-left">body-recursive</td>
+        
+        
+          <td>156.25 KB</td>
+          <td>±0.00%</td>
+          <td>156.25 KB</td>
+          <td>156.25 KB</td>
+          <td>156.25 KB</td>
+          <td>156.25 KB</td>
+        
+        <td>14</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+        </section>
+
+        
+      </article>
+    
+
+    <footer>
+      <a href="https://github.com/PragTob/benchee" target="blank">benchee version: 1.0.0 </a>
+<br/>
+<a href="https://github.com/PragTob/benchee_html" target="blank">benchee_html version: 1.0.0</a>
+
+
+    </footer>
+
+    
+  <script src="assets/javascripts/plotly-1.30.1.min.js"></script>
+  <script src="assets/javascripts/benchee.js"></script>
+
+
+
+    <script>
+      var scenario = {"name":"body-recursive","job_name":"body-recursive","input_name":"Small (10 Thousand)","run_time_data":{"statistics":{"absolute_difference":1132.6137254901987,"average":207126.14705882352,"ips":4827.9756766585415,"maximum":235511.0,"median":207588.5,"minimum":198122.0,"mode":200079.0,"percentiles":{"50":207588.5,"99":235511.0},"relative_less":0.9945317684822838,"relative_more":1.0054982974812974,"sample_size":34,"std_dev":7550.46395978561,"std_dev_ips":175.99640056539621,"std_dev_ratio":0.03645345634533186},"samples":[207022.0,216124.0,206830.0,213045.0,2.009e5,235511.0,200515.0,212018.0,201695.0,208090.0,198122.0,208129.0,201296.0,207672.0,202115.0,217359.0,200126.0,209268.0,216232.0,209112.0,200779.0,208050.0,200981.0,212858.0,200212.0,2.107e5,198785.0,213116.0,200079.0,208597.0,199956.0,209411.0,200079.0,207505.0]},"memory_usage_data":{"statistics":{"absolute_difference":0.0,"average":1.6e5,"ips":null,"maximum":160000,"median":1.6e5,"minimum":160000,"mode":160000,"percentiles":{"50":1.6e5,"99":1.6e5},"relative_less":1.0,"relative_more":1.0,"sample_size":14,"std_dev":0.0,"std_dev_ips":null,"std_dev_ratio":0.0},"samples":[160000,160000,160000,160000,160000,160000,160000,160000,160000,160000,160000,160000,160000,160000]},"tag":null};
+
+      var inputHeadline = " (Small (10 Thousand))"
+
+      
+        drawRunTimeHistogram(scenario, inputHeadline);
+        drawRawRunTimeChart(scenario, inputHeadline);
+      
+
+      
+        if (scenario.memory_usage_data.statistics.std_dev !== 0) {
+          drawMemoryHistogram(scenario, inputHeadline);
+          drawRawMemoryChart(scenario, inputHeadline);
+        };
+      
+    </script>
+  </body>
+</html>

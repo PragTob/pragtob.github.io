@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Benchee Report</title>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/benchee.css">
+    <link rel="stylesheet" type="text/css" href="assets/fontello/css/fontello.css">
+  
+</head>
+
+  <body>
+
+    <div class="header">
+  <h1>benchee report</h1>
+  
+  <span class="input-label">
+    Giant (25 Million)
+  </span>
+
+
+  <span class="version-note">
+  <a href="javascript:toggleSystemDataInfo();" title="Click to toggle system info">System info</a>
+</span>
+
+</div>
+
+
+    <article id="system-info" class="benchee-systeminfo" >
+  <h3>System info</h3>
+  <ul class="benchee-systeminfo-list">
+    <li>Elixir: 1.8.1</li>
+    <li>Erlang: 21.3.2</li>
+    <li>Operating system: Linux</li>
+    <li>Available memory: 15.61 GB</li>
+    <li>CPU Information: Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz</li>
+    <li>Number of Available Cores: 8</li>
+  </ul>
+</article>
+
+
+    
+      <article>
+        <h2>
+          <a name="run_time" href="#run_time">tail-recursive Run Time</a>
+          <a href="https://github.com/PragTob/benchee_html/wiki/Chart-Types#individual">
+            <i
+              class="benchee-help-icon icon-question-circle-o"
+              title="Graphs showing the individual run time distribution for tail-recursive.
+  Run Times Histogram shows the distribution of occurrences of specific run times in buckets.
+  Raw Run Times shows all individual recorded run times in the order they were recorded in."
+            ></i>
+          </a>
+        </h2>
+
+        <section>
+          <table>
+  <thead>
+    <tr>
+      <th class="text-left">Name</th>
+      
+        <th>Iterations per Second</th>
+      
+      <th>Average</th>
+      <th>Deviation</th>
+      <th>Median</th>
+      <th>Mode</th>
+      <th>Minimum</th>
+      <th>Maximum</th>
+      <th>Sample size</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      
+      <tr>
+        
+          <td class="text-left">tail-recursive</td>
+        
+        
+          <td>1.23</td>
+          <td>814.59 ms</td>
+          <td>±90.28%</td>
+          <td>477.67 ms</td>
+          <td>none</td>
+          <td>444.81 ms</td>
+          <td>2126.50 ms</td>
+        
+        <td>5</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+        </section>
+
+        <section class="benchee-plot-container">
+          <div id="run-times-histogram" class="plot"></div>
+        </section>
+        <section class="benchee-plot-container">
+          <div id="raw-run-times" class="plot"></div>
+        </section>
+      </article>
+    
+
+    
+      <article>
+        <h2>
+          <a name="memory" href="#memory">tail-recursive Memory</a>
+          <a href="https://github.com/PragTob/benchee_html/wiki/Chart-Types#individual">
+            <i
+              class="benchee-help-icon icon-question-circle-o"
+              title="Graphs showing the individual memory usage distribution for tail-recursive.
+  Run Times Histogram shows the distribution of occurrences of specific run times in buckets.
+  Raw Run Times shows all individual recorded run times in the order they were recorded in."
+            ></i>
+          </a>
+        </h2>
+
+        <section>
+          <table>
+  <thead>
+    <tr>
+      <th class="text-left">Name</th>
+      
+      <th>Average</th>
+      <th>Deviation</th>
+      <th>Median</th>
+      <th>Mode</th>
+      <th>Minimum</th>
+      <th>Maximum</th>
+      <th>Sample size</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      
+      <tr>
+        
+          <td class="text-left">tail-recursive</td>
+        
+        
+          <td>758.55 MB</td>
+          <td>±0.00%</td>
+          <td>758.55 MB</td>
+          <td>none</td>
+          <td>758.55 MB</td>
+          <td>758.55 MB</td>
+        
+        <td>1</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+        </section>
+
+        
+      </article>
+    
+
+    <footer>
+      <a href="https://github.com/PragTob/benchee" target="blank">benchee version: 1.0.0 </a>
+<br/>
+<a href="https://github.com/PragTob/benchee_html" target="blank">benchee_html version: 1.0.0</a>
+
+
+    </footer>
+
+    
+  <script src="assets/javascripts/plotly-1.30.1.min.js"></script>
+  <script src="assets/javascripts/benchee.js"></script>
+
+
+
+    <script>
+      var scenario = {"name":"tail-recursive","job_name":"tail-recursive","input_name":"Giant (25 Million)","run_time_data":{"statistics":{"absolute_difference":256323472.9333334,"average":814589612.6,"ips":1.2276120202517788,"maximum":2126504232.0,"median":477674953.0,"minimum":444806468.0,"mode":null,"percentiles":{"50":477674953.0,"99":2126504232.0},"relative_less":0.6853342235543584,"relative_more":1.4591420735034741,"sample_size":5,"std_dev":735416166.253007,"std_dev_ips":1.1082951606737343,"std_dev_ratio":0.9028057255796721},"samples":[2126504232.0,578438045.0,477674953.0,445524365.0,444806468.0]},"memory_usage_data":{"statistics":{"absolute_difference":395397664.0,"average":795397664.0,"ips":null,"maximum":795397664,"median":795397664.0,"minimum":795397664,"mode":null,"percentiles":{"50":795397664.0,"99":795397664.0},"relative_less":0.5028931037946825,"relative_more":1.98849416,"sample_size":1,"std_dev":0,"std_dev_ips":null,"std_dev_ratio":0.0},"samples":[795397664]},"tag":null};
+
+      var inputHeadline = " (Giant (25 Million))"
+
+      
+        drawRunTimeHistogram(scenario, inputHeadline);
+        drawRawRunTimeChart(scenario, inputHeadline);
+      
+
+      
+        if (scenario.memory_usage_data.statistics.std_dev !== 0) {
+          drawMemoryHistogram(scenario, inputHeadline);
+          drawRawMemoryChart(scenario, inputHeadline);
+        };
+      
+    </script>
+  </body>
+</html>

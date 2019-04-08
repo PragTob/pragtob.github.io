@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Benchee Report</title>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/benchee.css">
+    <link rel="stylesheet" type="text/css" href="assets/fontello/css/fontello.css">
+  
+</head>
+
+  <body>
+
+    <div class="header">
+  <h1>benchee report</h1>
+  
+  <span class="input-label">
+    Giant (25 Million)
+  </span>
+
+
+  <span class="version-note">
+  <a href="javascript:toggleSystemDataInfo();" title="Click to toggle system info">System info</a>
+</span>
+
+</div>
+
+
+    <article id="system-info" class="benchee-systeminfo" >
+  <h3>System info</h3>
+  <ul class="benchee-systeminfo-list">
+    <li>Elixir: 1.8.1</li>
+    <li>Erlang: 21.3.2</li>
+    <li>Operating system: Linux</li>
+    <li>Available memory: 15.61 GB</li>
+    <li>CPU Information: Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz</li>
+    <li>Number of Available Cores: 8</li>
+  </ul>
+</article>
+
+
+    
+      <article>
+        <h2>
+          Run Time Comparison
+          <a href="https://github.com/PragTob/benchee_html/wiki/Chart-Types#comparison">
+            <i
+            class="benchee-help-icon icon-question-circle-o"
+            title="Comparisons of the different benchmarking jobs. For Iterations per Second higher is better, the black whiskers denote standard deviation. otherwise it is runtime so lower is better. The Box Plot shows a distribution of run times with the median and outliers."
+            ></i>
+          </a>
+        </h2>
+        <section>
+          <table>
+  <thead>
+    <tr>
+      <th class="text-left">Name</th>
+      
+        <th>Iterations per Second</th>
+      
+      <th>Average</th>
+      <th>Deviation</th>
+      <th>Median</th>
+      <th>Mode</th>
+      <th>Minimum</th>
+      <th>Maximum</th>
+      <th>Sample size</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_gc_giant__25_million__stdlib_map.html">stdlib map</a></td>
+        
+        
+          <td>1.79</td>
+          <td>558.27 ms</td>
+          <td>±50.47%</td>
+          <td>450.56 ms</td>
+          <td>none</td>
+          <td>406.74 ms</td>
+          <td>1125.84 ms</td>
+        
+        <td>6</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_gc_giant__25_million__body_recursive.html">body-recursive</a></td>
+        
+        
+          <td>1.74</td>
+          <td>573.12 ms</td>
+          <td>±49.95%</td>
+          <td>461.66 ms</td>
+          <td>none</td>
+          <td>413.14 ms</td>
+          <td>1149.38 ms</td>
+        
+        <td>6</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_gc_giant__25_million__tail_rec_arg_order.html">tail-rec arg-order</a></td>
+        
+        
+          <td>1.27</td>
+          <td>787.27 ms</td>
+          <td>±92.44%</td>
+          <td>455.86 ms</td>
+          <td>none</td>
+          <td>417.42 ms</td>
+          <td>2085.23 ms</td>
+        
+        <td>5</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_gc_giant__25_million__tail_recursive.html">tail-recursive</a></td>
+        
+        
+          <td>1.23</td>
+          <td>814.59 ms</td>
+          <td>±90.28%</td>
+          <td>477.67 ms</td>
+          <td>none</td>
+          <td>444.81 ms</td>
+          <td>2126.50 ms</td>
+        
+        <td>5</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+        </section>
+
+        <section class="benchee-plot-container">
+          <div id="ips-comparison" class="job-count-4 plot"></div>
+        </section>
+
+        <section class="benchee-plot-container">
+          <div id="run-time-box-plot" class="job-count-4 plot"></div>
+        </section>
+      </article>
+    
+
+    
+      <article>
+        <h2>
+          Memory Usage Comparison
+          <a href="https://github.com/PragTob/benchee_html/wiki/Chart-Types#comparison">
+            <i
+            class="benchee-help-icon icon-question-circle-o"
+            title="This is a memory usage comparison"
+            ></i>
+          </a>
+        </h2>
+        <section>
+          <table>
+  <thead>
+    <tr>
+      <th class="text-left">Name</th>
+      
+      <th>Average</th>
+      <th>Deviation</th>
+      <th>Median</th>
+      <th>Mode</th>
+      <th>Minimum</th>
+      <th>Maximum</th>
+      <th>Sample size</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_gc_giant__25_million__stdlib_map.html">stdlib map</a></td>
+        
+        
+          <td>381.47 MB</td>
+          <td>±0.00%</td>
+          <td>381.47 MB</td>
+          <td>none</td>
+          <td>381.47 MB</td>
+          <td>381.47 MB</td>
+        
+        <td>1</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_gc_giant__25_million__body_recursive.html">body-recursive</a></td>
+        
+        
+          <td>381.47 MB</td>
+          <td>±0.00%</td>
+          <td>381.47 MB</td>
+          <td>none</td>
+          <td>381.47 MB</td>
+          <td>381.47 MB</td>
+        
+        <td>1</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_gc_giant__25_million__tail_rec_arg_order.html">tail-rec arg-order</a></td>
+        
+        
+          <td>758.55 MB</td>
+          <td>±0.00%</td>
+          <td>758.55 MB</td>
+          <td>none</td>
+          <td>758.55 MB</td>
+          <td>758.55 MB</td>
+        
+        <td>1</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_gc_giant__25_million__tail_recursive.html">tail-recursive</a></td>
+        
+        
+          <td>758.55 MB</td>
+          <td>±0.00%</td>
+          <td>758.55 MB</td>
+          <td>none</td>
+          <td>758.55 MB</td>
+          <td>758.55 MB</td>
+        
+        <td>1</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+        </section>
+
+        <section class="benchee-plot-container">
+          <div id="memory-comparison" class="job-count-4 plot"></div>
+        </section>
+
+        <section class="benchee-plot-container">
+          <div id="memory-box-plot" class="job-count-4 plot"></div>
+        </section>
+      </article>
+    
+
+    <footer>
+      <a href="https://github.com/PragTob/benchee" target="blank">benchee version: 1.0.0 </a>
+<br/>
+<a href="https://github.com/PragTob/benchee_html" target="blank">benchee_html version: 1.0.0</a>
+
+
+    </footer>
+
+    
+  <script src="assets/javascripts/plotly-1.30.1.min.js"></script>
+  <script src="assets/javascripts/benchee.js"></script>
+
+
+
+    <script>
+      var scenarios     = [{"name":"stdlib map","job_name":"stdlib map","input_name":"Giant (25 Million)","run_time_data":{"statistics":{"absolute_difference":null,"average":558266139.6666666,"ips":1.7912603486879697,"maximum":1125841248.0,"median":450559280.5,"minimum":406744768.0,"mode":null,"percentiles":{"50":450559280.5,"99":1125841248.0},"relative_less":null,"relative_more":null,"sample_size":6,"std_dev":281740640.7017307,"std_dev_ips":0.9039968617911995,"std_dev_ratio":0.5046708383029541},"samples":[1125841248.0,490849710.0,508996755.0,406895506.0,410268851.0,406744768.0]},"memory_usage_data":{"statistics":{"absolute_difference":null,"average":4.0e8,"ips":null,"maximum":400000000,"median":4.0e8,"minimum":400000000,"mode":null,"percentiles":{"50":4.0e8,"99":4.0e8},"relative_less":null,"relative_more":null,"sample_size":1,"std_dev":0,"std_dev_ips":null,"std_dev_ratio":0.0},"samples":[400000000]},"tag":null},{"name":"body-recursive","job_name":"body-recursive","input_name":"Giant (25 Million)","run_time_data":{"statistics":{"absolute_difference":14853177.333333373,"average":573119317.0,"ips":1.7448373669108068,"maximum":1149377281.0,"median":4.616579e8,"minimum":413142158.0,"mode":null,"percentiles":{"50":4.616579e8,"99":1149377281.0},"relative_less":0.9740836211714473,"relative_more":1.026605907609231,"sample_size":6,"std_dev":286258362.0783772,"std_dev_ips":0.871501399323862,"std_dev_ratio":0.499474286745036},"samples":[1149377281.0,495167965.0,532415864.0,413142158.0,428147835.0,420464799.0]},"memory_usage_data":{"statistics":{"absolute_difference":0.0,"average":4.0e8,"ips":null,"maximum":400000000,"median":4.0e8,"minimum":400000000,"mode":null,"percentiles":{"50":4.0e8,"99":4.0e8},"relative_less":1.0,"relative_more":1.0,"sample_size":1,"std_dev":0,"std_dev_ips":null,"std_dev_ratio":0.0},"samples":[400000000]},"tag":null},{"name":"tail-rec arg-order","job_name":"tail-rec arg-order","input_name":"Giant (25 Million)","run_time_data":{"statistics":{"absolute_difference":229004971.73333335,"average":787271111.4,"ips":1.2702104592936294,"maximum":2085228821.0,"median":455858092.0,"minimum":417420030.0,"mode":null,"percentiles":{"50":455858092.0,"99":2085228821.0},"relative_less":0.709115489674078,"relative_more":1.4102075255183293,"sample_size":5,"std_dev":727736735.4697356,"std_dev_ips":1.1741556366294725,"std_dev_ratio":0.9243788130058593},"samples":[2085228821.0,556239853.0,455858092.0,417420030.0,421608761.0]},"memory_usage_data":{"statistics":{"absolute_difference":395397664.0,"average":795397664.0,"ips":null,"maximum":795397664,"median":795397664.0,"minimum":795397664,"mode":null,"percentiles":{"50":795397664.0,"99":795397664.0},"relative_less":0.5028931037946825,"relative_more":1.98849416,"sample_size":1,"std_dev":0,"std_dev_ips":null,"std_dev_ratio":0.0},"samples":[795397664]},"tag":null},{"name":"tail-recursive","job_name":"tail-recursive","input_name":"Giant (25 Million)","run_time_data":{"statistics":{"absolute_difference":256323472.9333334,"average":814589612.6,"ips":1.2276120202517788,"maximum":2126504232.0,"median":477674953.0,"minimum":444806468.0,"mode":null,"percentiles":{"50":477674953.0,"99":2126504232.0},"relative_less":0.6853342235543584,"relative_more":1.4591420735034741,"sample_size":5,"std_dev":735416166.253007,"std_dev_ips":1.1082951606737343,"std_dev_ratio":0.9028057255796721},"samples":[2126504232.0,578438045.0,477674953.0,445524365.0,444806468.0]},"memory_usage_data":{"statistics":{"absolute_difference":395397664.0,"average":795397664.0,"ips":null,"maximum":795397664,"median":795397664.0,"minimum":795397664,"mode":null,"percentiles":{"50":795397664.0,"99":795397664.0},"relative_less":0.5028931037946825,"relative_more":1.98849416,"sample_size":1,"std_dev":0,"std_dev_ips":null,"std_dev_ratio":0.0},"samples":[795397664]},"tag":null}];
+      var inputHeadline = " (Giant (25 Million))";
+
+      
+        drawIpsComparisonChart(scenarios, inputHeadline);
+        drawRunTimeComparisonBoxPlot(scenarios, inputHeadline);
+      
+
+      
+        drawMemoryComparisonChart(scenarios, inputHeadline);
+        drawMemoryComparisonBoxPlot(scenarios, inputHeadline);
+      
+    </script>
+  </body>
+</html>

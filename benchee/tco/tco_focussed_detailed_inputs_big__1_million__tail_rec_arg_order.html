@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Benchee Report</title>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/benchee.css">
+    <link rel="stylesheet" type="text/css" href="assets/fontello/css/fontello.css">
+  
+</head>
+
+  <body>
+
+    <div class="header">
+  <h1>benchee report</h1>
+  
+  <span class="input-label">
+    Big (1 Million)
+  </span>
+
+
+  <span class="version-note">
+  <a href="javascript:toggleSystemDataInfo();" title="Click to toggle system info">System info</a>
+</span>
+
+</div>
+
+
+    <article id="system-info" class="benchee-systeminfo" >
+  <h3>System info</h3>
+  <ul class="benchee-systeminfo-list">
+    <li>Elixir: 1.8.1</li>
+    <li>Erlang: 21.3.2</li>
+    <li>Operating system: Linux</li>
+    <li>Available memory: 15.61 GB</li>
+    <li>CPU Information: Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz</li>
+    <li>Number of Available Cores: 8</li>
+  </ul>
+</article>
+
+
+    
+      <article>
+        <h2>
+          <a name="run_time" href="#run_time">tail-rec arg-order Run Time</a>
+          <a href="https://github.com/PragTob/benchee_html/wiki/Chart-Types#individual">
+            <i
+              class="benchee-help-icon icon-question-circle-o"
+              title="Graphs showing the individual run time distribution for tail-rec arg-order.
+  Run Times Histogram shows the distribution of occurrences of specific run times in buckets.
+  Raw Run Times shows all individual recorded run times in the order they were recorded in."
+            ></i>
+          </a>
+        </h2>
+
+        <section>
+          <table>
+  <thead>
+    <tr>
+      <th class="text-left">Name</th>
+      
+        <th>Iterations per Second</th>
+      
+      <th>Average</th>
+      <th>Deviation</th>
+      <th>Median</th>
+      <th>Mode</th>
+      <th>Minimum</th>
+      <th>Maximum</th>
+      <th>Sample size</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      
+      <tr>
+        
+          <td class="text-left">tail-rec arg-order</td>
+        
+        
+          <td>41.68</td>
+          <td>23.99 ms</td>
+          <td>±83.11%</td>
+          <td>22.36 ms</td>
+          <td>none</td>
+          <td>16.64 ms</td>
+          <td>296.83 ms</td>
+        
+        <td>198</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+        </section>
+
+        <section class="benchee-plot-container">
+          <div id="run-times-histogram" class="plot"></div>
+        </section>
+        <section class="benchee-plot-container">
+          <div id="raw-run-times" class="plot"></div>
+        </section>
+      </article>
+    
+
+    
+      <article>
+        <h2>
+          <a name="memory" href="#memory">tail-rec arg-order Memory</a>
+          <a href="https://github.com/PragTob/benchee_html/wiki/Chart-Types#individual">
+            <i
+              class="benchee-help-icon icon-question-circle-o"
+              title="Graphs showing the individual memory usage distribution for tail-rec arg-order.
+  Run Times Histogram shows the distribution of occurrences of specific run times in buckets.
+  Raw Run Times shows all individual recorded run times in the order they were recorded in."
+            ></i>
+          </a>
+        </h2>
+
+        <section>
+          <table>
+  <thead>
+    <tr>
+      <th class="text-left">Name</th>
+      
+      <th>Average</th>
+      <th>Deviation</th>
+      <th>Median</th>
+      <th>Mode</th>
+      <th>Minimum</th>
+      <th>Maximum</th>
+      <th>Sample size</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      
+      <tr>
+        
+          <td class="text-left">tail-rec arg-order</td>
+        
+        
+          <td>26.95 MB</td>
+          <td>±0.00%</td>
+          <td>26.95 MB</td>
+          <td>26.95 MB</td>
+          <td>26.95 MB</td>
+          <td>26.95 MB</td>
+        
+        <td>17</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+        </section>
+
+        
+      </article>
+    
+
+    <footer>
+      <a href="https://github.com/PragTob/benchee" target="blank">benchee version: 1.0.0 </a>
+<br/>
+<a href="https://github.com/PragTob/benchee_html" target="blank">benchee_html version: 1.0.0</a>
+
+
+    </footer>
+
+    
+  <script src="assets/javascripts/plotly-1.30.1.min.js"></script>
+  <script src="assets/javascripts/benchee.js"></script>
+
+
+
+    <script>
+      var scenario = {"name":"tail-rec arg-order","job_name":"tail-rec arg-order","input_name":"Big (1 Million)","run_time_data":{"statistics":{"absolute_difference":1071744.394378569,"average":23992775.181818184,"ips":41.67921353082172,"maximum":296832929.0,"median":2.23569e7,"minimum":16639604.0,"mode":null,"percentiles":{"50":2.23569e7,"99":35927182.57999761},"relative_less":0.9553305365362345,"relative_more":1.0467581237649168,"sample_size":198,"std_dev":19940645.404079564,"std_dev_ips":34.64002856863551,"std_dev_ratio":0.8311104177390309},"samples":[24782442.0,22703586.0,22681949.0,296832929.0,19921740.0,18536849.0,18516164.0,27290427.0,24657154.0,24454699.0,29540365.0,19823952.0,18445931.0,18623203.0,19553399.0,16706961.0,16639879.0,23217305.0,19941954.0,18435619.0,17777805.0,20059971.0,16639604.0,16666209.0,21871804.0,19674348.0,18464666.0,18446890.0,20974281.0,18464383.0,18502234.0,24212260.0,19946720.0,18490661.0,18541592.0,20470690.0,18066107.0,16674706.0,22392762.0,19882408.0,18452220.0,18494361.0,20503244.0,16678206.0,16643615.0,25783247.0,21110787.0,18520544.0,18483097.0,21044818.0,18463583.0,18475395.0,28190717.0,21830842.0,18494659.0,18477516.0,20497041.0,18467735.0,18489186.0,31106207.0,26486580.0,23642938.0,23246291.0,21887137.0,18471720.0,18501635.0,28853256.0,27603979.0,24898479.0,26738039.0,21870561.0,18446893.0,18481422.0,27298036.0,28106381.0,24890316.0,24815611.0,22542637.0,18465568.0,18499457.0,31890357.0,25395382.0,23264518.0,23302669.0,21927697.0,18457155.0,18503634.0,32014701.0,25591327.0,22802138.0,22499295.0,21875388.0,18456713.0,18462324.0,32213274.0,25248874.0,24450345.0,24471278.0,23184768.0,18628247.0,18482429.0,33291771.0,27446189.0,23343586.0,22679617.0,21765878.0,18456152.0,18472890.0,31575532.0,25667615.0,24756816.0,27961029.0,22321038.0,18451834.0,18507988.0,26995689.0,25813239.0,22799335.0,22716109.0,21963091.0,18471132.0,18499791.0,32242881.0,26621628.0,24811871.0,22903847.0,21396620.0,18460458.0,18480006.0,31805689.0,26269418.0,25423189.0,23374785.0,22175035.0,18480936.0,18495074.0,31851089.0,25044063.0,24860609.0,24801265.0,21872132.0,18451447.0,18497009.0,31893938.0,25887354.0,24771037.0,23179437.0,22037831.0,18488461.0,18480475.0,32310067.0,25569296.0,25330616.0,25446751.0,26700880.0,16941406.0,16675591.0,25134203.0,26716668.0,24877825.0,24656742.0,22498471.0,18457286.0,18515383.0,30839921.0,27655208.0,24389988.0,23237603.0,21923620.0,18433740.0,18521924.0,31945071.0,26496818.0,24898373.0,24822847.0,22946976.0,18980993.0,18484827.0,32448859.0,26532010.0,24781789.0,24854741.0,22141748.0,18435975.0,18474677.0,31524020.0,25757017.0,24872906.0,23567514.0,21868152.0,18485655.0,18473163.0,31466907.0,25218762.0,24822546.0,24741439.0,26595668.0,18479862.0]},"memory_usage_data":{"statistics":{"absolute_difference":12263808.0,"average":28263808.0,"ips":null,"maximum":28263808,"median":28263808.0,"minimum":28263808,"mode":28263808,"percentiles":{"50":28263808.0,"99":28263808.0},"relative_less":0.5660949862099262,"relative_more":1.766488,"sample_size":17,"std_dev":0.0,"std_dev_ips":null,"std_dev_ratio":0.0},"samples":[28263808,28263808,28263808,28263808,28263808,28263808,28263808,28263808,28263808,28263808,28263808,28263808,28263808,28263808,28263808,28263808,28263808]},"tag":null};
+
+      var inputHeadline = " (Big (1 Million))"
+
+      
+        drawRunTimeHistogram(scenario, inputHeadline);
+        drawRawRunTimeChart(scenario, inputHeadline);
+      
+
+      
+        if (scenario.memory_usage_data.statistics.std_dev !== 0) {
+          drawMemoryHistogram(scenario, inputHeadline);
+          drawRawMemoryChart(scenario, inputHeadline);
+        };
+      
+    </script>
+  </body>
+</html>
