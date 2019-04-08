@@ -131,7 +131,7 @@
       "websiteLink": "http://rug-b.de",
       "startDate": "10/2012",
       "endDate": "current",
-      "summary": "The Ruby User Group Berlin is a monthly meetup about Ruby and related technologies in Berlin. My main responsibilities are organizing venues, contacting speakers and moderating the meetings as well as communication.",
+      "summary": "A monthly meetup about Ruby and related technologies in Berlin, with anywhere between 40-120 attendees. As the organizer I take care of venues, speakers moderation as well as communication. Co-created the <a href='http://berlincodeofconduct.org'>Berlin Code of Conduct</a> to ensure and promote a safe environment.",
       "highlights": [],
       "anonymous": {
         "organization": "Programming Language Related User Group",
@@ -202,7 +202,7 @@
         "organization": "Open Source",
         "website": "",
         "websiteLink": "",
-        "summary": "I've been part of an open source community for over three years now and since September 2013 I am the maintainer of the community's main project, which makes heavy use of JRuby.",
+        "summary": "fill me in",
         "highlights": []
       }
     },
