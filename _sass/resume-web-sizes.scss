@@ -31,6 +31,7 @@
 }
 
 #cv-picture {
+  @extend .img-rounded;
   max-height: 30vh;
   max-width: 100%;
 }

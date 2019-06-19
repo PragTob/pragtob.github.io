@@ -23,6 +23,7 @@
 }
 
 #cv-picture {
+  @extend .img-rounded;
   height: 200px;
   position: absolute;
   right: 40px;
