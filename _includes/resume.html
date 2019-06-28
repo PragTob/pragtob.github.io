@@ -6,12 +6,13 @@ theme https://github.com/erming/jsonresume-theme-flat-->
 {% assign anonymous = include.anonymous %}
 
 <article class="resume">
-  <header id="header" class="section" >
+  <header id="header" class="section">
     <div class="header">
       <h1>
         {{basics.name}}
         {% if include.pdf %}
-          <a href="/tobias_pfeiffer_resume.pdf" title="Download PDF version" target="_blank"><i id="pdf-download" class="fa fa-file-pdf-o"></i></a>
+        <a href="/tobias_pfeiffer_resume.pdf" title="Download PDF version" target="_blank"><i id="pdf-download"
+            class="fa fa-file-pdf-o"></i></a>
         {% endif %}
       </h1>
     </div>
@@ -51,9 +52,9 @@ theme https://github.com/erming/jsonresume-theme-flat-->
           <h3>About</h3>
         </aside>
         {% if anonymous %}
-          {% assign summary = basics.anonymous_summary %}
+        {% assign summary = basics.anonymous_summary %}
         {% else %}
-          {% assign summary = basics.summary %}
+        {% assign summary = basics.summary %}
         {% endif %}
         <div class="intro-content">
           <p>{{summary}}</p>
@@ -64,7 +65,7 @@ theme https://github.com/erming/jsonresume-theme-flat-->
   </div>
 
   <section id="profiles" class="section">
-    <aside class="section-headline">
+    <aside class="section-headline print-hide">
       <h3>Profiles</h3>
     </aside>
     <div class="section-content">
@@ -88,16 +89,16 @@ theme https://github.com/erming/jsonresume-theme-flat-->
     <div class="section-content">
       {% for work in resume.work %}
       {% if anonymous and work.anonymous %}
-        {% assign summary = work.anonymous.summary %}
+      {% assign summary = work.anonymous.summary %}
       {% else %}
-        {% assign summary = work.summary %}
+      {% assign summary = work.summary %}
       {% endif %}
       <div class="full-entry">
         <h4 class="entry-header">
           <span class="institution">{{work.company}}</span>
-            <span class="date">
-              {{work.startDate}} — {{work.endDate}}
-            </span>
+          <span class="date">
+            {{work.startDate}} — {{work.endDate}}
+          </span>
         </h4>
         <div class="website pull-right">
           <a href="{{work.websiteLink}}">{{work.website}}</a>
@@ -121,33 +122,33 @@ theme https://github.com/erming/jsonresume-theme-flat-->
     </aside>
     <div class="section-content">
       {% for volunteer in resume.volunteer %}
-        {% if anonymous and volunteer.anonymous %}
-          {% assign organization = volunteer.anonymous.organization %}
-          {% assign summary = volunteer.anonymous.summary %}
-          {% assign website = volunteer.anonymous.website %}
-        {% else %}
-          {% assign organization = volunteer.organization %}
-          {% assign summary = volunteer.summary %}
-          {% assign website = volunteer.website %}
+      {% if anonymous and volunteer.anonymous %}
+      {% assign organization = volunteer.anonymous.organization %}
+      {% assign summary = volunteer.anonymous.summary %}
+      {% assign website = volunteer.anonymous.website %}
+      {% else %}
+      {% assign organization = volunteer.organization %}
+      {% assign summary = volunteer.summary %}
+      {% assign website = volunteer.website %}
       {% endif %}
-        <div class="full-entry">
-          <h4 class="entry-header">
-            <span class="institution">{{organization}}</span>
-                <span class="date">
-                  {{volunteer.startDate}} — {{volunteer.endDate}}
-                </span>
-          </h4>
-          <div class="website pull-right">
-            <a href="{{volunteer.websiteLink}}">{{website}}</a>
-          </div>
-          <div class="position">
-            {{volunteer.position}}
-          </div>
-          <div class="summary">
-            <p>{{summary}}</p>
-          </div>
-          {% include highlights.html highlights=volunteer.highlights %}
+      <div class="full-entry">
+        <h4 class="entry-header">
+          <span class="institution">{{organization}}</span>
+          <span class="date">
+            {{volunteer.startDate}} — {{volunteer.endDate}}
+          </span>
+        </h4>
+        <div class="website pull-right">
+          <a href="{{volunteer.websiteLink}}">{{website}}</a>
         </div>
+        <div class="position">
+          {{volunteer.position}}
+        </div>
+        <div class="summary">
+          <p>{{summary}}</p>
+        </div>
+        {% include highlights.html highlights=volunteer.highlights %}
+      </div>
       {% endfor %}
     </div>
   </section>
@@ -163,14 +164,14 @@ theme https://github.com/erming/jsonresume-theme-flat-->
       <div class="full-entry">
         <h4 class="entry-header">
           <span class="institution">{{education.institution}}</span>
-              <span class="date">
-                {{education.startDate}} — {{education.endDate}}
-              </span>
+          <span class="date">
+            {{education.startDate}} — {{education.endDate}}
+          </span>
         </h4>
         <div class="area">
           <i class="fa fa-graduation-cap"></i>
           {% if education.studyType %}
-            {{education.studyType}} in
+          {{education.studyType}} in
           {% endif %}
           {{education.area}}
         </div>
@@ -195,21 +196,21 @@ theme https://github.com/erming/jsonresume-theme-flat-->
       {% capture modulo %}{{ forloop.index | modulo: 2 }}{% endcapture %}
 
       {% if modulo == '1' %}
-        <div class="row">
-      {% endif %}
-      <div class="skill">
-        <div class="name">
-          <h4>{{skill.name}}</h4>
-        </div>
-        {% if skill.keywords.size > 0 %}
-        <ul class="keywords">
-          {% for keyword in skill.keywords %}
-          <li>{{keyword}}</li>
-          {% endfor %}
-        </ul>
+      <div class="row">
         {% endif %}
-      </div>
-      {% if modulo == '0' or forloop.last %}
+        <div class="skill">
+          <div class="name">
+            <h4>{{skill.name}}</h4>
+          </div>
+          {% if skill.keywords.size > 0 %}
+          <ul class="keywords">
+            {% for keyword in skill.keywords %}
+            <li>{{keyword}}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+        {% if modulo == '0' or forloop.last %}
       </div>
       {% endif %}
       {% endfor %}

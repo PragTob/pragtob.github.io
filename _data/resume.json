@@ -67,7 +67,7 @@
     },
     {
       "company": "bitcrowd",
-      "position": "Software Engineer and consultant",
+      "position": "Software Engineer",
       "website": "bitcrowd.net/",
       "websiteLink": "https://bitcrowd.net",
       "startDate": "01/2015",
@@ -84,13 +84,9 @@
       "position": "Freelancer",
       "website": "",
       "startDate": "05/2013",
-      "endDate": "12/2014",
-      "summary": "Software engineer and instructor.",
-      "highlights": [
-        "Taught three introductory level web development courses at the Humboldt-University Berlin",
-        "Prepared material for an advanced level Ruby on Rails course",
-        "Built a website to show screencasts in a HTML friendly way using HTML5 and popcorn.js"
-      ]
+      "endDate": "current",
+      "summary": "Occassionally I take on projects mostly related to teaching programming. Among other things I taught an introductory course at Humboldt-University Berlin multiple times.",
+      "highlights": []
     }
   ],
   "volunteer": [
@@ -100,12 +96,8 @@
       "website": "",
       "startDate": "05/2012",
       "endDate": "current",
-      "summary": "I like to go to conferences, speak at them and helped organize some of them.",
-      "highlights": [
-        "Speaker at Ruby On Ice 2018 & 2019, Lambdadays 2018, Polyconf 2017, Full Stack Fest 2016, Rubyconf Portugal 2016,  Rubyconf 2015 <a href='/talks'>& more</a>",
-        "Member of the program committee and a track host for \"Monoliths and Microservices\" and \"Software Craftsmanship\" at GOTO Berlin 2014",
-        "Organizer JRubyConf & eurucamp 2015"
-      ]
+      "summary": "I like to speak at conferences to share knowledge and spread ideas. I spoke at conferences such as Ruby On Ice, Lambdadays, Polyconf and Full Stack Fest (<a href='http://pragtob.info/talks'>overview of my talks</a>). I also helped organize JRubyConf & eurucamp 2015 and was a member of the program committee and at GOTO Berlin 2014",
+      "highlights": []
     },
     {
       "organization": "Open Source",
@@ -130,12 +122,12 @@
     },
     {
       "organization": "Ruby User Group Berlin",
-      "position": "Main organizer",
+      "position": "Main Organizer",
       "website": "rug-b.de",
       "websiteLink": "http://rug-b.de",
       "startDate": "10/2012",
       "endDate": "current",
-      "summary": "A monthly meetup about Ruby and related technologies in Berlin, with anywhere between 40-120 attendees. As the organizer I take care of venues, speakers moderation as well as communication. Co-created the <a href='http://berlincodeofconduct.org'>Berlin Code of Conduct</a> to ensure and promote a safe environment.",
+      "summary": "A monthly meetup about Ruby and related technologies, with anywhere between 40-120 attendees.  Co-created the <a href='http://berlincodeofconduct.org'>Berlin Code of Conduct</a> to ensure and promote a safe environment.",
       "highlights": [],
       "anonymous": {
         "organization": "Programming Language Related User Group",
@@ -146,18 +138,14 @@
       }
     },
     {
-      "organization": "Rails Girls",
+      "organization": "Rails Girls / code curious",
       "position": "Coach & Mentor",
       "website": "railsgirlsberlin.de",
       "websiteLink": "http://railsgirlsberlin.de/",
       "startDate": "06/2012",
       "endDate": "current",
-      "summary": "Rails Girls helps to diversify the tech community by teaching beginners how to program. I support Rails Girls Berlin by coaching at workshops and hackdays.",
-      "highlights": [
-        "Since March 2013 I coach a weekly project group, the rubycorns, helping attendees grow into Juniors & beyond",
-        "Created a well received introductory presentation for the workshops",
-        "Helped Rails Girls Summer of Code 2013 with the team selection process & mentoring two Rails Girls Summer of Code teams"
-      ]
+      "summary": "Rails Girls helps to diversify the tech community by helping beginners to get in touch with programming. I coach at workshops and since 2013 I also coach a weekly project group, the <a href=\"http://rubycorns.club/\">rubycorns</a>, helping attendees grow into Juniors & beyond.",
+      "highlights": []
     }
   ],
   "education": [
