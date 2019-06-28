@@ -88,19 +88,6 @@
         "Prepared material for an advanced level Ruby on Rails course",
         "Built a website to show screencasts in a HTML friendly way using HTML5 and popcorn.js"
       ]
-    },
-    {
-      "company": "Google Summer of Code (JRuby)",
-      "position": "Google Summer of Code student",
-      "website": "google-melange.com/",
-      "websiteLink": "https://google-melange.com",
-      "startDate": "06/2013",
-      "endDate": "09/2013",
-      "summary": "Student for the JRuby organization, working on the Shoes 4 code base improving performance, enhancing functionality and refactoring the code to achieve better readability and maintainability.",
-      "highlights": [],
-      "anonymous": {
-        "summary": "Student for the JRuby organization, working on the code base of a related project improving performance, enhancing functionality and refactoring the code to achieve better readability and maintainability."
-      }
     }
   ],
   "volunteer": [
@@ -149,48 +136,18 @@
       ]
     },
     {
-      "organization": "benchee",
-      "position": "Creator & Maintainer",
-      "website": "benchee",
-      "websiteLink": "https://github.com/bencheeorg/benchee",
-      "startDate": "06/2016",
-      "endDate": "current",
-      "summary": "Benchmarking library for elixir providing extensive statistics, hooks and an extensible formatting system.",
-      "highlights": [],
-      "anonymous": {
-        "organization": "Open Source",
-        "website": "",
-        "websiteLink": "",
-        "summary": "fill me in",
-        "highlights": []
-      }
-    },
-    {
-      "organization": "simplecov",
-      "position": "Maintainer",
-      "website": "simplecov",
-      "websiteLink": "https://github.com/colszowka/simplecov",
-      "startDate": "01/2017",
-      "endDate": "current",
-      "summary": "Premiere library for code coverage in Ruby. Cleaned up open PRs/issues and keep it clean and fixes released.",
-      "highlights": [],
-      "anonymous": {
-        "organization": "Open Source",
-        "website": "",
-        "websiteLink": "",
-        "summary": "fill me in",
-        "highlights": []
-      }
-    },
-    {
-      "organization": "Shoes",
-      "position": "Maintainer",
-      "website": "shoesrb.com",
-      "websiteLink": "http://shoesrb.com",
+      "organization": "Open Source",
+      "position": "Creator, Maintainer & Contributor",
+      "website": "GitHub",
+      "websiteLink": "https://github.com/PragTob/",
       "startDate": "06/2012",
       "endDate": "current",
-      "summary": "An easy to use GUI toolkit written in Ruby, especiall helpful for teaching programming",
-      "highlights": [],
+      "summary": "I love and breath Open Source, I contribute to a variety of projects. This is a selection of bigger projects I maintain.",
+      "highlights": [
+        "<strong><a href=\"https://github.com/bencheeorg/benchee\">benchee</a></strong> a powerful and extensible benchmarking library for elixir and erlang",
+        "<strong><a href=\"https://github.com/shoes/shoes4\">Shoes</a></strong> an easy to use GUI toolkit written in JRuby that I also participated in <a href=\"https://google-melange.com\">Google Summer of Code</a> with",
+        "<strong><a href=\"https://github.com/colszowka/simplecov\">simplecov</a></strong> the popular ruby code coverage tool"
+      ],
       "anonymous": {
         "organization": "Open Source",
         "website": "",
