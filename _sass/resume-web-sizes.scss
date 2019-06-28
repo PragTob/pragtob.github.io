@@ -1,6 +1,6 @@
 .header {
-  @extend .col-sm-10;
-  @extend .col-sm-push-2;
+  @extend .col-sm-12;
+  // @extend .col-sm-push-2;
 }
 
 #pdf-download {
@@ -21,17 +21,17 @@
 
 .intro-left {
   @extend .col-sm-8;
-  @extend .pull-left;
+  @extend .align-self-start;
 }
 
 .cv-profile-picture {
   @extend .col-sm-3;
-  @extend .col-xs-12;
-  @extend .pull-right;
+  @extend .col-12;
+  @extend .align-self-end;
 }
 
 #cv-picture {
-  @extend .img-rounded;
+  @extend .rounded;
   max-height: 30vh;
   max-width: 100%;
 }

@@ -6,8 +6,8 @@ a {
 }
 
 .signature {
-  @extend .col-xs-5;
-  @extend .col-xs-offset-7;
+  @extend .col-5;
+  @extend .offset-7;
   padding-top: 180px;
 }
 

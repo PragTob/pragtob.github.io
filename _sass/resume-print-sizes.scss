@@ -1,5 +1,5 @@
 .header {
-  @extend .col-xs-12;
+  @extend .col-12;
 }
 
 #intro {
@@ -7,23 +7,23 @@
 }
 
 .intro-headline {
-  @extend .col-xs-8;
+  @extend .col-8;
 }
 
 .intro-content {
-  @extend .col-xs-12;
+  @extend .col-12;
   padding-right: 20px;
 }
 
 .intro-left {
-  @extend .col-xs-12
+  @extend .col-12
 }
 
 .cv-profile-picture {
 }
 
 #cv-picture {
-  @extend .img-rounded;
+  @extend .rounded;
   height: 200px;
   position: absolute;
   right: 40px;
@@ -31,16 +31,16 @@
 }
 
 .section-headline {
-  @extend .col-xs-12;
+  @extend .col-12;
 }
 
 .section-content {
-  @extend .col-xs-12;
+  @extend .col-12;
   @extend .row;
 }
 
 .profile {
-  @extend .col-xs-3;
+  @extend .col-3;
 }
 
 .contact {
@@ -48,30 +48,30 @@
 }
 
 .full-entry {
-  @extend .col-xs-12;
+  @extend .col-12;
 }
 
 
 .skill {
-  @extend .col-xs-6;
+  @extend .col-6;
 }
 
 .language-container {
-  @extend .col-xs-3;
+  @extend .col-3;
 }
 
 .study-keyword {
-  @extend .col-xs-3;
+  @extend .col-3;
   padding-left: 7px;
 }
 
 .study-detail {
   margin-bottom: 5px;
-  @extend .col-xs-12;
+  @extend .col-12;
 }
 
 .study-value {
-  @extend .col-xs-9;
+  @extend .col-9;
 }
 
 .section {
