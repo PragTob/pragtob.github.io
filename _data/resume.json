@@ -101,16 +101,6 @@
       "anonymous": {
         "summary": "Student for the JRuby organization, working on the code base of a related project improving performance, enhancing functionality and refactoring the code to achieve better readability and maintainability."
       }
-    },
-    {
-      "company": "d:evolute",
-      "position": "Ruby on Rails developer",
-      "website": "devolute.org",
-      "websiteLink": "http://devolute.org",
-      "startDate": "09/2012",
-      "endDate": "03/2013",
-      "summary": "Working on a Spree e-commerce application.",
-      "highlights": []
     }
   ],
   "volunteer": [
