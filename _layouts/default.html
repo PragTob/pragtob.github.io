@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>{{ page.title }}</title>
-    <meta name="viewport" content="width=device-width">
 
-    <link rel="stylesheet" href="vendor/fontstrap/css/font-awesome-social.css">
-    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/main.css">
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width">
 
-    <nav class="navbar navbar-green navbar-fixed-top navbar-default" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" id='my-navbar-toggle' class="navbar-toggle" data-toggle="collapse" data-target="#main-navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">{{ site.name }}</a>
-        </div>
+  <link rel="stylesheet" href="vendor/fontstrap/css/font-awesome-social.css">
+  <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
 
-        <div class="collapse navbar-collapse" id="main-navigation">
-          <ul class="nav navbar-nav">
-            <li><a href="/resume">Resume</a></li>
-            <li><a href="/projects">Projects</a></li>
-            <li><a href="/talks">Talks</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/contact">Contact</a></li>
-          </ul>
-        </div>
+<body>
+  <nav class="navbar navbar-green navbar-expand-lg navbar-dark" role="navigation">
+    <div class="container">
+
+      <a class="navbar-brand" href="/">{{ site.name }}</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navigation"
+        aria-controls="main-navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="main-navigation">
+        <ul class="navbar-nav mr-auto">
+          <li><a class="nav-item nav-link" href="/resume">Resume</a></li>
+          <li><a class="nav-item nav-link" href="/projects">Projects</a></li>
+          <li><a class="nav-item nav-link" href="/talks">Talks</a></li>
+
+        </ul>
+        <ul class="navbar-nav">
+          <li><a class="nav-item nav-link" href="/contact">Contact</a></li>
+        </ul>
       </div>
-    </nav>
-
-    <div class="container my-container">
-      {{ content }}
     </div>
-    <script src="vendor/jQuery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.js"></script>
-    <script src="javascript/main.js"></script>
-  </body>
+  </nav>
+
+  <div class="container my-container">
+    {{ content }}
+  </div>
+  <script src="vendor/jQuery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.js"></script>
+  <script src="javascript/main.js"></script>
+</body>
+
 </html>
