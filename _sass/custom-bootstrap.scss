@@ -1,0 +1,7 @@
+$tobi-green: rgb(21, 214, 66);
+
+$theme-colors: (
+  "primary": $tobi-green
+);
+
+@import "vendor/bootstrap/bootstrap.scss";

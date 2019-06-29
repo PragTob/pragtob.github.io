@@ -1,14 +1,13 @@
 ---
 ---
 
-@import "vendor/bootstrap/bootstrap-grid";
-@import "vendor/bootstrap/bootstrap";
+@import "custom-bootstrap";
 @import "resume";
 
 $tobi-green: rgb(21, 214, 66);
 
 .navbar-green {
-  background-color: $tobi-green;
+  // background-color: $tobi-green;
   border-color:     rgb(27, 102, 0);
   border:           0px;
   border-radius:    0px;
