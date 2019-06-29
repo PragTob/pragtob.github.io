@@ -1,33 +1,26 @@
 .header {
-  @extend .col-sm-12;
-  // @extend .col-sm-push-2;
+  @extend .col-sm-10;
+  @extend .offset-sm-2;
 }
 
 #pdf-download {
   padding-left: 10px;
 }
 
-#intro {
-  @extend .row;
-}
-
-.intro-headline {
-  @extend .col-sm-3;
+.intro-left {
+  @extend .col-sm-8;
+  @extend .order-sm-first;
 }
 
 .intro-content {
-  @extend .col-sm-9;
-}
-
-.intro-left {
-  @extend .col-sm-8;
-  @extend .align-self-start;
+  @extend .col-12;
+  @extend .col-sm-6;
 }
 
 .cv-profile-picture {
-  @extend .col-sm-3;
   @extend .col-12;
-  @extend .align-self-end;
+  @extend .col-sm-3;
+  @extend .order-sm-last;
 }
 
 #cv-picture {

@@ -18,51 +18,47 @@ theme https://github.com/erming/jsonresume-theme-flat-->
     </div>
   </header>
 
-  <div id="intro">
+  <div class="section">
+
     <div class="cv-profile-picture">
       <img id="cv-picture" src="images/profile/pivorak_cut.jpg" alt="profile_picture">
     </div>
 
-    <div class="intro-left">
-      <section id="contact" class="section">
-        <aside class="intro-headline">
-          <h3>Contact</h3>
-        </aside>
+    <aside class="section-headline">
+      <h3>Contact</h3>
+    </aside>
 
-        <div class="intro-content">
-          <div class="contact">
-            <strong>Email</strong>
-            <div class="email"><a href="mailto:{{basics.email}}">{{basics.email}}</a></div>
-          </div>
-          <div class="contact">
-            <strong>Phone</strong>
-            <div class="phone">{{basics.phone}}</div>
-          </div>
-          <div class="contact">
-            <strong>Website</strong>
-            <div class="website">
-              <a href="http://{{basics.website}}">{{basics.website}}</a>
-            </div>
-          </div>
+    <div class="intro-content">
+      <div class="contact">
+        <strong>Email</strong>
+        <div class="email"><a href="mailto:{{basics.email}}">{{basics.email}}</a></div>
+      </div>
+      <div class="contact">
+        <strong>Phone</strong>
+        <div class="phone">{{basics.phone}}</div>
+      </div>
+      <div class="contact">
+        <strong>Website</strong>
+        <div class="website">
+          <a href="http://{{basics.website}}">{{basics.website}}</a>
         </div>
-      </section>
-
-      <section id="about" class="section">
-        <aside class="intro-headline">
-          <h3>About</h3>
-        </aside>
-        {% if anonymous %}
-        {% assign summary = basics.anonymous_summary %}
-        {% else %}
-        {% assign summary = basics.summary %}
-        {% endif %}
-        <div class="intro-content">
-          <p>{{summary}}</p>
-        </div>
-      </section>
+      </div>
     </div>
-
   </div>
+
+  <section id="about" class="section">
+    <aside class="section-headline">
+      <h3>About</h3>
+    </aside>
+    {% if anonymous %}
+    {% assign summary = basics.anonymous_summary %}
+    {% else %}
+    {% assign summary = basics.summary %}
+    {% endif %}
+    <div class="section-content">
+      <p>{{summary}}</p>
+    </div>
+  </section>
 
   <section id="profiles" class="section">
     <aside class="section-headline print-hide">
