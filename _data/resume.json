@@ -55,8 +55,8 @@
       "summary": "Helping operations and partners deliver packages on the same day.",
       "highlights": [
         "Build and maintain applications to track shipments, plan tours and manage all required logistics data in Ruby on Rails, Elixir and Phoenix as well as JavaScript (AngularJS, React)",
-        "Identify and fix performance bottlenecks",
         "Stepped in for the CTO during a sabbatical",
+        "Identify and fix performance bottlenecks",
         "Run retrospectives and others meetings"
       ]
     },
@@ -101,7 +101,7 @@
       "websiteLink": "https://github.com/PragTob/",
       "startDate": "06/2012",
       "endDate": "current",
-      "summary": "I love and breath Open Source, I contribute to a variety of projects. This is a selection of bigger projects I maintain.",
+      "summary": "I love and breath Open Source, contribute to a variety of projects. This is a selection of bigger projects I maintain.",
       "highlights": [
         "<strong><a href=\"https://github.com/bencheeorg/benchee\">benchee</a></strong> a powerful and extensible benchmarking library for elixir and erlang",
         "<strong><a href=\"https://github.com/shoes/shoes4\">Shoes</a></strong> an easy to use GUI toolkit written in JRuby that I also participated in <a href=\"https://https://summerofcode.withgoogle.com/\">Google Summer of Code</a> with",
