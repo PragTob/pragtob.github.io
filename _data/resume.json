@@ -6,7 +6,7 @@
     "email": "tobias.pfeiffer@pragtob.info",
     "phone": "+49 160 206 0792",
     "website": "pragtob.info",
-    "summary": "I am a full-stack engineer & leader deeply interested in agile methodologies, web technologies, software crafting and teaching. I love creating products that help people and am fascinated with the human side of software development. I create and cortribute to a variety of open source projects, engage in a multitude of community events, enjoy attending and speaking at conferences.",
+    "summary": "I am a full-stack engineer & leader deeply interested in agile methodologies, web technologies, software crafting and teaching. I love creating products that help people and am fascinated with the human side of software development. I create and contribute to a variety of open source projects, engage in a multitude of community events, and enjoy attending and speaking at conferences.",
     "anonymous_summary": "I am a full-stack engineer & leader deeply interested in agile methodologies, web technologies, software crafting and teaching. I contribute to a variety of open source projects, engage in a multitude of community events, enjoy attending and speaking at conferences.",
     "profiles": [
       {
@@ -34,15 +34,15 @@
       "websiteLink": "https://www.liefery.com",
       "startDate": "11/2017",
       "endDate": "2/2019",
-      "summary": "Lead a team of 15 together with the CTO, handling the day-to-day needs of the team.",
+      "summary": "Led a team of 15 together with the CTO, handling the day-to-day needs of the team.",
       "highlights": [
-        "Help, mentor & guide colleagues through 1o1s, pairing sessions, pull request reviews and knowledge sharing sessions",
-        "Run retrospective and iteration meetings, continously adapting and improving processes",
-        "Architect and design features with the squads",
-        "Monitor application performance and fix performance problems",
-        "Screen and interview candidates",
-        "Gather problems and requirements to define and discuss solutions",
-        "Run integration projects with customers and other involved parties"
+        "Helped, mentored & guided colleagues through 1o1s, pairing sessions, pull request reviews and knowledge sharing sessions",
+        "Ran retrospective and iteration meetings, continously adapting and improving processes",
+        "Architected and designed features with the squads",
+        "Monitored application performance and fixed performance problems",
+        "Screened and interviewed candidates",
+        "Gathered problems and requirements to define and discuss solutions",
+        "Ran integration projects with customers and other involved parties"
       ]
     },
     {
@@ -52,12 +52,12 @@
       "websiteLink": "https://www.liefery.com",
       "startDate": "01/2017",
       "endDate": "11/2017",
-      "summary": "Helping operations and partners deliver packages on the same day.",
+      "summary": "Helped operations and partners deliver packages on the same day.",
       "highlights": [
-        "Build and maintain applications to track shipments, plan tours and manage all required logistics data in Ruby on Rails, Elixir and Phoenix as well as JavaScript (AngularJS, React)",
+        "Built and maintained applications to track shipments, plan tours and manage all required logistics data in Ruby on Rails, Elixir and Phoenix as well as JavaScript (AngularJS, React)",
         "Stepped in for the CTO during a sabbatical",
-        "Identify and fix performance bottlenecks",
-        "Run retrospectives and others meetings"
+        "Identified and fix performance bottlenecks",
+        "Ran retrospective and others meetings"
       ]
     },
     {
@@ -67,11 +67,11 @@
       "websiteLink": "https://bitcrowd.net",
       "startDate": "01/2015",
       "endDate": "10/2016",
-      "summary": "Building applications, helping companies blossom. Work as part of a team or team lead on customer projects small and big.",
+      "summary": "Building applications, helping companies blossom. Work as part of a team or team lead on customer project big and small.",
       "highlights": [
         "Introduced practices such as retrospectives and CI-servers",
-        "built the payment system for a big festival",
-        "Mentor juniors"
+        "Built the payment system for a big festival",
+        "Mentored juniors"
       ]
     },
     {
@@ -91,7 +91,7 @@
       "website": "",
       "startDate": "05/2012",
       "endDate": "current",
-      "summary": "I like to speak at conferences to share knowledge and spread ideas. I spoke at conferences such as Ruby On Ice, Lambdadays, Polyconf and Full Stack Fest (<a href='http://pragtob.info/talks'>overview of my talks</a>). I also helped organize JRubyConf & eurucamp 2015 and was a member of the program committee and at GOTO Berlin 2014",
+      "summary": "I like to speak at conferences to share knowledge and spread ideas. I have spoken at conferences such as Ruby On Ice, Lambdadays, Polyconf and Full Stack Fest (<a href='http://pragtob.info/talks'>overview of my talks</a>). I also helped organize JRubyConf & eurucamp 2015 and was a member of the program committee of GOTO Berlin 2014",
       "highlights": []
     },
     {
@@ -101,7 +101,7 @@
       "websiteLink": "https://github.com/PragTob/",
       "startDate": "06/2012",
       "endDate": "current",
-      "summary": "I love and breath Open Source, contribute to a variety of projects. This is a selection of bigger projects I maintain.",
+      "summary": "I live and breathe Open Source and contribute to a variety of projects. This is a selection of bigger projects I maintain.",
       "highlights": [
         "<strong><a href=\"https://github.com/bencheeorg/benchee\">benchee</a></strong> a powerful and extensible benchmarking library for elixir and erlang",
         "<strong><a href=\"https://github.com/shoes/shoes4\">Shoes</a></strong> an easy to use GUI toolkit written in JRuby that I also participated in <a href=\"https://https://summerofcode.withgoogle.com/\">Google Summer of Code</a> with",
