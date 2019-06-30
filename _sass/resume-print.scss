@@ -1,19 +1,6 @@
+@import "custom-bootstrap";
 @import "resume-general";
 @import "resume-print-sizes";
-
-a {
-  color: rgb(42, 175, 12);
-}
-
-.signature {
-  @extend .col-5;
-  @extend .offset-7;
-  padding-top: 180px;
-}
-
-.signature-text {
-  border-top: 1px solid;
-}
 
 .print-hide {
   display: none

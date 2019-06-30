@@ -169,10 +169,12 @@ theme https://github.com/erming/jsonresume-theme-flat-->
           {% endif %}
           {{education.area}}
         </div>
-        {% include studydetail.html value=education.specialization key="Specialization" %}
-        {% include studydetail.html value=education.thesis key="Thesis" %}
-        {% include studydetail.html value=education.gpa key="Final Grade" %}
-        {% include highlights.html highlights=education.highlights %}
+        <div class="row">
+          {% include studydetail.html value=education.gpa key="Final Grade" %}
+          {% include studydetail.html value=education.specialization key="Specialization" %}
+          {% include studydetail.html value=education.thesis key="Thesis" %}
+          {% include highlights.html highlights=education.highlights %}
+        </div>
       </div>
 
       <!--Specializationa and highlights-->
@@ -186,24 +188,26 @@ theme https://github.com/erming/jsonresume-theme-flat-->
       <h3>Skills</h3>
     </aside>
     <div class="section-content">
-      {% for skill in resume.skills %}
+      <div class="row">
+        {% for skill in resume.skills %}
 
-      <div class="skill">
-        <div class="name">
-          <h4>{{skill.name}}</h4>
+        <div class="skill">
+          <div class="name">
+            <h4>{{skill.name}}</h4>
+          </div>
+          {% if skill.keywords.size > 0 %}
+          <ul class="keywords">
+            {% for keyword in skill.keywords %}
+            <li>{{keyword}}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
         </div>
-        {% if skill.keywords.size > 0 %}
-        <ul class="keywords">
-          {% for keyword in skill.keywords %}
-          <li>{{keyword}}</li>
-          {% endfor %}
-        </ul>
+        {% if modulo == '0' or forloop.last %}
+        <!-- </div> -->
         {% endif %}
+        {% endfor %}
       </div>
-      {% if modulo == '0' or forloop.last %}
-      <!-- </div> -->
-      {% endif %}
-      {% endfor %}
     </div>
   </section>
 

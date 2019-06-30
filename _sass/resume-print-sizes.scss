@@ -10,11 +10,6 @@
   @extend .col-8;
 }
 
-.intro-content {
-  @extend .col-12;
-  padding-right: 20px;
-}
-
 .intro-left {
   @extend .col-12
 }
@@ -23,7 +18,7 @@
   @extend .rounded;
   height: 200px;
   position: absolute;
-  right: 40px;
+  right: 20px;
   top: 50px;
 }
 
@@ -39,8 +34,15 @@
   @extend .col-3;
 }
 
+.intro-content {
+  @extend .col-12;
+  @extend .row;
+  padding-right: 20px;
+}
+
 .contact {
   margin-top: 5px;
+  @extend .col-3;
 }
 
 .skill {
@@ -53,12 +55,6 @@
 
 .study-keyword {
   @extend .col-3;
-  padding-left: 7px;
-}
-
-.study-detail {
-  margin-bottom: 5px;
-  @extend .col-12;
 }
 
 .study-value {
@@ -67,4 +63,14 @@
 
 .section {
   margin-top: 15px;
+  page-break-inside: avoid;
+}
+
+#about.section {
+  @extend .col-10;
+  padding-left: 0px;
+}
+
+#profiles.section {
+  margin-top: 0px;
 }

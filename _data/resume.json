@@ -34,11 +34,11 @@
       "websiteLink": "https://www.liefery.com",
       "startDate": "11/2017",
       "endDate": "2/2019",
-      "summary": "Helping operations and partners deliver packages on the same day. Lead a team of 15 together with the CTO, handling the day-to-day needs of the team.",
+      "summary": "Lead a team of 15 together with the CTO, handling the day-to-day needs of the team.",
       "highlights": [
         "Help, mentor & guide colleagues through 1o1s, pairing sessions, pull request reviews and knowledge sharing sessions",
         "Run retrospective and iteration meetings, continously adapting and improving processes",
-        "Architect and design features with the teams",
+        "Architect and design features with the squads",
         "Monitor application performance and fix performance problems",
         "Screen and interview candidates",
         "Gather problems and requirements to define and discuss solutions",
@@ -54,7 +54,7 @@
       "endDate": "11/2017",
       "summary": "Helping operations and partners deliver packages on the same day.",
       "highlights": [
-        "Build and maintain applications to track shipments, plan tours and manage all required logistics data in Ruby on Rails, Elixir & Phoenix as well as JavaScript (AngularJS, React)",
+        "Build and maintain applications to track shipments, plan tours and manage all required logistics data in Ruby on Rails, Elixir and Phoenix as well as JavaScript (AngularJS, React)",
         "Identify and fix performance bottlenecks",
         "Stepped in for the CTO during a sabbatical",
         "Run retrospectives and others meetings"
@@ -63,11 +63,11 @@
     {
       "company": "bitcrowd",
       "position": "Software Engineer",
-      "website": "bitcrowd.net/",
+      "website": "bitcrowd.net",
       "websiteLink": "https://bitcrowd.net",
       "startDate": "01/2015",
       "endDate": "10/2016",
-      "summary": "Building great applications, helping companies blossom. Work as part of a team or team lead on customer projects small and big.",
+      "summary": "Building applications, helping companies blossom. Work as part of a team or team lead on customer projects small and big.",
       "highlights": [
         "Introduced practices such as retrospectives and CI-servers",
         "built the payment system for a big festival",
@@ -169,27 +169,6 @@
   "publications": [],
   "skills": [
     {
-      "name": "Programming",
-      "level": "Expert",
-      "keywords": [
-        "Object Oriented Programming (Ruby, Smalltalk)",
-        "Functional Programming (Elixir, functional JavaScript)",
-        "Web frameworks (Ruby on Rails, Phoenix)",
-        "Design Patterns"
-      ]
-    },
-    {
-      "name": "Web Development",
-      "level": "Advanced",
-      "keywords": [
-        "JavaScript/CoffeeScript",
-        "React",
-        "Angular",
-        "HTML",
-        "CSS"
-      ]
-    },
-    {
       "name": "Enginneering Practices",
       "level": "Expert",
       "keywords": [
@@ -197,6 +176,16 @@
         "Test Driven Development (RSpec, ExUnit, Jasmine...)",
         "Pair Programming",
         "Version Control (git)"
+      ]
+    },
+    {
+      "name": "Programming",
+      "level": "Expert",
+      "keywords": [
+        "Object Oriented Programming (Ruby, Smalltalk)",
+        "Functional Programming (Elixir, functional JavaScript)",
+        "Web frameworks (Ruby on Rails, Phoenix)",
+        "Design Patterns"
       ]
     },
     {
@@ -208,6 +197,17 @@
         "Mentoring and Teaching",
         "Empathy",
         "Project Inception"
+      ]
+    },
+    {
+      "name": "Web Development",
+      "level": "Advanced",
+      "keywords": [
+        "JavaScript",
+        "React",
+        "Angular",
+        "HTML",
+        "CSS"
       ]
     }
   ],
