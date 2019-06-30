@@ -30,11 +30,13 @@
 }
 
 .section-headline {
-  @extend .col-sm-2;
+  @extend .col-md-3;
+  @extend .col-lg-2;
 }
 
 .section-content {
-  @extend .col-sm-10;
+  @extend .col-md-9;
+  @extend .col-lg-10;
   @extend .row;
 }
 
@@ -52,6 +54,7 @@
 
 
 .skill {
+  @extend .col-12;
   @extend .col-sm-6;
 }
 
