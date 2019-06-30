@@ -19,9 +19,6 @@
   @extend .col-12
 }
 
-.cv-profile-picture {
-}
-
 #cv-picture {
   @extend .rounded;
   height: 200px;
@@ -36,7 +33,6 @@
 
 .section-content {
   @extend .col-12;
-  @extend .row;
 }
 
 .profile {
@@ -46,11 +42,6 @@
 .contact {
   margin-top: 5px;
 }
-
-.full-entry {
-  @extend .col-12;
-}
-
 
 .skill {
   @extend .col-6;

@@ -37,21 +37,16 @@
 .section-content {
   @extend .col-md-9;
   @extend .col-lg-10;
-  @extend .row;
 }
 
 .profile {
-  @extend .col-sm-3;
+  @extend .col-md-3;
+  @extend .col-4;
 }
 
 .contact {
   margin-bottom: 5px;
 }
-
-.full-entry {
-  @extend .col-sm-12;
-}
-
 
 .skill {
   @extend .col-12;
@@ -59,7 +54,8 @@
 }
 
 .language-container {
-  @extend .col-sm-3;
+  @extend .col-md-2;
+  @extend .col-3;
 }
 
 .study-detail {

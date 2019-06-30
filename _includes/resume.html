@@ -64,18 +64,16 @@ theme https://github.com/erming/jsonresume-theme-flat-->
     <aside class="section-headline print-hide">
       <h3>Profiles</h3>
     </aside>
-    <div class="section-content">
-      {% for profile in basics.profiles %}
-      <div class="profile">
-        <strong class="network">
-          {{profile.network}}
-        </strong>
-        <div class="username">
-          <a href="https://{{profile.url}}">{{profile.username}}</a>
-        </div>
+    {% for profile in basics.profiles %}
+    <div class="profile">
+      <strong class="network">
+        {{profile.network}}
+      </strong>
+      <div class="username">
+        <a href="https://{{profile.url}}">{{profile.username}}</a>
       </div>
-      {% endfor %}
     </div>
+    {% endfor %}
   </section>
 
   <section id="work" class="section">
@@ -202,6 +200,9 @@ theme https://github.com/erming/jsonresume-theme-flat-->
         </ul>
         {% endif %}
       </div>
+      {% if modulo == '0' or forloop.last %}
+      <!-- </div> -->
+      {% endif %}
       {% endfor %}
     </div>
   </section>
@@ -210,17 +211,15 @@ theme https://github.com/erming/jsonresume-theme-flat-->
     <aside class="section-headline">
       <h3>Languages</h3>
     </aside>
-    <div class="section-content">
-      {% for language in resume.languages %}
-      <div class="language-container">
-        <div class="language">
-          <strong>{{language.language}}</strong>
-        </div>
-        <div class="fluency">
-          {{language.fluency}}
-        </div>
+    {% for language in resume.languages %}
+    <div class="language-container">
+      <div class="language">
+        <strong>{{language.language}}</strong>
       </div>
-      {% endfor %}
+      <div class="fluency">
+        {{language.fluency}}
+      </div>
     </div>
-  </section>
+    {% endfor %}
+    </div>
 </article>
