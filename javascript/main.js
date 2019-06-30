@@ -1,16 +1,16 @@
-$(document).ready(function() {
+$(document).ready(function () {
   var FONT_MODIFIER = 0.9;
 
-  var resizeLogos = function() {
-    var fontSize = (FONT_MODIFIER * parseInt($("#profile-links .logo-space").width()))+"px";
+  var resizeLogos = function () {
+    var fontSize = (FONT_MODIFIER * parseInt($("#profile-links .logo-space").width())) + "px";
     $("#profile-links .my-icon").css('font-size', fontSize);
   };
 
-  const randomArrayElement = function(array) {
+  const randomArrayElement = function (array) {
     return array[Math.floor(Math.random() * array.length)];
   }
 
-  const displayRandomProfilePicture = function(pictures) {
+  const displayRandomProfilePicture = function (pictures) {
     $(".profile-picture").css("background-image", "url(images/profile/" + randomArrayElement(pictures) + ")");
   };
 
@@ -28,5 +28,5 @@ $(document).ready(function() {
   resizeLogos();
 
   $(window).resize(resizeLogos);
-  setInterval(function(){displayRandomProfilePicture(profilePictures);}, minute)
+  setInterval(function () { displayRandomProfilePicture(profilePictures); }, minute)
 });
