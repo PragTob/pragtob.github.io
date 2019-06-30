@@ -1,7 +1,11 @@
 $tobi-green: rgb(21, 214, 66);
 
-$theme-colors: (
-  "primary": $tobi-green
-);
+$primary: $tobi-green;
+// avoid overriding bootstrap white (although it's the same iirc)
+$my-white: rgb(255, 255, 255);
+
+$navbar-dark-color: rgba($my-white, .9);
+$navbar-dark-hover-color: $my-white;
+$navbar-dark-toggler-border-color: transparent;
 
 @import "vendor/bootstrap/bootstrap.scss";

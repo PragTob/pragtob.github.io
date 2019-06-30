@@ -6,30 +6,8 @@
 
 $tobi-green: rgb(21, 214, 66);
 
-.navbar-green {
-  // background-color: $tobi-green;
-  border-color:     rgb(27, 102, 0);
-  border:           0px;
-  border-radius:    0px;
-}
-
-.navbar-green .navbar-brand {
-  color: #FFFFFF;
-}
-
-.navbar-green .navbar-brand:hover,
-.navbar-green .navbar-brand:focus {
-  color: #FFFFFF;
-}
-
-.navbar-green .navbar-nav > li > a {
-  color: rgb(230, 250, 223);
-  font-weight: bolder;
-}
-
-.navbar-green .navbar-nav > li > a:hover,
-.navbar-green .navbar-nav > li > a:focus {
-  color: #FFFFFF;
+.navbar-nav > li > a {
+  font-weight: bold;
 }
 
 .my-icon {
@@ -49,18 +27,6 @@ $tobi-green: rgb(21, 214, 66);
   margin-bottom: 5px;
 }
 
-a {
-  color: $tobi-green;
-}
-
-a:hover, a:focus {
-  color: rgb(42, 175, 12);
-}
-
-.container {
-  max-width: 970px;
-}
-
 #projects i {
   margin-left: 5px;
 }
@@ -78,19 +44,6 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 20px;
 }
 
-#my-navbar-toggle {
-  border: 0px;
-}
-
-#my-navbar-toggle:hover,
-#my-navbar-toggle:focus {
-  background-color: rgb(44, 188, 10);
-}
-
-#my-navbar-toggle .icon-bar {
-  background-color: white;
-}
-
 @font-face {
   font-family: fira;
   src: url('/fonts/fira/FiraSansOT-Regular.otf') format('opentype');
@@ -105,19 +58,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .my-container {
-  margin-top: 80px;
+  margin-top: 30px;
 }
 
 .my-status {
   margin-left: 5px;
   margin-bottom: 21px;
-}
-
-#main-navigation {
-  border: 0px;
-  -webkit-box-shadow : 0 0 0;
-  -moz-box-shadow    : 0 0 0;
-  box-shadow         : 0 0 0;
 }
 
 .profile-picture {
@@ -126,8 +72,6 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   background-size: cover;
   background-position: center;
-
-  margin-top: 20px; // align with headline
 
   &:before {
     content: "";
