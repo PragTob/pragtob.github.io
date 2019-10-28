@@ -76,12 +76,8 @@
       "websiteLink": "https://bitcrowd.net",
       "startDate": "01/2015",
       "endDate": "10/2016",
-      "summary": "Building applications, helping companies blossom. Work as part of a team or team lead on customer project big and small.",
-      "highlights": [
-        "Introduced practices such as retrospectives and CI-servers",
-        "Built the payment system for a big festival",
-        "Mentored juniors"
-      ]
+      "summary": "Built applications, helping companies blossom. Worked as part of a team or team lead on customer projects big and small. <br> Introduced practices such as retrospectives and CI-servers and mentored juniors.",
+      "highlights": []
     },
     {
       "company": "Self-employed",
@@ -89,7 +85,7 @@
       "website": "",
       "startDate": "05/2013",
       "endDate": "09/2018",
-      "summary": "Occassionally I take on projects mostly related to teaching programming. Among other things I taught an introductory course at Humboldt-University Berlin multiple times.",
+      "summary": "Occassionally projects related to teaching programming, such as an introductory course at Humboldt-University Berlin.",
       "highlights": []
     }
   ],
