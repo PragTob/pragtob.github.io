@@ -28,11 +28,21 @@
   },
   "work": [
     {
+      "company": "Shopify",
+      "position": "Staff Developer",
+      "website": "www.shopify.com",
+      "websiteLink": "https://www.shopify.com/",
+      "startDate": "08/2020",
+      "endDate": "current",
+      "summary": "Accelerate international growth by helping merchants all over the globe.",
+      "highlights": []
+    },
+    {
       "company": "Self-employed",
       "position": "Freelance Leader, Developer & Consultant",
       "website": "",
       "startDate": "08/2019",
-      "endDate": "current",
+      "endDate": "07/2020",
       "summary": "Consulting, Teaching and Development. Up for interim CTO/Leader position as well as teaching and developing products.",
       "highlights": [
         "Helped a company develop their first Elixir project, introducing the technology to the team.",
