@@ -43,16 +43,17 @@
       "website": "",
       "startDate": "08/2019",
       "endDate": "07/2020",
-      "summary": "Consulting, Teaching and Development. Up for interim CTO/Leader position as well as teaching and developing products.",
+      "summary": "Consulting, Teaching and Development.",
       "highlights": [
-        "Helped a company develop their first Elixir project, introducing the technology to the team.",
+        "Helped a company develop their first Elixir project, introducing the technology to the team",
+        "Work on a complex microservice metrics visualization application",
         "Open Source Work on <a href='https://github.com/colszowka/simplecov'>SimpleCov</a> thanks to <a href='https://rubytogether.org/'>Ruby Together</a>",
-        "Consult on the design, architecture & implementation of an OSS project, including implementing changes"
+        "Consult on the design, architecture & implementation of an open source project, including implementation"
       ]
     },
     {
       "company": "Liefery",
-      "position": "Tech Lead",
+      "position": "Tech Lead (de facto Head of Engineering)",
       "website": "www.liefery.com",
       "websiteLink": "https://www.liefery.com",
       "startDate": "11/2017",
@@ -70,7 +71,7 @@
     },
     {
       "company": "Liefery",
-      "position": "Senior Software Developer",
+      "position": "Senior Software Developer (de facto Team Lead)",
       "website": "www.liefery.com",
       "websiteLink": "https://www.liefery.com",
       "startDate": "01/2017",
