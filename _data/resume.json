@@ -47,7 +47,7 @@
       "highlights": [
         "Helped a company develop their first Elixir project, introducing the technology to the team",
         "Work on a complex microservice metrics visualization application",
-        "Open Source Work on <a href='https://github.com/colszowka/simplecov'>SimpleCov</a> thanks to <a href='https://rubytogether.org/'>Ruby Together</a>",
+        "Open Source Work on <a href='https://github.com/simplecov-ruby/simplecov'>SimpleCov</a> thanks to <a href='https://rubytogether.org/'>Ruby Together</a>",
         "Consult on the design, architecture & implementation of an open source project, including implementation"
       ]
     },
@@ -124,8 +124,8 @@
       "summary": "I live and breathe Open Source and contribute to a variety of projects. This is a selection of bigger projects I maintain.",
       "highlights": [
         "<strong><a href=\"https://github.com/bencheeorg/benchee\">benchee</a></strong> a powerful and extensible benchmarking library for elixir and erlang",
-        "<strong><a href=\"https://github.com/shoes/shoes4\">Shoes</a></strong> an easy to use GUI toolkit written in JRuby that I also participated in <a href=\"https://https://summerofcode.withgoogle.com/\">Google Summer of Code</a> with",
-        "<strong><a href=\"https://github.com/colszowka/simplecov\">simplecov</a></strong> the popular ruby code coverage tool"
+        "<strong><a href=\"https://github.com/simplecov-ruby/simplecov\">simplecov</a></strong> the popular ruby code coverage tool",
+        "<strong><a href=\"https://github.com/shoes/shoes4\">Shoes</a></strong> an easy to use GUI toolkit written in JRuby that I also participated in <a href=\"https://https://summerofcode.withgoogle.com/\">Google Summer of Code</a> with"
       ],
       "anonymous": {
         "organization": "Open Source",
