@@ -82,29 +82,38 @@ theme https://github.com/erming/jsonresume-theme-flat-->
     </aside>
     <div class="section-content">
       {% for work in resume.work %}
-      {% if anonymous and work.anonymous %}
-      {% assign summary = work.anonymous.summary %}
-      {% else %}
-      {% assign summary = work.summary %}
-      {% endif %}
-      <div class="full-entry">
-        <h4 class="entry-header">
-          <span class="institution">{{work.company}}</span>
-          <span class="date">
-            {{work.startDate}} — {{work.endDate}}
-          </span>
-        </h4>
-        <div class="website pull-right">
-          <a href="{{work.websiteLink}}">{{work.website}}</a>
-        </div>
-        <div class="position">
-          {{work.position}}
-        </div>
-        <div class="summary">
-          <p>{{summary}}</p>
-        </div>
+        {% if anonymous and work.anonymous %}
+          {% assign summary = work.anonymous.summary %}
+        {% else %}
+          {% assign summary = work.summary %}
+        {% endif %}
+        <div class="full-entry">
+          <h4 class="entry-header">
+            <span class="institution">
+              {% if work.websiteLink %}
+                <a href="{{work.websiteLink}}">{{work.company}}</a>
+              {% else %}
+                {{work.company}}
+              {% endif %}
+            </span>
+
+            <hr class="divider"/>
+
+            <span class="date">
+              {{work.startDate}} — {{work.endDate}}
+            </span>
+          </h4>
+
+          <div class="position">
+            {{work.position}}
+          </div>
+          <div class="summary">
+            <p>{{summary}}</p>
+          </div>
+
         {% include highlights.html highlights=work.highlights %}
-      </div>
+
+        </div>
       {% endfor %}
     </div>
   </section>
@@ -116,33 +125,39 @@ theme https://github.com/erming/jsonresume-theme-flat-->
     </aside>
     <div class="section-content">
       {% for volunteer in resume.volunteer %}
-      {% if anonymous and volunteer.anonymous %}
-      {% assign organization = volunteer.anonymous.organization %}
-      {% assign summary = volunteer.anonymous.summary %}
-      {% assign website = volunteer.anonymous.website %}
-      {% else %}
-      {% assign organization = volunteer.organization %}
-      {% assign summary = volunteer.summary %}
-      {% assign website = volunteer.website %}
-      {% endif %}
-      <div class="full-entry">
-        <h4 class="entry-header">
-          <span class="institution">{{organization}}</span>
-          <span class="date">
-            {{volunteer.startDate}} — {{volunteer.endDate}}
-          </span>
-        </h4>
-        <div class="website pull-right">
-          <a href="{{volunteer.websiteLink}}">{{website}}</a>
+        {% if anonymous and volunteer.anonymous %}
+          {% assign organization = volunteer.anonymous.organization %}
+          {% assign summary = volunteer.anonymous.summary %}
+          {% assign website = volunteer.anonymous.website %}
+        {% else %}
+          {% assign organization = volunteer.organization %}
+          {% assign summary = volunteer.summary %}
+          {% assign website = volunteer.website %}
+        {% endif %}
+        <div class="full-entry">
+          <h4 class="entry-header">
+            <span class="institution">
+              {% if volunteer.websiteLink %}
+                <a href="{{volunteer.websiteLink}}">{{organization}}</a>
+              {% else %}
+                {{organization}}
+              {% endif %}
+            </span>
+
+            <hr class="divider"/>
+
+            <span class="date">
+              {{volunteer.startDate}} — {{volunteer.endDate}}
+            </span>
+          </h4>
+          <div class="position">
+            {{volunteer.position}}
+          </div>
+          <div class="summary">
+            <p>{{summary}}</p>
+          </div>
+          {% include highlights.html highlights=volunteer.highlights %}
         </div>
-        <div class="position">
-          {{volunteer.position}}
-        </div>
-        <div class="summary">
-          <p>{{summary}}</p>
-        </div>
-        {% include highlights.html highlights=volunteer.highlights %}
-      </div>
       {% endfor %}
     </div>
   </section>
@@ -155,9 +170,12 @@ theme https://github.com/erming/jsonresume-theme-flat-->
     </aside>
     <div class="section-content">
       {% for education in resume.education %}
-      <div class="full-entry">
+      <div class="full-entry education">
         <h4 class="entry-header">
           <span class="institution">{{education.institution}}</span>
+
+          <hr class="divider"/>
+
           <span class="date">
             {{education.startDate}} — {{education.endDate}}
           </span>

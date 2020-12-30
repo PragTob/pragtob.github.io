@@ -19,30 +19,29 @@ h5 {
 
 .position {
   font-weight: bold;
+  margin-top: 5px;
   margin-bottom: 8px;
 }
 
 .entry-header {
-  border-top: 1px solid #ddd;
-  height: 20px;
+  display: flex;
+  align-items: center;
   margin-top: 12px;
   margin-bottom: -2px;
-  position: relative;
 }
-.entry-header span,
-.entry-header a {
-  background: #fff;
-  position: absolute;
-}
-.entry-header .institution {
-  padding-right: 20px;
-  margin-top: -12px;
-}
+
 .entry-header .date {
   font-size: 14px;
-  margin-top: -10px;
-  padding-left: 20px;
-  right: 0;
+}
+
+hr.divider {
+  border-color: #ddd;
+  flex-grow: 1;
+  margin: 0 15px;
+}
+
+.full-entry.education {
+  margin-bottom: 15px;
 }
 
 #education .area {
@@ -52,10 +51,6 @@ h5 {
 
 #education .study-type {
   margin-left: 23px;
-}
-
-.full-entry {
-  margin-top: 20px;
 }
 
 .introduction-content, .full-entry {

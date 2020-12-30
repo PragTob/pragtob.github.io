@@ -66,6 +66,11 @@
   page-break-inside: avoid;
 }
 
+// "hack" so that it doesn't leave 2/3 of the first page empty :(
+.section#work {
+  page-break-inside: auto;
+}
+
 #about.section {
   @extend .col-10;
   padding-left: 0px;
