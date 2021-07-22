@@ -28,12 +28,22 @@
   },
   "work": [
     {
+      "company": "Remote",
+      "position": "Staff Engineer",
+      "website": "www.remote.com",
+      "websiteLink": "https://remote.com/",
+      "startDate": "04/2021",
+      "endDate": "current",
+      "summary": "Working on a big Elixir & Phoenix application with a focus on the payments domain, meeting business demans, suggesting and implementing improvements.",
+      "highlights": []
+    },
+    {
       "company": "Shopify",
       "position": "Staff Developer",
       "website": "www.shopify.com",
       "websiteLink": "https://www.shopify.com/",
       "startDate": "08/2020",
-      "endDate": "current",
+      "endDate": "03/2021",
       "summary": "Engineering Lead for a team working in the Shipping domain.",
       "highlights": []
     },
