@@ -10,9 +10,9 @@
     "anonymous_summary": "I am a full-stack engineer & leader deeply interested in agile methodologies, web technologies, software crafting and teaching. I contribute to a variety of open source projects, engage in a multitude of community events, enjoy attending and speaking at conferences.",
     "profiles": [
       {
-        "network": "Twitter",
-        "username": "@PragTob",
-        "url": "twitter.com/PragTob"
+        "network": "Twitter/X",
+        "username": "PragTob",
+        "url": "x.com/PragTob"
       },
       {
         "network": "GitHub",
@@ -29,13 +29,17 @@
   "work": [
     {
       "company": "Remote",
-      "position": "Staff Engineer",
+      "position": "Senior Staff Engineer (18 months) / Staff Engineer (13 months)",
       "website": "www.remote.com",
       "websiteLink": "https://remote.com/",
       "startDate": "04/2021",
-      "endDate": "current",
-      "summary": "Working on a big Elixir & Phoenix application with a focus on the payments domain, meeting business demands, suggesting and implementing improvements.",
-      "highlights": []
+      "endDate": "10/2023",
+      "summary": "Working on a big Elixir & Phoenix monolith with a focus on the payments domain, automating processes to ensure safe, quick & reliable payments while improving processes and technology company wide.",
+      "highlights": [
+        "Introduced Background Job System to guarantee reliable asynchronous execution",
+        "Improved processes such as branching strategy (death to long lived branches!) and the RFC process itself",
+        "Advocated for hiring non Elixir engineers & setup a training camp and mentoring structure to help them succeed"
+      ]
     },
     {
       "company": "Shopify",
@@ -66,7 +70,7 @@
       "company": "Liefery",
       "position": "Tech Lead (de facto Head of Engineering)",
       "website": "www.liefery.com",
-      "websiteLink": "https://www.liefery.com",
+      "websiteLink": "https://www.handelsblatt.com/unternehmen/mittelstand/familienunternehmer/logistik-hermes-macht-liefertochter-dicht-zum-aerger-von-kunden-wie-hellofresh-und-apple/26667462.html",
       "startDate": "11/2017",
       "endDate": "2/2019",
       "summary": "Led a team of 15 together with the CTO, handling the day-to-day needs of the team.",
@@ -84,7 +88,7 @@
       "company": "Liefery",
       "position": "Senior Software Developer (de facto Team Lead)",
       "website": "www.liefery.com",
-      "websiteLink": "https://www.liefery.com",
+      "websiteLink": "https://www.handelsblatt.com/unternehmen/mittelstand/familienunternehmer/logistik-hermes-macht-liefertochter-dicht-zum-aerger-von-kunden-wie-hellofresh-und-apple/26667462.html",
       "startDate": "01/2017",
       "endDate": "11/2017",
       "summary": "Helped operations and partners deliver packages on the same day.",
@@ -167,7 +171,7 @@
       "organization": "Rails Girls / code curious",
       "position": "Coach & Mentor",
       "website": "railsgirlsberlin.de",
-      "websiteLink": "http://railsgirlsberlin.de/",
+      "websiteLink": "https://github.com/codecurious-bln",
       "startDate": "06/2012",
       "endDate": "current",
       "summary": "Rails Girls helps to diversify the tech community by helping beginners to get in touch with programming. I coach at workshops and since 2013 I also coach a weekly project group, the <a href=\"http://rubycorns.club/\">rubycorns</a>, helping attendees grow into Juniors & beyond.",
