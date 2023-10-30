@@ -52,7 +52,7 @@
       "websiteLink": "https://www.shopify.com/",
       "startDate": "08/2020",
       "endDate": "03/2021",
-      "summary": "Engineering Lead for a team working in the Shipping domain.",
+      "summary": "Engineering Lead for a team working on topics ranging from local market adaptation, to legal and delivery promise.",
       "highlights": []
     },
     {
@@ -144,7 +144,7 @@
       "highlights": [
         "<strong><a href=\"https://github.com/bencheeorg/benchee\">benchee</a></strong> a powerful and extensible benchmarking library for elixir and erlang",
         "<strong><a href=\"https://github.com/simplecov-ruby/simplecov\">simplecov</a></strong> the popular ruby code coverage tool",
-        "<strong><a href=\"https://github.com/shoes/shoes4\">Shoes</a></strong> an easy to use GUI toolkit written in JRuby that I also participated in <a href=\"https://https://summerofcode.withgoogle.com/\">Google Summer of Code</a> with"
+        "<strong><a href=\"https://github.com/shoes/shoes4\">Shoes</a></strong> an easy to use GUI toolkit written in JRuby that I also worked on as part of <a href=\"https://https://summerofcode.withgoogle.com/\">Google Summer of Code</a>"
       ],
       "anonymous": {
         "organization": "Open Source",
