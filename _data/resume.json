@@ -36,10 +36,14 @@
       "endDate": "10/2023",
       "summary": "Working on a big Elixir & Phoenix monolith with a focus on the payments domain, automating processes to ensure safe, quick & reliable payments while improving processes and technology company wide.",
       "highlights": [
+        "Implemented multiple features to help our payments efficiency and product offering: autamtic invoice payments, automate salary payments integrating with the bank via PAIN XML files, enable direct debit for huge sums & allowing non local currencies",
+        "Design and Implementation of central payment projects aiming to incorporate more providers",
+        "Most senior engineer for a long time, involved in high level technology decision making",
         "Introduced Background Job System to guarantee reliable asynchronous execution",
         "Improved processes such as branching strategy (death to long lived branches!) and the RFC process itself",
         "Advocated for hiring non Elixir engineers & setup a training camp and mentoring structure to help them succeed"
-      ]
+      ],
+      "comment": "something to talk about how many people were sad that I left"
     },
     {
       "company": "Shopify",
