@@ -180,12 +180,15 @@ theme https://github.com/erming/jsonresume-theme-flat-->
           {% endif %}
           {{education.area}}
         </div>
-        <div class="row">
+        <div class="summary">
+          <p>{{education.summary}}</p>
+        </div>
+          {% comment %}
           {% include studydetail.html value=education.gpa key="Final Grade" %}
           {% include studydetail.html value=education.specialization key="Specialization" %}
           {% include studydetail.html value=education.thesis key="Thesis" %}
           {% include highlights.html highlights=education.highlights %}
-        </div>
+          {% endcomment %}
       </div>
 
       <!--Specializationa and highlights-->

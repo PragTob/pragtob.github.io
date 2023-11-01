@@ -184,7 +184,7 @@
   ],
   "education": [
     {
-      "institution": "Hasso Plattner Institute",
+      "institution": "Hasso Plattner Institute / Blekinge Institute of Technology (Erasmus)",
       "area": "IT-Systems Engineering",
       "studyType": "Bachelor & Master",
       "startDate": "2008",
@@ -192,15 +192,7 @@
       "gpa": "1.2 (A)",
       "specialization": "Software Architecture & Internet Security",
       "thesis": "Collaborative Learning in a Massive Open Online Course environment",
-      "highlights": []
-    },
-    {
-      "institution": "Blekinge Institute of Technology",
-      "area": "Software Engineering",
-      "studyType": "ERASMUS Master",
-      "startDate": "08/2011",
-      "endDate": "03/2012",
-      "specialization": "Agile Software Project Management",
+      "summary": "Final grade: 1.2 (A), Specialization in Software Architecture, Internet Security, agile & distributed software development",
       "highlights": []
     }
   ],
