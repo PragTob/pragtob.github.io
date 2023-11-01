@@ -6,7 +6,7 @@
     "email": "tobi@pragtob.info",
     "phone": "+49 160 205 0792",
     "website": "pragtob.info",
-    "summary": "I am an experienced leader & engineer deeply interested in collaboratively building useful products and continously improving them. I'm happiest when I can remove blockers and help people. I am fascinated with the human side of software development, love mentoring and am always striving to hit the right balance between delivering value and ensuring we're best setup to continue delivering going forward. I create and contribute to a variety of open source projects, engage in a multitude of community events, and enjoy attending and <a href='http://pragtob.info/talks'>speaking</a> at conferences.",
+    "summary": "I am an experienced leader & engineer deeply interested in collaboratively building useful products and continously improving them. Most recently I worked as a Senior Staff Engineer, but I also have experience in and enjoy being a manager. I'm happiest when I can remove blockers and help people. I am fascinated with the human side of software development, love mentoring and am always striving to hit the right balance between delivering value and ensuring we're best setup to continue delivering going forward. I create and contribute to a variety of open source projects, engage in a multitude of community events, and enjoy attending and <a href='http://pragtob.info/talks'>speaking</a> at conferences.",
     "anonymous_summary": "I am a full-stack engineer & leader deeply interested in agile methodologies, web technologies, software crafting and teaching. I contribute to a variety of open source projects, engage in a multitude of community events, enjoy attending and speaking at conferences.",
     "profiles": [
       {
@@ -216,11 +216,12 @@
         "Object Oriented Programming (Ruby, Smalltalk)",
         "Functional Programming (Elixir, functional JavaScript)",
         "Web frameworks (Ruby on Rails, Phoenix)",
-        "Design Patterns"
+        "Benchmarking & Performance Improvements",
+        "Web Technologies (HTML, CSS, JavaScript, JSON...)"
       ]
     },
     {
-      "name": "Leadership Skills",
+      "name": "Leadership & Communication Skills",
       "level": "Advanced",
       "keywords": [
         "Run and moderate meeetings such as Retrospectives",
@@ -231,14 +232,14 @@
       ]
     },
     {
-      "name": "Web Development",
+      "name": "System Architecture",
       "level": "Advanced",
       "keywords": [
-        "JavaScript",
-        "React",
-        "Angular",
-        "HTML",
-        "CSS"
+        "Database Design (SQL)",
+        "Domain Driven Design",
+        "Design Patterns",
+        "Monoliths, microservices and the in-between",
+        "APIs (modules, REST)"
       ]
     }
   ],
