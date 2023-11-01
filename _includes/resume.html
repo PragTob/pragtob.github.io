@@ -111,27 +111,27 @@ theme https://github.com/erming/jsonresume-theme-flat-->
     </div>
   </section>
 
-  {% if resume.volunteer %}
-  <section id="volunteer" class="section">
+  {% if resume.community %}
+  <section id="community" class="section">
     <aside class="section-headline">
-      <h3>Volunteer</h3>
+      <h3>Community</h3>
     </aside>
     <div class="section-content">
-      {% for volunteer in resume.volunteer %}
-        {% if anonymous and volunteer.anonymous %}
-          {% assign organization = volunteer.anonymous.organization %}
-          {% assign summary = volunteer.anonymous.summary %}
-          {% assign website = volunteer.anonymous.website %}
+      {% for community in resume.community %}
+        {% if anonymous and community.anonymous %}
+          {% assign organization = community.anonymous.organization %}
+          {% assign summary = community.anonymous.summary %}
+          {% assign website = community.anonymous.website %}
         {% else %}
-          {% assign organization = volunteer.organization %}
-          {% assign summary = volunteer.summary %}
-          {% assign website = volunteer.website %}
+          {% assign organization = community.organization %}
+          {% assign summary = community.summary %}
+          {% assign website = community.website %}
         {% endif %}
         <div class="full-entry">
           <h4 class="entry-header">
             <span class="institution">
-              {% if volunteer.websiteLink %}
-                <a href="{{volunteer.websiteLink}}">{{organization}}</a>
+              {% if community.websiteLink %}
+                <a href="{{community.websiteLink}}">{{organization}}</a>
               {% else %}
                 {{organization}}
               {% endif %}
@@ -140,16 +140,16 @@ theme https://github.com/erming/jsonresume-theme-flat-->
             <hr class="divider"/>
 
             <span class="date">
-              {{volunteer.startDate}} — {{volunteer.endDate}}
+              {{community.startDate}} — {{community.endDate}}
             </span>
           </h4>
           <div class="position">
-            {{volunteer.position}}
+            {{community.position}}
           </div>
           <div class="summary">
             <p>{{summary}}</p>
           </div>
-          {% include highlights.html highlights=volunteer.highlights %}
+          {% include highlights.html highlights=community.highlights %}
         </div>
       {% endfor %}
     </div>

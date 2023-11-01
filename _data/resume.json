@@ -123,7 +123,7 @@
       "highlights": []
     }
   ],
-  "volunteer": [
+  "community": [
     {
       "organization": "Conferences",
       "position": "Speaker, Program Committee Member & Organizer",
@@ -138,7 +138,7 @@
       "position": "Creator, Maintainer & Contributor",
       "website": "GitHub",
       "websiteLink": "https://github.com/PragTob/",
-      "startDate": "06/2012",
+      "startDate": "08/2011",
       "endDate": "current",
       "summary": "I live and breathe Open Source and contribute to a variety of projects. This is a selection of bigger projects I maintain.",
       "highlights": [
