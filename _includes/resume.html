@@ -18,7 +18,7 @@ theme https://github.com/erming/jsonresume-theme-flat-->
     </div>
   </header>
 
-  <div id="contact" class="section">
+  <section id="contact" class="section">
     <aside class="section-headline">
       <h3>Contact</h3>
     </aside>
@@ -37,20 +37,6 @@ theme https://github.com/erming/jsonresume-theme-flat-->
         <a href="http://{{basics.website}}">{{basics.website}}</a>
       </div>
     </div>
-  </div>
-
-  <section id="about" class="section">
-    <aside class="section-headline">
-      <h3>About</h3>
-    </aside>
-    {% if anonymous %}
-    {% assign summary = basics.anonymous_summary %}
-    {% else %}
-    {% assign summary = basics.summary %}
-    {% endif %}
-    <div class="section-content">
-      <p>{{summary}}</p>
-    </div>
   </section>
 
   <section id="profiles" class="section">
@@ -67,6 +53,20 @@ theme https://github.com/erming/jsonresume-theme-flat-->
       </div>
     </div>
     {% endfor %}
+  </section>
+
+  <section id="about" class="section">
+    <aside class="section-headline">
+      <h3>About</h3>
+    </aside>
+    {% if anonymous %}
+    {% assign summary = basics.anonymous_summary %}
+    {% else %}
+    {% assign summary = basics.summary %}
+    {% endif %}
+    <div class="section-content">
+      <p>{{summary}}</p>
+    </div>
   </section>
 
   <section id="work" class="section">
