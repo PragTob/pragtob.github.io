@@ -6,7 +6,7 @@
     "email": "tobi@pragtob.info",
     "phone": "+49 160 205 0792",
     "website": "pragtob.info",
-    "summary": "I am a leader & full-stack engineer deeply interested in agile methodologies, web technologies, software crafting and teaching. I'm happiest when I can remove blockers for the the team and the client. I am fascinated with the human side of software development and love creating products that help people. I create and contribute to a variety of open source projects, engage in a multitude of community events, and enjoy attending and <a href='http://pragtob.info/talks'>speaking</a> at conferences.",
+    "summary": "I am an experienced leader & engineer deeply interested in collaboratively building useful products and continously improving them. I'm happiest when I can remove blockers and help people. I am fascinated with the human side of software development, love mentoring and am always striving to hit the right balance between delivering value and ensuring we're best setup to continue delivering going forward. I create and contribute to a variety of open source projects, engage in a multitude of community events, and enjoy attending and <a href='http://pragtob.info/talks'>speaking</a> at conferences.",
     "anonymous_summary": "I am a full-stack engineer & leader deeply interested in agile methodologies, web technologies, software crafting and teaching. I contribute to a variety of open source projects, engage in a multitude of community events, enjoy attending and speaking at conferences.",
     "profiles": [
       {
@@ -37,11 +37,11 @@
       "websiteLink": "https://remote.com/",
       "startDate": "04/2021",
       "endDate": "10/2023",
-      "summary": "Working on a big Elixir & Phoenix monolith with a focus on the payments domain, automating processes to ensure safe, quick & reliable payments while improving processes and technology company wide.",
+      "summary": "Working on a big Elixir & Phoenix monolith with a focus on the payments domain, automating processes to ensure safe, quick & reliable payments of millions while improving processes and technology company wide.",
       "highlights": [
-        "Implemented multiple features to help our payments efficiency and product offering: autamtic invoice payments, automate salary payments integrating with the bank via PAIN XML files, enable direct debit for huge sums & allowing non local currencies",
+        "Implemented multiple features to help our payments efficiency and product offering: automatic invoice payments, bank integration via PAIN XML to automate salary payments, enable direct debit for huge sums & allowing non local currencies",
         "Design and Implementation of central payment projects aiming to incorporate more providers",
-        "Most senior engineer for a long time, involved in high level technology decision making",
+        "Most senior engineer individual contributor for a long time, involved in high level technology decision making",
         "Introduced Background Job System to guarantee reliable asynchronous execution",
         "Improved processes such as branching strategy (death to long lived branches!) and the RFC process itself",
         "Advocated for hiring non Elixir engineers & setup a training camp and mentoring structure to help them succeed"
@@ -55,7 +55,7 @@
       "websiteLink": "https://www.shopify.com/",
       "startDate": "08/2020",
       "endDate": "03/2021",
-      "summary": "Engineering Lead for a team working on topics ranging from local market adaptation, to legal and delivery promise.",
+      "summary": "Engineering Lead for a team working in Ruby on Rails on topics ranging from local market adaptation, to legal and delivery promise.",
       "highlights": []
     },
     {
@@ -68,9 +68,9 @@
       "summary": "Consulting, Teaching and Development.",
       "highlights": [
         "Helped a company develop their first Elixir project, introducing the technology to the team",
-        "Work on a complex microservice metrics visualization application",
-        "Open Source Work on <a href='https://github.com/simplecov-ruby/simplecov'>SimpleCov</a> thanks to <a href='https://rubytogether.org/'>Ruby Together</a>",
-        "Consult on the design, architecture & implementation of an open source project, including implementation"
+        "Work on a complex microservice metrics visualization application in Ruby & NodeJS",
+        "Open Source Work on the code coverage tool <a href='https://github.com/simplecov-ruby/simplecov'>SimpleCov</a> thanks to <a href='https://rubytogether.org/'>Ruby Together</a>",
+        "Consulted on the design, architecture & implementation of an open source project, including implementation"
       ]
     },
     {
@@ -80,7 +80,7 @@
       "websiteLink": "https://www.handelsblatt.com/unternehmen/mittelstand/familienunternehmer/logistik-hermes-macht-liefertochter-dicht-zum-aerger-von-kunden-wie-hellofresh-und-apple/26667462.html",
       "startDate": "11/2017",
       "endDate": "2/2019",
-      "summary": "Led a team of 15 together with the CTO, handling the day-to-day needs of the team.",
+      "summary": "Led a product department of 15 together with the CTO, handling the day-to-day needs of the team.",
       "highlights": [
         "Helped, mentored & guided colleagues through 1o1s, pairing sessions, pull request reviews and knowledge sharing sessions",
         "Ran retrospective and iteration meetings, continously adapting and improving processes",
@@ -98,12 +98,9 @@
       "websiteLink": "https://www.handelsblatt.com/unternehmen/mittelstand/familienunternehmer/logistik-hermes-macht-liefertochter-dicht-zum-aerger-von-kunden-wie-hellofresh-und-apple/26667462.html",
       "startDate": "01/2017",
       "endDate": "11/2017",
-      "summary": "Helped operations and partners deliver packages on the same day.",
+      "summary": "Built and maintained applications to track shipments, plan tours and manage all required logistics data in Ruby on Rails, Elixir and Phoenix as well as JavaScript (AngularJS, React).",
       "highlights": [
-        "Built and maintained applications to track shipments, plan tours and manage all required logistics data in Ruby on Rails, Elixir and Phoenix as well as JavaScript (AngularJS, React)",
-        "Stepped in for the CTO during a sabbatical",
-        "Identified and fix performance bottlenecks",
-        "Ran retrospective and others meetings"
+        "Functioned as interim-CTO during a sabbatical"
       ]
     },
     {
@@ -143,7 +140,7 @@
       "websiteLink": "https://github.com/PragTob/",
       "startDate": "08/2011",
       "endDate": "current",
-      "summary": "I live and breathe Open Source and contribute to a variety of projects. This is a selection of bigger projects I maintain.",
+      "summary": "I live and breathe Open Source and contribute to a variety of projects. This is a selection of bigger projects I maintain or maintained.",
       "highlights": [
         "<strong><a href=\"https://github.com/bencheeorg/benchee\">benchee</a></strong> a powerful and extensible benchmarking library for elixir and erlang",
         "<strong><a href=\"https://github.com/simplecov-ruby/simplecov\">simplecov</a></strong> the popular ruby code coverage tool",
@@ -164,7 +161,7 @@
       "websiteLink": "http://rug-b.de",
       "startDate": "10/2012",
       "endDate": "current",
-      "summary": "A monthly meetup about Ruby and related technologies, with anywhere between 40-120 attendees.  Co-created the <a href='http://berlincodeofconduct.org'>Berlin Code of Conduct</a> to ensure and promote a safe environment.",
+      "summary": "A monthly meetup about Ruby and related technologies, with anywhere between 40-120 attendees. Co-created the <a href='http://berlincodeofconduct.org'>Berlin Code of Conduct</a> to ensure and promote a safe environment.",
       "highlights": [],
       "anonymous": {
         "organization": "Programming Language Related User Group",
