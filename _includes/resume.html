@@ -24,18 +24,13 @@ theme https://github.com/erming/jsonresume-theme-flat-->
     </aside>
 
     <div class="contact">
-      <strong>Email</strong>
-      <div class="email"><a href="mailto:{{basics.email}}">{{basics.email}}</a></div>
+      <div class="email"><i class="fa fa-envelope" title="Email"></i> <a href="mailto:{{basics.email}}">{{basics.email}}</a></div>
     </div>
     <div class="contact">
-      <strong>Phone</strong>
-      <div class="phone">{{basics.phone}}</div>
+      <i class="fa fa-phone" title="Phone"></i> {{basics.phone}}
     </div>
     <div class="contact">
-      <strong>Website</strong>
-      <div class="website">
-        <a href="http://{{basics.website}}">{{basics.website}}</a>
-      </div>
+      <i class="fa fa-info" title="Website"></i> <a href="http://{{basics.website}}">{{basics.website}}</a>
     </div>
   </section>
 
@@ -45,12 +40,7 @@ theme https://github.com/erming/jsonresume-theme-flat-->
     </aside>
     {% for profile in basics.profiles %}
     <div class="profile">
-      <strong class="network">
-        {{profile.network}}
-      </strong>
-      <div class="username">
-        <a href="https://{{profile.url}}">{{profile.username}}</a>
-      </div>
+        <i class="fab {{profile.iconClass}}" title="{{profile.network}}"></i> <a href="https://{{profile.url}}">{{profile.username}}</a>
     </div>
     {% endfor %}
   </section>

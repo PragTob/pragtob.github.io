@@ -3,7 +3,7 @@
     "name": "Tobias Pfeiffer",
     "label": "Software Engineer",
     "picture": "",
-    "email": "tobias.pfeiffer@pragtob.info",
+    "email": "tobi@pragtob.info",
     "phone": "+49 160 205 0792",
     "website": "pragtob.info",
     "summary": "I am a leader & full-stack engineer deeply interested in agile methodologies, web technologies, software crafting and teaching. I'm happiest when I can remove blockers for the the team and the client. I am fascinated with the human side of software development and love creating products that help people. I create and contribute to a variety of open source projects, engage in a multitude of community events, and enjoy attending and <a href='http://pragtob.info/talks'>speaking</a> at conferences.",
@@ -12,16 +12,19 @@
       {
         "network": "Twitter/X",
         "username": "PragTob",
+        "iconClass": "fa-twitter",
         "url": "x.com/PragTob"
       },
       {
         "network": "GitHub",
         "username": "PragTob",
+        "iconClass": "fa-github",
         "url": "github.com/PragTob"
       },
       {
         "network": "Blog",
         "username": "PragTob",
+        "iconClass": "fa-wordpress",
         "url": "pragtob.wordpress.com"
       }
     ]
