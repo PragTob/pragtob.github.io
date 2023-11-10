@@ -6,7 +6,7 @@
     "email": "tobi@pragtob.info",
     "phone": "+49 160 205 0792",
     "website": "pragtob.info",
-    "summary": "I am an experienced leader & engineer deeply interested in collaboratively building useful products and continously improving them. Most recently I worked as a Senior Staff Engineer, but I also have experience in and enjoy being a manager. I'm happiest when I can remove blockers and help people. I am fascinated with the human side of software development, love mentoring and am always striving to hit the right balance between delivering value and ensuring we're best setup to continue delivering going forward. I create and contribute to a variety of open source projects, engage in a multitude of community events, and enjoy attending and <a href='http://pragtob.info/talks'>speaking</a> at conferences.",
+    "summary": "I'm an experienced leader & engineer deeply interested in <strong>collaboratively building useful products</strong> with experience ranging from <strong>small startups to scaling unicorns</strong>. I'm a <strong>strong communicator</strong> and I always look to <strong>fill the gaps</strong>. Most of my experience is in <strong>Elixir, Ruby and SQL</strong> while I have also worked with JavaScript. I love <strong><a href='https://pragtob.info/projects#oss'>Open Source</a></strong>, partifcipating in the <a href='https://pragtob.info/projects#community'>community</a> and giving <a href='https://pragtob.info/talks'>talks</a>.<br>Most recently I worked as a Senior Staff Engineer, but I also have experience in and enjoy being a manager. I'm happiest when I can remove blockers and <strong>help people</strong>. I am fascinated with the <strong>human side</strong> of software development, love mentoring and am always striving to hit <strong>the right balance</strong> between delivering value now and ensuring we're best setup to deliver more value later.",
     "anonymous_summary": "I am a full-stack engineer & leader deeply interested in agile methodologies, web technologies, software crafting and teaching. I contribute to a variety of open source projects, engage in a multitude of community events, enjoy attending and speaking at conferences.",
     "profiles": [
       {
@@ -130,8 +130,11 @@
       "website": "",
       "startDate": "05/2012",
       "endDate": "current",
-      "summary": "I like to speak at conferences to share knowledge and spread ideas. I have spoken at conferences such as Ruby On Ice, Lambdadays, Polyconf and Full Stack Fest (<a href='http://pragtob.info/talks'>overview of my talks</a>). I also helped organize JRubyConf & eurucamp 2015 and was a member of the program committee of GOTO Berlin 2014.",
-      "highlights": []
+      "summary": "I like to speak at conferences to share knowledge and spread ideas. I have spoken at conferences such as Øredev, Lambdadays, Polyconf and Full Stack Fest (<a href='http://pragtob.info/talks'>overview of my talks</a>). I also helped organize JRubyConf & eurucamp 2015 and was a member of the program committee of GOTO Berlin 2014.",
+      "highlights": [
+        "My talks cover a wide range, from <a href='https://www.pragtob.info/talks#benchmarking'>Benchmarking</a> to <a href='https://www.pragtob.info/talks#functioning-among-humans'>\"Functioning Among Humans\"</a>",
+        "One of the main organizers and host for <a href='https://www.youtube.com/playlist?list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE'>Devs for Ukraine</a>"
+      ]
     },
     {
       "organization": "Open Source",
@@ -140,7 +143,7 @@
       "websiteLink": "https://github.com/PragTob/",
       "startDate": "08/2011",
       "endDate": "current",
-      "summary": "I live and breathe Open Source and contribute to a variety of projects. This is a selection of bigger projects I maintain or maintained.",
+      "summary": "I live and breathe Open Source and contribute to a variety of projects big and small. This is a selection of bigger projects I maintain or maintained.",
       "highlights": [
         "<strong><a href=\"https://github.com/bencheeorg/benchee\">benchee</a></strong> a powerful and extensible benchmarking library for elixir and erlang",
         "<strong><a href=\"https://github.com/simplecov-ruby/simplecov\">simplecov</a></strong> the popular ruby code coverage tool",
@@ -203,7 +206,7 @@
       "name": "Enginneering Practices",
       "level": "Expert",
       "keywords": [
-        "agile Software Development (XP/Scrum)",
+        "agile Software Development (XP/Scrum/Kanban)",
         "Test Driven Development (RSpec, ExUnit, Jasmine...)",
         "Pair Programming",
         "Version Control (git)"
