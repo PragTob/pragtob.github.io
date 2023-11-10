@@ -6,7 +6,7 @@
     "email": "tobi@pragtob.info",
     "phone": "+49 160 205 0792",
     "website": "pragtob.info",
-    "summary": "I'm an experienced leader & engineer deeply interested in <strong>collaboratively building useful products</strong> with experience ranging from <strong>small startups to scaling unicorns</strong>. I'm a <strong>strong communicator</strong> and I always look to <strong>fill the gaps</strong>. Most of my experience is in <strong>Elixir, Ruby and SQL</strong> while I have also worked with JavaScript. I love <a href='https://pragtob.info/projects#oss'>Open Source</a>, partifcipating in the <a href='https://pragtob.info/projects#community'>community</a> and giving <a href='https://pragtob.info/talks'>talks</a>.<br>Most recently I worked as a Senior Staff Engineer, but I also have experience in and enjoy being a manager. I'm happiest when I can remove blockers and <strong>help people</strong>. I am fascinated with the <strong>human side</strong> of software development, love mentoring and am always striving to hit <strong>the right balance</strong> between delivering value now and ensuring we're best setup to deliver more value later.",
+    "summary": "I'm an experienced leader & engineer deeply interested in <strong>collaboratively building useful products</strong> with experience ranging from <strong>small startups to scaling unicorns</strong>. I'm a <strong>strong communicator</strong> and I always look to <strong>fill the gaps</strong>. Most of my experience is in <strong>Elixir, Ruby and SQL</strong> while I have also worked with JavaScript. I love <a href='https://www.pragtob.info/projects#oss'>Open Source</a>, partifcipating in the <a href='https://www.pragtob.info/projects#community'>community</a> and giving <a href='https://www.pragtob.info/talks'>talks</a>.<br>Most recently I worked as a Senior Staff Engineer, but I also have experience in and enjoy being a manager. I'm happiest when I can remove blockers and <strong>help people</strong>. I am fascinated with the <strong>human side</strong> of software development, love mentoring and am always striving to hit <strong>the right balance</strong> between delivering value now and ensuring we're best setup to deliver more value later.",
     "anonymous_summary": "I am a full-stack engineer & leader deeply interested in agile methodologies, web technologies, software crafting and teaching. I contribute to a variety of open source projects, engage in a multitude of community events, enjoy attending and speaking at conferences.",
     "profiles": [
       {
@@ -62,7 +62,7 @@
       "company": "Self-employed",
       "position": "Freelance Leader, Developer & Consultant",
       "website": "",
-      "websiteLink": "http://pragtob.info/freelancing",
+      "websiteLink": "http://www.pragtob.info/freelancing",
       "startDate": "08/2019",
       "endDate": "07/2020",
       "summary": "Consulting, Teaching and Development.",
@@ -130,7 +130,7 @@
       "website": "",
       "startDate": "05/2012",
       "endDate": "current",
-      "summary": "I like to speak at conferences to share knowledge and spread ideas. I have spoken at conferences such as Øredev, Lambdadays, Polyconf and Full Stack Fest (<a href='http://pragtob.info/talks'>overview of my talks</a>). I also helped organize JRubyConf & eurucamp 2015 and was a member of the program committee of GOTO Berlin 2014.",
+      "summary": "I like to speak at conferences to share knowledge and spread ideas. I have spoken at conferences such as Øredev, Lambdadays, Polyconf and Full Stack Fest (<a href='http://www.pragtob.info/talks'>overview of my talks</a>). I also helped organize JRubyConf & eurucamp 2015 and was a member of the program committee of GOTO Berlin 2014.",
       "highlights": [
         "My talks cover a wide range, from <a href='https://www.pragtob.info/talks#benchmarking'>Benchmarking</a> to <a href='https://www.pragtob.info/talks#functioning-among-humans'>\"Functioning Among Humans\"</a>",
         "One of the main organizers and host for <a href='https://www.youtube.com/playlist?list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE'>Devs for Ukraine</a>"
