@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Benchee Report</title>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/benchee.css">
+    <link rel="stylesheet" type="text/css" href="assets/fontello/css/fontello.css">
+  
+</head>
+
+  <body>
+
+    <div class="header">
+  <h1>benchee report</h1>
+  
+  <span class="input-label">
+    10M
+  </span>
+
+
+  <span class="version-note">
+  <a href="javascript:toggleSystemDataInfo();" title="Click to toggle system info">System info</a>
+</span>
+
+</div>
+
+
+    <article id="system-info" class="benchee-systeminfo" >
+  <h3>System info</h3>
+  <ul class="benchee-systeminfo-list">
+    <li>Elixir: 1.16.0-rc.1</li>
+    <li>Erlang: 26.1.2</li>
+    <li>Operating system: Linux</li>
+    <li>Available memory: 31.25 GB</li>
+    <li>CPU Information: AMD Ryzen 9 5900X 12-Core Processor</li>
+    <li>Number of Available Cores: 24</li>
+  </ul>
+</article>
+
+
+    
+      <article>
+        <h2>
+          <a name="run_time" href="#run_time">sequential Run Time</a>
+          <a href="https://github.com/PragTob/benchee_html/wiki/Chart-Types#individual">
+            <i
+              class="benchee-help-icon icon-question-circle-o"
+              title="Graphs showing the individual run time distribution for sequential.
+  Run Times Histogram shows the distribution of occurrences of specific run times in buckets.
+  Raw Run Times shows all individual recorded run times in the order they were recorded in."
+            ></i>
+          </a>
+        </h2>
+
+        <section>
+          <table>
+  <thead>
+    <tr>
+      <th class="text-left">Name</th>
+      
+        <th>Iterations per Second</th>
+      
+      <th>Average</th>
+      <th>Deviation</th>
+      <th>Median</th>
+      <th>Mode</th>
+      <th>Minimum</th>
+      <th>Maximum</th>
+      <th>Sample size</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      
+      <tr>
+        
+          <td class="text-left">sequential</td>
+        
+        
+          <td>0.0896</td>
+          <td>11.17 s</td>
+          <td>±10.79%</td>
+          <td>11.21 s</td>
+          <td>none</td>
+          <td>9.22 s</td>
+          <td>12.93 s</td>
+        
+        <td>6</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+        </section>
+
+        <section class="benchee-plot-container">
+          <div id="run-times-histogram" class="plot"></div>
+        </section>
+        <section class="benchee-plot-container">
+          <div id="raw-run-times" class="plot"></div>
+        </section>
+      </article>
+    
+
+    
+
+    <footer>
+      <a href="https://github.com/PragTob/benchee" target="blank">benchee version: 1.2.0 </a>
+<br/>
+<a href="https://github.com/PragTob/benchee_html" target="blank">benchee_html version: 1.0.0</a>
+
+
+    </footer>
+
+    
+  <script src="assets/javascripts/plotly-2.27.0.min.js"></script>
+  <script src="assets/javascripts/benchee.js"></script>
+
+
+
+    <script>
+      var scenario = {"name":"sequential","job_name":"sequential","input_name":"10M","run_time_data":{"statistics":{"maximum":12929216634,"mode":null,"minimum":9216084577,"percentiles":{"50":11210455130.5,"99":12929216634.0},"std_dev_ratio":0.10794368947186757,"average":11165838007.833334,"ips":0.08955888481441834,"relative_more":null,"absolute_difference":null,"sample_size":6,"std_dev":1205281750.6107378,"median":11210455130.5,"relative_less":null,"std_dev_ips":0.00966731645185433},"samples":[12929216634,11481145046,10939765215,10900376210,11528440365,9216084577]},"memory_usage_data":{"statistics":{"maximum":null,"mode":null,"minimum":null,"percentiles":null,"std_dev_ratio":null,"average":null,"ips":null,"relative_more":null,"absolute_difference":null,"sample_size":0,"std_dev":null,"median":null,"relative_less":null,"std_dev_ips":null},"samples":[]},"tag":null};
+
+      var inputHeadline = " (10M)"
+
+      
+        drawRunTimeHistogram(scenario, inputHeadline);
+        drawRawRunTimeChart(scenario, inputHeadline);
+      
+
+      
+    </script>
+  </body>
+</html>
