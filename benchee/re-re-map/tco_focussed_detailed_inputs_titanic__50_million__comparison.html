@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Benchee Report</title>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/benchee.css">
+    <link rel="stylesheet" type="text/css" href="assets/fontello/css/fontello.css">
+  
+</head>
+
+  <body>
+
+    <div class="header">
+  <h1>benchee report</h1>
+  
+  <span class="input-label">
+    Titanic (50 Million)
+  </span>
+
+
+  <span class="version-note">
+  <a href="javascript:toggleSystemDataInfo();" title="Click to toggle system info">System info</a>
+</span>
+
+</div>
+
+
+    <article id="system-info" class="benchee-systeminfo" >
+  <h3>System info</h3>
+  <ul class="benchee-systeminfo-list">
+    <li>Elixir: 1.16.0</li>
+    <li>Erlang: 26.2.1</li>
+    <li>Operating system: Linux</li>
+    <li>Available memory: 31.25 GB</li>
+    <li>CPU Information: AMD Ryzen 9 5900X 12-Core Processor</li>
+    <li>Number of Available Cores: 24</li>
+  </ul>
+</article>
+
+
+    
+      <article>
+        <h2>
+          Run Time Comparison
+          <a href="https://github.com/PragTob/benchee_html/wiki/Chart-Types#comparison">
+            <i
+            class="benchee-help-icon icon-question-circle-o"
+            title="Comparisons of the different benchmarking jobs. For Iterations per Second higher is better, the black whiskers denote standard deviation. otherwise it is runtime so lower is better. The Box Plot shows a distribution of run times with the median and outliers."
+            ></i>
+          </a>
+        </h2>
+        <section>
+          <table>
+  <thead>
+    <tr>
+      <th class="text-left">Name</th>
+      
+        <th>Iterations per Second</th>
+      
+      <th>Average</th>
+      <th>Deviation</th>
+      <th>Median</th>
+      <th>Mode</th>
+      <th>Minimum</th>
+      <th>Maximum</th>
+      <th>Sample size</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__tail__1_13_4_otp_24_.html">tail (1.13.4-otp-24)</a></td>
+        
+        
+          <td>0.85</td>
+          <td>1.18 s</td>
+          <td>±26.26%</td>
+          <td>1.11 s</td>
+          <td>none</td>
+          <td>0.84 s</td>
+          <td>2.00 s</td>
+        
+        <td>34</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__tail__order__1_16_0_otp_26_.html">tail +order (1.16.0-otp-26)</a></td>
+        
+        
+          <td>0.85</td>
+          <td>1.18 s</td>
+          <td>±28.67%</td>
+          <td>1.21 s</td>
+          <td>none</td>
+          <td>0.38 s</td>
+          <td>1.91 s</td>
+        
+        <td>34</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__tail__1_16_0_otp_26_.html">tail (1.16.0-otp-26)</a></td>
+        
+        
+          <td>0.84</td>
+          <td>1.18 s</td>
+          <td>±28.05%</td>
+          <td>1.18 s</td>
+          <td>none</td>
+          <td>0.41 s</td>
+          <td>1.97 s</td>
+        
+        <td>34</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__tail__order__1_13_4_otp_24_.html">tail +order (1.13.4-otp-24)</a></td>
+        
+        
+          <td>0.82</td>
+          <td>1.22 s</td>
+          <td>±27.20%</td>
+          <td>1.13 s</td>
+          <td>none</td>
+          <td>0.83 s</td>
+          <td>2.04 s</td>
+        
+        <td>33</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__tail__1_13_4_otp_23_.html">tail (1.13.4-otp-23)</a></td>
+        
+        
+          <td>0.79</td>
+          <td>1.26 s</td>
+          <td>±24.44%</td>
+          <td>1.25 s</td>
+          <td>none</td>
+          <td>0.73 s</td>
+          <td>1.88 s</td>
+        
+        <td>32</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__tail__order__1_13_4_otp_23_.html">tail +order (1.13.4-otp-23)</a></td>
+        
+        
+          <td>0.79</td>
+          <td>1.27 s</td>
+          <td>±22.64%</td>
+          <td>1.26 s</td>
+          <td>none</td>
+          <td>0.71 s</td>
+          <td>1.93 s</td>
+        
+        <td>32</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__tail__order__1_6_6_otp_21_.html">tail +order (1.6.6-otp-21)</a></td>
+        
+        
+          <td>0.76</td>
+          <td>1.32 s</td>
+          <td>±17.39%</td>
+          <td>1.37 s</td>
+          <td>none</td>
+          <td>0.87 s</td>
+          <td>1.83 s</td>
+        
+        <td>31</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__tail__1_6_6_otp_21_.html">tail (1.6.6-otp-21)</a></td>
+        
+        
+          <td>0.75</td>
+          <td>1.33 s</td>
+          <td>±18.22%</td>
+          <td>1.39 s</td>
+          <td>none</td>
+          <td>0.90 s</td>
+          <td>1.86 s</td>
+        
+        <td>30</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__body__1_6_6_otp_21_.html">body (1.6.6-otp-21)</a></td>
+        
+        
+          <td>0.58</td>
+          <td>1.73 s</td>
+          <td>±15.01%</td>
+          <td>1.83 s</td>
+          <td>none</td>
+          <td>0.87 s</td>
+          <td>2.23 s</td>
+        
+        <td>24</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__body__1_13_4_otp_23_.html">body (1.13.4-otp-23)</a></td>
+        
+        
+          <td>0.55</td>
+          <td>1.81 s</td>
+          <td>±19.33%</td>
+          <td>1.90 s</td>
+          <td>none</td>
+          <td>0.85 s</td>
+          <td>2.25 s</td>
+        
+        <td>22</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__body__1_16_0_otp_26_.html">body (1.16.0-otp-26)</a></td>
+        
+        
+          <td>0.53</td>
+          <td>1.88 s</td>
+          <td>±16.13%</td>
+          <td>1.96 s</td>
+          <td>none</td>
+          <td>1.00 s</td>
+          <td>2.38 s</td>
+        
+        <td>22</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__body__1_13_4_otp_24_.html">body (1.13.4-otp-24)</a></td>
+        
+        
+          <td>0.44</td>
+          <td>2.28 s</td>
+          <td>±17.61%</td>
+          <td>2.46 s</td>
+          <td>none</td>
+          <td>1.02 s</td>
+          <td>2.58 s</td>
+        
+        <td>18</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+        </section>
+
+        <section class="benchee-plot-container">
+          <div id="ips-comparison" class=" plot"></div>
+        </section>
+
+        <section class="benchee-plot-container">
+          <div id="run-time-box-plot" class=" plot"></div>
+        </section>
+      </article>
+    
+
+    
+      <article>
+        <h2>
+          Memory Usage Comparison
+          <a href="https://github.com/PragTob/benchee_html/wiki/Chart-Types#comparison">
+            <i
+            class="benchee-help-icon icon-question-circle-o"
+            title="This is a memory usage comparison"
+            ></i>
+          </a>
+        </h2>
+        <section>
+          <table>
+  <thead>
+    <tr>
+      <th class="text-left">Name</th>
+      
+      <th>Average</th>
+      <th>Deviation</th>
+      <th>Median</th>
+      <th>Mode</th>
+      <th>Minimum</th>
+      <th>Maximum</th>
+      <th>Sample size</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__tail__1_13_4_otp_24_.html">tail (1.13.4-otp-24)</a></td>
+        
+        
+          <td>1.49 GB</td>
+          <td>±0.00%</td>
+          <td>1.49 GB</td>
+          <td>none</td>
+          <td>1.49 GB</td>
+          <td>1.49 GB</td>
+        
+        <td>1</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__tail__order__1_16_0_otp_26_.html">tail +order (1.16.0-otp-26)</a></td>
+        
+        
+          <td>1.49 GB</td>
+          <td>±0.00%</td>
+          <td>1.49 GB</td>
+          <td>none</td>
+          <td>1.49 GB</td>
+          <td>1.49 GB</td>
+        
+        <td>1</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__tail__1_16_0_otp_26_.html">tail (1.16.0-otp-26)</a></td>
+        
+        
+          <td>1.49 GB</td>
+          <td>±0.00%</td>
+          <td>1.49 GB</td>
+          <td>none</td>
+          <td>1.49 GB</td>
+          <td>1.49 GB</td>
+        
+        <td>1</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__tail__order__1_13_4_otp_24_.html">tail +order (1.13.4-otp-24)</a></td>
+        
+        
+          <td>1.49 GB</td>
+          <td>±0.00%</td>
+          <td>1.49 GB</td>
+          <td>none</td>
+          <td>1.49 GB</td>
+          <td>1.49 GB</td>
+        
+        <td>1</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__tail__1_13_4_otp_23_.html">tail (1.13.4-otp-23)</a></td>
+        
+        
+          <td>1.49 GB</td>
+          <td>±0.00%</td>
+          <td>1.49 GB</td>
+          <td>none</td>
+          <td>1.49 GB</td>
+          <td>1.49 GB</td>
+        
+        <td>1</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__tail__order__1_13_4_otp_23_.html">tail +order (1.13.4-otp-23)</a></td>
+        
+        
+          <td>1.49 GB</td>
+          <td>±0.00%</td>
+          <td>1.49 GB</td>
+          <td>none</td>
+          <td>1.49 GB</td>
+          <td>1.49 GB</td>
+        
+        <td>1</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__tail__order__1_6_6_otp_21_.html">tail +order (1.6.6-otp-21)</a></td>
+        
+        
+          <td>1.49 GB</td>
+          <td>±0.00%</td>
+          <td>1.49 GB</td>
+          <td>none</td>
+          <td>1.49 GB</td>
+          <td>1.49 GB</td>
+        
+        <td>1</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__tail__1_6_6_otp_21_.html">tail (1.6.6-otp-21)</a></td>
+        
+        
+          <td>1.49 GB</td>
+          <td>±0.00%</td>
+          <td>1.49 GB</td>
+          <td>none</td>
+          <td>1.49 GB</td>
+          <td>1.49 GB</td>
+        
+        <td>1</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__body__1_6_6_otp_21_.html">body (1.6.6-otp-21)</a></td>
+        
+        
+          <td>0.75 GB</td>
+          <td>±0.00%</td>
+          <td>0.75 GB</td>
+          <td>none</td>
+          <td>0.75 GB</td>
+          <td>0.75 GB</td>
+        
+        <td>1</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__body__1_13_4_otp_23_.html">body (1.13.4-otp-23)</a></td>
+        
+        
+          <td>0.75 GB</td>
+          <td>±0.00%</td>
+          <td>0.75 GB</td>
+          <td>none</td>
+          <td>0.75 GB</td>
+          <td>0.75 GB</td>
+        
+        <td>1</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__body__1_16_0_otp_26_.html">body (1.16.0-otp-26)</a></td>
+        
+        
+          <td>0.75 GB</td>
+          <td>±0.00%</td>
+          <td>0.75 GB</td>
+          <td>none</td>
+          <td>0.75 GB</td>
+          <td>0.75 GB</td>
+        
+        <td>1</td>
+      </tr>
+    
+      
+      <tr>
+        
+          <td class="text-left"><a href="tco_focussed_detailed_inputs_titanic__50_million__body__1_13_4_otp_24_.html">body (1.13.4-otp-24)</a></td>
+        
+        
+          <td>0.75 GB</td>
+          <td>±0.00%</td>
+          <td>0.75 GB</td>
+          <td>none</td>
+          <td>0.75 GB</td>
+          <td>0.75 GB</td>
+        
+        <td>1</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+        </section>
+
+        <section class="benchee-plot-container">
+          <div id="memory-comparison" class=" plot"></div>
+        </section>
+
+        <section class="benchee-plot-container">
+          <div id="memory-box-plot" class=" plot"></div>
+        </section>
+      </article>
+    
+
+    <footer>
+      <a href="https://github.com/PragTob/benchee" target="blank">benchee version: 1.3.0 </a>
+<br/>
+<a href="https://github.com/PragTob/benchee_html" target="blank">benchee_html version: 1.0.1</a>
+
+
+    </footer>
+
+    
+  <script src="assets/javascripts/plotly-2.27.0.min.js"></script>
+  <script src="assets/javascripts/benchee.js"></script>
+
+
+
+    <script>
+      var scenarios     = [{"name":"tail (1.13.4-otp-24)","job_name":"tail","input_name":"Titanic (50 Million)","run_time_data":{"statistics":{"maximum":1996628384,"mode":null,"percentiles":{"50":1108291038.0,"99":1996628384.0},"average":1176856685.0882354,"median":1108291038.0,"minimum":837815213,"sample_size":34,"std_dev":309046530.62565565,"std_dev_ratio":0.2626033692475348,"ips":0.849721136541808,"relative_more":null,"absolute_difference":null,"relative_less":null,"std_dev_ips":0.22313963337672335},"samples":[1168142244,886907896,1529907974,1042997089,1338553821,1683826991,877806882,902414183,1224171813,957061812,1553611334,880087552,1996628384,1132493760,952875841,1084088316,1696784098,1252308145,1275789504,1250357106,885945586,1455769549,1594985238,901542587,915699000,1611924116,857155268,837815213,952564214,1291353794,1262847377,902334438,1015127662,841248506]},"memory_usage_data":{"statistics":{"maximum":1596952864,"mode":null,"percentiles":{"50":1596952864.0,"99":1596952864.0},"average":1596952864.0,"median":1596952864.0,"minimum":1596952864,"sample_size":1,"std_dev":0.0,"std_dev_ratio":0.0,"ips":null,"relative_more":null,"absolute_difference":null,"relative_less":null,"std_dev_ips":null},"samples":[1596952864]},"tag":"1.13.4-otp-24"},{"name":"tail +order (1.16.0-otp-26)","job_name":"tail +order","input_name":"Titanic (50 Million)","run_time_data":{"statistics":{"maximum":1914842996,"mode":null,"percentiles":{"50":1205310436.0,"99":1914842996.0},"average":1177703921.8823528,"median":1205310436.0,"minimum":378902430,"sample_size":34,"std_dev":337679226.8879642,"std_dev_ratio":0.28672675756079957,"ips":0.8491098496145582,"relative_more":1.0007199150116175,"absolute_difference":847236.7941174507,"relative_less":0.999280602893159,"std_dev_ips":0.2434625139929204},"samples":[1399265871,812234417,1468507747,934766337,1428870633,1914842996,1229567627,822529708,1206103938,935094537,1497806111,857129939,1748598308,824699969,1478128853,1228350624,1252208074,1219237998,850347298,1388927184,1064486698,887225864,1065935045,1629890496,1204516934,1575616687,1409179716,996330969,378902430,1066352073,857577043,761403780,1003107793,1644189647]},"memory_usage_data":{"statistics":{"maximum":1596038944,"mode":null,"percentiles":{"50":1596038944.0,"99":1596038944.0},"average":1596038944.0,"median":1596038944.0,"minimum":1596038944,"sample_size":1,"std_dev":0.0,"std_dev_ratio":0.0,"ips":null,"relative_more":0.9994277100967709,"absolute_difference":-913920.0,"relative_less":1.0005726176065037,"std_dev_ips":null},"samples":[1596038944]},"tag":"1.16.0-otp-26"},{"name":"tail (1.16.0-otp-26)","job_name":"tail","input_name":"Titanic (50 Million)","run_time_data":{"statistics":{"maximum":1974443847,"mode":null,"percentiles":{"50":1178122030.5,"99":1974443847.0},"average":1184890645.1470587,"median":1178122030.5,"minimum":411680337,"sample_size":34,"std_dev":332413132.7985584,"std_dev_ratio":0.2805433009029302,"ips":0.8439597393191406,"relative_more":1.0068266256721148,"absolute_difference":8033960.058823347,"relative_less":0.993219661163055,"std_dev_ips":0.23676725109776822},"samples":[1008829589,874710668,1458580548,998436916,1271390470,1974443847,1303003622,855277965,1210616581,961581762,1532161214,865676632,1612698710,842877646,1493130366,1226111069,1235517057,1255711629,885235290,1425525465,1074437272,885242107,1145627480,1691951164,1247015267,1616590169,1433520216,1007696602,411680337,1119253887,852310198,791529936,999154201,1718756053]},"memory_usage_data":{"statistics":{"maximum":1596038944,"mode":null,"percentiles":{"50":1596038944.0,"99":1596038944.0},"average":1596038944.0,"median":1596038944.0,"minimum":1596038944,"sample_size":1,"std_dev":0.0,"std_dev_ratio":0.0,"ips":null,"relative_more":0.9994277100967709,"absolute_difference":-913920.0,"relative_less":1.0005726176065037,"std_dev_ips":null},"samples":[1596038944]},"tag":"1.16.0-otp-26"},{"name":"tail +order (1.13.4-otp-24)","job_name":"tail +order","input_name":"Titanic (50 Million)","run_time_data":{"statistics":{"maximum":2041487290,"mode":null,"percentiles":{"50":1134778760.0,"99":2041487290.0},"average":1219010113.030303,"median":1134778760.0,"minimum":831281927,"sample_size":33,"std_dev":331552138.28376484,"std_dev_ratio":0.2719847314962537,"ips":0.820337739048061,"relative_more":1.0358186587000668,"absolute_difference":42153427.94206762,"relative_less":0.9654199522288789,"std_dev_ips":0.22311933969123068},"samples":[1064018334,901887111,1496499583,1053369170,1307757468,2041487290,1318510200,906313987,1229504701,980188856,1649152108,913065930,2006120646,1134778760,914188763,1126841167,1747015622,1280772847,1293707081,1276607245,890865589,1473925900,1610148403,910836595,893638032,1601559953,841611057,831281927,996821072,1281907495,1276570976,909137785,1067242077]},"memory_usage_data":{"statistics":{"maximum":1596952864,"mode":null,"percentiles":{"50":1596952864.0,"99":1596952864.0},"average":1596952864.0,"median":1596952864.0,"minimum":1596952864,"sample_size":1,"std_dev":0.0,"std_dev_ratio":0.0,"ips":null,"relative_more":1.0,"absolute_difference":0.0,"relative_less":1.0,"std_dev_ips":null},"samples":[1596952864]},"tag":"1.13.4-otp-24"},{"name":"tail (1.13.4-otp-23)","job_name":"tail","input_name":"Titanic (50 Million)","run_time_data":{"statistics":{"maximum":1882605534,"mode":null,"percentiles":{"50":1245294821.0,"99":1882605534.0},"average":1258975470.375,"median":1245294821.0,"minimum":730139440,"sample_size":32,"std_dev":307717118.2638558,"std_dev_ratio":0.24441867653878818,"ips":0.7942966511509066,"relative_more":1.0697780675653024,"absolute_difference":82118785.28676462,"relative_less":0.9347733238501426,"std_dev_ips":0.19414093625349613},"samples":[1218664851,972735508,1505840651,1455265543,1882605534,1050742074,1726549434,992170746,1647281703,1408972255,1431299785,1411226304,1042304454,1626683489,1271924791,1613807586,1668429765,982606855,1063158336,1667636201,985722115,983751803,1132833502,1401881213,1411151150,1030730292,1288170133,968373749,938992313,743609053,730139440,1031954424]},"memory_usage_data":{"statistics":{"maximum":1598685984,"mode":null,"percentiles":{"50":1598685984.0,"99":1598685984.0},"average":1598685984.0,"median":1598685984.0,"minimum":1598685984,"sample_size":1,"std_dev":0.0,"std_dev_ratio":0.0,"ips":null,"relative_more":1.0010852668473,"absolute_difference":1733120.0,"relative_less":0.9989159096799838,"std_dev_ips":null},"samples":[1598685984]},"tag":"1.13.4-otp-23"},{"name":"tail +order (1.13.4-otp-23)","job_name":"tail +order","input_name":"Titanic (50 Million)","run_time_data":{"statistics":{"maximum":1928696736,"mode":null,"percentiles":{"50":1257930024.0,"99":1928696736.0},"average":1272052581.8125,"median":1257930024.0,"minimum":714392687,"sample_size":32,"std_dev":287954369.1631156,"std_dev_ratio":0.22636986338475115,"ips":0.7861310250045934,"relative_more":1.0808899655586588,"absolute_difference":95195896.72426462,"relative_less":0.9251635521319225,"std_dev_ips":0.1779563727328042},"samples":[1186100310,962988781,1469227583,1412750993,1928696736,964007128,1738385438,1005462800,1631193643,1410034449,1415550488,1415533608,1055043216,1647715204,1233984842,1481751406,1548261185,1010711563,1110215325,1667471379,972174819,976241174,1098623105,1431071749,1396259783,1049486430,1281875206,987656128,938462845,714392687,1135423309,1428929306]},"memory_usage_data":{"statistics":{"maximum":1598685984,"mode":null,"percentiles":{"50":1598685984.0,"99":1598685984.0},"average":1598685984.0,"median":1598685984.0,"minimum":1598685984,"sample_size":1,"std_dev":0.0,"std_dev_ratio":0.0,"ips":null,"relative_more":1.0010852668473,"absolute_difference":1733120.0,"relative_less":0.9989159096799838,"std_dev_ips":null},"samples":[1598685984]},"tag":"1.13.4-otp-23"},{"name":"tail +order (1.6.6-otp-21)","job_name":"tail +order","input_name":"Titanic (50 Million)","run_time_data":{"statistics":{"maximum":1833597300,"mode":null,"percentiles":{"50":1368223024.0,"99":1.8335973e9},"average":1321753942.7741935,"median":1368223024.0,"minimum":869610741,"sample_size":31,"std_dev":229792499.6048548,"std_dev_ratio":0.17385421913139865,"ips":0.7565704687070024,"relative_more":1.1231222624827035,"absolute_difference":144897257.68595815,"relative_less":0.8903750138381753,"std_dev_ips":0.13153296805493217},"samples":[1056134306,1402005971,869610741,1577199561,1350718174,1373075133,1378944300,987250725,1400747371,1342714620,1561362499,1412989358,1102853566,1833597300,1381662269,1393054603,1383057239,989057585,1224347984,1210253026,1555531360,1308755734,1042996263,1815030869,1346682135,1402633398,1368223024,984208069,1285248788,1103923445,1530502810]},"memory_usage_data":{"statistics":{"maximum":1598578464,"mode":null,"percentiles":{"50":1598578464.0,"99":1598578464.0},"average":1598578464.0,"median":1598578464.0,"minimum":1598578464,"sample_size":1,"std_dev":0.0,"std_dev_ratio":0.0,"ips":null,"relative_more":1.0010179386233906,"absolute_difference":1.6256e6,"relative_less":0.9989830965219358,"std_dev_ips":null},"samples":[1598578464]},"tag":"1.6.6-otp-21"},{"name":"tail (1.6.6-otp-21)","job_name":"tail","input_name":"Titanic (50 Million)","run_time_data":{"statistics":{"maximum":1863954741,"mode":null,"percentiles":{"50":1393148052.5,"99":1863954741.0},"average":1329046282.0333333,"median":1393148052.5,"minimum":904021440,"sample_size":30,"std_dev":242105458.17815635,"std_dev_ratio":0.18216480603501226,"ips":0.7524192449265806,"relative_more":1.1293187172860282,"absolute_difference":152189596.94509792,"relative_less":0.8854896183808888,"std_dev_ips":0.13706430580906093},"samples":[1015683389,1385894147,904021440,1190201138,1423767783,1400401958,1440412231,1020953868,1481793606,1350808444,1607476818,1354930269,1117819806,1863954741,1426872834,1434584302,1428848617,1031263628,1176830156,1152392223,1740645453,1422906345,1085763954,1838185645,1420836152,1404253251,1403352907,1014889415,1200610326,1131033615]},"memory_usage_data":{"statistics":{"maximum":1598578464,"mode":null,"percentiles":{"50":1598578464.0,"99":1598578464.0},"average":1598578464.0,"median":1598578464.0,"minimum":1598578464,"sample_size":1,"std_dev":0.0,"std_dev_ratio":0.0,"ips":null,"relative_more":1.0010179386233906,"absolute_difference":1.6256e6,"relative_less":0.9989830965219358,"std_dev_ips":null},"samples":[1598578464]},"tag":"1.6.6-otp-21"},{"name":"body (1.6.6-otp-21)","job_name":"body","input_name":"Titanic (50 Million)","run_time_data":{"statistics":{"maximum":2227483548,"mode":null,"percentiles":{"50":1828076964.0,"99":2227483548.0},"average":1729929185.625,"median":1828076964.0,"minimum":867237230,"sample_size":24,"std_dev":259671351.4708293,"std_dev_ratio":0.1501051913734917,"ips":0.5780583438383424,"relative_more":1.4699573937461194,"absolute_difference":553072500.5367646,"relative_less":0.6802918263171871,"std_dev_ips":0.08676955832689806},"samples":[867237230,1403062681,1732025495,1423027531,1643635859,1553828797,1842017471,1601493655,1911633446,1845774212,1863131667,1547494431,1832406289,1890585825,1790518958,1850166968,1843019827,1832853753,1559657874,1816714473,1964129194,1823747639,1852653632,2227483548]},"memory_usage_data":{"statistics":{"maximum":800000000,"mode":null,"percentiles":{"50":8.0e8,"99":8.0e8},"average":8.0e8,"median":8.0e8,"minimum":800000000,"sample_size":1,"std_dev":0.0,"std_dev_ratio":0.0,"ips":null,"relative_more":0.5009540469442434,"absolute_difference":-796952864.0,"relative_less":1.99619108,"std_dev_ips":null},"samples":[800000000]},"tag":"1.6.6-otp-21"},{"name":"body (1.13.4-otp-23)","job_name":"body","input_name":"Titanic (50 Million)","run_time_data":{"statistics":{"maximum":2245129371,"mode":null,"percentiles":{"50":1897047668.0,"99":2245129371.0},"average":1807247391.4545455,"median":1897047668.0,"minimum":849258913,"sample_size":22,"std_dev":349275875.8391772,"std_dev_ratio":0.1932640088405749,"ips":0.5533276765142595,"relative_more":1.5356563074789742,"absolute_difference":630390706.3663101,"relative_less":0.6511873751501468,"std_dev_ips":0.10693832496558663},"samples":[849258913,1439495173,1682452351,1387699248,1600444972,1589358730,1950056180,1655339817,1958364267,2245129371,1942928775,1945210167,2242819857,2170037934,1602835681,1907731589,2214304067,1886363747,2190738204,2161489108,1570884608,1566499853]},"memory_usage_data":{"statistics":{"maximum":800000000,"mode":null,"percentiles":{"50":8.0e8,"99":8.0e8},"average":8.0e8,"median":8.0e8,"minimum":800000000,"sample_size":1,"std_dev":0.0,"std_dev_ratio":0.0,"ips":null,"relative_more":0.5009540469442434,"absolute_difference":-796952864.0,"relative_less":1.99619108,"std_dev_ips":null},"samples":[800000000]},"tag":"1.13.4-otp-23"},{"name":"body (1.16.0-otp-26)","job_name":"body","input_name":"Titanic (50 Million)","run_time_data":{"statistics":{"maximum":2383176262,"mode":null,"percentiles":{"50":1956323977.5,"99":2383176262.0},"average":1875086012.7272727,"median":1956323977.5,"minimum":1000121107,"sample_size":22,"std_dev":302515931.41034275,"std_dev_ratio":0.16133442911791537,"ips":0.5333088686131903,"relative_more":1.5933002178482654,"absolute_difference":698229327.6390374,"relative_less":0.6276281072442764,"std_dev_ips":0.08604108186123038},"samples":[1000121107,1600437173,1924083769,1577867856,1712411888,1976350593,1732281023,1664893460,1963162231,2046763215,1651816509,2007240285,1712661930,2383176262,2290751070,1691422042,2019960282,1949485724,2071019404,1972778578,2333033687,1970174192]},"memory_usage_data":{"statistics":{"maximum":800000000,"mode":null,"percentiles":{"50":8.0e8,"99":8.0e8},"average":8.0e8,"median":8.0e8,"minimum":800000000,"sample_size":1,"std_dev":0.0,"std_dev_ratio":0.0,"ips":null,"relative_more":0.5009540469442434,"absolute_difference":-796952864.0,"relative_less":1.99619108,"std_dev_ips":null},"samples":[800000000]},"tag":"1.16.0-otp-26"},{"name":"body (1.13.4-otp-24)","job_name":"body","input_name":"Titanic (50 Million)","run_time_data":{"statistics":{"maximum":2579666524,"mode":null,"percentiles":{"50":2463292499.0,"99":2579666524.0},"average":2279232279.7222223,"median":2463292499.0,"minimum":1023159647,"sample_size":18,"std_dev":401382719.2355581,"std_dev_ratio":0.17610435005091976,"ips":0.43874422492905085,"relative_more":1.9367118431683428,"absolute_difference":1102375594.633987,"relative_less":0.5163390741516098,"std_dev_ips":0.07726476656972504},"samples":[1023159647,1545575171,2464241667,2084909318,2510265882,2532469061,2246126700,2561721142,2513044651,2263539525,2488506537,2244221699,2552058189,2215625047,2499785840,2579666524,2462343331,2238921104]},"memory_usage_data":{"statistics":{"maximum":800000000,"mode":null,"percentiles":{"50":8.0e8,"99":8.0e8},"average":8.0e8,"median":8.0e8,"minimum":800000000,"sample_size":1,"std_dev":0.0,"std_dev_ratio":0.0,"ips":null,"relative_more":0.5009540469442434,"absolute_difference":-796952864.0,"relative_less":1.99619108,"std_dev_ips":null},"samples":[800000000]},"tag":"1.13.4-otp-24"}];
+      var inputHeadline = " (Titanic (50 Million))";
+
+      
+        drawIpsComparisonChart(scenarios, inputHeadline);
+        drawRunTimeComparisonBoxPlot(scenarios, inputHeadline);
+      
+
+      
+        drawMemoryComparisonChart(scenarios, inputHeadline);
+        drawMemoryComparisonBoxPlot(scenarios, inputHeadline);
+      
+    </script>
+  </body>
+</html>
