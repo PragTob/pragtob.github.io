@@ -11,7 +11,7 @@
 }
 
 .intro-left {
-  @extend .col-12
+  @extend .col-12;
 }
 
 .section-headline {
@@ -48,11 +48,15 @@
 }
 
 .section {
-  margin-top: 15px;
+  margin-top: 8px;
   page-break-inside: avoid;
 }
 
-// "hack" so that it doesn't leave 2/3 of the first page empty :(
+.section p {
+  margin-bottom: 10px;
+}
+
+// "hack" so that it doesn't leave 2/3 of the first page emptym as the work section is pretty long
 .section#work {
   page-break-inside: auto;
 }

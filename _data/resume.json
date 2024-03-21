@@ -7,7 +7,7 @@
     "phone": "+49 160 205 0792",
     "website": "pragtob.info",
     "websiteLink": "https://www.pragtob.info/",
-    "summary": "I'm an experienced leader & engineer deeply interested in <strong>collaboratively building useful products</strong> with experience ranging from <strong>small startups to scaling unicorns</strong>. I'm a <strong>strong communicator</strong> and I always look to <strong>fill the gaps</strong>. Most of my experience is in <strong>Elixir, Ruby and SQL</strong> while I have also worked with JavaScript. I love <a href='https://www.pragtob.info/projects#oss'>Open Source</a>, participating in the <a href='https://www.pragtob.info/projects#community'>community</a> and giving <a href='https://www.pragtob.info/talks'>talks</a>. You can find topics I look into right now in my <a href='https://pragtob.wordpress.com/'>blog</a>.<br>Most recently I worked as a Senior Staff Engineer, but I also have experience in and enjoy being a manager. I'm happiest when I can remove blockers and <strong>help people</strong>. I am fascinated with the <strong>human side</strong> of software development, love mentoring and am always striving to hit <strong>the right balance</strong> between delivering value now and ensuring we're best setup to deliver more value later.",
+    "summary": "I'm an experienced leader & engineer deeply interested in <strong>collaboratively building useful products</strong> with experience ranging from <strong>small startups to scaling unicorns</strong>. As a <strong>strong communicator</strong>, I'm always keen on <strong>filling the gaps</strong> and fostering team work. My expertise primarily lies in <strong>Elixir, Ruby and SQL</strong> complemented by JavaScript. I love <a href='https://www.pragtob.info/projects#oss'>Open Source</a>, participating in the <a href='https://www.pragtob.info/projects#community'>community</a> and giving <a href='https://www.pragtob.info/talks'>talks</a>. My passion for performance optimization and benchmarking led me to create <a href='https://github.com/bencheeorg/benchee'>benchee</a>.<br>In my most recent role as a Senior Staff Engineer, I demonstrated my leadership capabilities. However, I also enjoy the responsibilities of management. My greatest satisfaction comes from <strong>removing obstacles and helping others</strong>. I am fascinated by the <strong>human side of software development</strong>, relish mentoring, and continually strive for the <strong>optimal balance</strong> between immediate value delivery and long-term sustainability.",
     "anonymous_summary": "I am a full-stack engineer & leader deeply interested in agile methodologies, web technologies, software crafting and teaching. I contribute to a variety of open source projects, engage in a multitude of community events, enjoy attending and speaking at conferences.",
     "profiles": [
       {
@@ -38,16 +38,15 @@
       "websiteLink": "https://remote.com/",
       "startDate": "04/2021",
       "endDate": "10/2023",
-      "summary": "Working on a big Elixir & Phoenix monolith with a focus on the payments domain, automating processes to ensure safe, quick & reliable payments of millions while improving processes and technology company wide.",
+      "summary": "Worked on a big Elixir & Phoenix monolith with a focus on the payments domain, automating processes to ensure safe, quick & reliable payments of millions while improving processes and technology company wide.",
       "highlights": [
-        "Implemented multiple features to help our payments efficiency and product offering: automatic invoice payments, bank integration via PAIN XML to automate salary payments, enable direct debit for huge sums & allowing non local currencies",
-        "Design and Implementation of central payment projects aiming to incorporate more providers",
-        "Most senior engineer individual contributor for a long time, involved in high level technology decision making",
+        "Implemented features to help our payments efficiency and product offering: automatic invoice payments, bank integration via PAIN XML to automate payments, enable direct debit for huge sums & allowing non local currencies",
+        "Design and implementation of central payment projects aiming to incorporate more providers",
+        "Most senior engineering individual contributor for a long time, involved in high level technology decision making",
         "Introduced Background Job System to guarantee reliable asynchronous execution",
         "Improved processes such as branching strategy (death to long lived branches!) and the RFC process itself",
         "Advocated for hiring non Elixir engineers & setup a training camp and mentoring structure to help them succeed"
-      ],
-      "comment": "something to talk about how many people were sad that I left"
+      ]
     },
     {
       "company": "Shopify",
@@ -69,8 +68,9 @@
       "summary": "Consulting, Teaching and Development.",
       "highlights": [
         "Helped a company develop their first Elixir project, introducing the technology to the team",
-        "Work on a complex microservice metrics visualization application in Ruby & NodeJS",
-        "Open Source Work on the code coverage tool <a href='https://github.com/simplecov-ruby/simplecov'>SimpleCov</a> thanks to <a href='https://rubytogether.org/'>Ruby Together</a>",
+        "Loadtested a Rails ecommerce system leading to 100x the number of concurrent checkouts with fewer servers",
+        "Worked on a complex microservice metrics visualization application in Ruby & NodeJS",
+        "Open Source work on the code coverage tool <a href='https://github.com/simplecov-ruby/simplecov'>SimpleCov</a> sponsored by <a href='https://rubytogether.org/'>Ruby Together</a>",
         "Consulted on the design, architecture & implementation of an open source project, including implementation"
       ]
     },
@@ -85,11 +85,11 @@
       "highlights": [
         "Helped, mentored & guided colleagues through 1o1s, pairing sessions, pull request reviews and knowledge sharing sessions",
         "Ran retrospective and iteration meetings, continously adapting and improving processes",
+        "Gathered issues from operations and partners to define and triage solutions",
         "Architected and designed features with the squads",
         "Monitored application performance and fixed performance problems",
         "Screened and interviewed candidates",
-        "Gathered problems and requirements to define and discuss solutions",
-        "Ran integration projects with customers and other involved parties"
+        "Ran integration projects with customers to onboard them as quickly as possible"
       ]
     },
     {
@@ -111,7 +111,7 @@
       "websiteLink": "https://bitcrowd.net",
       "startDate": "01/2015",
       "endDate": "10/2016",
-      "summary": "Built applications, helping companies blossom. Worked as part of a team or team lead on customer projects big and small. Introduced practices such as retrospectives and CI-servers and mentored juniors.",
+      "summary": "Built applications, helping companies blossom. Worked as part of a team or team lead on customer projects big and small. Introduced practices such as retrospectives and Continous Integration and mentored juniors.",
       "highlights": []
     },
     {
@@ -120,7 +120,7 @@
       "website": "",
       "startDate": "05/2013",
       "endDate": "09/2018",
-      "summary": "Occassionally projects related to teaching programming, such as an introductory course at Humboldt-University Berlin.",
+      "summary": "Occassional projects related to teaching programming, such as an introductory course at Humboldt-University Berlin.",
       "highlights": []
     }
   ],
@@ -188,7 +188,7 @@
   ],
   "education": [
     {
-      "institution": "Hasso Plattner Institute / Blekinge Institute of Technology (Erasmus)",
+      "institution": "<a href='https://hpi.de/'>Hasso Plattner Institute</a> / <a href='https://www.bth.se/eng/'>Blekinge Institute of Technology</a> (Erasmus)",
       "area": "IT-Systems Engineering",
       "studyType": "Bachelor & Master",
       "startDate": "2008",
@@ -196,7 +196,7 @@
       "gpa": "1.2 (A)",
       "specialization": "Software Architecture & Internet Security",
       "thesis": "Collaborative Learning in a Massive Open Online Course environment",
-      "summary": "Final grade: 1.2 (A), Specialization in Software Architecture, Internet Security, agile & distributed software development",
+      "summary": "Final grade: 1.2 (A), Specialization in Software Architecture, Internet Security, agile & globally distributed software development",
       "highlights": []
     }
   ],
