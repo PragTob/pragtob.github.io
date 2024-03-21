@@ -42,7 +42,7 @@
 .contact {
   margin-bottom: 5px;
   @extend .col-md-3;
-  @extend .col-4;
+  @extend .col-12;
 }
 
 .skill {
@@ -51,7 +51,8 @@
 }
 
 .language-container {
-  @extend .col-3;
+  @extend .col-6;
+  @extend .col-md-3;
 }
 
 .study-keyword {
