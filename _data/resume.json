@@ -32,6 +32,18 @@
   },
   "work": [
     {
+      "company": "Screenverse",
+      "position": "Senior Engineer",
+      "website": "www.screenversemedia.com",
+      "websiteLink": "https://www.screenversemedia.com/",
+      "startDate": "06/2024",
+      "endDate": null,
+      "summary": "",
+      "highlights": [
+        "Proud recipient of the \"Chat Wizard\" award."
+      ]
+    },
+    {
       "company": "Remote",
       "position": "Senior Staff Engineer (18 months) / Staff Engineer (13 months)",
       "website": "www.remote.com",
