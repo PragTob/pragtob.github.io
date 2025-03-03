@@ -24,13 +24,13 @@ theme https://github.com/erming/jsonresume-theme-flat-->
     </aside>
 
     <div class="contact">
-      <div class="email"><i class="fa fa-envelope" title="Email"></i> <a href="mailto:{{basics.email}}">{{basics.email}}</a></div>
+      <div class="email"><i class="tobi-green fa fa-envelope" title="Email"></i> <a href="mailto:{{basics.email}}">{{basics.email}}</a></div>
     </div>
     <div class="contact">
-      <i class="fa fa-phone" title="Phone"></i> {{basics.phone}}
+      <i class="tobi-green fa fa-phone" title="Phone"></i> {{basics.phone}}
     </div>
     <div class="contact">
-      <i class="fa fa-info" title="Website"></i> <a href="{{basics.websiteLink}}">{{basics.website}}</a>
+      <i class="tobi-green fa fa-info" title="Website"></i> <a href="{{basics.websiteLink}}">{{basics.website}}</a>
     </div>
   </section>
 
@@ -40,7 +40,7 @@ theme https://github.com/erming/jsonresume-theme-flat-->
     </aside>
     {% for profile in basics.profiles %}
     <div class="profile">
-        <i class="fab {{profile.iconClass}}" title="{{profile.network}}"></i> <a href="https://{{profile.url}}">{{profile.username}}</a>
+        <i class="tobi-green fab {{profile.iconClass}}" title="{{profile.network}}"></i> <a href="https://{{profile.url}}">{{profile.username}}</a>
     </div>
     {% endfor %}
   </section>
@@ -77,6 +77,10 @@ theme https://github.com/erming/jsonresume-theme-flat-->
                 <a href="{{work.websiteLink}}">{{work.company}}</a>
               {% else %}
                 {{work.company}}
+              {% endif %}
+
+              {% if work.companySize %}
+                <span class="company-size">({{work.companySize}} employees)</span>
               {% endif %}
             </span>
 
