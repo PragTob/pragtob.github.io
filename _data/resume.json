@@ -11,10 +11,10 @@
     "anonymous_summary": "I am a full-stack engineer & leader deeply interested in agile methodologies, web technologies, software crafting and teaching. I contribute to a variety of open source projects, engage in a multitude of community events, enjoy attending and speaking at conferences.",
     "profiles": [
       {
-        "network": "Twitter/X",
+        "network": "Bluesky",
         "username": "PragTob",
-        "iconClass": "fa-twitter",
-        "url": "x.com/PragTob"
+        "iconClass": "fa-bluesky",
+        "url": "https://bsky.app/profile/pragtob.bsky.social"
       },
       {
         "network": "GitHub",
