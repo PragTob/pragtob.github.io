@@ -39,8 +39,10 @@
       "companySize":"~40",
       "startDate": "06/2024",
       "endDate": "now",
-      "summary": "",
+      "summary": "Worked in programmatic digital out of home advertisement using Elixir to ship performant & reliable software.",
       "highlights": [
+        "Built a \"fancy\" proxy server (caching, enrichment, response time guarantees) serving ~84 Million requests per day (Peak, 2000 RPS) on a single 4-core server using Elixir, GenServer, ETS & Plug",
+        "Iteratively extended functionality with the team to parse responses (Rust) & more permanent cache (Redis/Valkey)",
         "Proud recipient of the \"Chat Wizard\" award."
       ]
     },
@@ -52,12 +54,12 @@
       "companySize": "~150 → 1100",
       "startDate": "04/2021",
       "endDate": "10/2023",
-      "summary": "Worked on a big Elixir & Phoenix monolith with a focus on the payments domain, automating processes to ensure safe, quick & reliable payments of millions while improving processes and technology company wide.",
+      "summary": "Worked on a big Elixir & Phoenix monolith in HR-tech with a focus on the payments domain, automating processes to ensure safe, quick & reliable payments of millions while improving processes and technology company wide.",
       "highlights": [
         "Implemented features to help our payments efficiency and product offering: automatic invoice payments, bank integration via PAIN XML to automate payments, enable direct debit for huge sums & allowing non local currencies",
         "Design and implementation of central payment projects aiming to incorporate more providers",
         "Most senior engineering individual contributor for a long time, involved in high level technology decision making",
-        "Introduced Background Job System to guarantee reliable asynchronous execution",
+        "Introduced Background Job System (Oban) to guarantee reliable asynchronous execution",
         "Improved processes such as branching strategy (death to long lived branches!) and the RFC process itself",
         "Advocated for hiring non Elixir engineers & setup a training camp and mentoring structure to help them succeed"
       ]
@@ -70,7 +72,7 @@
       "companySize":"~8000",
       "startDate": "08/2020",
       "endDate": "03/2021",
-      "summary": "Engineering Lead for a team working in Ruby on Rails on topics ranging from local market adaptation, to legal and delivery promise.",
+      "summary": "Engineering Lead for a team working in Ruby on Rails on topics ranging from local market adaptation, to legal and delivery promise in the e-commerce field.",
       "highlights": []
     },
     {
