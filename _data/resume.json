@@ -41,9 +41,10 @@
       "endDate": "now",
       "summary": "Worked in programmatic digital out of home advertisement using Elixir to ship performant & reliable software.",
       "highlights": [
-        "Built a \"fancy\" proxy server (caching, enrichment, response time guarantees) serving ~84 Million requests per day (Peak, 2000 RPS) on a single 4-core server using Elixir, GenServer, ETS & Plug",
-        "Iteratively extended functionality with the team to parse responses (Rust) & more permanent cache (Redis/Valkey)",
-        "Proud recipient of the \"Chat Wizard\" award."
+        "Built a \"fancy\" proxy server (caching, enrichment, response time guarantees) serving ~84 Million requests per day (peak: ~2000 RPS) on a single 4-core server using Elixir, GenServer, ETS & Plug",
+        "Iteratively extended functionality to parse XML responses (Rust) & more permanent cache (Redis/Valkey)",
+        "Pushed initiatives like developer learning, standardization, test coverage & reducing error fatigue",
+        "Proud recipient of the \"Chat Wizard\" award"
       ]
     },
     {
