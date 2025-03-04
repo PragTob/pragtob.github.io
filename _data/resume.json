@@ -152,10 +152,12 @@
       "website": "",
       "startDate": "05/2012",
       "endDate": "current",
-      "summary": "I like to speak at conferences to share knowledge and spread ideas. I have spoken at conferences such as Øredev, Lambdadays, Polyconf and Full Stack Fest (<a href='http://www.pragtob.info/talks'>overview of my talks</a>). I also helped organize JRubyConf & eurucamp 2015 and was a member of the program committee of GOTO Berlin 2014.",
+      "summary": "I like to speak at conferences to share knowledge and spread ideas. I have spoken at conferences such as Øredev, Lambdadays, Polyconf and Full Stack Fest (<a href='http://www.pragtob.info/talks'>overview of my talks</a>).",
       "highlights": [
+        "In 2024 I keynoted Code BEAM EU with <a href='https://www.youtube.com/watch?v=Pmfkbg-NXmU>'>\"Going Staff\"</a>",
         "My talks cover a wide range, from <a href='https://www.pragtob.info/talks#benchmarking'>Benchmarking</a> to <a href='https://www.pragtob.info/talks#functioning-among-humans'>\"Functioning Among Humans\"</a>",
-        "One of the main organizers and host for <a href='https://www.youtube.com/playlist?list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE'>Devs for Ukraine</a>"
+        "One of the main organizers and host for <a href='https://www.youtube.com/playlist?list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE'>Devs for Ukraine</a> (2022)",
+        "Helped organize JRubyConf & eurucamp 2015 and was a member of the program committee of GOTO Berlin 2014."
       ]
     },
     {
