@@ -49,7 +49,7 @@
     },
     {
       "company": "Remote",
-      "position": "Senior Staff Engineer (18 months) / Staff Engineer (13 months)",
+      "position": "Senior Staff Engineer - 18 months / Staff Engineer - 13 months",
       "website": "www.remote.com",
       "websiteLink": "https://remote.com/",
       "companySize": "~150 → 1100",
@@ -98,30 +98,18 @@
       "website": "www.liefery.com",
       "websiteLink": "https://www.handelsblatt.com/unternehmen/mittelstand/familienunternehmer/logistik-hermes-macht-liefertochter-dicht-zum-aerger-von-kunden-wie-hellofresh-und-apple/26667462.html",
       "companySize":"~50 → 150",
-      "startDate": "11/2017",
+      "startDate": "01/2017",
       "endDate": "2/2019",
-      "summary": "Led a product department of 15 together with the CTO, handling the day-to-day needs of the team.",
+      "summary": "Led a product department of 15 together with the CTO, handling the day-to-day needs of the team. Built and maintained applications to track shipments, plan tours and manage all required logistics data in Ruby on Rails, Elixir and Phoenix as well as JavaScript (AngularJS, React).",
       "highlights": [
         "Helped, mentored & guided colleagues through 1o1s, pairing sessions, pull request reviews and knowledge sharing sessions",
-        "Ran retrospective and iteration meetings, continously adapting and improving processes",
-        "Gathered issues from operations and partners to define and triage solutions",
+        "Ran retrospective and iteration meetings, continuously adapting and improving processes",
         "Architected and designed features with the squads",
+        "Served as interim-CTO during a sabbatical",
         "Monitored application performance and fixed performance problems",
         "Screened and interviewed candidates",
+        "Gathered issues from operations and partners to define and triage solutions",
         "Ran integration projects with customers to onboard them as quickly as possible"
-      ]
-    },
-    {
-      "company": "Liefery",
-      "position": "Senior Software Developer (de facto Team Lead)",
-      "website": "www.liefery.com",
-      "websiteLink": "https://www.handelsblatt.com/unternehmen/mittelstand/familienunternehmer/logistik-hermes-macht-liefertochter-dicht-zum-aerger-von-kunden-wie-hellofresh-und-apple/26667462.html",
-      "companySize":"~50 → 150",
-      "startDate": "01/2017",
-      "endDate": "11/2017",
-      "summary": "Built and maintained applications to track shipments, plan tours and manage all required logistics data in Ruby on Rails, Elixir and Phoenix as well as JavaScript (AngularJS, React).",
-      "highlights": [
-        "Functioned as interim-CTO during a sabbatical"
       ]
     },
     {
@@ -132,7 +120,7 @@
       "companySize":"~10",
       "startDate": "01/2015",
       "endDate": "10/2016",
-      "summary": "Built applications, helping companies blossom. Worked as part of a team or team lead on customer projects big and small. Introduced practices such as retrospectives and Continous Integration and mentored juniors.",
+      "summary": "Built applications, helping companies blossom. Worked as part of a team or team lead on customer projects big and small. Introduced practices such as retrospectives and Continuous Integration and mentored juniors.",
       "highlights": []
     },
     {
