@@ -1,13 +1,13 @@
 {
   "basics": {
     "name": "Tobias Pfeiffer",
-    "label": "Software Engineer",
+    "label": "Staff Software Engineer",
     "picture": "",
     "email": "tobi@pragtob.info",
     "phone": "+49 160 205 0792",
     "website": "pragtob.info",
     "websiteLink": "https://www.pragtob.info/",
-    "summary": "I'm an experienced leader & product-minded engineer deeply interested in <strong>collaboratively building useful products</strong>. With a backround spanning from <strong>small startups to scaling unicorns</strong>, I bring a wealth of experience in <strong>Elixir, Ruby and SQL</strong> complemented by JavaScript. I love <a href='https://www.pragtob.info/projects#oss'>Open Source</a>, participating in the <a href='https://www.pragtob.info/projects#community'>community</a> and giving <a href='https://www.pragtob.info/talks'>talks</a>. My passion for <strong>performance optimization</strong> and benchmarking led me to create <a href='https://github.com/bencheeorg/benchee'>benchee</a>.<br>In my most recent role as a Senior Staff Engineer, I led teams to success by <strong>removing obstacles</strong>, fostering a <strong>culture of collaboration</strong> and <strong>filling the gaps</strong>. Whether managing a product department of 15 or mentoring junior developers, my greatest joy comes from <strong>empowering others</strong>. I am fascinated by the human side of software development and continually strive for the <strong>optimal balance</strong> between immediate value delivery and long-term sustainability.",
+    "summary": "I'm an experienced leader & product-minded engineer deeply interested in <strong>collaboratively building useful products</strong>. With a background spanning from <strong>small startups to scaling unicorns</strong>, I bring a wealth of experience in <strong>Elixir, Ruby and SQL</strong> complemented by JavaScript. I love <a href='https://www.pragtob.info/projects#oss'>Open Source</a>, participating in the <a href='https://www.pragtob.info/projects#community'>community</a> and giving <a href='https://www.pragtob.info/talks'>talks</a>. My passion for <strong>performance optimization</strong> and benchmarking led me to create <a href='https://github.com/bencheeorg/benchee'>benchee</a>.<br>In my most recent role as a Senior Staff Engineer, I led teams to success by <strong>removing obstacles</strong>, fostering a <strong>culture of collaboration</strong> and <strong>filling the gaps</strong>. Whether managing a product department of 15 or mentoring junior developers, my greatest joy comes from <strong>empowering others</strong>. I am fascinated by the human side of software development and continually strive for the <strong>optimal balance</strong> between immediate value delivery and long-term sustainability.",
     "anonymous_summary": "I am a full-stack engineer & leader deeply interested in agile methodologies, web technologies, software crafting and teaching. I contribute to a variety of open source projects, engage in a multitude of community events, enjoy attending and speaking at conferences.",
     "profiles": [
       {
@@ -39,7 +39,7 @@
       "companySize":"~250",
       "startDate": "07/2025",
       "endDate": "now",
-      "summary": "Improving a central service (Elixir, PostgreSQL) focused on identity & collaboration while maintaining various clients (TypeScript, Go, Python), helping the company move to an improved model.",
+      "summary": "Improving a critical central service (Elixir, PostgreSQL) focused on identity & collaboration while maintaining various clients (TypeScript, Go, Python), helping the company move to an improved model.",
       "highlights": [
         "Took ownership of critical backend services within weeks, formalized architecture & API design, reducing reliance on tribal knowledge",
         "Led cross-team Blocking & Banning initiative, aligning product and engineering, clarifying hidden system dependencies",
@@ -74,7 +74,7 @@
       "highlights": [
         "Implemented features to help our payments efficiency and product offering: automatic invoice payments, bank integration via PAIN XML to automate payments, enable direct debit for huge sums & allowing non local currencies",
         "Design and implementation of central payment projects aiming to incorporate more providers",
-        "Most senior engineering individual contributor for a long time, involved in high level technology decision making",
+        "Most senior engineering individual contributor for a long time, influencing architecture and cross-team decisions",
         "Introduced Background Job System (Oban) to guarantee reliable asynchronous execution",
         "Improved processes such as branching strategy (death to long lived branches!) and the RFC process itself",
         "Advocated for hiring non Elixir engineers & setup a training camp and mentoring structure to help them succeed"
@@ -117,7 +117,7 @@
       "endDate": "2/2019",
       "summary": "Led a product department of 15 together with the CTO, handling the day-to-day needs of the team. Built and maintained applications to track shipments, plan tours and manage all required logistics data in Ruby on Rails, Elixir and Phoenix as well as JavaScript (AngularJS, React).",
       "highlights": [
-        "Helped, mentored & guided colleagues through 1o1s, pairing sessions, pull request reviews and knowledge sharing sessions",
+        "Helped, mentored & guided colleagues through 1:1s, pairing sessions, pull request reviews and knowledge sharing sessions",
         "Ran retrospective and iteration meetings, continuously adapting and improving processes",
         "Architected and designed features with the squads",
         "Served as interim-CTO during a sabbatical",
@@ -144,7 +144,7 @@
       "website": "",
       "startDate": "05/2013",
       "endDate": "09/2018",
-      "summary": "Occassional projects related to teaching programming, such as an introductory course at Humboldt-University Berlin.",
+      "summary": "Occasional projects related to teaching programming, such as an introductory course at Humboldt-University Berlin.",
       "highlights": []
     }
   ],
@@ -173,9 +173,9 @@
       "endDate": "current",
       "summary": "I live and breathe Open Source and contribute to a variety of projects big and small. This is a selection of bigger projects I maintain or maintained.",
       "highlights": [
-        "<strong><a href=\"https://github.com/bencheeorg/benchee\">benchee</a></strong> a powerful and extensible benchmarking library for elixir and erlang",
+        "<strong><a href=\"https://github.com/bencheeorg/benchee\">benchee</a></strong> a powerful and extensible benchmarking library for Elixir and Erlang",
         "<strong><a href=\"https://github.com/simplecov-ruby/simplecov\">simplecov</a></strong> the popular ruby code coverage tool",
-        "<strong><a href=\"https://github.com/shoes/shoes4\">Shoes</a></strong> an easy to use GUI toolkit written in JRuby that I also worked on as part of <a href=\"https://https://summerofcode.withgoogle.com/\">Google Summer of Code</a>"
+        "<strong><a href=\"https://github.com/shoes/shoes4\">Shoes</a></strong> an easy to use GUI toolkit written in JRuby that I also worked on as part of <a href=\"https://summerofcode.withgoogle.com/\">Google Summer of Code</a>"
       ],
       "anonymous": {
         "organization": "Open Source",
@@ -231,7 +231,7 @@
   "publications": [],
   "skills": [
     {
-      "name": "Enginneering Practices",
+      "name": "Engineering Practices",
       "level": "Expert",
       "keywords": [
         "agile Software Development (XP/Scrum/Kanban)",
@@ -255,11 +255,11 @@
       "name": "Leadership & Communication Skills",
       "level": "Advanced",
       "keywords": [
-        "Run and moderate meeetings such as Retrospectives",
+        "Run and moderate meetings such as Retrospectives",
         "one-on-ones",
         "Mentoring and Teaching",
         "Empathy",
-        "Eye for process improvements and bottle necks"
+        "Eye for process improvements and bottlenecks"
       ]
     },
     {
