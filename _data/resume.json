@@ -223,7 +223,7 @@
       "gpa": "1.2 (A)",
       "specialization": "Software Architecture & Internet Security",
       "thesis": "Collaborative Learning in a Massive Open Online Course environment",
-      "summary": "Final grade: 1.2 (A), Specialization in Software Architecture, Internet Security, agile & globally distributed software development",
+      "summary": "Final grade: 1.2 (A), Specialization in Software Architecture, Internet Security, agile & globally distributed software development.",
       "highlights": []
     }
   ],
@@ -235,19 +235,18 @@
       "level": "Expert",
       "keywords": [
         "agile Software Development (XP/Scrum/Kanban)",
-        "Test Driven Development (RSpec, ExUnit, Jasmine...)",
-        "Pair Programming",
-        "Version Control (git)"
+        "Test Driven Development (ExUnit, RSpec)",
+        "Benchmarking & Performance Improvements",
+        "Observability"
       ]
     },
     {
       "name": "Programming",
       "level": "Expert",
       "keywords": [
-        "Object Oriented Programming (Ruby, Smalltalk)",
         "Functional Programming (Elixir, functional JavaScript)",
-        "Web frameworks (Ruby on Rails, Phoenix)",
-        "Benchmarking & Performance Improvements",
+        "Object Oriented Programming (Ruby, Smalltalk)",
+        "Web frameworks (Phoenix, Ruby on Rails)",
         "Web Technologies (HTML, CSS, JavaScript, JSON...)"
       ]
     },
@@ -255,9 +254,9 @@
       "name": "Leadership & Communication Skills",
       "level": "Advanced",
       "keywords": [
+        "Mentoring, Teaching & Presenting",
+        "Scaling organizations & processes",
         "Run and moderate meetings such as Retrospectives",
-        "one-on-ones",
-        "Mentoring and Teaching",
         "Empathy",
         "Eye for process improvements and bottlenecks"
       ]
@@ -266,11 +265,11 @@
       "name": "System Architecture",
       "level": "Advanced",
       "keywords": [
-        "Database Design (SQL)",
         "Domain Driven Design",
-        "Design Patterns",
         "Monoliths, microservices and the in-between",
-        "APIs (modules, REST)"
+        "Database Design (SQL)",
+        "Design Patterns",
+        "APIs (modules, REST, gRPC)"
       ]
     }
   ],
