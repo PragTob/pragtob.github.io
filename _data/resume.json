@@ -39,11 +39,11 @@
       "companySize":"~250",
       "startDate": "07/2025",
       "endDate": "now",
-      "summary": "Implementing a central service focussed on identity & collaboration, helping the company move to a better collaboration model",
+      "summary": "Improving a central service (Elixir, PostgreSQL) focused on identity & collaboration while maintaining various clients (TypeScript, Go, Python), helping the company move to an improved model.",
       "highlights": [
-        "Maintained & improved a central service that most other services rely on for user authentication & management features",
-        "High degree of ownership for delivering features such as Blocks & Invitations",
-        "Most work with Elixir, Phoenix, GRPC and PostgreSQL but also TypeScript and MongoDB"
+        "Took ownership of critical backend services within weeks, formalized architecture & API design, reducing reliance on tribal knowledge",
+        "Led cross-team Blocking & Banning initiative, aligning product and engineering, clarifying hidden system dependencies",
+        "Improved reliability and observability by integrating gRPC error tracking, adding missing integration tests to critical paths, correcting metric inaccuracies & improving performance"
       ]
     },
     {
