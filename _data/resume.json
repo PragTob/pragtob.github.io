@@ -7,7 +7,7 @@
     "phone": "+49 160 205 0792",
     "website": "pragtob.info",
     "websiteLink": "https://www.pragtob.info/",
-    "summary": "I'm an experienced leader & product-minded engineer deeply interested in <strong>collaboratively building useful products</strong>. With a background spanning from <strong>small startups to scaling unicorns</strong>, I bring a wealth of experience in <strong>Elixir, Ruby and SQL</strong> complemented by JavaScript. I love <a href='https://www.pragtob.info/projects#oss'>Open Source</a>, participating in the <a href='https://www.pragtob.info/projects#community'>community</a> and giving <a href='https://www.pragtob.info/talks'>talks</a>. My passion for <strong>performance optimization</strong> and benchmarking led me to create <a href='https://github.com/bencheeorg/benchee'>benchee</a>.<br>In my most recent role as a Senior Staff Engineer, I led teams to success by <strong>removing obstacles</strong>, fostering a <strong>culture of collaboration</strong> and <strong>filling the gaps</strong>. Whether managing a product department of 15 or mentoring junior developers, my greatest joy comes from <strong>empowering others</strong>. I am fascinated by the human side of software development and continually strive for the <strong>optimal balance</strong> between immediate value delivery and long-term sustainability.",
+    "summary": "I'm an experienced leader & product-minded engineer deeply interested in <strong>collaboratively building useful products</strong>. With a background spanning from <strong>small startups to scaling unicorns</strong>, I bring a wealth of experience in <strong>Elixir, Ruby and SQL</strong> complemented by JavaScript. I love <a href='https://www.pragtob.info/projects#oss'>Open Source</a>, participating in the <a href='https://www.pragtob.info/projects#community'>community</a> and giving <a href='https://www.pragtob.info/talks'>talks</a>. My passion for <strong>performance optimization</strong> and benchmarking led me to create <a href='https://github.com/bencheeorg/benchee'>benchee</a>.<br>I lead teams to success by <strong>removing obstacles</strong>, fostering a <strong>culture of collaboration</strong> and <strong>filling the gaps</strong>. Whether iterating on a feature, managing a product department of 15 or mentoring junior developers, my greatest joy comes from <strong>empowering others</strong>. I am fascinated by the human side of software development and continually strive for the <strong>optimal balance</strong> between immediate value delivery and long-term sustainability.",
     "anonymous_summary": "I am a full-stack engineer & leader deeply interested in agile methodologies, web technologies, software crafting and teaching. I contribute to a variety of open source projects, engage in a multitude of community events, enjoy attending and speaking at conferences.",
     "profiles": [
       {
@@ -41,9 +41,9 @@
       "endDate": "now",
       "summary": "Improving a critical central service (Elixir, PostgreSQL) focused on identity & collaboration while maintaining various clients (TypeScript, Go, Python), helping the company move to an improved model.",
       "highlights": [
-        "Took ownership of critical backend services within weeks, formalized architecture & API design, reducing reliance on tribal knowledge",
-        "Led cross-team Blocking & Banning initiative, aligning product and engineering, clarifying hidden system dependencies",
-        "Improved reliability and observability by integrating gRPC error tracking, adding missing integration tests to critical paths, correcting metric inaccuracies & improving performance"
+        "Took ownership of a critical backend service within weeks, formalized architecture & API design, reducing reliance on tribal knowledge while improving the effectiveness of AI agents",
+        "Led cross-team Blocking & Banning initiative, aligning product and engineering, clarifying system dependencies",
+        "Improved reliability and observability by integrating gRPC error tracking, adding missing integration tests to critical paths, correcting metric inaccuracies & improving performance - now we know our P95 is sub millisecond"
       ]
     },
     {
