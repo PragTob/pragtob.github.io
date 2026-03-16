@@ -7,7 +7,7 @@
     "phone": "+49 160 205 0792",
     "website": "pragtob.info",
     "websiteLink": "https://www.pragtob.info/",
-    "summary": "I'm an experienced leader & product-minded engineer deeply interested in <strong>collaboratively building useful products</strong>. With a background spanning from <strong>small startups to scaling unicorns</strong>, I bring a wealth of experience in <strong>Elixir, Ruby and SQL</strong> complemented by JavaScript. I love <a href='https://www.pragtob.info/projects#oss'>Open Source</a>, participating in the <a href='https://www.pragtob.info/projects#community'>community</a> and giving <a href='https://www.pragtob.info/talks'>talks</a>. My passion for <strong>performance optimization</strong> and benchmarking led me to create <a href='https://github.com/bencheeorg/benchee'>benchee</a>.<br>I lead teams to success by <strong>removing obstacles</strong>, fostering a <strong>culture of collaboration</strong> and <strong>filling the gaps</strong>. Whether iterating on a feature, managing a product department of 15 or mentoring junior developers, my greatest joy comes from <strong>empowering others</strong>. I am fascinated by the human side of software development and continually strive for the <strong>optimal balance</strong> between immediate value delivery and long-term sustainability.",
+    "summary": "I'm an experienced leader & product-minded engineer deeply interested in <strong>collaboratively building useful products</strong>. With a background spanning from <strong>small startups to scaling unicorns</strong>, I bring a wealth of experience in <strong>Elixir, Ruby and SQL</strong> complemented by JavaScript. I love <a href='https://www.pragtob.info/projects#oss'>Open Source</a>, participating in the <a href='https://www.pragtob.info/projects#community'>community</a> and giving <a href='https://www.pragtob.info/talks'>talks</a>. My passion for <strong>performance optimization & efficiency</strong> led me to create <a href='https://github.com/bencheeorg/benchee'>benchee</a>, basically the benchmarking tool used on the BEAM including the Elixir maintainers.<br>I lead teams to success by <strong>removing obstacles</strong>, fostering a <strong>culture of collaboration</strong> and <strong>filling the gaps</strong>. Whether iterating on a feature, managing a product department of 15 or mentoring junior developers, my greatest joy comes from <strong>empowering others</strong>. I am fascinated by the human side of software development and continually strive for the <strong>optimal balance</strong> between immediate value delivery and long-term sustainability.",
     "profiles": [
       {
         "network": "Bluesky",
@@ -55,10 +55,10 @@
       "endDate": "06/2025",
       "summary": "Worked in programmatic digital out of home advertisement using Elixir to ship performant & reliable software.",
       "highlights": [
-        "Built a \"fancy\" proxy server (caching, enrichment, response time guarantees) serving ~84 Million requests per day (peak: ~2000 RPS) on a single 4-core server using Elixir, GenServer, ETS & Plug",
-        "Iteratively extended functionality to parse XML responses (Rust) & more permanent cache (Redis/Valkey)",
-        "Pushed initiatives like developer learning, standardization, test coverage & reducing error fatigue",
-        "Proud recipient of the \"Chat Wizard\" award"
+        "Designed & implemented a high-performance caching proxy with a strict 100ms end-to-end latency budget handling ~84M requests/day (~2000 RPS peak) on a single 4-core node using Elixir, GenServer, ETS & Plug",
+        "Used Rust to efficiently parse & transform XML responses as well as adding Redis as more permanent cache to support follow-up requests with a longer life time",
+        "Contributed improvements to libraries across our networking stack (Req, finch, mint)",
+        "Pushed initiatives like developer learning, standardization, test coverage & reducing error fatigue"
       ]
     },
     {
@@ -71,12 +71,13 @@
       "endDate": "10/2023",
       "summary": "Worked on a big Elixir & Phoenix monolith in HR-tech with a focus on the payments domain, automating processes to ensure safe, quick & reliable payments of millions while improving processes and technology company wide.",
       "highlights": [
-        "Implemented features to help our payments efficiency and product offering: automatic invoice payments, bank integration via PAIN XML to automate payments, enable direct debit for huge sums & allowing non local currencies",
-        "Design and implementation of central payment projects aiming to incorporate more providers",
-        "Most senior engineering individual contributor for a long time, influencing architecture and cross-team decisions",
-        "Introduced Background Job System (Oban) to guarantee reliable asynchronous execution",
-        "Improved processes such as branching strategy (death to long lived branches!) and the RFC process itself",
-        "Advocated for hiring non Elixir engineers & setup a training camp and mentoring structure to help them succeed",
+        "Acted as the most senior engineering individual for long periods during hyper growth, advising teams, reviewing designs, facilitating cross-team decisions & intervening in high-risk changes and situations",
+        "Drove company-wide engineering process improvements (RFC process, branching model)",
+        "Introduced Background Job System (Oban) to guarantee reliable asynchronous processing in a large Phoenix monolith",
+        "Prevented high-risk architectural coupling by redirecting a planned job board feature out of the HRIS monolith into a separate service after system interaction analysis",
+        "Architected & Implemented features to help our payments efficiency and product offering: adding more payment providers, automatic invoice payments, bank integration via PAIN XML to automate payments, enable direct debit for huge sums & allowing non local currencies",
+        "Led incident response for multiple production failures involving payroll and financial processing, coordinating mitigation and post-mortems",
+        "Advocated for hiring non Elixir engineers, setup a training camp and mentored to help them succeed",
         "Participated in more than 100 interviews during hyper-growth, trained others on interviewing and code challenge reviewing"
       ]
     },
@@ -101,7 +102,7 @@
       "summary": "Consulting, Teaching and Development.",
       "highlights": [
         "Helped a company develop their first Elixir project, introducing the technology to the team",
-        "Loadtested a Rails ecommerce system leading to 100x the number of concurrent checkouts with fewer servers",
+        "Loadtested a Rails ecommerce system leading to 100x more concurrent checkouts with fewer servers",
         "Worked on a complex microservice metrics visualization application in Ruby & NodeJS",
         "Open Source work on the code coverage tool <a href='https://github.com/simplecov-ruby/simplecov'>SimpleCov</a> sponsored by <a href='https://rubytogether.org/'>Ruby Together</a>",
         "Consulted on the design, architecture & implementation of an open source project, including implementation"
@@ -150,53 +151,35 @@
   ],
   "community": [
     {
-      "organization": "Conferences",
-      "position": "Speaker, Program Committee Member & Organizer",
-      "website": "",
-      "websiteLink": "https://www.pragtob.info/talks",
-      "startDate": "05/2012",
-      "endDate": "current",
-      "summary": "I like to speak at conferences to share knowledge and spread ideas. I have spoken at conferences such as Øredev, Lambdadays, Polyconf and Full Stack Fest (<a href='http://www.pragtob.info/talks'>overview of my talks</a>).",
-      "highlights": [
-        "In 2024 I keynoted Code BEAM EU with <a href='https://www.youtube.com/watch?v=Pmfkbg-NXmU>'>\"Going Staff\"</a>",
-        "My talks cover a wide range, from <a href='https://www.pragtob.info/talks#benchmarking'>Benchmarking</a> to <a href='https://www.pragtob.info/talks#functioning-among-humans'>\"Functioning Among Humans\"</a>",
-        "One of the main organizers and host for <a href='https://www.youtube.com/playlist?list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE'>Devs for Ukraine (2022)</a>",
-        "Head organizer JRubyConf 2015 & organizer eurucamp 2015, was a member of the program committee of GOTO Berlin 2014"
-      ]
-    },
-    {
       "organization": "Open Source",
       "position": "Creator, Maintainer & Contributor",
       "website": "GitHub",
       "websiteLink": "https://github.com/PragTob/",
       "startDate": "08/2011",
       "endDate": "current",
-      "summary": "I live and breathe Open Source and contribute to a variety of projects big and small. This is a selection of bigger projects I maintain or maintained.",
+      "summary": "I live and breathe Open Source and contribute to a variety of projects big and small. This is a selection of bigger projects I maintain or maintained with a strong impact on the eco-system.",
       "highlights": [
-        "<strong><a href=\"https://github.com/bencheeorg/benchee\">benchee</a></strong> a powerful and extensible benchmarking library for Elixir and Erlang",
-        "<strong><a href=\"https://github.com/simplecov-ruby/simplecov\">simplecov</a></strong> the popular ruby code coverage tool",
-        "<strong><a href=\"https://github.com/shoes/shoes4\">Shoes</a></strong> an easy to use GUI toolkit written in JRuby that I also worked on as part of <a href=\"https://summerofcode.withgoogle.com/\">Google Summer of Code</a>"
+        "Created <strong><a href=\"https://github.com/bencheeorg/benchee\">benchee</a></strong>, a powerful and extensible benchmarking library widely used in the BEAM ecosystem (1.5k+ github stars, ~10M downloads) for statistically robust benchmarking",
+        "Maintained <strong><a href=\"https://github.com/simplecov-ruby/simplecov\">simplecov</a></strong>, a widely used code coverage library (450M+ downloads)",
+        "Maintained <strong><a href=\"https://github.com/shoes/shoes4\">Shoes</a></strong>, an easy to use GUI toolkit written in JRuby (also part of <a href=\"https://summerofcode.withgoogle.com/\">Google Summer of Code</a>)"
       ]
     },
     {
-      "organization": "Ruby User Group Berlin",
-      "position": "Main Organizer",
-      "website": "rug-b.de",
-      "websiteLink": "http://rug-b.de",
-      "startDate": "10/2012",
+      "organization": "Community & Conferences",
+      "position": "Speaker, Program Committee Member & Organizer",
+      "website": "",
+      "websiteLink": "https://www.pragtob.info/talks",
+      "startDate": "05/2012",
       "endDate": "current",
-      "summary": "A monthly meetup about Ruby and related technologies, with anywhere between 40-120 attendees. Co-created the <a href='http://berlincodeofconduct.org'>Berlin Code of Conduct</a> to ensure and promote a safe environment.",
-      "highlights": []
-    },
-    {
-      "organization": "Rails Girls / code curious",
-      "position": "Coach & Mentor",
-      "website": "railsgirlsberlin.de",
-      "websiteLink": "https://github.com/codecurious-bln",
-      "startDate": "06/2012",
-      "endDate": "12/2024",
-      "summary": "Rails Girls helps to diversify the tech community by helping beginners to get in touch with programming. I coach at workshops and since 2013 I also coach a weekly project group, the <a href=\"http://rubycorns.club/\">rubycorns</a>, helping attendees grow into Juniors & beyond.",
-      "highlights": []
+      "summary": "I've been an active member of the programming community for more than a decade. I have <a href='http://www.pragtob.info/talks'>spoken at conferences</a> such as Øredev, Lambdadays, Polyconf and Full Stack Fest.",
+      "highlights": [
+        "In 2024 I keynoted Code BEAM EU with <a href='https://www.youtube.com/watch?v=Pmfkbg-NXmU>'>\"Going Staff\"</a>",
+        "My talks cover a wide range, from <a href='https://www.pragtob.info/talks#benchmarking'>Benchmarking</a> to <a href='https://www.pragtob.info/talks#functioning-among-humans'>\"Functioning Among Humans\"</a>",
+        "I've been the main organizer of the <a href='http://rug-b.de'>Ruby User Group Berlin</a> since 2012, a monthly meetup with between 20 and 120 attendees",
+        "Long-time <a href='https://railsgirls.com/'>Rails Girls</a> coach, giving introductions as well as mentoring a group from learning to program all the way through being senior engineers",
+        "Head organizer JRubyConf 2015 & organizer eurucamp 2015, was a member of the program committee of GOTO Berlin 2014",
+        "Co-created the <a href='http://berlincodeofconduct.org'>Berlin Code of Conduct</a> to ensure and promote a safe environment"
+      ]
     }
   ],
   "education": [
@@ -275,32 +258,6 @@
     {
       "language": "French",
       "fluency": "Basic knowledge"
-    }
-  ],
-  "interests": [
-    {
-      "name": "Community & Conferences",
-      "keywords": []
-    },
-    {
-      "name": "Software Development",
-      "keywords": [
-        "Programming Languages",
-        "Patterns",
-        "Practices and Processes"
-      ]
-    },
-    {
-      "name": "Teaching",
-      "keywords": []
-    },
-    {
-      "name": "Basketball",
-      "keywords": []
-    },
-    {
-      "name": "Music",
-      "keywords": []
     }
   ],
   "references": []
