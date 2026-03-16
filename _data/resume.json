@@ -7,7 +7,14 @@
     "phone": "+49 160 205 0792",
     "website": "pragtob.info",
     "websiteLink": "https://www.pragtob.info/",
-    "summary": "I'm an experienced leader & product-minded engineer deeply interested in <strong>collaboratively building useful products</strong>. With a background spanning from <strong>small startups to scaling unicorns</strong>, I bring a wealth of experience in <strong>Elixir, Ruby and SQL</strong> complemented by JavaScript. I love <a href='https://www.pragtob.info/projects#oss'>Open Source</a>, participating in the <a href='https://www.pragtob.info/projects#community'>community</a> and giving <a href='https://www.pragtob.info/talks'>talks</a>. My passion for <strong>performance optimization & efficiency</strong> led me to create <a href='https://github.com/bencheeorg/benchee'>benchee</a>, basically the benchmarking tool used on the BEAM including the Elixir maintainers.<br>I lead teams to success by <strong>removing obstacles</strong>, fostering a <strong>culture of collaboration</strong> and <strong>filling the gaps</strong>. Whether iterating on a feature, managing a product department of 15 or mentoring junior developers, my greatest joy comes from <strong>empowering others</strong>. I am fascinated by the human side of software development and continually strive for the <strong>optimal balance</strong> between immediate value delivery and long-term sustainability.",
+    "summary": "Staff Software Engineer specializing in high-throughput backend systems, taming complex domains and developer productivity. With a background spanning from <strong>small startups to scaling unicorns</strong>, I combine strong product thinking, effective collaboration and deep systems expertise in <strong>Elixir, Ruby and SQL</strong> helping teams deliver quickly while maintaining long-term sustainability. I lead teams to success by <strong>removing obstacles</strong>, fostering a <strong>culture of collaboration</strong> and <strong>filling the gaps</strong>. I'm also an active member of the developer community through <a href='https://www.pragtob.info/talks'>conference talks</a> and <a href='https://www.pragtob.info/projects#oss'>open source work</a>.",
+    "selected_impact": [
+      "Created <a href='https://github.com/bencheeorg/benchee'>benchee</a>, the premier benchmarking tool used on the BEAM (1.5k+ stars on GitHub, ~10M downloads)",
+      "Built a high-performance proxy serving ~84M requests/day (~2000 RPS) with a strict 100ms latency budget",
+      "Senior Staff Engineer influencing ~100 engineers during hyper-growth at Remote through architecture guidance and cross-team leadership",
+      "Keynote speaker at Code BEAM EU with the talk <a href='https://www.youtube.com/watch?v=Pmfkbg-NXmU>'>\"Going Staff\"</a>",
+      "Led incident response & analysis for critical payroll, financial and logistics systems"
+    ],
     "profiles": [
       {
         "network": "Bluesky",
