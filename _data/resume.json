@@ -11,7 +11,7 @@
     "selected_impact": [
       "Created <a href='https://github.com/bencheeorg/benchee'>benchee</a>, the premier benchmarking tool used on the BEAM (1.5k+ stars on GitHub, ~10M downloads)",
       "Built a high-performance proxy serving ~84M requests/day (~2000 RPS) with a strict 100ms latency budget",
-      "Senior Staff Engineer influencing ~100 engineers during hyper-growth at Remote through architecture guidance and cross-team leadership",
+      "Senior Staff Engineer working with ~100 engineers during hyper-growth at Remote through architecture guidance and cross-team leadership",
       "Keynote speaker at Code BEAM EU with the talk <a href='https://www.youtube.com/watch?v=Pmfkbg-NXmU>'>\"Going Staff\"</a>",
       "Led incident response & analysis for critical payroll, financial and logistics systems"
     ],
@@ -207,45 +207,38 @@
   "publications": [],
   "skills": [
     {
-      "name": "Engineering Practices",
-      "level": "Expert",
+      "name": "Languages & Frameworks",
       "keywords": [
-        "agile Software Development (XP/Scrum/Kanban)",
-        "Test Driven Development (ExUnit, RSpec)",
-        "Benchmarking & Performance Improvements",
-        "Observability"
+        "Elixir & Phoenix",
+        "Ruby & Rails",
+        "SQL & PostgreSQL",
+        "JavaScript & TypeScript"
       ]
     },
     {
-      "name": "Programming",
-      "level": "Expert",
+      "name": "Systems Engineering",
       "keywords": [
-        "Functional Programming (Elixir, functional JavaScript)",
-        "Object Oriented Programming (Ruby, Smalltalk)",
-        "Web frameworks (Phoenix, Ruby on Rails)",
-        "Web Technologies (HTML, CSS, JavaScript, JSON...)"
+        "High-throughput backend systems",
+        "Performance benchmarking & profiling",
+        "Observability & Reliability",
+        "Distributed Systems"
       ]
     },
     {
-      "name": "Leadership & Communication Skills",
-      "level": "Advanced",
+      "name": "Architecture",
       "keywords": [
-        "Mentoring, Teaching & Presenting",
-        "Scaling organizations & processes",
-        "Run and moderate meetings such as Retrospectives",
-        "Empathy",
-        "Eye for process improvements and bottlenecks"
+        "API Design (REST / gRPC)",
+        "Monoliths and Microservices",
+        "Domain modeling & Database Design"
       ]
     },
     {
-      "name": "System Architecture",
-      "level": "Advanced",
+      "name": "Leadership",
       "keywords": [
-        "Domain Driven Design",
-        "Monoliths, microservices and the in-between",
-        "Database Design (SQL)",
-        "Design Patterns",
-        "APIs (modules, REST, gRPC)"
+        "Staff-level technical leadership",
+        "Incident response & post-mortems",
+        "Async work, scaling organizations & processes",
+        "Hiring & Mentoring"
       ]
     }
   ],
