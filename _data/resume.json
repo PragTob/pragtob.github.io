@@ -7,11 +7,11 @@
     "phone": "+49 160 205 0792",
     "website": "pragtob.info",
     "websiteLink": "https://www.pragtob.info/",
-    "summary": "Staff Software Engineer specializing in high-throughput backend systems, taming complex domains and developer productivity. With a background spanning from <strong>small startups to scaling unicorns</strong>, I combine strong product thinking, effective collaboration and deep systems expertise in <strong>Elixir, Ruby and SQL</strong> helping teams deliver quickly while maintaining long-term sustainability. I lead teams to success by <strong>removing obstacles</strong>, fostering a <strong>culture of collaboration</strong> and <strong>filling the gaps</strong>. I'm also an active member of the developer community through <a href='https://www.pragtob.info/talks'>conference talks</a> and <a href='https://www.pragtob.info/projects#oss'>open source work</a>.",
+    "summary": "Staff Software Engineer specializing in high-throughput backend systems, complex socio-technical domains and developer productivity. With a background spanning from <strong>small startups to scaling unicorns</strong>, I combine strong product thinking, effective collaboration and deep systems expertise in <strong>Elixir, Ruby and SQL</strong> helping teams deliver quickly while maintaining long-term sustainability. I lead teams to success by <strong>removing obstacles</strong>, fostering a <strong>culture of collaboration</strong> and <strong>filling the gaps</strong>. I focus on increasing the effectiveness of through mentoring, tooling, system design and clear communication. I'm an active contributor to the developer community through <a href='https://www.pragtob.info/talks'>conference talks</a>, events, <a href='https://pragtob.wordpress.com/'>writing</a> and <a href='https://www.pragtob.info/projects#oss'>open source work</a>.",
     "selected_impact": [
-      "Created <a href='https://github.com/bencheeorg/benchee'>benchee</a>, the premier benchmarking tool used on the BEAM (1.5k+ stars on GitHub, ~10M downloads)",
+      "Created <a href='https://github.com/bencheeorg/benchee'>benchee</a>, shaping how performance benchmarking is done across the BEAM ecosystem (1.5k+ stars on GitHub, ~10M downloads)",
       "Built a high-performance proxy serving ~84M requests/day (~2000 RPS) with a strict 100ms latency budget",
-      "Senior Staff Engineer working with ~100 engineers during hyper-growth at Remote through architecture guidance and cross-team leadership",
+      "Senior Staff Engineer collaborating with ~100 engineers during hyper-growth at Remote through architecture guidance and cross-team leadership",
       "Keynote speaker at Code BEAM EU with the talk <a href='https://www.youtube.com/watch?v=Pmfkbg-NXmU>'>\"Going Staff\"</a>",
       "Led incident response & analysis for critical payroll, financial and logistics systems"
     ],
@@ -63,7 +63,7 @@
       "summary": "Worked in programmatic digital out of home advertisement using Elixir to ship performant & reliable software.",
       "highlights": [
         "Designed & implemented a high-performance caching proxy with a strict 100ms end-to-end latency budget handling ~84M requests/day (~2000 RPS peak) on a single 4-core node using Elixir, GenServer, ETS & Plug",
-        "Used Rust to efficiently parse & transform XML responses as well as adding Redis as more permanent cache to support follow-up requests with a longer life time",
+        "Used Rust to efficiently parse & transform XML responses as well as adding Redis as more permanent cache to support follow-up requests with a longer lifetime",
         "Contributed improvements to libraries across our networking stack (Req, finch, mint)",
         "Pushed initiatives like developer learning, standardization, test coverage & reducing error fatigue"
       ]
@@ -84,7 +84,7 @@
         "Prevented high-risk architectural coupling by redirecting a planned job board feature out of the HRIS monolith into a separate service after system interaction analysis",
         "Architected & Implemented features to help our payments efficiency and product offering: adding more payment providers, automatic invoice payments, bank integration via PAIN XML to automate payments, enable direct debit for huge sums & allowing non local currencies",
         "Led incident response for multiple production failures involving payroll and financial processing, coordinating mitigation and post-mortems",
-        "Advocated for hiring non Elixir engineers, setup a training camp and mentored to help them succeed",
+        "Advocated for hiring non Elixir engineers, set up a training camp and mentored to help them succeed",
         "Participated in more than 100 interviews during hyper-growth, trained others on interviewing and code challenge reviewing"
       ]
     },
@@ -97,7 +97,10 @@
       "startDate": "08/2020",
       "endDate": "03/2021",
       "summary": "Engineering Lead for a team working in Ruby on Rails on topics ranging from local market adaptation, to legal and delivery promise in the e-commerce field.",
-      "highlights": []
+      "highlights": [
+        "Identified systemic issues in team structure, knowledge sharing and domain ownership during rapid organizational changes, providing detailed analysis and recommendations adopted by leadership",
+        "Implemented performance improvements in <a href=\"https://github.com/simplecov-ruby/simplecov\">SimpleCov</a> to support large-scale parallel CI workloads"
+      ]
     },
     {
       "company": "Self-employed",
@@ -143,7 +146,7 @@
       "companySize":"~10",
       "startDate": "01/2015",
       "endDate": "10/2016",
-      "summary": "Built various applications with Ruby on Rails, AngularJS & React in this agency setting. Introduced practices such as retrospectives, Continuous Integration and mentored juniors.",
+      "summary": "Built various applications with Ruby on Rails, AngularJS & React in an agency setting, prioritizing customer collaboration and delivery. Introduced practices such as retrospectives, Continuous Integration and mentored juniors.",
       "highlights": []
     },
     {
@@ -152,7 +155,7 @@
       "website": "",
       "startDate": "05/2013",
       "endDate": "09/2018",
-      "summary": "Occasional projects related to teaching programming, such as an introductory course at Humboldt-University Berlin.",
+      "summary": "Occasional projects related to teaching programming, such as an introductory course to Ruby on Rails at Humboldt-University Berlin.",
       "highlights": []
     }
   ],
@@ -166,7 +169,7 @@
       "endDate": "current",
       "summary": "I live and breathe Open Source and contribute to a variety of projects big and small. This is a selection of bigger projects I maintain or maintained with a strong impact on the eco-system.",
       "highlights": [
-        "Created <strong><a href=\"https://github.com/bencheeorg/benchee\">benchee</a></strong>, a powerful and extensible benchmarking library widely used in the BEAM ecosystem (1.5k+ github stars, ~10M downloads) for statistically robust benchmarking",
+        "Created <strong><a href=\"https://github.com/bencheeorg/benchee\">benchee</a></strong>, a powerful and extensible benchmarking library widely used in the BEAM ecosystem (1.5k+ GitHub stars, ~10M downloads) for statistically robust benchmarking",
         "Maintained <strong><a href=\"https://github.com/simplecov-ruby/simplecov\">simplecov</a></strong>, a widely used code coverage library (450M+ downloads)",
         "Maintained <strong><a href=\"https://github.com/shoes/shoes4\">Shoes</a></strong>, an easy to use GUI toolkit written in JRuby (also part of <a href=\"https://summerofcode.withgoogle.com/\">Google Summer of Code</a>)"
       ]
