@@ -7,10 +7,10 @@
     "phone": "+49 160 205 0792",
     "website": "pragtob.info",
     "websiteLink": "https://www.pragtob.info/",
-    "summary": "Staff Software Engineer specializing in high-throughput backend systems, complex socio-technical domains and developer productivity. With a background spanning from <strong>small startups to scaling unicorns</strong>, I combine strong product thinking, effective collaboration and deep systems expertise in <strong>Elixir, Ruby and SQL</strong> helping teams deliver quickly while maintaining long-term sustainability. I lead teams to success by <strong>removing obstacles</strong>, fostering a <strong>culture of collaboration</strong> and <strong>filling the gaps</strong>. I increase the effectiveness of teams through mentoring, tooling, system design and clear communication. I'm an active contributor to the developer community through <a href='https://www.pragtob.info/talks'>conference talks</a>, events, <a href='https://pragtob.wordpress.com/'>writing</a> and <a href='https://www.pragtob.info/projects#oss'>open source work</a>.",
+    "summary": "Staff Software Engineer focused on building fast, reliable and easy to reason about systems in complex, high-stakes domains. Across <strong>startups and scaling unicorns</strong>, I have combined strong product thinking, effective collaboration and deep systems expertise in <strong>Elixir, Ruby and SQL</strong> to help teams deliver quickly while maintaining long-term sustainability.<br> I improve how teams build software by <strong>removing obstacles</strong>, fostering a <strong>culture of collaboration</strong> and <strong>filling the gaps</strong>. I increase team effectiveness through mentoring, tooling, system design and clear communication. I collaborate closely with engineers and product to build systems that are both technically sound and address user needs. <br> I'm an active contributor to the developer community through <a href='https://www.pragtob.info/talks'>conference talks</a>, <a href='https://pragtob.wordpress.com/'>writing</a> and <a href='https://www.pragtob.info/projects#oss'>open source work</a>.",
     "selected_impact": [
       "Created <a href='https://github.com/bencheeorg/benchee'>benchee</a>, shaping how performance benchmarking is done across the BEAM ecosystem (1.5k+ stars on GitHub, ~10M downloads)",
-      "Built a high-performance proxy serving ~84M requests/day (~2000 RPS) on a single 4-core node with a strict 100ms latency budget",
+      "Built a high-performance proxy serving ~84M requests/day (~2000 RPS) on a single 4-core node with a strict 100ms latency budget enabling a new business use case",
       "Senior Staff Engineer collaborating with ~100 engineers during hyper-growth at Remote through architecture guidance and cross-team leadership",
       "Keynote speaker at Code BEAM EU with the talk <a href='https://www.youtube.com/watch?v=Pmfkbg-NXmU>'>\"Going Staff\"</a>",
       "Led incident response & analysis for critical payroll, financial and logistics systems"
@@ -48,7 +48,7 @@
       "summary": "Improving a critical central service (Elixir, PostgreSQL) focused on identity & collaboration while maintaining various clients (TypeScript, Go, Python), helping the company move to an improved model.",
       "highlights": [
         "Took ownership of a critical backend service within weeks, formalized architecture & API design, reducing reliance on tribal knowledge while improving the effectiveness of AI agents",
-        "Led cross-team Blocking & Banning initiative, aligning product and engineering, clarifying system dependencies",
+        "Led cross-team Blocking & Banning initiative, aligning product and engineering, clarifying system dependencies to help us remove a call to Redis from a critical path & allow new usage patterns",
         "Improved reliability and observability by integrating gRPC error tracking, adding missing integration tests to critical paths, correcting metric inaccuracies & improving performance - now we know our P95 response time is sub millisecond"
       ]
     },
@@ -169,7 +169,7 @@
       "endDate": "current",
       "summary": "Long-time open source contributor, maintainer and creator of widely used developer tools with significant ecosystem impact.",
       "highlights": [
-        "Created <strong><a href=\"https://github.com/bencheeorg/benchee\">benchee</a></strong>, a powerful and extensible benchmarking library widely used in the BEAM ecosystem (1.5k+ GitHub stars, ~10M downloads) for statistically robust benchmarking",
+        "Created <strong><a href=\"https://github.com/bencheeorg/benchee\">benchee</a></strong>, a powerful and extensible benchmarking library widely used in the BEAM ecosystem (1.5k+ GitHub stars, ~10M downloads) for statistically robust benchmarking, used by Elixir-core among others",
         "Maintained <strong><a href=\"https://github.com/simplecov-ruby/simplecov\">simplecov</a></strong>, a widely used code coverage library (450M+ downloads)",
         "Maintained <strong><a href=\"https://github.com/shoes/shoes4\">Shoes</a></strong>, an easy to use GUI toolkit written in JRuby (also part of <a href=\"https://summerofcode.withgoogle.com/\">Google Summer of Code</a>)"
       ]
