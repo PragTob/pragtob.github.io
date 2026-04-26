@@ -96,3 +96,15 @@ h1, h2, h3, h4, h5, h6 {
 .post-content p:has(> img:first-child) {
   text-align: center;
 }
+
+.post-back-link {
+  font-weight: 600;
+}
+
+.post-back-link-top {
+  margin-bottom: 1rem;
+}
+
+.post-back-link-bottom {
+  margin-top: 2rem;
+}
