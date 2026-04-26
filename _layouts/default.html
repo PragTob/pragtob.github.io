@@ -42,7 +42,11 @@
   </div>
   <script src="/vendor/jQuery/jquery.min.js"></script>
   <script src="/vendor/bootstrap/js/bootstrap.js"></script>
-  <script src="/javascript/main.js"></script>
+  {% if page.scripts %}
+  {% for script in page.scripts %}
+  <script src="{{ script }}"></script>
+  {% endfor %}
+  {% endif %}
 </body>
 
 </html>
