@@ -34,7 +34,7 @@ To me this book is special thanks to its unique style. Everything is written pre
 * _War stories:_ Here you can find stories Jonathan has experienced himself or he knows about. Those are usually more than worth the read, as they are examples straight from the real industry. To me they were the proof that what this book tries to teach me really is important and it helped me to see these problems, which really motivated me. I can very well remember a story where they were having a meeting about a software system that is meant to _replace_ the old mainframe system. Then the guy financially in charge of the project asks how the new system would _integrate_ into the old mainframe system. Ouch!
 * _Illustrations:_ Last but surely not least the book features many awesome illustrations. They are often used to explain or emphasis a point. But, at least for me, sometimes they were just there to be pure funny and I am totally ok with that as I love this (for instance the chapter "Meet your agile team" starts with a picture of some ninjas - priceless.). For me the illustrations really helped me to remember the things better, as I am a visual learner.
 
-[caption id="attachment_23" align="aligncenter" width="300" caption="Illustration from the agile Samurai by Jonathan Rasmusson (taken from his blog)"][![](http://pragtob.wordpress.com/wp-content/uploads/2011/08/sometimeswethinkweallagree.png?w=300)](http://pragtob.wordpress.com/wp-content/uploads/2011/08/sometimeswethinkweallagree.png)[/caption]
+[![](http://pragtob.wordpress.com/wp-content/uploads/2011/08/sometimeswethinkweallagree.png?w=300)](http://pragtob.wordpress.com/wp-content/uploads/2011/08/sometimeswethinkweallagree.png)
 
 # Choice bits
 

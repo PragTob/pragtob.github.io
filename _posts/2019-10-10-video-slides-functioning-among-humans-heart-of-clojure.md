@@ -27,7 +27,7 @@ https://www.youtube.com/watch?v=S_fRwGY4SAU
 
 [slideshare id=180717727&doc=heartofclojure-191010153401]
 
-[caption id="attachment_3397" align="alignnone" width="1544"]![sketchnotes](https://pragtob.wordpress.com/wp-content/uploads/2019/10/sketchnotes.jpeg) sketch notes by my friend [@malweene](https://twitter.com/malweene/status/1157674342022561792)[/caption]
+![sketchnotes](https://pragtob.wordpress.com/wp-content/uploads/2019/10/sketchnotes.jpeg) sketch notes by my friend [@malweene](https://twitter.com/malweene/status/1157674342022561792)
 
 ## Abstract
 

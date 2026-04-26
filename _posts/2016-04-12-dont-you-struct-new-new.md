@@ -84,7 +84,7 @@ end
     Hash with 2 keys:  2665601.5 i/s - 2.80x slower
     Struct.new(...).new:   137801.1 i/s - 54.17x slower
 
-[caption id="attachment_1412" align="aligncenter" width="605"][![Benchmark in iterations per second \(higher is better\)](https://pragtob.wordpress.com/wp-content/uploads/2016/04/struct_new_benchmark2.png)](https://pragtob.wordpress.com/2016/04/12/dont-you-struct-new-new/struct_new_benchmark-3/) Benchmark in iterations per second (higher is better)[/caption]
+[![Benchmark in iterations per second \(higher is better\)](https://pragtob.wordpress.com/wp-content/uploads/2016/04/struct_new_benchmark2.png)](https://pragtob.wordpress.com/2016/04/12/dont-you-struct-new-new/struct_new_benchmark-3/) Benchmark in iterations per second (higher is better)
 
 ## But that's not all...
 

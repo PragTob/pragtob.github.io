@@ -32,4 +32,8 @@ before_script:
   - "rake db:migrate"
 ```
 
-. And here they are as well for your reference: [sourcecode] postgres: adapter: postgresql database: myapp_test username: postgres before_script: \- "psql -c 'create database myapp_test;' -U postgres" \- "rake db:migrate" [/sourcecode]
+. And here they are as well for your reference: 
+```
+ postgres: adapter: postgresql database: myapp_test username: postgres before_script: \- "psql -c 'create database myapp_test;' -U postgres" \- "rake db:migrate" 
+```
+

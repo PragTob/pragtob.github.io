@@ -20,7 +20,15 @@ tags:
 - gem
 - ruby
 ---
-I want to introduce you to a little gem I built and use in some of my projects: [after_do](https://github.com/PragTob/after_do "after_do github page"). What it does is pretty simple: you can attach callback blocks before/after methods are executed. And it looks like this: [sourcecode lang="ruby"] MyClass.after :some_method do whatever_you_want end # or/and MyClass.before :some_method do pure_magic end [/sourcecode] As I don't fancy monkeypatching you will have to extend classes that you want to use after_do on with the AfterDo module. E.g. for the code above to work: [sourcecode lang="ruby"] MyClass.extend AfterDo [/sourcecode] after_do has no external runtime dependencies and the code is around 160 lines (blank lines and documentation included) with lots of small methods. So simplecov reports there are a little above 70 relevant lines code (it ignores blank lines, docs etc.). It works and is tested with current releases of all major ruby interpreters, e.g. MRI (1.9.3 and 2.0), JRuby and rubinius. The [github repo](https://github.com/PragTob/after_do) has some more documentation about use cases etc. - I won't go into all of it here.
+I want to introduce you to a little gem I built and use in some of my projects: [after_do](https://github.com/PragTob/after_do "after_do github page"). What it does is pretty simple: you can attach callback blocks before/after methods are executed. And it looks like this: 
+```
+ MyClass.after :some_method do whatever_you_want end # or/and MyClass.before :some_method do pure_magic end 
+```
+ As I don't fancy monkeypatching you will have to extend classes that you want to use after_do on with the AfterDo module. E.g. for the code above to work: 
+```
+ MyClass.extend AfterDo 
+```
+ after_do has no external runtime dependencies and the code is around 160 lines (blank lines and documentation included) with lots of small methods. So simplecov reports there are a little above 70 relevant lines code (it ignores blank lines, docs etc.). It works and is tested with current releases of all major ruby interpreters, e.g. MRI (1.9.3 and 2.0), JRuby and rubinius. The [github repo](https://github.com/PragTob/after_do) has some more documentation about use cases etc. - I won't go into all of it here.
 
 ## Why would I want to do that?
 
@@ -28,19 +36,39 @@ For me this catches the essence of Aspect Oriented Programming - doing something
 
 ## Access to parameters and the object
 
-For a lot of purposes it's nice to have access to the parameters of a method call and the object itself - after_do gives you [just that](https://github.com/PragTob/after_do#getting-a-hold-of-the-method-arguments-and-the-object "part of after_do README"): [sourcecode lang="ruby"] MyClass.after :two_arg_method do |arg1, arg2, obj| something(arg1, arg2, obj) end [/sourcecode] With this you can log events like a succesful purchase: [sourcecode lang="ruby"] # Assuming CheckoutProcess#complete gets user as an argument CheckoutProcess.after :complete do |user, checkout| @logger.log "#{user.name} checked out #{checkout.id}" end [/sourcecode]
+For a lot of purposes it's nice to have access to the parameters of a method call and the object itself - after_do gives you [just that](https://github.com/PragTob/after_do#getting-a-hold-of-the-method-arguments-and-the-object "part of after_do README"): 
+```
+ MyClass.after :two_arg_method do |arg1, arg2, obj| something(arg1, arg2, obj) end 
+```
+ With this you can log events like a succesful purchase: 
+```
+ # Assuming CheckoutProcess#complete gets user as an argument CheckoutProcess.after :complete do |user, checkout| @logger.log "#{user.name} checked out #{checkout.id}" end 
+```
+
 
 ## Removing repetition
 
-Another use case is removing repetition from within a class. E.g. if you want to call the save method of an object after several different methods you can do the following: [sourcecode lang="ruby"] class CoolClass extend AfterDo # lots of methods after :m1, :m2, :m3 do |*args, object| object.save end end [/sourcecode] This might remind you a bit of before_action/filter in Rails controllers.
+Another use case is removing repetition from within a class. E.g. if you want to call the save method of an object after several different methods you can do the following: 
+```
+ class CoolClass extend AfterDo # lots of methods after :m1, :m2, :m3 do |*args, object| object.save end end 
+```
+ This might remind you a bit of before_action/filter in Rails controllers.
 
 ## How does it work?
 
-When you attach a callback to a method with after_do what it basically does is it creates a copy of that method and then redefines the method to basically look like this (pseudo code): [sourcecode lang="ruby"] execute_before_callbacks return_value = original_method execute_after_callbacks return_value [/sourcecode]
+When you attach a callback to a method with after_do what it basically does is it creates a copy of that method and then redefines the method to basically look like this (pseudo code): 
+```
+ execute_before_callbacks return_value = original_method execute_after_callbacks return_value 
+```
+
 
 ## Why build something like this?
 
-I was working on a [side project](https://github.com/PragTob/pomodoro_tracker) after reading Objects on Rails and wanted to try to separate the persistence concern from the actual Object domain logic. For the fun of it and remove repetition along the way. My initial research didn't come up with a good maintained tiny library to serve my purpose. So I wrote one myself, named it after_do et voila there is the solution to my initial problem: [sourcecode lang="ruby"] persistor = FilePersistor.new Activity.extend AfterDo Activity.after :start, :pause, :finish, :resurrect, :do_today, :do_another_day do |activity| persistor.save activity end [/sourcecode] Nice, isn't it?
+I was working on a [side project](https://github.com/PragTob/pomodoro_tracker) after reading Objects on Rails and wanted to try to separate the persistence concern from the actual Object domain logic. For the fun of it and remove repetition along the way. My initial research didn't come up with a good maintained tiny library to serve my purpose. So I wrote one myself, named it after_do et voila there is the solution to my initial problem: 
+```
+ persistor = FilePersistor.new Activity.extend AfterDo Activity.after :start, :pause, :finish, :resurrect, :do_today, :do_another_day do |activity| persistor.save activity end 
+```
+ Nice, isn't it?
 
 ## Is this a good idea?
 
