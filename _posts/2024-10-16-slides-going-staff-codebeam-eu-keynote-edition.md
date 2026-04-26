@@ -32,7 +32,7 @@ For a 2 word summary of the talk, see the following image:
 
 You can find the slides on [speakerdeck](https://speakerdeck.com/pragtob/going-staff-keynote-edition), [slideshare](https://www.slideshare.net/slideshow/going-staff-keynote-codebeam-eu-edition/272462975) or as a [PDF](/assets/slides/2024/10/tobias_pfeiffer_going_staff-1.pdf).
 
-https://speakerdeck.com/pragtob/going-staff-keynote-edition
+{% include embed-speakerdeck.html player_id="44e18ec0d7034f909bad7e894db68e33" title="Going Staff keynote edition slides" %}
 
 ## Abstract
 

@@ -26,7 +26,7 @@ The audio quality isn't the best, but I hope you might still enjoy it!
 
 You can also find the talk at [speakerdeck](https://speakerdeck.com/pragtob/metaphors-are-everywhere-ideas-to-improve-software-development), [slideshare](https://www.slideshare.net/PragTob/metaphors-are-everywhere-ideas-to-improve-software-development) or as a [PDF](/assets/slides/2023/10/presentation.pdf).
 
-https://www.youtube.com/watch?v=VJ4ZG3tl1gc
+{% include embed-youtube.html id="VJ4ZG3tl1gc" title="Metaphors are everywhere talk recording" %}
 
 [presentation](/assets/slides/2023/10/presentation.pdf)[Download](/assets/slides/2023/10/presentation.pdf)
 

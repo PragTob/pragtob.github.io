@@ -24,7 +24,7 @@ If you want to learn more in the mean time, ["The Staff Engineer's Path" by Tany
 
 You can find the slides on [speakerdeck](https://speakerdeck.com/pragtob/going-staff), [slideshare](https://www.slideshare.net/slideshows/going-staff/266309460) or download the [PDF](/assets/slides/2024/02/going_staff.pdf).
 
-https://speakerdeck.com/pragtob/going-staff
+{% include embed-speakerdeck.html player_id="2c7ba03b65574a2281d65a5dda6170c7" title="Going Staff slides" %}
 
 ## Abstract
 

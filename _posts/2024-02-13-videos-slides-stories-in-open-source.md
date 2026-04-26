@@ -18,9 +18,9 @@ Back last year in June 2023 I was lucky to speak at lambda days 2023 about one o
 
 You can also find the slides at [speakerdeck](https://speakerdeck.com/pragtob/stories-in-open-source-27bef50c-24e6-4f42-91e2-26c6706e7e36), [slideshare](https://www.slideshare.net/slideshows/stories-in-open-source-b1bd/266293897) or as a [PDF](/assets/slides/2024/02/stories_in_open_source-2.pdf)
 
-https://www.youtube.com/watch?v=WU5u2x_5QLA
+{% include embed-youtube.html id="WU5u2x_5QLA" title="Stories in Open Source talk recording" %}
 
-https://speakerdeck.com/pragtob/stories-in-open-source-27bef50c-24e6-4f42-91e2-26c6706e7e36
+{% include embed-speakerdeck.html player_id="9ee3cd2399ab4a99a64944c47d9bae8b" title="Stories in Open Source slides" %}
 
 ## Abstract
 

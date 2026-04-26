@@ -21,7 +21,7 @@ Back in July I had a great time at [Heart of Clojure](https://heartofclojure.eu/
 
 Slides can be viewed here, on [speaker deck](https://speakerdeck.com/pragtob/functioning-among-humans-3fac330b-2153-41ee-b6a9-3f5c6dde2328), [slideshare](https://www.slideshare.net/PragTob/functioning-among-humans-180717727) and [PDF](/assets/slides/2019/10/heart_of_clojure-1.pdf "heart_of_clojure").
 
-https://www.youtube.com/watch?v=S_fRwGY4SAU
+{% include embed-youtube.html id="S_fRwGY4SAU" title="Functioning Among Humans talk recording" %}
 
  
 
