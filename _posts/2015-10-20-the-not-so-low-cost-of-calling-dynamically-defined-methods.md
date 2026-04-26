@@ -102,7 +102,7 @@ do_benchmark('Relative margin start', 0.8)
 
 . Running the non relative version on CRuby 2.2.2 with [benchmark-ips](https://github.com/evanphx/benchmark-ips) I get the following results (higher is better): 
 
-```
+```text
  full_meta 1.840M (± 3.0%) i/s - 9.243M hoist_ivar_name 3.147M (± 3.3%) i/s - 15.813M direct_ivar 5.288M (± 3.1%) i/s - 26.553M full_string 6.034M (± 3.2%) i/s - 30.179M full_direct 5.955M (± 3.2%) i/s - 29.807M Comparison: full_string: 6033829.1 i/s full_direct: 5954626.6 i/s - 1.01x slower direct_ivar: 5288105.5 i/s - 1.14x slower hoist_ivar_name: 3146595.7 i/s - 1.92x slower full_meta: 1840087.6 i/s - 3.28x slower 
 ```
 
@@ -170,7 +170,7 @@ do_benchmark('Big input array', BIG_INPUT_ARRAY)
 
  What's the result? 
 
-```
+```text
  Small input array Calculating ------------------------------------- meta_concat_sort 62.808k i/100ms concat_sort 86.143k i/100ms \------------------------------------------------- meta_concat_sort 869.940k (± 1.4%) i/s - 4.397M concat_sort 1.349M (± 2.6%) i/s - 6.805M Comparison: concat_sort: 1348894.9 i/s meta_concat_sort: 869940.1 i/s - 1.55x slower Big input array Calculating ------------------------------------- meta_concat_sort 18.872k i/100ms concat_sort 20.745k i/100ms \------------------------------------------------- meta_concat_sort 205.402k (± 2.7%) i/s - 1.038M concat_sort 231.637k (± 2.5%) i/s - 1.162M Comparison: concat_sort: 231636.7 i/s meta_concat_sort: 205402.2 i/s - 1.13x slower 
 ```
 

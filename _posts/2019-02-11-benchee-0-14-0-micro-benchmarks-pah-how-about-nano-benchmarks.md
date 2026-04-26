@@ -52,7 +52,7 @@ Benchee.run(
 ```
 
 **File: `output`**
-```
+```text
 tobi@speedy:~/github/benchee$ mix run samples/fast_functions.exs 
 Operating System: Linux
 CPU Information: Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz

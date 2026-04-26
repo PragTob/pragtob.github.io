@@ -26,7 +26,7 @@ Arguably the biggest change is introduction of a warmup phase to the benchmarks.
 
 
 
-```
+```text
 Name                        ips      average  deviation      median
 bodyrecusrive map      40047.87      24.97us   (±32.55%)    25.00us
 stdlib map             39724.07      25.17us   (±61.41%)    25.00us

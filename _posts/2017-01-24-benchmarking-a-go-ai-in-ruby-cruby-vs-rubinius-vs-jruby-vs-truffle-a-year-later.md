@@ -40,7 +40,7 @@ The benchmarks were run on the 16th of January 2017 with the following concrete 
 
 As you might notice I prefer to say CRuby over MRI and very old versions are gone - e.g. I dropped benchmarking CRuby 1.9.x and JRuby 1.7.x. I also added CRuby 2.0 - as it is the comparison standard for Ruby 3.0. The next 5 versions are the remaining rubies from the original benchmark, the other five are their most up to date versions. All of this is run on my Desktop PC running Linux Mint 18 (based on Ubuntu 16.04 LTS) with 16 GB of memory and an [i7-4790 (3.6 GHz, 4 GHz boost)](https://ark.intel.com/products/80806/Intel-Core-i7-4790-Processor-8M-Cache-up-to-4_00-GHz). Also running on openjdk 8. 
 
-```
+```text
  tobi@speedy ~ $ uname -a Linux speedy 4.4.0-59-generic #80-Ubuntu SMP Fri Jan 6 17:47:47 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux tobi@speedy ~ $ java -version openjdk version "1.8.0_111" OpenJDK Runtime Environment (build 1.8.0_111-8u111-b14-2ubuntu0.16.04.2-b14) OpenJDK 64-Bit Server VM (build 25.111-b14, mixed mode) 
 ```
 

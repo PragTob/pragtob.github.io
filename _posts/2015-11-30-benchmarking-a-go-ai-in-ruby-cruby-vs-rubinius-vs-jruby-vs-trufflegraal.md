@@ -46,7 +46,7 @@ The benchmarks were run pre the 0.3.0 rubykon version on the 8th of November (so
 
 You can find the raw data (performance numbers, concrete version outputs, benchmark results for different board sizes and historic benchmark results) in [this file](https://github.com/PragTob/rubykon/blob/master/benchmark/results/HISTORY.md). This was run on my pretty dated desktop PC (i7 870): 
 
-```
+```text
 tobi@tobi-desktop ~ $ uname -a
 Linux tobi-desktop 3.16.0-38-generic #52~14.04.1-Ubuntu SMP Fri May 8 09:43:57 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
 

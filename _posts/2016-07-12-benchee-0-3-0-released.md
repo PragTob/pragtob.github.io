@@ -72,7 +72,7 @@ Benchee.run(%{time: 3, parallel: 2}, %{
 
 Partly also due to the _parallel_ change, Benchee wil now print a brief summary of the benchmarking suite before executing it. 
 
-```
+```text
 tobi@happy ~/github/benchee $ mix run samples/run_parallel.exs
 
 Benchmark suite executing with the following configuration:

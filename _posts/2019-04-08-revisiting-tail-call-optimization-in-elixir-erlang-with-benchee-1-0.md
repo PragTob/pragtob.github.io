@@ -71,7 +71,7 @@ Benchee.run(
 ```
 
 **File: `output.txt`**
-```
+```text
 Operating System: Linux
 CPU Information: Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz
 Number of Available Cores: 8

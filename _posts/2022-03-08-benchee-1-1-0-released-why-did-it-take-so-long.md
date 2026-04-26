@@ -55,7 +55,7 @@ Benchee.run(
 ```
 
 **File: `output`**
-```
+```text
 Operating System: Linux
 CPU Information: AMD Ryzen 9 5900X 12-Core Processor
 Number of Available Cores: 24
@@ -129,7 +129,7 @@ Benchee.run(
 ```
 
 **File: `output`**
-```
+```text
 Operating System: Linux
 CPU Information: AMD Ryzen 9 5900X 12-Core Processor
 Number of Available Cores: 24

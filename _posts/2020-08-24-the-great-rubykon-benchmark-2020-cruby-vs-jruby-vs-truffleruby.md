@@ -74,7 +74,7 @@ The machine has 16 GB of RAM, runs Linux Mint 19.3 (based on Ubuntu 18.04 LTS) a
 Source: [https://gist.github.com/PragTob/2f522e4b59db3dc16a64f63132c81a80](https://gist.github.com/PragTob/2f522e4b59db3dc16a64f63132c81a80)
 
 **File: `system_info`**
-```
+```text
 tobi@speedy:~$ uname -a
 Linux speedy 5.4.0-42-generic #46~18.04.1-Ubuntu SMP Fri Jul 10 07:21:24 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
 tobi@speedy:~$ lscpu

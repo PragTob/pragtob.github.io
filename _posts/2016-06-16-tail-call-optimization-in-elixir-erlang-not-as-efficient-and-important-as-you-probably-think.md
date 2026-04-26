@@ -103,7 +103,7 @@ Benchee.run %{
 ```
 
 **File: `results`**
-```
+```text
 tobi@happy ~/github/elixir_playground $ mix run bench/tco_blog_post_detailed.exs 
 Benchmarking map tail-recursive with ++...
 Benchmarking map TCO no reverse...
@@ -134,7 +134,7 @@ map tail-recursive with ++             8.66 - 694.73x slower
 Source: [https://gist.github.com/PragTob/d07b88d9c5949d73e2ccc34657955699](https://gist.github.com/PragTob/d07b88d9c5949d73e2ccc34657955699)
 
 **File: `benchmark_result`**
-```
+```text
 tobi@happy ~/github/elixir_playground $ mix run bench/my_map_bench.exs 
 Erlang/OTP 19 [erts-8.1] [source-4cc2ce3] [64-bit] [smp:8:8] [async-threads:10] [hipe] [kernel-poll:false]
 Elixir 1.3.4
@@ -222,7 +222,7 @@ MyMap.map_tco(list, fn(i) -> i + 1 end)
 ```
 
 **File: `z_results`**
-```
+```text
 tobi@happy ~/github/elixir_playground $ /usr/bin/time -v mix run scripts/tco_list.exs 
 	Command being timed: "mix run scripts/tco_list.exs"
 	User time (seconds): 10.00
@@ -314,7 +314,7 @@ Benchee.run %{
 ```
 
 **File: `results`**
-```
+```text
 tobi@happy ~/github/elixir_playground $ mix run bench/is_even.exs 
 Benchmarking is_even?...
 Benchmarking is_even_tco?...
@@ -333,7 +333,7 @@ is_even_tco?                           9.39 - 1.09x slower
 Source: [https://gist.github.com/PragTob/d07b88d9c5949d73e2ccc34657955699](https://gist.github.com/PragTob/d07b88d9c5949d73e2ccc34657955699)
 
 **File: `benchmark_result`**
-```
+```text
 tobi@happy ~/github/elixir_playground $ mix run bench/my_map_bench.exs 
 Erlang/OTP 19 [erts-8.1] [source-4cc2ce3] [64-bit] [smp:8:8] [async-threads:10] [hipe] [kernel-poll:false]
 Elixir 1.3.4
@@ -413,7 +413,7 @@ IO.inspect(asm)
 ```
 
 **File: `output.txt`**
-```
+```text
 ...
 
 {:function, :non_tail_call, 1, 8,
@@ -437,7 +437,7 @@ IO.inspect(asm)
 Source: [https://gist.github.com/PragTob/d07b88d9c5949d73e2ccc34657955699](https://gist.github.com/PragTob/d07b88d9c5949d73e2ccc34657955699)
 
 **File: `benchmark_result`**
-```
+```text
 tobi@happy ~/github/elixir_playground $ mix run bench/my_map_bench.exs 
 Erlang/OTP 19 [erts-8.1] [source-4cc2ce3] [64-bit] [smp:8:8] [async-threads:10] [hipe] [kernel-poll:false]
 Elixir 1.3.4

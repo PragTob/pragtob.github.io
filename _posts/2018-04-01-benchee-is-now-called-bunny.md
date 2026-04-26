@@ -35,7 +35,7 @@ Bunny.eat(%{
 ```
 
 **File: `output`**
-```
+```text
 tobi@speedy ~/github/bunny $ mix run samples/eat.exs 
 Bunny will take care of that for you!
 

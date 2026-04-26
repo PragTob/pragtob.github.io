@@ -30,7 +30,7 @@ Benchee.run(%{time: 3}, %{
 ```
 
 **File: `result`**
-```
+```text
 tobi@happy ~/github/benchee $ mix run samples/run.exs
 Erlang/OTP 19 [erts-8.1] [source-4cc2ce3] [64-bit] [smp:8:8] [async-threads:10] [hipe] [kernel-poll:false]
 Elixir 1.3.4
@@ -68,7 +68,7 @@ Benchee.run(%{time: 3, console: %{unit_scaling: :smallest}}, %{
 ```
 
 **File: `result`**
-```
+```text
 tobi@happy ~/github/benchee $ mix run samples/run.exs 
 Erlang/OTP 19 [erts-8.1] [source-4cc2ce3] [64-bit] [smp:8:8] [async-threads:10] [hipe] [kernel-poll:false]
 Elixir 1.3.4
