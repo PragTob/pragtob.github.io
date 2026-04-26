@@ -11,11 +11,38 @@ $(document).ready(function () {
     return array[Math.floor(Math.random() * array.length)];
   };
 
-  const displayRandomProfilePicture = function (pictures) {
-    $(".profile-picture").css(
-      "background-image",
-      "url(images/profile/" + randomArrayElement(pictures) + ")"
+  const profilePictureElement = $(".profile-picture");
+  const buildProfileImageUrl = function (pictureName) {
+    return "url(images/profile/" + pictureName + ")";
+  };
+
+  const preloadProfilePictures = function (pictures) {
+    return Promise.all(
+      pictures.map(function (pictureName) {
+        return new Promise(function (resolve) {
+          const img = new Image();
+          img.onload = resolve;
+          img.onerror = resolve;
+          img.src = "images/profile/" + pictureName;
+        });
+      })
     );
+  };
+
+  const displayRandomProfilePicture = function (pictures, options = {}) {
+    const animate = options.animate !== false;
+    const nextImageUrl = buildProfileImageUrl(randomArrayElement(pictures));
+
+    if (!animate) {
+      profilePictureElement.css("background-image", nextImageUrl);
+      return;
+    }
+
+    profilePictureElement.addClass("is-fading");
+    setTimeout(function () {
+      profilePictureElement.css("background-image", nextImageUrl);
+      profilePictureElement.removeClass("is-fading");
+    }, 125);
   };
 
   const profilePictures = [
@@ -26,12 +53,13 @@ $(document).ready(function () {
   ];
 
   const minute = 60000;
-
-  displayRandomProfilePicture(profilePictures);
+  preloadProfilePictures(profilePictures).then(function () {
+    displayRandomProfilePicture(profilePictures, { animate: false });
+  });
   resizeLogos();
 
   $(window).resize(resizeLogos);
   setInterval(function () {
-    displayRandomProfilePicture(profilePictures);
+    displayRandomProfilePicture(profilePictures, { animate: true });
   }, minute);
 });

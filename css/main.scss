@@ -76,11 +76,28 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   background-size: cover;
   background-position: center;
+  opacity: 1;
+  transition: opacity 0.25s ease-in-out;
 
   &:before {
     content: "";
     padding-top: 100%;
     display: block;
+  }
+}
+
+.profile-picture.is-fading {
+  opacity: 0;
+}
+
+@media (max-width: 767.98px) {
+  .profile-picture {
+    max-width: 72%;
+    margin: 0 auto 1rem;
+
+    &:before {
+      padding-top: 72%;
+    }
   }
 }
 
