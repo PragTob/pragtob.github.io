@@ -94,4 +94,4 @@ flat_map           849.87 - 1.47x slower
 
 ## What's next for benchee?
 
-The next bigger topic that I've put quite some time and experiments in is an HTML formatter with fancy graphs and an image export. Want a sneak-peak? Ok, since you asked nicely: [![IPS comparison](https://pragtob.wordpress.com/wp-content/uploads/2016/10/newplot.png)](https://pragtob.wordpress.com/wp-content/uploads/2016/10/newplot.png)[![Boxplot](https://pragtob.wordpress.com/wp-content/uploads/2016/10/newplot1.png)](https://pragtob.wordpress.com/wp-content/uploads/2016/10/newplot1.png)
+The next bigger topic that I've put quite some time and experiments in is an HTML formatter with fancy graphs and an image export. Want a sneak-peak? Ok, since you asked nicely: [![IPS comparison](/assets/uploads/2016/10/newplot.png)](/assets/uploads/2016/10/newplot.png)[![Boxplot](/assets/uploads/2016/10/newplot1.png)](/assets/uploads/2016/10/newplot1.png)

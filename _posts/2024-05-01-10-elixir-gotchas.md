@@ -7,7 +7,7 @@ last_modified_at: 2024-05-11 07:28:58 -0000
 publish: true
 pin: false
 image:
-  path: https://pragtob.wordpress.com/wp-content/uploads/2024/05/image.png
+  path: /assets/uploads/2024/05/image.png
 categories:
 - Beginner
 tags:
@@ -30,7 +30,7 @@ Apologies for the lack of syntax highlighting, but wordpress borked the last way
 
 ## 1\. A list of numbers becomes text in iex
 
-[![](https://pragtob.wordpress.com/wp-content/uploads/2024/05/image.png?w=325)](https://pragtob.wordpress.com/wp-content/uploads/2024/05/image.png)
+[![](/assets/uploads/2024/05/image.png?w=325)](/assets/uploads/2024/05/image.png)
 
 Let's start with an oldie but goldie that pretty much every beginner book tells you about: **Why does this random list of integers print out as text?**
   

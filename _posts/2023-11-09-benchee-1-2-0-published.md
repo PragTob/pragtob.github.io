@@ -40,4 +40,4 @@ And that's also true for all of benchee's "sister" libraries. I took some time f
 
 Take care y'all! 💚
 
-[![](https://pragtob.wordpress.com/wp-content/uploads/2023/11/img20230429163945.jpg?w=1024)](https://pragtob.wordpress.com/wp-content/uploads/2023/11/img20230429163945.jpg)
+[![](/assets/uploads/2023/11/img20230429163945.jpg?w=1024)](/assets/uploads/2023/11/img20230429163945.jpg)

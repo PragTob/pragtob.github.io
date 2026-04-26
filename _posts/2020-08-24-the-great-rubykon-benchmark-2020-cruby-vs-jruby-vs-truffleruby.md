@@ -7,7 +7,7 @@ last_modified_at: 2020-08-24 14:54:11 -0000
 publish: true
 pin: false
 image:
-  path: https://pragtob.wordpress.com/wp-content/uploads/2020/08/2020_ipm.png
+  path: /assets/uploads/2020/08/2020_ipm.png
 categories:
 - Ruby
 tags:
@@ -119,7 +119,7 @@ One more thing before we get to it: JRuby here ran on AdoptOpenJDK 8. Difference
 
 If you want to take a look at all the data I gathered you can access the [spreadsheet](https://docs.google.com/spreadsheets/d/1m0E_mdTkEa7klkJ1Ek2HYhO9-yuhLCQraXyK5RbqFsk/edit?usp=sharing).
 
-![](https://pragtob.wordpress.com/wp-content/uploads/2020/08/2020_ipm.png?w=1024)Iterations per Minute per Ruby implementation for running 1000 full playouts on a 19x19 board (higher is better).
+![](/assets/uploads/2020/08/2020_ipm.png?w=1024)Iterations per Minute per Ruby implementation for running 1000 full playouts on a 19x19 board (higher is better).
 
 Overall this looks more or less like the graphs from the last years:
 
@@ -133,7 +133,7 @@ The other thing that sticks out quite hugely are those big error bars on Truffle
 
 Another thing I like to look at is the relative speedup chart:
 
-![](https://pragtob.wordpress.com/wp-content/uploads/2020/08/2020_relative_speedup.png?w=1024)Speedup relative to CRuby 2.4.10 (baseline)
+![](/assets/uploads/2020/08/2020_relative_speedup.png?w=1024)Speedup relative to CRuby 2.4.10 (baseline)
 
 CRuby 2.4.10 was chosen as the "baseline" for this relative speedup chart mostly as a homage to [Ruby 3x3](https://blog.heroku.com/ruby-3-by-3) in which the goal was for Ruby 3 to be 3 times faster than Ruby 2.0. I can't get Ruby < 2.4 to compile on my system easily any more and hence they are sadly missing here.
 
@@ -169,9 +169,9 @@ The benchmarking numbers presented above completely ignore the startup and warmu
 
 Anyhow, lets get a better feeling for those warmup times, shall we? One of my favourite methods for doing so is graphing the first couple of run times as recorded (those are all during the warmup phase):
 
-![](https://pragtob.wordpress.com/wp-content/uploads/2020/08/2020_times_v2.png?w=1024)Run times as recorded by iteration number for a few select Ruby implementations. Lower is faster/better.
+![](/assets/uploads/2020/08/2020_times_v2.png?w=1024)Run times as recorded by iteration number for a few select Ruby implementations. Lower is faster/better.
 
-![](https://pragtob.wordpress.com/wp-content/uploads/2020/08/2020_times_line-1.png?w=1024)Same data as above but as a line chart. Thanks to [Stefan Marr for nudging me](https://twitter.com/smarr/status/1297565415565135872).
+![](/assets/uploads/2020/08/2020_times_line-1.png?w=1024)Same data as above but as a line chart. Thanks to [Stefan Marr for nudging me](https://twitter.com/smarr/status/1297565415565135872).
 
 **CRuby** itself (without --jit) performs at a steady space, this is expected as no further optimizations are done and there's also no cache or anything involved. Your first run is pretty much gonna be as fast as your last run. It's impressive to see though that the --jit option is faster already in the first iteration and still getting better. What you can't see in the graph, as it doesn't contain enough run times and the difference is very small, is that the CRuby --jit option only reaches its peak performance around iteration 19 (going from ~6.7s to ~6.5s) which is quite surprising looking at how steady it seems before that.
 
@@ -185,7 +185,7 @@ For **context it's important to point out though that Rubykon is a relatively sm
 
 It might appear unfair that the results up there were run only with JDK 8. I can assure you, in my testing it sadly isn't. I had hoped for some big performance jumps with the new JDK versions but I found no such thing. Indeed, it features the fastest version but only by a rather slim margin. It also requires switching up the GC algorithm as the new default performs worse at least for this benchmark.
 
-![](https://pragtob.wordpress.com/wp-content/uploads/2020/08/2020_jrubies-1.png?w=1024)Comparison JRuby with different options against AdoptOpenJDK 8 and 14
+![](/assets/uploads/2020/08/2020_jrubies-1.png?w=1024)Comparison JRuby with different options against AdoptOpenJDK 8 and 14
 
 Performance is largely the same. JDK 14 is a bit faster when using both invokedynamic and falling back to the old garbage collector (+ParallelGC). Otherwise performance is worse. You can find out more in [this issue](https://github.com/jruby/jruby/issues/5789). It's curios though that JRuby 9.1 seems mostly faster than 9.2.
 

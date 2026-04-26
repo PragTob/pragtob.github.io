@@ -113,7 +113,7 @@ file = File.open!("test.csv", [:write]) list = Enum.to_list(1..10_000) map_fun =
 
  And a couple of clicks later there is a graph including error margins:
 
-### ![benchee_csv](https://pragtob.wordpress.com/wp-content/uploads/2016/06/benchee_csv1.png)
+### ![benchee_csv](/assets/uploads/2016/06/benchee_csv1.png)
 
 ### How do I get it?
 

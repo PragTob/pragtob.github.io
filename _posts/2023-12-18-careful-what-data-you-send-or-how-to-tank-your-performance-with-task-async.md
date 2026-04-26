@@ -7,7 +7,7 @@ last_modified_at: 2023-12-22 11:41:58 -0000
 publish: true
 pin: false
 image:
-  path: https://pragtob.wordpress.com/wp-content/uploads/2023/12/newplot.png
+  path: /assets/uploads/2023/12/newplot.png
 categories: []
 tags:
 - beam
@@ -137,7 +137,7 @@ Console formatter output
     sequential          9.22 s        12.93 s              6                     None
     parallel           11.16 s        11.66 s              6                     None
 
-[![](https://pragtob.wordpress.com/wp-content/uploads/2023/12/newplot.png?w=450)](https://pragtob.wordpress.com/wp-content/uploads/2023/12/newplot.png)10k input, iterations per second (higher is better) [![](https://pragtob.wordpress.com/wp-content/uploads/2023/12/newplot-1.png?w=450)](https://pragtob.wordpress.com/wp-content/uploads/2023/12/newplot-1.png)Boxplot for 10k, measured run time (lower is better). Sort of interesting how many "outliers" (blue dots) there are for sequential though. [![](https://pragtob.wordpress.com/wp-content/uploads/2023/12/newplot-2.png?w=450)](https://pragtob.wordpress.com/wp-content/uploads/2023/12/newplot-2.png)1M input, iterations per second (higher is better) [![](https://pragtob.wordpress.com/wp-content/uploads/2023/12/newplot-3.png?w=450)](https://pragtob.wordpress.com/wp-content/uploads/2023/12/newplot-3.png)Boxplot for 1M, measured run time (lower is better).  [![](https://pragtob.wordpress.com/wp-content/uploads/2023/12/newplot-4.png?w=450)](https://pragtob.wordpress.com/wp-content/uploads/2023/12/newplot-4.png)10M input, iterations per second (higher is better). Important to know, they take so long here the sample size is only 6 for each.
+[![](/assets/uploads/2023/12/newplot.png?w=450)](/assets/uploads/2023/12/newplot.png)10k input, iterations per second (higher is better) [![](/assets/uploads/2023/12/newplot-1.png?w=450)](/assets/uploads/2023/12/newplot-1.png)Boxplot for 10k, measured run time (lower is better). Sort of interesting how many "outliers" (blue dots) there are for sequential though. [![](/assets/uploads/2023/12/newplot-2.png?w=450)](/assets/uploads/2023/12/newplot-2.png)1M input, iterations per second (higher is better) [![](/assets/uploads/2023/12/newplot-3.png?w=450)](/assets/uploads/2023/12/newplot-3.png)Boxplot for 1M, measured run time (lower is better).  [![](/assets/uploads/2023/12/newplot-4.png?w=450)](/assets/uploads/2023/12/newplot-4.png)10M input, iterations per second (higher is better). Important to know, they take so long here the sample size is only 6 for each.
 
 And just as we all expected the parallel... **no wait a second the sequential version is faster for all of them? How could that be?** This was easily parallelizable work, split into 3 work packages with many more cores available to do the work. **Why is the parallel execution slower?**
 

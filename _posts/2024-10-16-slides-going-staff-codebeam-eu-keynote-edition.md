@@ -7,7 +7,7 @@ last_modified_at: 2024-10-16 11:49:45 -0000
 publish: true
 pin: false
 image:
-  path: https://pragtob.wordpress.com/wp-content/uploads/2024/10/signal-2024-10-15-174228_014-1.jpeg
+  path: /assets/uploads/2024/10/signal-2024-10-15-174228_014-1.jpeg
 categories:
 - Software Engineering
 tags:
@@ -28,7 +28,7 @@ The talk isn't only aimed at Senior or Staff engineers but at everyone who wants
 
 For a 2 word summary of the talk, see the following image:
 
-[![](https://pragtob.wordpress.com/wp-content/uploads/2024/10/signal-2024-10-15-174228_014.jpeg?w=768)](https://pragtob.wordpress.com/wp-content/uploads/2024/10/signal-2024-10-15-174228_014.jpeg)
+[![](/assets/uploads/2024/10/signal-2024-10-15-174228_014.jpeg?w=768)](/assets/uploads/2024/10/signal-2024-10-15-174228_014.jpeg)
 
 You can find the slides on [speakerdeck](https://speakerdeck.com/pragtob/going-staff-keynote-edition), [slideshare](https://www.slideshare.net/slideshow/going-staff-keynote-codebeam-eu-edition/272462975) or as a [PDF](/assets/slides/2024/10/tobias_pfeiffer_going_staff-1.pdf).
 

@@ -7,7 +7,7 @@ last_modified_at: 2019-07-05 10:08:01 -0000
 publish: true
 pin: false
 image:
-  path: https://pragtob.wordpress.com/wp-content/uploads/2019/07/help-1019912_1920.jpg
+  path: /assets/uploads/2019/07/help-1019912_1920.jpg
 categories:
 - People Skills
 tags:

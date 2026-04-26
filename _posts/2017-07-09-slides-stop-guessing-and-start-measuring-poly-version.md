@@ -7,7 +7,7 @@ last_modified_at: 2017-07-09 10:09:55 -0000
 publish: true
 pin: false
 image:
-  path: https://pragtob.wordpress.com/wp-content/uploads/2017/07/graal_warmup.png
+  path: /assets/uploads/2017/07/graal_warmup.png
 categories:
 - benchmark
 - Software Engineering

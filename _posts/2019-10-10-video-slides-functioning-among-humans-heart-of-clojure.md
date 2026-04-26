@@ -7,7 +7,7 @@ last_modified_at: 2019-10-10 15:44:46 -0000
 publish: true
 pin: false
 image:
-  path: https://pragtob.wordpress.com/wp-content/uploads/2019/10/sketchnotes.jpeg
+  path: /assets/uploads/2019/10/sketchnotes.jpeg
 categories:
 - People Skills
 - Resources
@@ -27,7 +27,7 @@ Slides can be viewed here, on [speaker deck](https://speakerdeck.com/pragtob/fun
 
 [slideshare id=180717727&doc=heartofclojure-191010153401]
 
-![sketchnotes](https://pragtob.wordpress.com/wp-content/uploads/2019/10/sketchnotes.jpeg) sketch notes by my friend [@malweene](https://twitter.com/malweene/status/1157674342022561792)
+![sketchnotes](/assets/uploads/2019/10/sketchnotes.jpeg) sketch notes by my friend [@malweene](https://twitter.com/malweene/status/1157674342022561792)
 
 ## Abstract
 

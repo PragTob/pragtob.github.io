@@ -7,7 +7,7 @@ last_modified_at: 2019-08-12 17:12:30 -0000
 publish: true
 pin: false
 image:
-  path: https://pragtob.wordpress.com/wp-content/uploads/2019/07/20170623-pivorak-002.jpg
+  path: /assets/uploads/2019/07/20170623-pivorak-002.jpg
 categories:
 - Uncategorized
 tags:

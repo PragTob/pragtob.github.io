@@ -136,7 +136,7 @@ Thanks to the design of benchee these are all already fairly separate so extract
 
 ## benchee_html
 
-![Selection_045.png](https://pragtob.wordpress.com/wp-content/uploads/2017/10/selection_045.png) Especially due to many great community contributions (maybe because of [Hacktoberfest](https://hacktoberfest.digitalocean.com/)?) there's a number of stellar improvements!
+![Selection_045.png](/assets/uploads/2017/10/selection_045.png) Especially due to many great community contributions (maybe because of [Hacktoberfest](https://hacktoberfest.digitalocean.com/)?) there's a number of stellar improvements!
 
 * System information is now also available and you can toggle it with the link in the top right
 * unit scaling from benchee "core" is now also used so it's not all in micro seconds as before but rather an appropriate unit

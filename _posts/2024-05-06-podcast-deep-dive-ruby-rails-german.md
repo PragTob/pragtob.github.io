@@ -21,4 +21,4 @@ You can listen to the episode on various platforms. It's meant to be a good list
 
 Go [check it out](https://www.programmier.bar/podcast/deep-dive-147-ruby-und-rails-mit-tobias-pfeiffer)!
 
-[![](https://pragtob.wordpress.com/wp-content/uploads/2024/05/image-1.png?w=1024)](https://www.programmier.bar/podcast/deep-dive-147-ruby-und-rails-mit-tobias-pfeiffer)
+[![](/assets/uploads/2024/05/image-1.png?w=1024)](https://www.programmier.bar/podcast/deep-dive-147-ruby-und-rails-mit-tobias-pfeiffer)

@@ -41,7 +41,7 @@ The Cloud9 IDE [1] is an online development environment, designed to support a w
 
 ### 3.1 Example Application
 
-[![](http://pragtob.wordpress.com/wp-content/uploads/2012/07/recommender.png)](http://pragtob.wordpress.com/wp-content/uploads/2012/07/recommender.png)
+[![](/assets/uploads/2012/07/recommender.png)](/assets/uploads/2012/07/recommender.png)
 
 Figure 1: The CoffeeRecommender embedded in its environment. This figure is an abstraction of the environment and leaves out intermediary entities. a) When a user chooses an article on a website the Plista server is asked to provide articles that can be recommended for the reader based on the requested article. b) The recommendation request is forwarded to the CoffeeRecommender. c) The application finds the best known matches for the given article and returns them to the Plista Server. d) The Plista server returns the recommendations that are then embedded in the website of the requested article.
 
@@ -49,7 +49,7 @@ The example application _CoffeeRecommender_ [27] is a recommendation engine base
 
 ### 3.2 Work Flow
 
-[![](http://pragtob.wordpress.com/wp-content/uploads/2012/07/work_flow_old.png)](http://pragtob.wordpress.com/wp-content/uploads/2012/07/work_flow_old.png)
+[![](/assets/uploads/2012/07/work_flow_old.png)](/assets/uploads/2012/07/work_flow_old.png)
 
 Figure 2: Work Flow in Cloud9 IDE when following TDD with CoffeeScript and Jasmine framework
 
@@ -97,7 +97,7 @@ The "livecoffee" plug-in by Tane Piper[19] is recommended in the CoffeeScript bo
 
 We extended the existing functionality with our fork of the plug-in [25] in three different ways. We improved the approximate line matching, provided a visual aid for the line matching and enabled other plug-ins to use part of the functionality of this plug-in through loose coupling. The approximate line matching was really approximate as it just took the current line and jumped to the same line in the JavaScript file. Unfortunately line matching is a broader but important problem. Due to the lack of viable alternatives at this point a new CoffeeScript compiler is being built, which will provide source mappings [21]. As this project is not yet ready to be used we decided to leverage the rich open source ecosystem a bit more. We incorporated the _CoffeeScriptLineMatcher_ library [22] written by Steve Howell. This library matches blocks of CoffeeScript code to the corresponding blocks of JavaScript code. It does so by going through the code looking for statements, which can be determined to definitely be the same, like if statements or assignments. The visual aid works by coloring the matching block of lines of both the CoffeeScript and the JavaScript red as it can be seen in figure 3. Moreover the plug-in provides instant feedback, when the approximate line matching is enabled. Every time the position of the cursor in one of the windows is changed the current line in the other window is adjusted appropriately and the blocks are highlighted again. Refer to the screen cast [28] for more information. Also we enabled other plug-ins to use the functionality of the livecoffee plug-in. The coupling is very loose since you can not expect the plug-in to be loaded as it is not a default plug-in of Cloud9. We introduced the _livecoffee_show_file_ event, which has to contain a line property. If the livecoffee plug-in is loaded, then it will open its window and go to the specified line in the JavaScript output window, highlight the block and also go to the same line in the matching CoffeeScript file. Other plug-in authors may use this functionality to enhance their support for CoffeeScript. We used it in our Jasmine test panel in order to go to the block in the CoffeeScript file which matches an error in the compiled JavaScript.
 
-[![](http://pragtob.wordpress.com/wp-content/uploads/2012/07/livecoffee.png)](http://pragtob.wordpress.com/wp-content/uploads/2012/07/livecoffee.png)
+[![](/assets/uploads/2012/07/livecoffee.png)](/assets/uploads/2012/07/livecoffee.png)
 
 Figure 3: The livecoffee plug-in in use with the _itemStorage_ class of the CoffeeRecommender project
 
@@ -109,7 +109,7 @@ The goal for our Jasmine plug-in [26] is to make Test-Driven-Development with th
 
 The panel is one of the common panels on the left hand side in the IDE. Here all recognized testing files are shown. In order to do this we rely on a convention: All test files are assumed to be in the _spec_ folder of the project or in a sub-folder of the _spec_ folder. In addition they should end in _.spec.coffee_ , which is a convention introduced by Jasmine itself. Whenever tests have been executed then this panel can be used to see every single test case, with its description, and whether it passed or failed. Figure 4 is a screen shot of the panel with some failing tests.
 
-[![](http://pragtob.wordpress.com/wp-content/uploads/2012/07/jasmine.png)](http://pragtob.wordpress.com/wp-content/uploads/2012/07/jasmine.png)
+[![](/assets/uploads/2012/07/jasmine.png)](/assets/uploads/2012/07/jasmine.png)
 
 Figure 4: The Jasmine panel after tests with 2 failures ran
 
@@ -134,7 +134,7 @@ We provide an aid for the programmer to find the line of code in the CoffeeScrip
 
 The plug-in itself is client-side, which means that it is executed in the environment of the browser. This is how the user interface and the communication with the livecoffee plug-in works.
 
-[![](http://pragtob.wordpress.com/wp-content/uploads/2012/07/run_tests_server.png)](http://pragtob.wordpress.com/wp-content/uploads/2012/07/run_tests_server.png)
+[![](/assets/uploads/2012/07/run_tests_server.png)](/assets/uploads/2012/07/run_tests_server.png)
 
 Figure 5: A simplified version of the work flow needed to execute tests. At a.) the _noderunner_ is instructed to execute the tests with Jasmine, he forwards this call to the IDE at b.). The IDE issues the command to the server at c.). Then the server executes jasmine with the specified test files at d.). The console output of this is sent back to the IDE via socket messages at e.). The IDE emits events with these messages which our plug-in registers a listener on in order to reassemble the console output at f.)
 
@@ -142,7 +142,7 @@ However in order to execute tests we need to execute code on the server-side. Th
 
 ### 4.3 New Work Flow
 
-[![](http://pragtob.wordpress.com/wp-content/uploads/2012/07/work_flow_new.png)](http://pragtob.wordpress.com/wp-content/uploads/2012/07/work_flow_new.png)
+[![](/assets/uploads/2012/07/work_flow_new.png)](/assets/uploads/2012/07/work_flow_new.png)
 
 Figure 6: The new work flow for testing with a failing test with the livecoffee plug-in and the jasmine plug-in in place - the old work flow can still be seen in gray
 
@@ -240,7 +240,7 @@ Testing your application, preferably with TDD, can increase the quality of the c
 
 ### A. Console Output - Error Log
 
-[![](http://pragtob.wordpress.com/wp-content/uploads/2012/07/npm_error_log.png)](http://pragtob.wordpress.com/wp-content/uploads/2012/07/npm_error_log.png)
+[![](/assets/uploads/2012/07/npm_error_log.png)](/assets/uploads/2012/07/npm_error_log.png)
 
 Figure 7: Error Log of the Cloud9 IDE when tests fail
 

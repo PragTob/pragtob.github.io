@@ -7,7 +7,7 @@ last_modified_at: 2013-06-20 11:53:13 -0000
 publish: true
 pin: false
 image:
-  path: https://pragtob.wordpress.com/wp-content/uploads/2013/06/8409387045_ed43c3e8a5_b.jpg
+  path: /assets/uploads/2013/06/8409387045_ed43c3e8a5_b.jpg
 categories:
 - Beginner
 - Software Engineering

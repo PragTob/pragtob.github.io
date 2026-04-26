@@ -7,7 +7,7 @@ last_modified_at: 2020-03-06 09:23:54 -0000
 publish: true
 pin: false
 image:
-  path: https://pragtob.wordpress.com/wp-content/uploads/2020/03/oss.png
+  path: /assets/uploads/2020/03/oss.png
 categories: []
 tags:
 - Elixir

@@ -7,7 +7,7 @@ last_modified_at: 2024-04-30 12:22:21 -0000
 publish: true
 pin: false
 image:
-  path: https://pragtob.wordpress.com/wp-content/uploads/2023/11/screenshot-from-2023-11-28-16-16-34.png
+  path: /assets/uploads/2023/11/screenshot-from-2023-11-28-16-16-34.png
 categories:
 - Beginner
 - Ruby

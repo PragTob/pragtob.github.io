@@ -7,7 +7,7 @@ last_modified_at: 2012-12-12 12:27:42 -0000
 publish: true
 pin: false
 image:
-  path: https://pragtob.wordpress.com/wp-content/uploads/2012/12/dsc_3101.jpg
+  path: /assets/uploads/2012/12/dsc_3101.jpg
 categories:
 - Beginner
 - Uncategorized

@@ -223,4 +223,4 @@ In that vain, hope you enjoy the new benchee version - happy to hear feedback, b
 
 And because you made it so far, you deserve an adorable bunny picture:
 
-![IMG_20190127_150119.jpg](https://pragtob.wordpress.com/wp-content/uploads/2019/02/img_20190127_150119.jpg)
+![IMG_20190127_150119.jpg](/assets/uploads/2019/02/img_20190127_150119.jpg)

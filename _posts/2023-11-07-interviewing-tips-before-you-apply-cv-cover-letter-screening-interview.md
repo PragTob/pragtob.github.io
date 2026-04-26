@@ -7,7 +7,7 @@ last_modified_at: 2024-04-02 13:31:09 -0000
 publish: true
 pin: false
 image:
-  path: https://pragtob.wordpress.com/wp-content/uploads/2023/11/img20231107140755.jpg
+  path: /assets/uploads/2023/11/img20231107140755.jpg
 categories:
 - Free Resources
 - Job Search
@@ -76,7 +76,7 @@ Surely the news section is an exaggeration though, right? I mean… _maybe_. How
 
 # CV / Resume
 
-[![](https://pragtob.wordpress.com/wp-content/uploads/2023/11/img20231107140755.jpg?w=1024)](https://pragtob.wordpress.com/wp-content/uploads/2023/11/img20231107140755.jpg)
+[![](/assets/uploads/2023/11/img20231107140755.jpg?w=1024)](/assets/uploads/2023/11/img20231107140755.jpg)
 
 Alright, you now know the company and what they do. It’s time to prepare your CV! Again, think about what’s most interesting to them. Keep in mind that sometimes, sadly, interviewers stumble into an interview without having read the CV beforehand. **Make it easy for them to see what’s most relevant**. My CV is by no means perfect but you can check it out [here](https://www.pragtob.info/resume) for some inspiration.
 

@@ -7,7 +7,7 @@ last_modified_at: 2016-04-06 14:36:32 -0000
 publish: true
 pin: false
 image:
-  path: https://pragtob.wordpress.com/wp-content/uploads/2016/04/2015-02-05-19-58-56-e1459754044445.jpg
+  path: /assets/uploads/2016/04/2015-02-05-19-58-56-e1459754044445.jpg
 categories:
 - Meetups
 tags:

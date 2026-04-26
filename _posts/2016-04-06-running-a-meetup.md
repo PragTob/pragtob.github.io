@@ -7,7 +7,7 @@ last_modified_at: 2016-04-06 06:30:30 -0000
 publish: true
 pin: false
 image:
-  path: https://pragtob.wordpress.com/wp-content/uploads/2016/04/2015-11-05-19-43-39-e1459924015628.jpg
+  path: /assets/uploads/2016/04/2015-11-05-19-43-39-e1459924015628.jpg
 categories:
 - Meetups
 tags:
@@ -58,7 +58,7 @@ For the Main part I'll make sure I found enough speakers to fill the content bef
 * mention general rules such as the CoC
 * host & sponsors (if you have some), I usually give them maximum 5 minutes to introduce themselves while advising for a shorter time - people get bored easily
 
-Then it goes on to announcing talks, as well as different parts of the meetup (break, lightning talks) and tell people that we are always looking for talks and encourage them to approach me to bounce talk ideas around. [embed]https://twitter.com/polarblau/status/553264835979649024[/embed] If there are small pauses in between speakers (while connecting to the projector) I like to share some related news (new version of major library X released, security vulnerability in Y, conferences) and ask the audience if they also have any news to share. I just don't like sustained periods of silence while the meetup is supposed to be running. To get the attention of people and have them be silent a long extended "Shhhhhhh" while standing on the stage usually works best in my experience. Sometimes it's just enough to stand there, wait and look like you are going to say something. Holding up one hand (maybe with a balloon) also has worked pretty well for me. [![Trying to get some attention at a Rails Girls Berlin workshop](https://pragtob.wordpress.com/wp-content/uploads/2016/03/8732453470_1b804d7f25_b.jpg)](https://pragtob.wordpress.com/?attachment_id=1374) Trying to get some attention at a Rails Girls Berlin workshop
+Then it goes on to announcing talks, as well as different parts of the meetup (break, lightning talks) and tell people that we are always looking for talks and encourage them to approach me to bounce talk ideas around. [embed]https://twitter.com/polarblau/status/553264835979649024[/embed] If there are small pauses in between speakers (while connecting to the projector) I like to share some related news (new version of major library X released, security vulnerability in Y, conferences) and ask the audience if they also have any news to share. I just don't like sustained periods of silence while the meetup is supposed to be running. To get the attention of people and have them be silent a long extended "Shhhhhhh" while standing on the stage usually works best in my experience. Sometimes it's just enough to stand there, wait and look like you are going to say something. Holding up one hand (maybe with a balloon) also has worked pretty well for me. [![Trying to get some attention at a Rails Girls Berlin workshop](/assets/uploads/2016/03/8732453470_1b804d7f25_b.jpg)](https://pragtob.wordpress.com/?attachment_id=1374) Trying to get some attention at a Rails Girls Berlin workshop
 
 ## Goodbye
 

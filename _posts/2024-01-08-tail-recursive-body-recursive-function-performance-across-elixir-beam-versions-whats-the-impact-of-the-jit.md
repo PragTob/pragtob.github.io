@@ -8,7 +8,7 @@ last_modified_at: 2024-01-08 15:58:04 -0000
 publish: true
 pin: false
 image:
-  path: https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-2.png
+  path: /assets/uploads/2024/01/newplot-2.png
 categories: []
 tags:
 - benche
@@ -421,7 +421,7 @@ For all but one input elixir 1.16 @ OTP 26.2 is the fastest implementation or vi
 
 Is that **the impact of the JIT** you may ask? It can certainly seem so - when we're looking at the list with 10 000 elements as input we see that **even the _slowest_ JIT implementation is faster than the fastest non-JIT implementation** (remember, the JIT was introduced in OTP 24):
 
-[![](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot.png?w=1024)](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot.png)
+[![](/assets/uploads/2024/01/newplot.png?w=1024)](/assets/uploads/2024/01/newplot.png)
 
 Table with more detailed data Name| Iterations per Second| Average| Deviation| Median| Mode| Minimum| Maximum| Sample size  
 ---|---|---|---|---|---|---|---|---  
@@ -440,13 +440,13 @@ Table with more detailed data Name| Iterations per Second| Average| Deviation| M
   
 You can see the standard deviation here can be quite high, which is "thanks" to a few outliers that make the boxplot almost unreadable. Noise from Garbage Collection is often a bit of a problem with micro-benchmarks, but the results are stable and the sample size big enough. Here is a highly zoomed in boxplot to make it readable:
 
-[![](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-1.png?w=1024)](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-1.png)
+[![](/assets/uploads/2024/01/newplot-1.png?w=1024)](/assets/uploads/2024/01/newplot-1.png)
 
 What's really impressive to me is that the **fastest version is 57% faster than the fastest non JIT version** (`tail +order (1.16.0-otp-26)` vs. `tail +order (1.13.4-otp-23)`). Of course, this is a very specific benchmark and may not be indicative of overall performance gains - it's impressive nonetheless. The other good sign is that we seem to be continuing to improve, as our current best version is 13% faster than anything available on our other most recent platform (1.13 @ OTP 24.3).
 
 The **performance uplift of Elixir 1.16 running on OTP 26.2 is even more impressive when we look at the input list of 100k elements - where all its map implementations take the 3 top spots** :
 
-[![](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-2.png?w=1024)](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-2.png) [![](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-3.png?w=1024)](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-3.png)
+[![](/assets/uploads/2024/01/newplot-2.png?w=1024)](/assets/uploads/2024/01/newplot-2.png) [![](/assets/uploads/2024/01/newplot-3.png?w=1024)](/assets/uploads/2024/01/newplot-3.png)
 
 Table with more detailed data Name| Iterations per Second| Average| Deviation| Median| Mode| Minimum| Maximum| Sample size  
 ---|---|---|---|---|---|---|---|---  
@@ -469,7 +469,7 @@ Here the speedup of "fastest JIT vs. fastest non JIT" is still a great 40%. Inte
 
 So, why is that the outlier? Well, here **Elixir 1.13 on OTP 24.3 is faster than Elixir 1.16 on OTP 26.2**! Maybe we just got unlucky you may think, but I have reproduced this result over many different runs of this benchmark. The lead also goes away again with an input list of 10 Million. Now, you may say "Tobi, we shouldn't be dealing with lists of 1 Million and up elements anyhow" and I'd agree with you. Humor me though, as I find it fascinating what a huge impact inputs can have as well as how "random" they are. At 100k and 10 Million our Elixir 1.16 is fastest, but somehow for 1 Million it isn't? I have no idea why, but it seems legit.
 
-[![](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-4.png?w=1024)](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-4.png) [![](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-5.png?w=1024)](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-5.png)
+[![](/assets/uploads/2024/01/newplot-4.png?w=1024)](/assets/uploads/2024/01/newplot-4.png) [![](/assets/uploads/2024/01/newplot-5.png?w=1024)](/assets/uploads/2024/01/newplot-5.png)
 
 Table with more data Name| Iterations per Second| Average| Deviation| Median| Mode| Minimum| Maximum| Sample size  
 ---|---|---|---|---|---|---|---|---  
@@ -492,13 +492,13 @@ When I look at a result that is "weird" to me I usually look at a bunch of other
 
 The next thing I'm looking are the raw recorded run times (in order) as well as their general distribution. While looking at those you can notice some interesting behavior. While both elixir 1.13 @ OTP 24.3 solutions have a more or less steady pattern to their run times, their elixir 1.16 @ OTP 26.2 counter parts seem to experience a noticeable slow down towards the last ~15% of their measurement time. Let's look at 2 examples for the the `tail +order` variants:
 
-[![](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-6.png?w=1024)](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-6.png) [![](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-7.png?w=1024)](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-7.png)
+[![](/assets/uploads/2024/01/newplot-6.png?w=1024)](/assets/uploads/2024/01/newplot-6.png) [![](/assets/uploads/2024/01/newplot-7.png?w=1024)](/assets/uploads/2024/01/newplot-7.png)
 
 Why is this happening? I don't know - you could blame it on on some background job or something kicking in but then it wouldn't be consistent across `tail` and `tail +order` for the elixir 1.16 variant. While we're looking at these graphs, what about the bod-recursive cousin?
 
 ### Less Deviation for Body-Recursive Functions
 
-[![](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-8.png?w=1024)](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-8.png)
+[![](/assets/uploads/2024/01/newplot-8.png?w=1024)](/assets/uploads/2024/01/newplot-8.png)
 
 The body-recursive version looks a lot smoother and less jittery. This is something you can observe across all inputs - as indicated by the much lower standard-deviation of body-recursive implementations.
 
@@ -512,7 +512,7 @@ This _might_ also be one of the key to seeing less jittery run times - less memo
 
 What I found interesting looking at the results is that **for our 10 Million input elixir 1.16 @ OTP 26 is 67% faster than the next fastest implementation**. Which is a huge difference.
 
-[![](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-9.png?w=1024)](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-9.png) [![](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-10.png?w=1024)](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-10.png)
+[![](/assets/uploads/2024/01/newplot-9.png?w=1024)](/assets/uploads/2024/01/newplot-9.png) [![](/assets/uploads/2024/01/newplot-10.png?w=1024)](/assets/uploads/2024/01/newplot-10.png)
 
 Table with more data Name| Iterations per Second| Average| Deviation| Median| Mode| Minimum| Maximum| Sample size  
 ---|---|---|---|---|---|---|---|---  
@@ -533,7 +533,7 @@ We also see that the tail-recursive solution here is **almost 4 times as fast as
 
 Let's take another look at our new found friend - the raw run times chart:
 
-[![](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-11.png?w=1024)](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-11.png) [![](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-12.png?w=1024)](https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-12.png)
+[![](/assets/uploads/2024/01/newplot-11.png?w=1024)](/assets/uploads/2024/01/newplot-11.png) [![](/assets/uploads/2024/01/newplot-12.png?w=1024)](/assets/uploads/2024/01/newplot-12.png)
 
 We can clearly see that the `tail +order` version goes into a repeating pattern of taking much longer every couple of runs while the `tail` version is (mostly) stable. That explains the lower average while it has a higher median for the `tail` version. It is faster on average by being more consistent - so while its median is slightly worse it is on average faster as it doesn't exhibit these spikes. Why is this happening? I don't know, except that I know I've seen it more than once.
 

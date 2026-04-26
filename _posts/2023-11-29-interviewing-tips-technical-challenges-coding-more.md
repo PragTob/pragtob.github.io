@@ -36,7 +36,7 @@ Let’s get into it!
 
 # Mindset
 
-[![](https://pragtob.wordpress.com/wp-content/uploads/2023/11/concept-1868728_1280.jpg?w=1024)](https://pragtob.wordpress.com/wp-content/uploads/2023/11/concept-1868728_1280.jpg)Let's get in the right mindset to tackle the challenges ahead.
+[![](/assets/uploads/2023/11/concept-1868728_1280.jpg?w=1024)](/assets/uploads/2023/11/concept-1868728_1280.jpg)Let's get in the right mindset to tackle the challenges ahead.
 
 The most important thing that I think most people get wrong about technical challenges: **It’s less about IF you can solve it, but about HOW you solve it.**
 
@@ -98,7 +98,7 @@ There are many different main topics for challenges throughout different compani
 
 ## Coding Challenge
 
-[![](https://pragtob.wordpress.com/wp-content/uploads/2023/11/screenshot-from-2023-11-28-16-16-34.png?w=358)](https://pragtob.wordpress.com/wp-content/uploads/2023/11/screenshot-from-2023-11-28-16-16-34.png)An oldie of coding challenges
+[![](/assets/uploads/2023/11/screenshot-from-2023-11-28-16-16-34.png?w=358)](/assets/uploads/2023/11/screenshot-from-2023-11-28-16-16-34.png)An oldie of coding challenges
 
 They are usually part of an engineering hiring process in one form or another. A “trial” day is also a coding challenge in big parts, as in you’re given a problem and are asked to solve it with the people around.
 
@@ -156,7 +156,7 @@ What I like about this kind of challenge is that it’s less likely to go vastly
 
 ## Architecture/Design Challenge
 
-[![](https://pragtob.wordpress.com/wp-content/uploads/2023/11/img20231129153335.jpg?w=1024)](https://pragtob.wordpress.com/wp-content/uploads/2023/11/img20231129153335.jpg)Excuse the hand writing. Some actual notes from an Architecture interview I did.
+[![](/assets/uploads/2023/11/img20231129153335.jpg?w=1024)](/assets/uploads/2023/11/img20231129153335.jpg)Excuse the hand writing. Some actual notes from an Architecture interview I did.
 
 This is a type of challenge you typically only face at the level of Senior or above, sometimes it's also called a "Design interview". Essentially you’ll be given a scenario for an application and asked to design an application that solves this scenario. Sometimes the scope of this is choosing the entire tech stack and general approach, sometimes the focus is solely on the database design - although the latter will come up in both cases. You will not implement it in code, but you will talk through it and probably draw some diagrams.
 

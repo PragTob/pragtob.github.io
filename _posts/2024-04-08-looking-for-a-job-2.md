@@ -7,7 +7,7 @@ last_modified_at: 2024-06-07 06:24:27 -0000
 publish: true
 pin: false
 image:
-  path: https://pragtob.wordpress.com/wp-content/uploads/2024/04/profile.jpeg
+  path: /assets/uploads/2024/04/profile.jpeg
 categories:
 - Job Search
 tags:
@@ -135,4 +135,4 @@ Piqued your interest? You can check out my [CV](https://www.pragtob.info/resume)
 
 Also, if you spread this in your network, I’d really appreciate it!
 
-[![](https://pragtob.wordpress.com/wp-content/uploads/2024/04/profile.jpeg?w=768)](https://pragtob.wordpress.com/wp-content/uploads/2024/04/profile.jpeg)Look, a random picture of me so that it looks nicer and things pick it up when sharing apparently!
+[![](/assets/uploads/2024/04/profile.jpeg?w=768)](/assets/uploads/2024/04/profile.jpeg)Look, a random picture of me so that it looks nicer and things pick it up when sharing apparently!

@@ -7,7 +7,7 @@ last_modified_at: 2019-06-24 16:53:16 -0000
 publish: true
 pin: false
 image:
-  path: https://pragtob.wordpress.com/wp-content/uploads/2019/06/selection_054.png
+  path: /assets/uploads/2019/06/selection_054.png
 categories: []
 tags:
 - edge cases
