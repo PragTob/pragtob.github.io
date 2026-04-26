@@ -1,3 +1,6 @@
 _site
 .sass-cache
 Gemfile.lock
+
+# bundled gems due to permission issues
+vendor/bundle
