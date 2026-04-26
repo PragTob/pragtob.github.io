@@ -4,18 +4,70 @@ title: Blog – Tobias Pfeiffer
 ---
 
 <section class="blog-index">
-  <h1>Blog</h1>
+  {% assign published_posts = site.posts | where: "publish", true %}
+  {% assign featured_post = published_posts | first %}
 
-  <ul class="post-list">
-    {% assign published_posts = site.posts | where: "publish", true %}
-    {% for post in published_posts %}
-    <li class="post-item">
-      <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
-      <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      {% if post.excerpt %}
-      <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
+  <header class="blog-index-header">
+    <h1>Blog</h1>
+    <p class="blog-index-intro">
+      Writing on software, performance, Open Source and the occasional talk recap.
+    </p>
+  </header>
+
+  {% if featured_post %}
+  <article class="blog-featured card mb-4">
+    <div class="card-body">
+      <p class="blog-featured-label">Latest post</p>
+      <h2 class="blog-featured-title">
+        <a class="blog-featured-link" href="{{ featured_post.url | relative_url }}">{{ featured_post.title }}</a>
+      </h2>
+      <p class="blog-featured-date">{{ featured_post.date | date: "%Y-%m-%d" }}</p>
+      {% assign featured_topics = featured_post.tags %}
+      {% if featured_topics == nil or featured_topics == empty %}
+      {% assign featured_topics = featured_post.categories %}
       {% endif %}
-    </li>
+      {% if featured_topics and featured_topics != empty %}
+      <div class="blog-topic-chips mb-2">
+        {% for topic in featured_topics limit:3 %}
+        <span class="blog-topic-chip">{{ topic }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+      {% if featured_post.excerpt %}
+      <p class="blog-featured-excerpt">{{ featured_post.excerpt | strip_html | truncatewords: 55 }}</p>
+      {% endif %}
+      <a class="blog-featured-read-more" href="{{ featured_post.url | relative_url }}">Read post</a>
+    </div>
+  </article>
+  {% endif %}
+
+  <div class="row">
+    {% for post in published_posts offset:1 %}
+    <div class="col-md-6 col-lg-4 d-flex mb-4">
+      <article class="blog-card card w-100">
+        <div class="card-body d-flex flex-column">
+          <p class="blog-card-date">{{ post.date | date: "%Y-%m-%d" }}</p>
+          <h3 class="blog-card-title">
+            <a class="blog-card-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </h3>
+          {% assign post_topics = post.tags %}
+          {% if post_topics == nil or post_topics == empty %}
+          {% assign post_topics = post.categories %}
+          {% endif %}
+          {% if post_topics and post_topics != empty %}
+          <div class="blog-topic-chips mb-2">
+            {% for topic in post_topics limit:3 %}
+            <span class="blog-topic-chip">{{ topic }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% if post.excerpt %}
+          <p class="blog-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 26 }}</p>
+          {% endif %}
+          <a class="blog-card-read-more mt-auto" href="{{ post.url | relative_url }}">Read more</a>
+        </div>
+      </article>
+    </div>
     {% endfor %}
-  </ul>
+  </div>
 </section>
