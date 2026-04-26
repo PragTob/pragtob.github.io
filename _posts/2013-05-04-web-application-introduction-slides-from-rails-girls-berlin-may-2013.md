@@ -20,7 +20,7 @@ tags:
 ---
 Hi everyone, It's the well known web application introduction, this time without the Ruby introduction as the Ruby Monsters already did this! This time it also has a Bentobox exercise, so enjoy!
 
-* [PDF download](http://pragtob.wordpress.com/wp-content/uploads/2013/05/web_application_intro_shortened.pdf)
+* [PDF download](/assets/slides/2013/05/web_application_intro_shortened.pdf)
 * [Speakerdeck](https://speakerdeck.com/pragtob/web-application-intro-for-railsgirls-berlin-may-2013)
 * [Slideshare](http://www.slideshare.net/PragTob/web-application-introshortened)
 

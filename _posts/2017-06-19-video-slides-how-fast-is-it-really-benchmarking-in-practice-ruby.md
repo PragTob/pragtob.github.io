@@ -16,7 +16,7 @@ tags:
 - slides
 - warsaw ruby users group
 ---
-My slides & video from visiting the excellent [WRUG (Warsaw Ruby Users Group)](http://wrug.eu/). The talk is a variation of the similarly named elixir talk, but it is ever evolving and here more focused on Ruby. It covers mostly how to setup and run good benchmarks, traps you can fall into and tools you should use. https://www.youtube.com/watch?v=ChX7A_u6IsE You can also have a look at the slides right here or at [speakerdeck](https://speakerdeck.com/pragtob/how-fast-ist-it-really-benchmarking-in-practice-ruby-version), [slideshare](https://www.slideshare.net/PragTob/how-fast-is-it-really-benchmarking-in-practice) or [PDF](https://pragtob.wordpress.com/wp-content/uploads/2017/06/wrug.pdf "wrug"). [slideshare id=77048575&doc=wrug-170618162815]
+My slides & video from visiting the excellent [WRUG (Warsaw Ruby Users Group)](http://wrug.eu/). The talk is a variation of the similarly named elixir talk, but it is ever evolving and here more focused on Ruby. It covers mostly how to setup and run good benchmarks, traps you can fall into and tools you should use. https://www.youtube.com/watch?v=ChX7A_u6IsE You can also have a look at the slides right here or at [speakerdeck](https://speakerdeck.com/pragtob/how-fast-ist-it-really-benchmarking-in-practice-ruby-version), [slideshare](https://www.slideshare.net/PragTob/how-fast-is-it-really-benchmarking-in-practice) or [PDF](/assets/slides/2017/06/wrug.pdf "wrug"). [slideshare id=77048575&doc=wrug-170618162815]
 
 ### Abstract
 

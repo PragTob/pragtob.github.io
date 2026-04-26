@@ -24,5 +24,5 @@ I gave this talk at [Full Stack Fest](https://2016.fullstackfest.com/) (achievem
 
 ## Slides
 
-* Full Stack Fest Version ([PDF](https://pragtob.wordpress.com/wp-content/uploads/2016/09/full_stack_fest.pdf "full_stack_fest"), [Speakerdeck](https://speakerdeck.com/pragtob/what-did-alphago-do-to-beat-the-strongest-human-go-player-1), [Slideshare](http://www.slideshare.net/PragTob/what-did-alphago-do-to-beat-the-strongest-human-go-player))
-* Strange Group Version ([PDF](https://pragtob.wordpress.com/wp-content/uploads/2016/09/strange_group.pdf "strange_group"), [Speakerdeck](https://speakerdeck.com/pragtob/what-did-alphago-do-to-beat-the-strongest-human-go-player-strange-group-version), [Slideshare](http://www.slideshare.net/PragTob/what-did-alphago-do-to-beat-the-strongest-human-go-player-strange-group-version))
+* Full Stack Fest Version ([PDF](/assets/slides/2016/09/full_stack_fest.pdf "full_stack_fest"), [Speakerdeck](https://speakerdeck.com/pragtob/what-did-alphago-do-to-beat-the-strongest-human-go-player-1), [Slideshare](http://www.slideshare.net/PragTob/what-did-alphago-do-to-beat-the-strongest-human-go-player))
+* Strange Group Version ([PDF](/assets/slides/2016/09/strange_group.pdf "strange_group"), [Speakerdeck](https://speakerdeck.com/pragtob/what-did-alphago-do-to-beat-the-strongest-human-go-player-strange-group-version), [Slideshare](http://www.slideshare.net/PragTob/what-did-alphago-do-to-beat-the-strongest-human-go-player-strange-group-version))

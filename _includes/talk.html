@@ -1,0 +1,33 @@
+{% assign talk = include.talk %}
+
+<article class="longform__section">
+  <h2 {% if talk.id %}id="{{talk.id}}" {% endif %}class="longofrm__heading">
+    {{talk.title}}
+    {% if talk.events and talk.events.size > 0 %}
+      ({{talk.events | join: ", "}})
+    {% endif %}
+  </h2>
+
+  {% if talk.abstract %}
+    {{talk.abstract | markdownify}}
+  {% endif %}
+
+  {% if talk.youtube_embed_url %}
+    <iframe width="560" height="315" src="{{talk.youtube_embed_url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  {% endif %}
+
+  {% if talk.speakerdeck_id %}
+    <script defer class="speakerdeck-embed" data-id="{{talk.speakerdeck_id}}" data-ratio="{{talk.speakerdeck_ratio}}" src="//speakerdeck.com/assets/embed.js"></script>
+  {% endif %}
+
+  {% if talk.resources %}
+    <h3>Resources</h3>
+    <ul>
+      {% for resource in talk.resources %}
+        <li>
+          <a href="{{resource.url}}">{{resource.label}}</a>{% if resource.suffix_html %}{{resource.suffix_html}}{% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</article>

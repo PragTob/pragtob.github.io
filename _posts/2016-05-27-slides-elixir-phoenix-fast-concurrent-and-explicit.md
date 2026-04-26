@@ -25,7 +25,7 @@ This is the first talk I ever gave about my two new favorite technologies to pla
 
 #### Slides
 
-* [PDF](https://pragtob.wordpress.com/wp-content/uploads/2016/05/elixir_and_phoenix.pdf)
+* [PDF](/assets/slides/2016/05/elixir_and_phoenix.pdf)
 * [speakerdeck](https://speakerdeck.com/pragtob/elixir-and-phoenix-fast-concurrent-and-explicit)
 * [slideshare](http://www.slideshare.net/PragTob/elixir-phoenix-fast-concurrent-and-explicit)
 

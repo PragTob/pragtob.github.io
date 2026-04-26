@@ -27,7 +27,7 @@ I was happy enough to present at [rubyconf](http://rubyconf.org/) this year. Her
 
 * [Speakerdeck](https://speakerdeck.com/pragtob/beating-go-thanks-to-the-power-of-randomness)
 * [Slideshare](https://speakerdeck.com/pragtob/beating-go-thanks-to-the-power-of-randomness)
-* [PDF (download)](https://pragtob.wordpress.com/2015/11/21/slides-beating-go-thanks-to-the-power-of-randomness-rubyconf-2015/beating-go-thanks-to-the-power-of-randomness/)
+* [PDF (download)](/assets/slides/2015/11/beating-go-thanks-to-the-power-of-randomness.pdf)
 
 ##### Abstract
 

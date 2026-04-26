@@ -20,7 +20,7 @@ tags:
 ---
 An introduction about JavaScript web workers I gave at [Berlin.js](http://berlinjs.org/) on the 18th of July 2013. It introduces the concept of web workers for simple parallel processing in client side JavaScript. Thank you everyone for attending and for your feedback! Here are some links to the slides:
 
-* [PDF](http://pragtob.wordpress.com/wp-content/uploads/2013/07/web_worker.pdf)
+* [PDF](/assets/slides/2013/07/web_worker.pdf)
 * [speakerdeck](https://speakerdeck.com/pragtob/javascript-web-workers)
 * [slideshare](http://www.slideshare.net/PragTob/javascript-web-workers)
 

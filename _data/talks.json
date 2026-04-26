@@ -1,0 +1,426 @@
+{
+  "talks": [
+    {
+      "id": "going-staff",
+      "title": "Going Staff",
+      "events": ["Code BEAM EU 2024 Keynote", "Elixir | Ruby User Group Berlin"],
+      "abstract": "What's up with becoming a Staff Engineer? What does it mean? Is it just for people who want to keep coding? How do you become a Staff Engineer and what does the work entail? What if I told you, that being a Staff engineer actually required a lot of communication and collaboration skills?<br><br>In this talk, let's answer all those questions - as it's still quite fuzzy what a Staff engineer actually is.",
+      "youtube_embed_url": "https://www.youtube-nocookie.com/embed/Pmfkbg-NXmU?si=tijlVcEJN4qJ9lG6",
+      "speakerdeck_id": "44e18ec0d7034f909bad7e894db68e33",
+      "speakerdeck_ratio": "1.778494623655914",
+      "resources": [
+        {
+          "label": "Video",
+          "url": "https://www.youtube.com/watch?v=Pmfkbg-NXmU"
+        },
+        {
+          "label": "Slides (PDF)",
+          "url": "/assets/slides/2024/10/tobias_pfeiffer_going_staff-1.pdf"
+        },
+        {
+          "label": "Slides (Speakerdeck)",
+          "url": "https://speakerdeck.com/pragtob/going-staff-keynote-edition"
+        },
+        {
+          "label": "Slides (Slideshare)",
+          "url": "https://www.slideshare.net/slideshow/going-staff-keynote-codebeam-eu-edition/272462975"
+        }
+      ]
+    },
+    {
+      "id": "stories-in-oss",
+      "title": "Stories in Open Source",
+      "events": ["Lambdadays 2023", "Ruby User Group Berlin"],
+      "abstract": "What's it like to work on Open Source projects? They're all the same aren't they? No, they're not - the longer I worked on Open Source the more I realize how different the experience is for each one of them. Walk with me through some stories that happened to me in Open Source and let's see what we can take away.",
+      "youtube_embed_url": "https://www.youtube.com/embed/WU5u2x_5QLA?si=qg_sU8M2Hy9uEJzs",
+      "resources": [
+        {
+          "label": "Video",
+          "url": "https://www.youtube.com/watch?v=WU5u2x_5QLA"
+        },
+        {
+          "label": "Slides (PDF)",
+          "url": "/assets/slides/2020/03/rug_b.pdf"
+        },
+        {
+          "label": "Slides (Speakerdeck)",
+          "url": "https://speakerdeck.com/pragtob/stories-in-open-source"
+        },
+        {
+          "label": "Slides (Slideshare)",
+          "url": "https://www.slideshare.net/PragTob/stories-in-open-source"
+        }
+      ]
+    },
+    {
+      "id": "metaphors",
+      "title": "Metaphors are everywhere: Ideas to Improve software development",
+      "events": ["Alchemyconf 2025", "Code BEAM Coruna 2022", "RUG::B"],
+      "abstract": "Let's embark on a journey together - a journey in which we'll weave together the realms of basketball, fiction writing, game development and trading card games to explore how these seemingly unrelated domains surprisingly intersect with the world of software development, offering fresh perspectives and insights. Discover how concepts, strategies, and principles from these diverse domains can enhance your software development skills and creativity. Let's celebrate the power of interdisciplinary thinking, revealing how diverse interests can invigorate your approach to software development.",
+      "youtube_embed_url": "https://www.youtube-nocookie.com/embed/GYwFAht6GbY?si=GEgOHD8Frt5zeMzX",
+      "resources": [
+        {
+          "label": "Video",
+          "url": "https://www.youtube.com/watch?v=GYwFAht6GbY"
+        },
+        {
+          "label": "Slides (PDF)",
+          "url": "/assets/slides/2023/10/presentation.pdf"
+        },
+        {
+          "label": "Slides (Speakerdeck)",
+          "url": "https://speakerdeck.com/pragtob/metaphors-are-everywhere-ideas-to-improve-software-development"
+        },
+        {
+          "label": "Slides (Slideshare)",
+          "url": "https://www.slideshare.net/PragTob/metaphors-are-everywhere-ideas-to-improve-software-development"
+        }
+      ]
+    },
+    {
+      "id": "functioning-among-humans",
+      "title": "Functioning Among Humans",
+      "events": ["goatmire 2025", "Heart of Clojure", "Code BEAM Lite Berlin"],
+      "abstract": "In the development world most people are striving for technical excellence: better code, faster run times, more convenient interfaces, better databases... But is that really what helps us create better software?\n\nIn the end software development is done by groups of people creating products together. To do that communication and collaboration are essential. You can be the best programmer ever, but if you can't efficiently work with others what good does it do you?\n\nThis talk will introduce you to relevant, easy to grasp concepts of collaboration and communication as well as give you food for thought",
+      "resources": [
+        {
+          "label": "Video",
+          "url": "https://www.youtube.com/watch?v=sEqDOin9bZM"
+        },
+        {
+          "label": "Slides (PDF)",
+          "url": "/assets/slides/2019/10/heart_of_clojure-1.pdf"
+        },
+        {
+          "label": "Slides (Speakerdeck)",
+          "url": "https://speakerdeck.com/pragtob/functioning-among-humans-3fac330b-2153-41ee-b6a9-3f5c6dde2328"
+        },
+        {
+          "label": "Slides (Slideshare)",
+          "url": "https://www.slideshare.net/PragTob/functioning-among-humans-180717727"
+        },
+        {
+          "label": "Sketch notes",
+          "url": "https://pragtob.files.wordpress.com/2019/10/sketchnotes.jpeg",
+          "suffix_html": " by my friend <a href=\"https://twitter.com/malweene/status/1157674342022561792\">Malwine</a>"
+        }
+      ]
+    },
+    {
+      "title": "Do You Need That Validation? Let Me Call You Back About It",
+      "events": ["Ruby on Ice 2019"],
+      "abstract": "Rails apps start nice and cute. Fast forward a year and business logic and view logic are entangled in our validations and callbacks - getting in our way at every turn. Wasn't this supposed to be easy?\n\nLet's explore different approaches to improve the situation and untangle the web.\n\n(note: the beer slide is there because it was the first talk Sunday morning after a bavarian conference party)",
+      "resources": [
+        {
+          "label": "Video & Sketch Notes",
+          "url": "https://rubyonice.com/speakers/tobias_pfeiffer"
+        },
+        {
+          "label": "Slides (PDF)",
+          "url": "/assets/slides/2019/03/rubyonice.pdf"
+        },
+        {
+          "label": "Slides (Speakerdeck)",
+          "url": "https://speakerdeck.com/pragtob/do-you-need-that-validation-let-me-call-you-back-about-it"
+        },
+        {
+          "label": "Slides (Slideshare)",
+          "url": "https://www.slideshare.net/PragTob/do-you-need-that-validation-let-me-call-you-back-about-it"
+        }
+      ]
+    },
+    {
+      "title": "Elixir, Your Monolith and You",
+      "events": ["Code Beam Lite Berlin 2018", "Devday.io 2018"],
+      "abstract": "Elixir is great, so clearly we'll all rewrite our applications in Elixir. Mostly, you can't and shouldn't do that. This presentation will show you another path. You'll see how at Liefery, we started with small steps instead of rewriting everything. This allowed us to reap the benefits earlier and get comfortable before getting deeper into it. We'll examine in detail the tactics we used to create two Elixir apps for new requirements, and how we integrated them with our existing Rails code base.\n\nJoin us on our tale of adopting Elixir and Phoenix and see what we learned, what we loved, and what bumps we hit along the road",
+      "resources": [
+        {
+          "label": "Video",
+          "url": "https://www.youtube.com/watch?v=j-OgEF_rezY"
+        },
+        {
+          "label": "Slides (PDF)",
+          "url": "/assets/slides/2018/04/devday_io.pdf"
+        },
+        {
+          "label": "Slides (Speakerdeck)",
+          "url": "https://speakerdeck.com/pragtob/your-monolith-elixir-and-you"
+        }
+      ]
+    },
+    {
+      "title": "Where do Rubyists go?",
+      "events": ["Ruby on Ice 2018", "RubyC 2018"],
+      "abstract": "Many Rubyists branch out and take a look at other languages. What are similarities between those languages and ruby? What are differences? How does Ruby influence these languages?",
+      "resources": [
+        {
+          "label": "Video",
+          "url": "https://www.youtube.com/watch?v=xojxPlXrPfQ"
+        },
+        {
+          "label": "Slides (PDF)",
+          "url": "/assets/slides/2018/01/rubyonice.pdf"
+        },
+        {
+          "label": "Slides (Speakerdeck)",
+          "url": "https://speakerdeck.com/pragtob/where-do-rubyists-go"
+        },
+        {
+          "label": "Slides (Slideshare)",
+          "url": "https://www.slideshare.net/PragTob/where-do-rubyists-go"
+        }
+      ]
+    },
+    {
+      "title": "It's About the Humans, Stupid (Lighting)",
+      "events": ["Pivorak 2017"],
+      "abstract": "In the development world most people are striving for technical excellence: better code, faster run times, more convenient interfaces, better databases, faster deployments... But is that really what makes us better at developing software?\n\nIn the end software development is done by groups of people creating products together. To do that communication and collaboration between humans is essential - you can be the best programmer ever, if you can't efficiently work with others what good does it do you?\n\nThis talk will give you a primer and food for further thought.",
+      "resources": [
+        {
+          "label": "Video",
+          "url": "https://www.youtube.com/watch?v=OBq5V_tLMGY"
+        },
+        {
+          "label": "Slides (PDF)",
+          "url": "/assets/slides/2017/07/lviv_lightning.pdf"
+        },
+        {
+          "label": "Slides (Speakerdeck)",
+          "url": "https://speakerdeck.com/pragtob/its-about-the-humans-stupid-lightning"
+        },
+        {
+          "label": "Slides (Slideshare)",
+          "url": "https://www.slideshare.net/PragTob/its-about-the-humans-stupid-lightning"
+        }
+      ]
+    },
+    {
+      "id": "benchmarking",
+      "title": "Stop Guessing and Start Measuring - Benchmarking in Practice / (Ruby)",
+      "events": ["Elixirlive 2016", "Elixir Berlin 2016", "hh.ex 2017", "Erlang User Confernce 2017", "WRUG 2017", "Pivorak 2017"],
+      "abstract": "(Alternative title: How fast is it really? Benchmarking in Practice)\n\n\"What's the fastest way of doing this?\" - you might ask yourself during development. Sure, you can guess what's fastest or how long something will take, but do you know? How long does it take to sort a list of 1 Million elements? Are tail-recursive functions always the fastest?\n\nBenchmarking is here to answer these questions. However, there are many pitfalls around setting up a good benchmark and interpreting the results. This talk will guide you through, introduce best practices and show you some surprising benchmarking results along the way.",
+      "resources": [
+        {
+          "label": "Elixir Video",
+          "url": "https://www.youtube.com/watch?v=KSrImdsfjL4"
+        },
+        {
+          "label": "Elixir Slides (PDF)",
+          "url": "/assets/slides/2018/03/lambdadays.pdf"
+        },
+        {
+          "label": "Elixir Slides (Speakerdeck)",
+          "url": "https://speakerdeck.com/pragtob/https://speakerdeck.com/pragtob/stop-guessing-and-start-measuring-benchmarking-in-practice-lambdadays"
+        },
+        {
+          "label": "Elixir Slides (Slideshare)",
+          "url": "https://www.slideshare.net/PragTob/stop-guessing-and-start-measuring-benchmarking-in-practice-lambdadays"
+        },
+        {
+          "label": "Ruby Video",
+          "url": "https://www.youtube.com/watch?v=polavOwhYRE"
+        },
+        {
+          "label": "Ruby Slides (PDF)",
+          "url": "/assets/slides/2017/06/wrug.pdf"
+        },
+        {
+          "label": "Ruby Slides (Speakerdeck)",
+          "url": "https://speakerdeck.com/pragtob/how-fast-ist-it-really-benchmarking-in-practice-ruby-version"
+        },
+        {
+          "label": "Ruby Slides (Slideshare)",
+          "url": "https://www.slideshare.net/PragTob/how-fast-is-it-really-benchmarking-in-practice"
+        }
+      ]
+    },
+    {
+      "id": "alpha-go",
+      "title": "What did AlphaGo do to beat the strongest human Go player?",
+      "events": ["Full Stack Fest 2016", "Strange Group 2016", "Codemotion Berlin 2016"],
+      "abstract": "This year AlphaGo shocked the world by decisively beating the strongest human Go player, Lee Sedol. An accomplishment that wasn't expected for years to come. How did AlphaGo do this? What algorithms did it use? What advances in AI made it possible? This talk will briefly introduce the game of Go, followed by the techniques and algorithms used by AlphaGo to answer these questions.",
+      "resources": [
+        {
+          "label": "Video",
+          "url": "https://www.youtube.com/watch?v=b9H9AtbxpPM"
+        },
+        {
+          "label": "Slides (PDF)",
+          "url": "/assets/slides/2016/09/full_stack_fest.pdf"
+        },
+        {
+          "label": "Slides (Speakerdeck)",
+          "url": "https://speakerdeck.com/pragtob/what-did-alphago-do-to-beat-the-strongest-human-go-player-1"
+        },
+        {
+          "label": "Slides (Slideshare)",
+          "url": "http://www.slideshare.net/PragTob/what-did-alphago-do-to-beat-the-strongest-human-go-player"
+        }
+      ]
+    },
+    {
+      "title": "Elixir &amp; Phoenix - fast, concurrent and explicit",
+      "events": ["Oredev 2019", "Rubyconf.pt 2016", "RUG-B 2016", "vilnius.rb 2016", "Codemotion 2016"],
+      "abstract": "Elixir and Phoenix are all the hype lately - what's great about them? Is there more to them than \"just\" fast, concurrent and reliable?\n\nThis talk will give a short intro into both Elixir and Phoenix, highlighting strengths, differences from Ruby/Rails and weaknesse",
+      "resources": [
+        {
+          "label": "Video",
+          "url": "https://www.youtube.com/watch?v=5NFOUUbfvJE"
+        },
+        {
+          "label": "Slides (PDF)",
+          "url": "/assets/slides/2016/05/elixir_and_phoenix.pdf"
+        },
+        {
+          "label": "Slides (Speakerdeck)",
+          "url": "https://speakerdeck.com/pragtob/elixir-and-phoenix-fast-concurrent-and-explicit"
+        },
+        {
+          "label": "Slides (Slideshare)",
+          "url": "http://www.slideshare.net/PragTob/elixir-phoenix-fast-concurrent-and-explicit"
+        }
+      ]
+    },
+    {
+      "title": "Beating Go Thanks to the Power of Randomness",
+      "events": ["Rubyconf 2015"],
+      "abstract": "Go is a board game that is more than 2,500 years old (yes, this is not about the programming language!) and it is fascinating from multiple viewpoints. For instance, go bots still can't beat professional players, unlike in chess.\n\nThis talk will show you what is so special about Go that computers still can't beat humans. We will take a look at the most popular underlying algorithm and show you how the Monte Carlo method, basically random simulation, plays a vital role in conquering Go's complexity and creating the strong Go bots of today.",
+      "resources": [
+        {
+          "label": "Video",
+          "url": "https://www.youtube.com/watch?v=fFGB3VFuSFU"
+        },
+        {
+          "label": "Slides (PDF)",
+          "url": "/assets/slides/2015/11/beating-go-thanks-to-the-power-of-randomness.pdf"
+        },
+        {
+          "label": "Slides (Speakerdeck)",
+          "url": "https://speakerdeck.com/pragtob/beating-go-thanks-to-the-power-of-randomness"
+        },
+        {
+          "label": "Slides (Slideshare)",
+          "url": "https://speakerdeck.com/pragtob/beating-go-thanks-to-the-power-of-randomness"
+        }
+      ]
+    },
+    {
+      "title": "Optimizing for readability",
+      "events": ["Codemotion 2015", "Vilnius.rb 2016"],
+      "abstract": "What do software engineers do all day long? Write code? Of course! But what about reading code, about understanding what's happening? Aren't we doing that even more? I believe we do. Because of that code should be as readable as possible! But what does that even mean? How do we achieve readable code? This talk will introduce you to coding principles and techniques that will help you write more readable code, be more productive and have more fun!\n\n<em>A remix with added knowledge of \"Code is read many more times than written\".</em>",
+      "resources": [
+        {
+          "label": "Slides (PDF)",
+          "url": "/assets/slides/2015/11/optimizing_for_readability_tobias_pfeiffer.pdf"
+        },
+        {
+          "label": "Slides (Speakerdeck)",
+          "url": "https://speakerdeck.com/pragtob/optimizing-for-readability"
+        },
+        {
+          "label": "Slides (Slideshare)",
+          "url": "http://www.slideshare.net/PragTob/optimizing-for-readability"
+        }
+      ]
+    },
+    {
+      "title": "Building Crystal in Crystal",
+      "events": ["Ruby user Group 2015"],
+      "abstract": "Crystal is a compiled ruby-like language and the compiler is written in Crystal itself. That means we can build crystal in crystal! The dream of rubinius come true! Explore a live session trying to implement a new feature in crystal!\n\nThis is an impromptu talk exploring what happens if you take a Ruby developer with slight crystal knowledge and let him do a live coding session implementing features in the crystal language itself. Exciting!\n\n<em>(impromptu talk as a talk had to be cancelled)</em>",
+      "resources": [
+        {
+          "label": "Video",
+          "url": "https://vimeo.com/132538202"
+        },
+        {
+          "label": "Slides (PDF)",
+          "url": "/assets/slides/2015/07/rug_b.pdf"
+        },
+        {
+          "label": "Slides (Speakerdeck)",
+          "url": "https://speakerdeck.com/pragtob/building-crystal-in-crystal"
+        }
+      ]
+    },
+    {
+      "title": "Code is read many more times than written",
+      "events": ["Ruby User Group 2013"],
+      "abstract": "This statement changed my view of Software Engineering. Forever. Code is just written once, but read many times. This is why we should put extra effort into writing good code.\n\nIn this talk you will learn how to write readable code. Techniques and patterns will be presented to make your code as understandable and easy to work with as possible. Also higher level concepts to keep a code base nice, tidy and clean will be discussed.\n\nThe ultimate goal of this session is to make your life as a programmer more enjoyable. Working with good code is just so much more productive and fun that it really makes a difference in your day-to-day job. Writing readable code might be an investment, but it pays its interest rate every day.",
+      "resources": [
+        {
+          "label": "PDF (attention, close to 20MB)",
+          "url": "/assets/slides/2013/09/code_is_read_many_more_times_than_written.pdf"
+        },
+        {
+          "label": "Slides (Speakerdeck)",
+          "url": "https://speakerdeck.com/pragtob/code-is-read-many-more-times-than-written"
+        },
+        {
+          "label": "Slides (Slideshare)",
+          "url": "http://www.slideshare.net/PragTob/code-is-readmanymoretimesthanwritten"
+        }
+      ]
+    },
+    {
+      "title": "Shoes - The Ruby way to GUI applications",
+      "events": ["JRubyConf 2013", "Vilnius.rb 2015"],
+      "abstract": "We build web applications and command line applications with Ruby - but what about graphical desktop application? There used to be this <a href=\"http://www.shoesrb.com/\">Shoes</a> thing, but isn't that <em>dead</em>?\n\nNo it's not! <a href=\"https://github.com/shoes/shoes4\">Shoes4</a> is being developed right now by a dedicated team. Let me tell you all about it and introduce you to this beautiful DSL I fell in love with.\n\nThis presentation actually is a shoes application, with the slides described in a nice DSL and interactive samples. As it has no PDF export (yet) the slides are just screenshots :-)",
+      "resources": [
+        {
+          "label": "repository with instructions how to run it",
+          "url": "https://github.com/PragTob/shoes_presentation"
+        },
+        {
+          "label": "Slides (PDF)",
+          "url": "/assets/slides/2013/08/shoes.pdf"
+        },
+        {
+          "label": "Slides (Speakerdeck)",
+          "url": "https://speakerdeck.com/pragtob/shoes-presentation"
+        },
+        {
+          "label": "Slides (Slideshare)",
+          "url": "http://www.slideshare.net/PragTob/shoes-25252730"
+        }
+      ]
+    },
+    {
+      "title": "Web Workers - Heavy Lifting on the Client Side",
+      "events": ["Berlin.js 2013"],
+      "abstract": "Web Workers are your possibility to do some of the heavy lifting on the client side without blocking the main thread and ever touching the backend! They are ready to use as all major browsers, yes even IE, support them. You can even write a <a href=\"https://developer.mozilla.org/en-US/demos/detail/javascript-ray-tracer\">ray tracer</a> purely on the client side of the browser. So it's time to get crazy and creative - this talk can get you started.",
+      "resources": [
+        {
+          "label": "Slides (PDF)",
+          "url": "/assets/slides/2013/07/web_worker.pdf"
+        },
+        {
+          "label": "Slides (Speakerdeck)",
+          "url": "https://speakerdeck.com/pragtob/javascript-web-workers"
+        },
+        {
+          "label": "Slides (Slideshare)",
+          "url": "http://www.slideshare.net/PragTob/javascript-web-workers"
+        }
+      ]
+    },
+    {
+      "title": "Introduction into web applications",
+      "events": ["Rails Girls Berlin 2012-..."],
+      "abstract": "An introduction presentation I gave a lot of times at Rails Girls Berlin work shops and at my Rails course at the Humboldt university Berlin. It covers the basics of what web applications are and how the different parts of a web application play together.",
+      "resources": [
+        {
+          "label": "PDF download",
+          "url": "/assets/slides/2013/05/web_application_intro_shortened.pdf"
+        },
+        {
+          "label": "Slides (Speakerdeck)",
+          "url": "https://speakerdeck.com/pragtob/web-application-intro-for-railsgirls-berlin-may-2013"
+        },
+        {
+          "label": "Slides (Slideshare)",
+          "url": "http://www.slideshare.net/PragTob/web-application-introshortened"
+        }
+      ]
+    }
+  ]
+}

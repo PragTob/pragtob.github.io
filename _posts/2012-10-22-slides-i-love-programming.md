@@ -26,6 +26,6 @@ Here are the slides from the lightning talk I gave at a [RailsGirls Berlin](http
 
 * [speakerdeck](https://speakerdeck.com/pragtob/i-love-programming)
 * [slideshare](http://www.slideshare.net/PragTob/i-love-programming-14837508)
-* [I love programming(PDF)](http://pragtob.wordpress.com/wp-content/uploads/2012/10/i-love-programming.pdf)
+* [I love programming(PDF)](/assets/slides/2012/10/i-love-programming.pdf)
 
 Enjoy - and thanks everyone again for the great event this Saturday! And of course to everyone laughing and smiling, that makes presenting so much more fun :-D Tobi

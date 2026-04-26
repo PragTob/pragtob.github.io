@@ -22,7 +22,7 @@ tags:
 ---
 Hi everyone, here go the slides from my talk this morning at the RailsGirls Berlin December workshop. It's a basic introduction to web applications and Ruby. Enjoy it and feel free to use it everywhere - if you got questions comment :-)
 
-* [Slides as PDF (download)](http://pragtob.wordpress.com/wp-content/uploads/2012/12/web_application_intro.pdf)
+* [Slides as PDF (download)](/assets/slides/2012/12/web_application_intro.pdf)
 * [Slides at speakerdeck](https://speakerdeck.com/pragtob/web-application-and-ruby-intro-for-railsgirls-berlin)
 * [Slides at slideshare](http://www.slideshare.net/PragTob/web-application-intro)
 

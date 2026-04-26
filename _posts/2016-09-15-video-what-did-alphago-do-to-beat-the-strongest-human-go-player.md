@@ -17,7 +17,7 @@ tags:
 - Neural Networks
 - presentation
 ---
-The publishing/video partner of Full Stack Fest was amazingly fast in publishing the video. Kudos to them! So after publishing the slides here goes the video! [youtube https://www.youtube.com/watch?v=b9H9AtbxpPM] If you want to have the slides, here they are ( or via links [PDF](https://pragtob.wordpress.com/wp-content/uploads/2016/09/full_stack_fest.pdf "full_stack_fest"), [Speakerdeck](https://speakerdeck.com/pragtob/what-did-alphago-do-to-beat-the-strongest-human-go-player-1), [Slideshare](http://www.slideshare.net/PragTob/what-did-alphago-do-to-beat-the-strongest-human-go-player)): [slideshare id=65731371&doc=alphagofullstackfest-160906100332] In case you want to see it live, the talk will be up again at [Codemotion Berlin](http://berlin2016.codemotionworld.com/talk-detail/?detail=3833).
+The publishing/video partner of Full Stack Fest was amazingly fast in publishing the video. Kudos to them! So after publishing the slides here goes the video! [youtube https://www.youtube.com/watch?v=b9H9AtbxpPM] If you want to have the slides, here they are ( or via links [PDF](/assets/slides/2016/09/full_stack_fest.pdf "full_stack_fest"), [Speakerdeck](https://speakerdeck.com/pragtob/what-did-alphago-do-to-beat-the-strongest-human-go-player-1), [Slideshare](http://www.slideshare.net/PragTob/what-did-alphago-do-to-beat-the-strongest-human-go-player)): [slideshare id=65731371&doc=alphagofullstackfest-160906100332] In case you want to see it live, the talk will be up again at [Codemotion Berlin](http://berlin2016.codemotionworld.com/talk-detail/?detail=3833).
 
 ## Abstract
 

@@ -26,7 +26,7 @@ Hello from the amazing [Polyconf](https://polyconf.com/)! I just gave my Stop Gu
 * JavaScript!
 * other nice adjustments
 
-The all important video isn't in the PDF export but you can see a [big part of it on Instagram](https://www.instagram.com/p/BULxU4sjoAO/?taken-by=berlin_bunny_trio). You can view the slides here or on [speakerdeck](https://speakerdeck.com/pragtob/stop-guessing-and-start-measuring-benchmarking-practice-poly-version), [slideshare](https://www.slideshare.net/PragTob/stop-guessing-and-start-measuring-benchmarking-practice-poly-version) or [PDF](https://pragtob.wordpress.com/wp-content/uploads/2017/07/polyconf.pdf "polyconf"). [slideshare id=77662795&doc=polyconf-170709094515]
+The all important video isn't in the PDF export but you can see a [big part of it on Instagram](https://www.instagram.com/p/BULxU4sjoAO/?taken-by=berlin_bunny_trio). You can view the slides here or on [speakerdeck](https://speakerdeck.com/pragtob/stop-guessing-and-start-measuring-benchmarking-practice-poly-version), [slideshare](https://www.slideshare.net/PragTob/stop-guessing-and-start-measuring-benchmarking-practice-poly-version) or [PDF](/assets/slides/2017/07/polyconf.pdf "polyconf"). [slideshare id=77662795&doc=polyconf-170709094515]
 
 > ### Abstract
 >

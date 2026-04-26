@@ -24,11 +24,11 @@ The talk was a major hit at the conference, with way more people than normal com
 
 The audio quality isn't the best, but I hope you might still enjoy it!
 
-You can also find the talk at [speakerdeck](https://speakerdeck.com/pragtob/metaphors-are-everywhere-ideas-to-improve-software-development), [slideshare](https://www.slideshare.net/PragTob/metaphors-are-everywhere-ideas-to-improve-software-development) or as a [PDF](https://pragtob.wordpress.com/wp-content/uploads/2023/10/presentation.pdf).
+You can also find the talk at [speakerdeck](https://speakerdeck.com/pragtob/metaphors-are-everywhere-ideas-to-improve-software-development), [slideshare](https://www.slideshare.net/PragTob/metaphors-are-everywhere-ideas-to-improve-software-development) or as a [PDF](/assets/slides/2023/10/presentation.pdf).
 
 https://www.youtube.com/watch?v=VJ4ZG3tl1gc
 
-[presentation](https://pragtob.wordpress.com/wp-content/uploads/2023/10/presentation.pdf)[Download](https://pragtob.wordpress.com/wp-content/uploads/2023/10/presentation.pdf)
+[presentation](/assets/slides/2023/10/presentation.pdf)[Download](/assets/slides/2023/10/presentation.pdf)
 
 ## Abstract
 

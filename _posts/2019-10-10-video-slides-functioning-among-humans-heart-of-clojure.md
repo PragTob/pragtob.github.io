@@ -19,7 +19,7 @@ tags:
 ---
 Back in July I had a great time at [Heart of Clojure](https://heartofclojure.eu/) \- the first conference who finally allowed me to share my thoughts on the importance of people skills and important people skills. And they were so nice to even record it, so here it is!
 
-Slides can be viewed here, on [speaker deck](https://speakerdeck.com/pragtob/functioning-among-humans-3fac330b-2153-41ee-b6a9-3f5c6dde2328), [slideshare](https://www.slideshare.net/PragTob/functioning-among-humans-180717727) and [PDF](https://pragtob.wordpress.com/wp-content/uploads/2019/10/heart_of_clojure-1.pdf "heart_of_clojure").
+Slides can be viewed here, on [speaker deck](https://speakerdeck.com/pragtob/functioning-among-humans-3fac330b-2153-41ee-b6a9-3f5c6dde2328), [slideshare](https://www.slideshare.net/PragTob/functioning-among-humans-180717727) and [PDF](/assets/slides/2019/10/heart_of_clojure-1.pdf "heart_of_clojure").
 
 https://www.youtube.com/watch?v=S_fRwGY4SAU
 

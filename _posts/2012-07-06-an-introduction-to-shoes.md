@@ -22,6 +22,6 @@ Hi everyone, I gave a talk about the Shoes GUI toolkit/DSL (depending on your po
 
 * [An Introduction To Shoes on slideshare](http://www.slideshare.net/PragTob/an-introduction-to-shoes) **(please download, slideshare messed up a few things - tested in libreoffice)**
 * [An Introduction To Shoes on speakerdeck](https://speakerdeck.com/pragtob/an-introduction-to-shoes)
-* [An Introduction To Shoes (PDF)](http://pragtob.wordpress.com/wp-content/uploads/2012/07/shoes_presentation.pdf)
+* [An Introduction To Shoes (PDF)](/assets/slides/2012/07/shoes_presentation.pdf)
 
 Feedback on the slides is also welcome. Shoes on!

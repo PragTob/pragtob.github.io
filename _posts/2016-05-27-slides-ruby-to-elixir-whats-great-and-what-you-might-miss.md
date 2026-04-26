@@ -24,6 +24,6 @@ This is a talk I gave at the [Polygot Tech Meetup in Berlin in April](https://ev
 
 #### Slides
 
-* [PDF](https://pragtob.wordpress.com/wp-content/uploads/2016/05/ruby_to_elixir_polygot_meetup.pdf)
+* [PDF](/assets/slides/2016/05/ruby_to_elixir_polygot_meetup.pdf)
 * [speakerdeck](https://speakerdeck.com/pragtob/ruby-to-elixir-whats-great-and-what-you-might-miss)
 * [slideshare](http://www.slideshare.net/PragTob/ruby-to-elixir-whats-great-and-what-you-might-miss)

@@ -22,7 +22,7 @@ tags:
 ---
 So I just gave a lightning talk about [shoes.](http://shoesrb.com/) Here are the slides for talk, it was (mostly) a stripped down version of an [introduction talk to shoes](http://pragtob.wordpress.com/2012/07/06/an-introduction-to-shoes/ "An Introduction To Shoes"), which I gave ate Ruby User Group Berlin. So here are the slides:
 
-* [PDF](http://pragtob.wordpress.com/wp-content/uploads/2013/03/shoes_lightning.pdf)
+* [PDF](/assets/slides/2013/03/shoes_lightning.pdf)
 * [speakerdeck](https://speakerdeck.com/pragtob/shoes-lightning-talk)
 * [slideshare](http://www.slideshare.net/PragTob/shoes-lightning)
 

@@ -17,7 +17,7 @@ tags:
 - source-to-source mapping
 - Test-Driven Development
 ---
-My good friend [Tobias Metzke](https://github.com/tmetzke) and I worked on extending the [Cloud9](https://c9.io/) IDE with some tool support for CoffeeScript and Jasmine. This was done during a seminar about web based software development at our home university. Our results can be seen in this [screen cast](http://www.youtube.com/watch?v=Iy49Ho1z-PQ). For the long version you may check out our paper - I converted the LaTeX to HTML and you can read it here, but be careful, some stuff might not work as expected (links etc.). That's why I'd recommend you to read the [PDF](http://pragtob.wordpress.com/wp-content/uploads/2012/07/cloud9_jasmine_coffee.pdf) if you're interested in what we did. That's it, have a nice weekend and keep on coding! Tobi²
+My good friend [Tobias Metzke](https://github.com/tmetzke) and I worked on extending the [Cloud9](https://c9.io/) IDE with some tool support for CoffeeScript and Jasmine. This was done during a seminar about web based software development at our home university. Our results can be seen in this [screen cast](http://www.youtube.com/watch?v=Iy49Ho1z-PQ). For the long version you may check out our paper - I converted the LaTeX to HTML and you can read it here, but be careful, some stuff might not work as expected (links etc.). That's why I'd recommend you to read the [PDF](/assets/slides/2012/07/cloud9_jasmine_coffee.pdf) if you're interested in what we did. That's it, have a nice weekend and keep on coding! Tobi²
 
 # CoffeeScript & Jasmine Testing - Tool Support for Cloud9 IDE
 

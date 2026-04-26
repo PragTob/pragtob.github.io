@@ -18,4 +18,4 @@ tags:
 - teaching
 - tutorial
 ---
-Hi everyone, I just slightly updated my slides [Slides: Where to go from here (PDF)](http://pragtob.wordpress.com/wp-content/uploads/2012/08/where_to_go_from_here_2.pdf) for the RailsGirls workshop today. You can also watch them and download the odp at [slideshare](http://www.slideshare.net/PragTob/where-to-go-from-here-updated-slides). Cheers, enjoy coding and check out my [resource](http://pragtob.wordpress.com/resources/)section for even more guides etc. for beginners and advanced coders!
+Hi everyone, I just slightly updated my slides [Slides: Where to go from here (PDF)](/assets/slides/2012/08/where_to_go_from_here_2.pdf) for the RailsGirls workshop today. You can also watch them and download the odp at [slideshare](http://www.slideshare.net/PragTob/where-to-go-from-here-updated-slides). Cheers, enjoy coding and check out my [resource](http://pragtob.wordpress.com/resources/)section for even more guides etc. for beginners and advanced coders!

@@ -22,7 +22,7 @@ And somewhat belatedly the slides I presented at the Ruby User Group Berlin Febr
 
 If you want to learn more in the mean time, ["The Staff Engineer's Path" by Tanya Reilly](https://www.oreilly.com/library/view/the-staff-engineers/9781098118723/) is a very warm recommendation from my side for everyone in engineering - not just staff engineers or those who want to become Staff+ engineers. It does a wonderful job of showcasing the ambiguities and challenges I've dealt with on the job & in technical leadership of organizations as a whole.
 
-You can find the slides on [speakerdeck](https://speakerdeck.com/pragtob/going-staff), [slideshare](https://www.slideshare.net/slideshows/going-staff/266309460) or download the [PDF](https://pragtob.wordpress.com/wp-content/uploads/2024/02/going_staff.pdf).
+You can find the slides on [speakerdeck](https://speakerdeck.com/pragtob/going-staff), [slideshare](https://www.slideshare.net/slideshows/going-staff/266309460) or download the [PDF](/assets/slides/2024/02/going_staff.pdf).
 
 https://speakerdeck.com/pragtob/going-staff
 

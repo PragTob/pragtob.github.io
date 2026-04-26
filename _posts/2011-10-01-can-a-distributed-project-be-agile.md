@@ -18,7 +18,7 @@ In my course Global Software Engineering, I wrote a paper about the topic whethe
 
 As the topic is really interesting I thought I might share it with you. In the end I have an idea to combine the agile inception deck with distributed development, ideas might as well be discussed ;-)
 
-So I used latex2html to convert the paper to html but you may also download the PDF if you like: **[Can a distributed project be agile? (PDF)](http://pragtob.wordpress.com/wp-content/uploads/2011/10/can_distributed_be_agile.pdf)** edit: It just got graded with an A - so I hope it really is worth the read =)****
+So I used latex2html to convert the paper to html but you may also download the PDF if you like: **[Can a distributed project be agile? (PDF)](/assets/slides/2011/10/can_distributed_be_agile.pdf)** edit: It just got graded with an A - so I hope it really is worth the read =)****
 
 # Can a distributed project be agile?
 
