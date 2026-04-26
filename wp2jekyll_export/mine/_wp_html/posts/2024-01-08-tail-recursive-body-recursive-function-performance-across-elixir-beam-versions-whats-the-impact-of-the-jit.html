@@ -1,0 +1,662 @@
+<!-- wp:paragraph -->
+<p>I've wanted to revisit <a href="https://pragtob.wordpress.com/2016/06/16/tail-call-optimization-in-elixir-erlang-not-as-efficient-and-important-as-you-probably-think/">"Tail Call Optimization in Elixir &amp; Erlang – not as efficient and important as you probably think"</a> (2016) for a while - so much so that I already <a href="https://pragtob.wordpress.com/2019/04/08/revisiting-tail-call-optimization-in-elixir-erlang-with-benchee-1-0/">revisited it once ~5 years ago</a> to show off some benchee 1.0 features. As a reminder, in these the results were:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul><!-- wp:list-item -->
+<li>body-recursive was fastest on input sizes of lists the size of 100k and 5M, but slower on the smallest input (10k list) and the biggest input (25M list). The difference either way was usually in the ~5% to 20% range.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>tail-recursive functions consumed significantly more memory</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>we found that the order of the arguments for the tail-recusive function has a measurable impact on performance - namely doing the pattern match on the first argument of the recursive function was faster.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>So, why should we revisit it <em>again</em>? Well, since then then <a href="https://www.erlang.org/blog/a-first-look-at-the-jit/">JIT was introduced in OTP 24</a>. And so, as our <strong>implementation changes, performance properties of functions may change over time</strong>. And, little spoiler, <em>change they did</em>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>To illustrate how performance changes across versions I wanted to show the performance across many different Elixir &amp; OTP versions, I settled on the following ones:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul><!-- wp:list-item -->
+<li>Elixir 1.6 @ OTP 21.3 - the oldest version I could get running without too much hassle</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Elixir 1.13 @ OTP 23.3 - the last OTP version before the JIT introduction</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Elixir 1.13 @ OTP 24.3 - the first major OTP version with the JIT (decided to use the newest minor though), using the same Elixir version as above so that the difference is up to OTP</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Elixir 1.16 @ OTP 26.2 - the most current Elixir &amp; Erlang versions as of this writing</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>How do the performance characteristics change over time? Are we getting faster with time? Let's find out! But first let's discuss the benchmark.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">The Benchmark</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>You can find the code in <a href="https://github.com/PragTob/tco_elixir">this repo</a>. The<a href="https://github.com/PragTob/tco_elixir/blob/main/lib/my_map.ex"> implementations are still the same as last time</a>. I dropped the "stdlib"/<code>Enum.map</code> part of the benchmark though as in the past it showed similar performance characteristics as the body-recursive implementation. It was also the only one not implemented "by hand", more of a "gold-standard" to benchmark against. Hence it doesn't hold too much value when discussing "which one of these simple hand-coded solutions is fastest?".</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>It's also worth nothing that this time the benchmarks are running on a new PC. Well, not new-new, it's from 2020 but still a different one that the previous 2 benchmarks were run on.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>System information</summary><!-- wp:syntaxhighlighter/code -->
+<pre class="wp-block-syntaxhighlighter-code">Operating System: Linux
+CPU Information: AMD Ryzen 9 5900X 12-Core Processor
+Number of Available Cores: 24
+Available memory: 31.25 GB</pre>
+<!-- /wp:syntaxhighlighter/code --></details>
+<!-- /wp:details -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>As per usual, these benchmarks were run on an idle system with no other necessary applications running - not even a UI.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Without further ado the benchmarking script itself:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:embed {"url":"https://gist.github.com/PragTob/245539b511ff74c1c76ea2a3a009206f","type":"rich","providerNameSlug":"embed-handler"} -->
+<figure class="wp-block-embed is-type-rich is-provider-embed-handler wp-block-embed-embed-handler"><div class="wp-block-embed__wrapper">
+https://gist.github.com/PragTob/245539b511ff74c1c76ea2a3a009206f
+</div></figure>
+<!-- /wp:embed -->
+
+<!-- wp:paragraph -->
+<p>The script is fairly standard, except for long benchmarking times and a lot of inputs. The <code>TAG</code> environment variable has to do with the <a href="https://github.com/PragTob/tco_elixir/blob/main/run_bench.sh">script that runs the benchmark across the different elixir &amp; OTP versions</a>. I might dig into that in a later blog post - but it's just there to save them into different files and tag them with the respective version.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Also <code>tail + order</code> denotes the version that switched the order of the arguments around to pattern match on the first argument, as talked about before when recapping earlier results.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Results</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>As usual you can peruse the full benchmarking results in the <a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs.html">HTML reports</a> or the console output here:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Console Output of the benchmark</summary><!-- wp:syntaxhighlighter/code -->
+<pre class="wp-block-syntaxhighlighter-code">##### With input Small (10 Thousand) #####
+Name                                  ips        average  deviation         median         99th %
+tail +order (1.16.0-otp-26)       11.48 K       87.10 μs   ±368.22%       72.35 μs      131.61 μs
+tail (1.16.0-otp-26)              10.56 K       94.70 μs   ±126.50%       79.80 μs      139.20 μs
+tail +order (1.13.4-otp-24)       10.20 K       98.01 μs   ±236.80%       84.80 μs      141.84 μs
+tail (1.13.4-otp-24)              10.17 K       98.37 μs    ±70.24%       85.55 μs      143.28 μs
+body (1.16.0-otp-26)               8.61 K      116.19 μs    ±18.37%      118.16 μs      167.50 μs
+body (1.13.4-otp-24)               7.60 K      131.50 μs    ±13.94%      129.71 μs      192.96 μs
+tail +order (1.13.4-otp-23)        7.34 K      136.32 μs   ±232.24%      120.61 μs      202.73 μs
+body (1.13.4-otp-23)               6.51 K      153.55 μs     ±9.75%      153.70 μs      165.62 μs
+tail +order (1.6.6-otp-21)         6.36 K      157.14 μs   ±175.28%      142.99 μs      240.49 μs
+tail (1.13.4-otp-23)               6.25 K      159.92 μs   ±116.12%      154.20 μs      253.37 μs
+body (1.6.6-otp-21)                6.23 K      160.49 μs     ±9.88%      159.88 μs      170.30 μs
+tail (1.6.6-otp-21)                5.83 K      171.54 μs    ±71.94%      158.44 μs      256.83 μs
+
+Comparison: 
+tail +order (1.16.0-otp-26)       11.48 K
+tail (1.16.0-otp-26)              10.56 K - 1.09x slower +7.60 μs
+tail +order (1.13.4-otp-24)       10.20 K - 1.13x slower +10.91 μs
+tail (1.13.4-otp-24)              10.17 K - 1.13x slower +11.27 μs
+body (1.16.0-otp-26)               8.61 K - 1.33x slower +29.09 μs
+body (1.13.4-otp-24)               7.60 K - 1.51x slower +44.40 μs
+tail +order (1.13.4-otp-23)        7.34 K - 1.57x slower +49.22 μs
+body (1.13.4-otp-23)               6.51 K - 1.76x slower +66.44 μs
+tail +order (1.6.6-otp-21)         6.36 K - 1.80x slower +70.04 μs
+tail (1.13.4-otp-23)               6.25 K - 1.84x slower +72.82 μs
+body (1.6.6-otp-21)                6.23 K - 1.84x slower +73.38 μs
+tail (1.6.6-otp-21)                5.83 K - 1.97x slower +84.44 μs
+
+Extended statistics: 
+
+Name                                minimum        maximum    sample size                     mode
+tail +order (1.16.0-otp-26)        68.68 μs   200466.90 μs       457.09 K                 71.78 μs
+tail (1.16.0-otp-26)               75.70 μs    64483.82 μs       420.52 K       79.35 μs, 79.36 μs
+tail +order (1.13.4-otp-24)        79.22 μs   123986.92 μs       405.92 K                 81.91 μs
+tail (1.13.4-otp-24)               81.05 μs    41801.49 μs       404.37 K                 82.62 μs
+body (1.16.0-otp-26)               83.71 μs     5156.24 μs       343.07 K                 86.39 μs
+body (1.13.4-otp-24)              106.46 μs     5935.86 μs       302.92 K125.90 μs, 125.72 μs, 125
+tail +order (1.13.4-otp-23)       106.66 μs   168040.73 μs       292.04 K                109.26 μs
+body (1.13.4-otp-23)              139.84 μs     5164.72 μs       259.47 K                147.51 μs
+tail +order (1.6.6-otp-21)        122.31 μs   101605.07 μs       253.46 K                138.40 μs
+tail (1.13.4-otp-23)              115.74 μs    47040.19 μs       249.14 K                125.40 μs
+body (1.6.6-otp-21)               109.67 μs     4938.61 μs       248.26 K                159.82 μs
+tail (1.6.6-otp-21)               121.83 μs    40861.21 μs       232.24 K                157.72 μs
+
+Memory usage statistics:
+
+Name                           Memory usage
+tail +order (1.16.0-otp-26)       223.98 KB
+tail (1.16.0-otp-26)              223.98 KB - 1.00x memory usage +0 KB
+tail +order (1.13.4-otp-24)       223.98 KB - 1.00x memory usage +0 KB
+tail (1.13.4-otp-24)              223.98 KB - 1.00x memory usage +0 KB
+body (1.16.0-otp-26)              156.25 KB - 0.70x memory usage -67.73438 KB
+body (1.13.4-otp-24)              156.25 KB - 0.70x memory usage -67.73438 KB
+tail +order (1.13.4-otp-23)       224.02 KB - 1.00x memory usage +0.0313 KB
+body (1.13.4-otp-23)              156.25 KB - 0.70x memory usage -67.73438 KB
+tail +order (1.6.6-otp-21)        224.03 KB - 1.00x memory usage +0.0469 KB
+tail (1.13.4-otp-23)              224.02 KB - 1.00x memory usage +0.0313 KB
+body (1.6.6-otp-21)               156.25 KB - 0.70x memory usage -67.73438 KB
+tail (1.6.6-otp-21)               224.03 KB - 1.00x memory usage +0.0469 KB
+
+**All measurements for memory usage were the same**
+
+##### With input Middle (100 Thousand) #####
+Name                                  ips        average  deviation         median         99th %
+tail +order (1.16.0-otp-26)        823.46        1.21 ms    ±33.74%        1.17 ms        2.88 ms
+tail (1.16.0-otp-26)               765.87        1.31 ms    ±32.35%        1.25 ms        2.99 ms
+body (1.16.0-otp-26)               715.86        1.40 ms    ±10.19%        1.35 ms        1.57 ms
+body (1.13.4-otp-24)               690.92        1.45 ms    ±10.57%        1.56 ms        1.64 ms
+tail +order (1.13.4-otp-24)        636.45        1.57 ms    ±42.91%        1.33 ms        3.45 ms
+tail (1.13.4-otp-24)               629.78        1.59 ms    ±42.61%        1.36 ms        3.45 ms
+body (1.13.4-otp-23)               625.42        1.60 ms     ±9.95%        1.68 ms        1.79 ms
+body (1.6.6-otp-21)                589.10        1.70 ms     ±9.69%        1.65 ms        1.92 ms
+tail +order (1.6.6-otp-21)         534.56        1.87 ms    ±25.30%        2.22 ms        2.44 ms
+tail (1.13.4-otp-23)               514.88        1.94 ms    ±23.90%        2.31 ms        2.47 ms
+tail (1.6.6-otp-21)                514.64        1.94 ms    ±24.51%        2.21 ms        2.71 ms
+tail +order (1.13.4-otp-23)        513.89        1.95 ms    ±23.73%        2.23 ms        2.47 ms
+
+Comparison: 
+tail +order (1.16.0-otp-26)        823.46
+tail (1.16.0-otp-26)               765.87 - 1.08x slower +0.0913 ms
+body (1.16.0-otp-26)               715.86 - 1.15x slower +0.183 ms
+body (1.13.4-otp-24)               690.92 - 1.19x slower +0.23 ms
+tail +order (1.13.4-otp-24)        636.45 - 1.29x slower +0.36 ms
+tail (1.13.4-otp-24)               629.78 - 1.31x slower +0.37 ms
+body (1.13.4-otp-23)               625.42 - 1.32x slower +0.38 ms
+body (1.6.6-otp-21)                589.10 - 1.40x slower +0.48 ms
+tail +order (1.6.6-otp-21)         534.56 - 1.54x slower +0.66 ms
+tail (1.13.4-otp-23)               514.88 - 1.60x slower +0.73 ms
+tail (1.6.6-otp-21)                514.64 - 1.60x slower +0.73 ms
+tail +order (1.13.4-otp-23)        513.89 - 1.60x slower +0.73 ms
+
+Extended statistics: 
+
+Name                                minimum        maximum    sample size                     mode
+tail +order (1.16.0-otp-26)         0.70 ms        5.88 ms        32.92 K                  0.71 ms
+tail (1.16.0-otp-26)                0.77 ms        5.91 ms        30.62 K                  0.78 ms
+body (1.16.0-otp-26)                0.90 ms        3.82 ms        28.62 K         1.51 ms, 1.28 ms
+body (1.13.4-otp-24)                1.29 ms        3.77 ms        27.62 K         1.30 ms, 1.31 ms
+tail +order (1.13.4-otp-24)         0.79 ms        6.21 ms        25.44 K1.32 ms, 1.32 ms, 1.32 ms
+tail (1.13.4-otp-24)                0.80 ms        6.20 ms        25.18 K                  1.36 ms
+body (1.13.4-otp-23)                1.44 ms        4.77 ms        25.00 K         1.45 ms, 1.45 ms
+body (1.6.6-otp-21)                 1.39 ms        5.06 ms        23.55 K                  1.64 ms
+tail +order (1.6.6-otp-21)          1.28 ms        4.67 ms        21.37 K                  1.42 ms
+tail (1.13.4-otp-23)                1.43 ms        4.65 ms        20.59 K         1.44 ms, 1.44 ms
+tail (1.6.6-otp-21)                 1.11 ms        4.33 ms        20.58 K                  1.40 ms
+tail +order (1.13.4-otp-23)         1.26 ms        4.67 ms        20.55 K                  1.52 ms
+
+Memory usage statistics:
+
+Name                           Memory usage
+tail +order (1.16.0-otp-26)         2.90 MB
+tail (1.16.0-otp-26)                2.90 MB - 1.00x memory usage +0 MB
+body (1.16.0-otp-26)                1.53 MB - 0.53x memory usage -1.37144 MB
+body (1.13.4-otp-24)                1.53 MB - 0.53x memory usage -1.37144 MB
+tail +order (1.13.4-otp-24)         2.93 MB - 1.01x memory usage +0.0354 MB
+tail (1.13.4-otp-24)                2.93 MB - 1.01x memory usage +0.0354 MB
+body (1.13.4-otp-23)                1.53 MB - 0.53x memory usage -1.37144 MB
+body (1.6.6-otp-21)                 1.53 MB - 0.53x memory usage -1.37144 MB
+tail +order (1.6.6-otp-21)          2.89 MB - 1.00x memory usage -0.00793 MB
+tail (1.13.4-otp-23)                2.89 MB - 1.00x memory usage -0.01099 MB
+tail (1.6.6-otp-21)                 2.89 MB - 1.00x memory usage -0.00793 MB
+tail +order (1.13.4-otp-23)         2.89 MB - 1.00x memory usage -0.01099 MB
+
+**All measurements for memory usage were the same**
+
+##### With input Big (1 Million) #####
+Name                                  ips        average  deviation         median         99th %
+tail (1.13.4-otp-24)                41.07       24.35 ms    ±33.92%       24.44 ms       47.47 ms
+tail +order (1.13.4-otp-24)         40.37       24.77 ms    ±34.43%       24.40 ms       48.88 ms
+tail +order (1.16.0-otp-26)         37.60       26.60 ms    ±34.40%       24.86 ms       46.90 ms
+tail (1.16.0-otp-26)                37.59       26.60 ms    ±36.56%       24.57 ms       52.22 ms
+tail +order (1.6.6-otp-21)          34.05       29.37 ms    ±27.14%       30.79 ms       56.63 ms
+tail (1.13.4-otp-23)                33.41       29.93 ms    ±24.80%       31.17 ms       50.95 ms
+tail +order (1.13.4-otp-23)         32.01       31.24 ms    ±24.13%       32.78 ms       56.27 ms
+tail (1.6.6-otp-21)                 30.59       32.69 ms    ±23.49%       33.78 ms       59.07 ms
+body (1.13.4-otp-23)                26.93       37.13 ms     ±4.54%       37.51 ms       39.63 ms
+body (1.16.0-otp-26)                26.65       37.52 ms     ±7.09%       38.36 ms       41.84 ms
+body (1.6.6-otp-21)                 26.32       38.00 ms     ±4.56%       38.02 ms       43.01 ms
+body (1.13.4-otp-24)                17.90       55.86 ms     ±3.63%       55.74 ms       63.59 ms
+
+Comparison: 
+tail (1.13.4-otp-24)                41.07
+tail +order (1.13.4-otp-24)         40.37 - 1.02x slower +0.43 ms
+tail +order (1.16.0-otp-26)         37.60 - 1.09x slower +2.25 ms
+tail (1.16.0-otp-26)                37.59 - 1.09x slower +2.25 ms
+tail +order (1.6.6-otp-21)          34.05 - 1.21x slower +5.02 ms
+tail (1.13.4-otp-23)                33.41 - 1.23x slower +5.58 ms
+tail +order (1.13.4-otp-23)         32.01 - 1.28x slower +6.89 ms
+tail (1.6.6-otp-21)                 30.59 - 1.34x slower +8.34 ms
+body (1.13.4-otp-23)                26.93 - 1.53x slower +12.79 ms
+body (1.16.0-otp-26)                26.65 - 1.54x slower +13.17 ms
+body (1.6.6-otp-21)                 26.32 - 1.56x slower +13.65 ms
+body (1.13.4-otp-24)                17.90 - 2.29x slower +31.51 ms
+
+Extended statistics: 
+
+Name                                minimum        maximum    sample size                     mode
+tail (1.13.4-otp-24)                8.31 ms       68.32 ms         1.64 K                     None
+tail +order (1.13.4-otp-24)         8.36 ms       72.16 ms         1.62 K       33.33 ms, 15.15 ms
+tail +order (1.16.0-otp-26)         7.25 ms       61.46 ms         1.50 K                 26.92 ms
+tail (1.16.0-otp-26)                8.04 ms       56.17 ms         1.50 K                     None
+tail +order (1.6.6-otp-21)         11.20 ms       69.86 ms         1.36 K                 37.39 ms
+tail (1.13.4-otp-23)               12.47 ms       60.67 ms         1.34 K                     None
+tail +order (1.13.4-otp-23)        13.06 ms       74.43 ms         1.28 K                 23.27 ms
+tail (1.6.6-otp-21)                15.17 ms       73.09 ms         1.22 K                     None
+body (1.13.4-otp-23)               20.90 ms       56.89 ms         1.08 K                 38.11 ms
+body (1.16.0-otp-26)               19.23 ms       57.76 ms         1.07 K                     None
+body (1.6.6-otp-21)                19.81 ms       55.04 ms         1.05 K                     None
+body (1.13.4-otp-24)               19.36 ms       72.21 ms            716                     None
+
+Memory usage statistics:
+
+Name                           Memory usage
+tail (1.13.4-otp-24)               26.95 MB
+tail +order (1.13.4-otp-24)        26.95 MB - 1.00x memory usage +0 MB
+tail +order (1.16.0-otp-26)        26.95 MB - 1.00x memory usage +0.00015 MB
+tail (1.16.0-otp-26)               26.95 MB - 1.00x memory usage +0.00015 MB
+tail +order (1.6.6-otp-21)         26.95 MB - 1.00x memory usage +0.00031 MB
+tail (1.13.4-otp-23)               26.95 MB - 1.00x memory usage +0.00029 MB
+tail +order (1.13.4-otp-23)        26.95 MB - 1.00x memory usage +0.00029 MB
+tail (1.6.6-otp-21)                26.95 MB - 1.00x memory usage +0.00031 MB
+body (1.13.4-otp-23)               15.26 MB - 0.57x memory usage -11.69537 MB
+body (1.16.0-otp-26)               15.26 MB - 0.57x memory usage -11.69537 MB
+body (1.6.6-otp-21)                15.26 MB - 0.57x memory usage -11.69537 MB
+body (1.13.4-otp-24)               15.26 MB - 0.57x memory usage -11.69537 MB
+
+**All measurements for memory usage were the same**
+
+##### With input Giant (10 Million) #####
+Name                                  ips        average  deviation         median         99th %
+tail (1.16.0-otp-26)                 8.59      116.36 ms    ±24.44%      111.06 ms      297.27 ms
+tail +order (1.16.0-otp-26)          8.07      123.89 ms    ±39.11%      103.42 ms      313.82 ms
+tail +order (1.13.4-otp-23)          5.15      194.07 ms    ±28.32%      171.83 ms      385.56 ms
+tail (1.13.4-otp-23)                 5.05      197.91 ms    ±26.21%      179.95 ms      368.95 ms
+tail (1.13.4-otp-24)                 4.82      207.47 ms    ±31.62%      184.35 ms      444.05 ms
+tail +order (1.13.4-otp-24)          4.77      209.59 ms    ±31.01%      187.04 ms      441.28 ms
+tail (1.6.6-otp-21)                  4.76      210.30 ms    ±26.31%      189.71 ms      406.29 ms
+tail +order (1.6.6-otp-21)           4.15      240.89 ms    ±28.46%      222.87 ms      462.93 ms
+body (1.6.6-otp-21)                  2.50      399.78 ms     ±9.42%      397.69 ms      486.53 ms
+body (1.13.4-otp-23)                 2.50      399.88 ms     ±7.58%      400.23 ms      471.07 ms
+body (1.16.0-otp-26)                 2.27      440.73 ms     ±9.60%      445.77 ms      511.66 ms
+body (1.13.4-otp-24)                 2.10      476.77 ms     ±7.72%      476.57 ms      526.09 ms
+
+Comparison: 
+tail (1.16.0-otp-26)                 8.59
+tail +order (1.16.0-otp-26)          8.07 - 1.06x slower +7.53 ms
+tail +order (1.13.4-otp-23)          5.15 - 1.67x slower +77.71 ms
+tail (1.13.4-otp-23)                 5.05 - 1.70x slower +81.55 ms
+tail (1.13.4-otp-24)                 4.82 - 1.78x slower +91.11 ms
+tail +order (1.13.4-otp-24)          4.77 - 1.80x slower +93.23 ms
+tail (1.6.6-otp-21)                  4.76 - 1.81x slower +93.94 ms
+tail +order (1.6.6-otp-21)           4.15 - 2.07x slower +124.53 ms
+body (1.6.6-otp-21)                  2.50 - 3.44x slower +283.42 ms
+body (1.13.4-otp-23)                 2.50 - 3.44x slower +283.52 ms
+body (1.16.0-otp-26)                 2.27 - 3.79x slower +324.37 ms
+body (1.13.4-otp-24)                 2.10 - 4.10x slower +360.41 ms
+
+Extended statistics: 
+
+Name                                minimum        maximum    sample size                     mode
+tail (1.16.0-otp-26)               81.09 ms      379.73 ms            343                     None
+tail +order (1.16.0-otp-26)        74.87 ms      407.68 ms            322                     None
+tail +order (1.13.4-otp-23)       129.96 ms      399.67 ms            206                     None
+tail (1.13.4-otp-23)              120.60 ms      429.31 ms            203                     None
+tail (1.13.4-otp-24)               85.42 ms      494.75 ms            193                     None
+tail +order (1.13.4-otp-24)        86.99 ms      477.82 ms            191                     None
+tail (1.6.6-otp-21)               131.60 ms      450.47 ms            190                224.04 ms
+tail +order (1.6.6-otp-21)        124.69 ms      513.50 ms            166                     None
+body (1.6.6-otp-21)               207.61 ms      486.65 ms            100                     None
+body (1.13.4-otp-23)              200.16 ms      471.13 ms            100                     None
+body (1.16.0-otp-26)              202.63 ms      511.66 ms             91                     None
+body (1.13.4-otp-24)              200.17 ms      526.09 ms             84                     None
+
+Memory usage statistics:
+
+Name                           Memory usage
+tail (1.16.0-otp-26)              303.85 MB
+tail +order (1.16.0-otp-26)       303.85 MB - 1.00x memory usage +0 MB
+tail +order (1.13.4-otp-23)       303.79 MB - 1.00x memory usage -0.06104 MB
+tail (1.13.4-otp-23)              303.79 MB - 1.00x memory usage -0.06104 MB
+tail (1.13.4-otp-24)              301.64 MB - 0.99x memory usage -2.21191 MB
+tail +order (1.13.4-otp-24)       301.64 MB - 0.99x memory usage -2.21191 MB
+tail (1.6.6-otp-21)               303.77 MB - 1.00x memory usage -0.07690 MB
+tail +order (1.6.6-otp-21)        303.77 MB - 1.00x memory usage -0.07690 MB
+body (1.6.6-otp-21)               152.59 MB - 0.50x memory usage -151.25967 MB
+body (1.13.4-otp-23)              152.59 MB - 0.50x memory usage -151.25967 MB
+body (1.16.0-otp-26)              152.59 MB - 0.50x memory usage -151.25967 MB
+body (1.13.4-otp-24)              152.59 MB - 0.50x memory usage -151.25967 MB
+
+**All measurements for memory usage were the same**
+
+##### With input Titanic (50 Million) #####
+Name                                  ips        average  deviation         median         99th %
+tail (1.13.4-otp-24)                 0.85         1.18 s    ±26.26%         1.11 s         2.00 s
+tail +order (1.16.0-otp-26)          0.85         1.18 s    ±28.67%         1.21 s         1.91 s
+tail (1.16.0-otp-26)                 0.84         1.18 s    ±28.05%         1.18 s         1.97 s
+tail +order (1.13.4-otp-24)          0.82         1.22 s    ±27.20%         1.13 s         2.04 s
+tail (1.13.4-otp-23)                 0.79         1.26 s    ±24.44%         1.25 s         1.88 s
+tail +order (1.13.4-otp-23)          0.79         1.27 s    ±22.64%         1.26 s         1.93 s
+tail +order (1.6.6-otp-21)           0.76         1.32 s    ±17.39%         1.37 s         1.83 s
+tail (1.6.6-otp-21)                  0.75         1.33 s    ±18.22%         1.39 s         1.86 s
+body (1.6.6-otp-21)                  0.58         1.73 s    ±15.01%         1.83 s         2.23 s
+body (1.13.4-otp-23)                 0.55         1.81 s    ±19.33%         1.90 s         2.25 s
+body (1.16.0-otp-26)                 0.53         1.88 s    ±16.13%         1.96 s         2.38 s
+body (1.13.4-otp-24)                 0.44         2.28 s    ±17.61%         2.46 s         2.58 s
+
+Comparison: 
+tail (1.13.4-otp-24)                 0.85
+tail +order (1.16.0-otp-26)          0.85 - 1.00x slower +0.00085 s
+tail (1.16.0-otp-26)                 0.84 - 1.01x slower +0.00803 s
+tail +order (1.13.4-otp-24)          0.82 - 1.04x slower +0.0422 s
+tail (1.13.4-otp-23)                 0.79 - 1.07x slower +0.0821 s
+tail +order (1.13.4-otp-23)          0.79 - 1.08x slower +0.0952 s
+tail +order (1.6.6-otp-21)           0.76 - 1.12x slower +0.145 s
+tail (1.6.6-otp-21)                  0.75 - 1.13x slower +0.152 s
+body (1.6.6-otp-21)                  0.58 - 1.47x slower +0.55 s
+body (1.13.4-otp-23)                 0.55 - 1.54x slower +0.63 s
+body (1.16.0-otp-26)                 0.53 - 1.59x slower +0.70 s
+body (1.13.4-otp-24)                 0.44 - 1.94x slower +1.10 s
+
+Extended statistics: 
+
+Name                                minimum        maximum    sample size                     mode
+tail (1.13.4-otp-24)                 0.84 s         2.00 s             34                     None
+tail +order (1.16.0-otp-26)          0.38 s         1.91 s             34                     None
+tail (1.16.0-otp-26)                 0.41 s         1.97 s             34                     None
+tail +order (1.13.4-otp-24)          0.83 s         2.04 s             33                     None
+tail (1.13.4-otp-23)                 0.73 s         1.88 s             32                     None
+tail +order (1.13.4-otp-23)          0.71 s         1.93 s             32                     None
+tail +order (1.6.6-otp-21)           0.87 s         1.83 s             31                     None
+tail (1.6.6-otp-21)                  0.90 s         1.86 s             30                     None
+body (1.6.6-otp-21)                  0.87 s         2.23 s             24                     None
+body (1.13.4-otp-23)                 0.85 s         2.25 s             22                     None
+body (1.16.0-otp-26)                 1.00 s         2.38 s             22                     None
+body (1.13.4-otp-24)                 1.02 s         2.58 s             18                     None
+
+Memory usage statistics:
+
+Name                           Memory usage
+tail (1.13.4-otp-24)                1.49 GB
+tail +order (1.16.0-otp-26)         1.49 GB - 1.00x memory usage -0.00085 GB
+tail (1.16.0-otp-26)                1.49 GB - 1.00x memory usage -0.00085 GB
+tail +order (1.13.4-otp-24)         1.49 GB - 1.00x memory usage +0 GB
+tail (1.13.4-otp-23)                1.49 GB - 1.00x memory usage +0.00161 GB
+tail +order (1.13.4-otp-23)         1.49 GB - 1.00x memory usage +0.00161 GB
+tail +order (1.6.6-otp-21)          1.49 GB - 1.00x memory usage +0.00151 GB
+tail (1.6.6-otp-21)                 1.49 GB - 1.00x memory usage +0.00151 GB
+body (1.6.6-otp-21)                 0.75 GB - 0.50x memory usage -0.74222 GB
+body (1.13.4-otp-23)                0.75 GB - 0.50x memory usage -0.74222 GB
+body (1.16.0-otp-26)                0.75 GB - 0.50x memory usage -0.74222 GB
+body (1.13.4-otp-24)                0.75 GB - 0.50x memory usage -0.74222 GB
+</pre>
+<!-- /wp:syntaxhighlighter/code --></details>
+<!-- /wp:details -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>So, what are our key findings?</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Tail-Recursive Functions with Elixir 1.16 @ OTP 26.2 are fastest</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>For all but one input elixir 1.16 @ OTP 26.2 is the fastest implementation or virtually tied with the fastest implementation. It's great to know that our most recent version brings us some speed goodies!</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Is that <strong>the impact of the JIT</strong> you may ask? It can certainly seem so - when we're looking at the list with 10 000 elements as input we see that <strong>even the <em>slowest</em> JIT implementation is faster than the fastest non-JIT implementation</strong> (remember, the JIT was introduced in OTP 24):</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3677,"sizeSlug":"large","linkDestination":"media","align":"center"} -->
+<figure class="wp-block-image aligncenter size-large"><a href="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot.png"><img src="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot.png?w=1024" alt="" class="wp-image-3677" /></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Table with more detailed data</summary><!-- wp:table -->
+<figure class="wp-block-table"><table><thead><tr><th>Name</th><th>Iterations per Second</th><th>Average</th><th>Deviation</th><th>Median</th><th>Mode</th><th>Minimum</th><th>Maximum</th><th>Sample size</th></tr></thead><tbody><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__order__1_16_0_otp_26_.html">tail +order (1.16.0-otp-26)</a></td><td>11.48 K</td><td>87.10 μs</td><td>±368.22%</td><td>72.35 μs</td><td>71.78 μs</td><td>68.68 μs</td><td>200466.90 μs</td><td>457086</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__1_16_0_otp_26_.html">tail (1.16.0-otp-26)</a></td><td>10.56 K</td><td>94.70 μs</td><td>±126.50%</td><td>79.80 μs</td><td>79.35 μs, 79.36 μs</td><td>75.70 μs</td><td>64483.82 μs</td><td>420519</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__order__1_13_4_otp_24_.html">tail +order (1.13.4-otp-24)</a></td><td>10.20 K</td><td>98.01 μs</td><td>±236.80%</td><td>84.80 μs</td><td>81.91 μs</td><td>79.22 μs</td><td>123986.92 μs</td><td>405920</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__1_13_4_otp_24_.html">tail (1.13.4-otp-24)</a></td><td>10.17 K</td><td>98.37 μs</td><td>±70.24%</td><td>85.55 μs</td><td>82.62 μs</td><td>81.05 μs</td><td>41801.49 μs</td><td>404374</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__body__1_16_0_otp_26_.html">body (1.16.0-otp-26)</a></td><td>8.61 K</td><td>116.19 μs</td><td>±18.37%</td><td>118.16 μs</td><td>86.39 μs</td><td>83.71 μs</td><td>5156.24 μs</td><td>343072</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__body__1_13_4_otp_24_.html">body (1.13.4-otp-24)</a></td><td>7.60 K</td><td>131.50 μs</td><td>±13.94%</td><td>129.71 μs</td><td>125.90 μs, 125.72 μs, 125.91 μs</td><td>106.46 μs</td><td>5935.86 μs</td><td>302924</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__order__1_13_4_otp_23_.html">tail +order (1.13.4-otp-23)</a></td><td>7.34 K</td><td>136.32 μs</td><td>±232.24%</td><td>120.61 μs</td><td>109.26 μs</td><td>106.66 μs</td><td>168040.73 μs</td><td>292044</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__body__1_13_4_otp_23_.html">body (1.13.4-otp-23)</a></td><td>6.51 K</td><td>153.55 μs</td><td>±9.75%</td><td>153.70 μs</td><td>147.51 μs</td><td>139.84 μs</td><td>5164.72 μs</td><td>259470</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__order__1_6_6_otp_21_.html">tail +order (1.6.6-otp-21)</a></td><td>6.36 K</td><td>157.14 μs</td><td>±175.28%</td><td>142.99 μs</td><td>138.40 μs</td><td>122.31 μs</td><td>101605.07 μs</td><td>253459</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__1_13_4_otp_23_.html">tail (1.13.4-otp-23)</a></td><td>6.25 K</td><td>159.92 μs</td><td>±116.12%</td><td>154.20 μs</td><td>125.40 μs</td><td>115.74 μs</td><td>47040.19 μs</td><td>249144</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__body__1_6_6_otp_21_.html">body (1.6.6-otp-21)</a></td><td>6.23 K</td><td>160.49 μs</td><td>±9.88%</td><td>159.88 μs</td><td>159.82 μs</td><td>109.67 μs</td><td>4938.61 μs</td><td>248259</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__1_6_6_otp_21_.html">tail (1.6.6-otp-21)</a></td><td>5.83 K</td><td>171.54 μs</td><td>±71.94%</td><td>158.44 μs</td><td>157.72 μs</td><td>121.83 μs</td><td>40861.21 μs</td><td>232243</td></tr></tbody></table></figure>
+<!-- /wp:table --></details>
+<!-- /wp:details -->
+
+<!-- wp:paragraph -->
+<p>You can see the standard deviation here can be quite high, which is "thanks" to a few outliers that make the boxplot almost unreadable. Noise from Garbage Collection is often a bit of a problem with micro-benchmarks, but the results are stable and the sample size big enough. Here is a highly zoomed in boxplot to make it readable:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3680,"sizeSlug":"large","linkDestination":"media","align":"center"} -->
+<figure class="wp-block-image aligncenter size-large"><a href="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-1.png"><img src="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-1.png?w=1024" alt="" class="wp-image-3680" /></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>What's really impressive to me is that the <strong>fastest version is 57% faster than the fastest non JIT version</strong> (<code>tail +order (1.16.0-otp-26)</code> vs. <code>tail +order (1.13.4-otp-23)</code>). Of course, this is a very specific benchmark and may not be indicative of overall performance gains - it's impressive nonetheless. The other good sign is that we seem to be continuing to improve, as our current best version is 13% faster than anything available on our other most recent platform (1.13 @ OTP 24.3).</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The <strong>performance uplift of Elixir 1.16 running on OTP 26.2 is even more impressive when we look at the input list of 100k elements - where all its map implementations take the 3 top spots</strong>:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3682,"sizeSlug":"large","linkDestination":"media","align":"center"} -->
+<figure class="wp-block-image aligncenter size-large"><a href="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-2.png"><img src="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-2.png?w=1024" alt="" class="wp-image-3682" /></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"id":3684,"sizeSlug":"large","linkDestination":"media"} -->
+<figure class="wp-block-image size-large"><a href="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-3.png"><img src="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-3.png?w=1024" alt="" class="wp-image-3684" /></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Table with more detailed data</summary><!-- wp:table -->
+<figure class="wp-block-table"><table><thead><tr><th>Name</th><th>Iterations per Second</th><th>Average</th><th>Deviation</th><th>Median</th><th>Mode</th><th>Minimum</th><th>Maximum</th><th>Sample size</th></tr></thead><tbody><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__order__1_16_0_otp_26_.html">tail +order (1.16.0-otp-26)</a></td><td>823.46</td><td>1.21 ms</td><td>±33.74%</td><td>1.17 ms</td><td>0.71 ms</td><td>0.70 ms</td><td>5.88 ms</td><td>32921</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__1_16_0_otp_26_.html">tail (1.16.0-otp-26)</a></td><td>765.87</td><td>1.31 ms</td><td>±32.35%</td><td>1.25 ms</td><td>0.78 ms</td><td>0.77 ms</td><td>5.91 ms</td><td>30619</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__body__1_16_0_otp_26_.html">body (1.16.0-otp-26)</a></td><td>715.86</td><td>1.40 ms</td><td>±10.19%</td><td>1.35 ms</td><td>1.51 ms, 1.28 ms</td><td>0.90 ms</td><td>3.82 ms</td><td>28623</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__body__1_13_4_otp_24_.html">body (1.13.4-otp-24)</a></td><td>690.92</td><td>1.45 ms</td><td>±10.57%</td><td>1.56 ms</td><td>1.30 ms, 1.31 ms</td><td>1.29 ms</td><td>3.77 ms</td><td>27623</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__order__1_13_4_otp_24_.html">tail +order (1.13.4-otp-24)</a></td><td>636.45</td><td>1.57 ms</td><td>±42.91%</td><td>1.33 ms</td><td>1.32 ms, 1.32 ms, 1.32 ms, 1.32 ms, 1.32 ms, 1.32 ms</td><td>0.79 ms</td><td>6.21 ms</td><td>25444</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__1_13_4_otp_24_.html">tail (1.13.4-otp-24)</a></td><td>629.78</td><td>1.59 ms</td><td>±42.61%</td><td>1.36 ms</td><td>1.36 ms</td><td>0.80 ms</td><td>6.20 ms</td><td>25178</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__body__1_13_4_otp_23_.html">body (1.13.4-otp-23)</a></td><td>625.42</td><td>1.60 ms</td><td>±9.95%</td><td>1.68 ms</td><td>1.45 ms, 1.45 ms</td><td>1.44 ms</td><td>4.77 ms</td><td>25004</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__body__1_6_6_otp_21_.html">body (1.6.6-otp-21)</a></td><td>589.10</td><td>1.70 ms</td><td>±9.69%</td><td>1.65 ms</td><td>1.64 ms</td><td>1.39 ms</td><td>5.06 ms</td><td>23553</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__order__1_6_6_otp_21_.html">tail +order (1.6.6-otp-21)</a></td><td>534.56</td><td>1.87 ms</td><td>±25.30%</td><td>2.22 ms</td><td>1.42 ms</td><td>1.28 ms</td><td>4.67 ms</td><td>21373</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__1_13_4_otp_23_.html">tail (1.13.4-otp-23)</a></td><td>514.88</td><td>1.94 ms</td><td>±23.90%</td><td>2.31 ms</td><td>1.44 ms, 1.44 ms</td><td>1.43 ms</td><td>4.65 ms</td><td>20586</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__1_6_6_otp_21_.html">tail (1.6.6-otp-21)</a></td><td>514.64</td><td>1.94 ms</td><td>±24.51%</td><td>2.21 ms</td><td>1.40 ms</td><td>1.11 ms</td><td>4.33 ms</td><td>20577</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__order__1_13_4_otp_23_.html">tail +order (1.13.4-otp-23)</a></td><td>513.89</td><td>1.95 ms</td><td>±23.73%</td><td>2.23 ms</td><td>1.52 ms</td><td>1.26 ms</td><td>4.67 ms</td><td>20547</td></tr></tbody></table></figure>
+<!-- /wp:table --></details>
+<!-- /wp:details -->
+
+<!-- wp:paragraph -->
+<p>Here the speedup of "fastest JIT vs. fastest non JIT" is still a great 40%. Interestingly here though, for all versions except for Elixir 1.16.0 on OTP 26.2 the body-recursive functions are faster than their tail-recursive counter parts. Hold that thought for later, let's first take a look a weird outlier - the input list with 1 Million elements.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">The Outlier Input - 1 Million</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>So, why is that the outlier? Well, here <strong>Elixir 1.13 on OTP 24.3 is faster than Elixir 1.16 on OTP 26.2</strong>! Maybe we just got unlucky you may think, but I have reproduced this result over many different runs of this benchmark. The lead also goes away again with an input list of 10 Million. Now, you may say "Tobi, we shouldn't be dealing with lists of 1 Million and up elements anyhow" and I'd agree with you. Humor me though, as I find it fascinating what a huge impact inputs can have as well as how "random" they are. At 100k and 10 Million our Elixir 1.16 is fastest, but somehow for 1 Million it isn't? I have no idea why, but it seems legit. </p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3687,"sizeSlug":"large","linkDestination":"media"} -->
+<figure class="wp-block-image size-large"><a href="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-4.png"><img src="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-4.png?w=1024" alt="" class="wp-image-3687" /></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"id":3689,"sizeSlug":"large","linkDestination":"media"} -->
+<figure class="wp-block-image size-large"><a href="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-5.png"><img src="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-5.png?w=1024" alt="" class="wp-image-3689" /></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Table with more data</summary><!-- wp:table -->
+<figure class="wp-block-table"><table><thead><tr><th>Name</th><th>Iterations per Second</th><th>Average</th><th>Deviation</th><th>Median</th><th>Mode</th><th>Minimum</th><th>Maximum</th><th>Sample size</th></tr></thead><tbody><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__1_13_4_otp_24_.html">tail (1.13.4-otp-24)</a></td><td>41.07</td><td>24.35 ms</td><td>±33.92%</td><td>24.44 ms</td><td>none</td><td>8.31 ms</td><td>68.32 ms</td><td>1643</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__order__1_13_4_otp_24_.html">tail +order (1.13.4-otp-24)</a></td><td>40.37</td><td>24.77 ms</td><td>±34.43%</td><td>24.40 ms</td><td>33.33 ms, 15.15 ms</td><td>8.36 ms</td><td>72.16 ms</td><td>1615</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__order__1_16_0_otp_26_.html">tail +order (1.16.0-otp-26)</a></td><td>37.60</td><td>26.60 ms</td><td>±34.40%</td><td>24.86 ms</td><td>26.92 ms</td><td>7.25 ms</td><td>61.46 ms</td><td>1504</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__1_16_0_otp_26_.html">tail (1.16.0-otp-26)</a></td><td>37.59</td><td>26.60 ms</td><td>±36.56%</td><td>24.57 ms</td><td>none</td><td>8.04 ms</td><td>56.17 ms</td><td>1503</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__order__1_6_6_otp_21_.html">tail +order (1.6.6-otp-21)</a></td><td>34.05</td><td>29.37 ms</td><td>±27.14%</td><td>30.79 ms</td><td>37.39 ms</td><td>11.20 ms</td><td>69.86 ms</td><td>1362</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__1_13_4_otp_23_.html">tail (1.13.4-otp-23)</a></td><td>33.41</td><td>29.93 ms</td><td>±24.80%</td><td>31.17 ms</td><td>none</td><td>12.47 ms</td><td>60.67 ms</td><td>1336</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__order__1_13_4_otp_23_.html">tail +order (1.13.4-otp-23)</a></td><td>32.01</td><td>31.24 ms</td><td>±24.13%</td><td>32.78 ms</td><td>23.27 ms</td><td>13.06 ms</td><td>74.43 ms</td><td>1280</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__1_6_6_otp_21_.html">tail (1.6.6-otp-21)</a></td><td>30.59</td><td>32.69 ms</td><td>±23.49%</td><td>33.78 ms</td><td>none</td><td>15.17 ms</td><td>73.09 ms</td><td>1224</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__body__1_13_4_otp_23_.html">body (1.13.4-otp-23)</a></td><td>26.93</td><td>37.13 ms</td><td>±4.54%</td><td>37.51 ms</td><td>38.11 ms</td><td>20.90 ms</td><td>56.89 ms</td><td>1077</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__body__1_16_0_otp_26_.html">body (1.16.0-otp-26)</a></td><td>26.65</td><td>37.52 ms</td><td>±7.09%</td><td>38.36 ms</td><td>none</td><td>19.23 ms</td><td>57.76 ms</td><td>1066</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__body__1_6_6_otp_21_.html">body (1.6.6-otp-21)</a></td><td>26.32</td><td>38.00 ms</td><td>±4.56%</td><td>38.02 ms</td><td>none</td><td>19.81 ms</td><td>55.04 ms</td><td>1052</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__body__1_13_4_otp_24_.html">body (1.13.4-otp-24)</a></td><td>17.90</td><td>55.86 ms</td><td>±3.63%</td><td>55.74 ms</td><td>none</td><td>19.36 ms</td><td>72.21 ms</td><td>716</td></tr></tbody></table></figure>
+<!-- /wp:table --></details>
+<!-- /wp:details -->
+
+<!-- wp:paragraph -->
+<p>Before we dig in, it's interesting to notice that at the 1 Million inputs mark, the body-recursive functions together occupy the last 4 spots of our ranking. It stays like this for all bigger inputs.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>When I look at a result that is "weird" to me I usually look at a bunch of other statistical values: 99th%, median, standard deviation, maximum etc. to see if maybe there were some weird outliers here. Specifically I'm checking whether the medians roughly line up with the averages in their ordering - which they do here. Everything seems fine here.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The next thing I'm looking are the raw recorded run times (in order) as well as their general distribution. While looking at those you can notice some interesting behavior. While both elixir 1.13 @ OTP 24.3 solutions have a more or less steady pattern to their run times, their elixir 1.16 @ OTP 26.2 counter parts seem to experience a noticeable slow down towards the last ~15% of their measurement time. Let's look at 2 examples for the the <code>tail +order</code> variants:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3692,"sizeSlug":"large","linkDestination":"media"} -->
+<figure class="wp-block-image size-large"><a href="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-6.png"><img src="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-6.png?w=1024" alt="" class="wp-image-3692" /></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"id":3693,"sizeSlug":"large","linkDestination":"media"} -->
+<figure class="wp-block-image size-large"><a href="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-7.png"><img src="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-7.png?w=1024" alt="" class="wp-image-3693" /></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>Why is this happening? I don't know - you could blame it on on some background job or something kicking in but then it wouldn't be consistent across <code>tail</code> and <code>tail +order</code> for the elixir 1.16 variant. While we're looking at these graphs, what about the bod-recursive cousin?</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Less Deviation for Body-Recursive Functions</h3>
+<!-- /wp:heading -->
+
+<!-- wp:image {"id":3695,"sizeSlug":"large","linkDestination":"media"} -->
+<figure class="wp-block-image size-large"><a href="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-8.png"><img src="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-8.png?w=1024" alt="" class="wp-image-3695" /></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>The body-recursive version looks a lot smoother and less jittery. This is something you can observe across all inputs - as indicated by the much lower standard-deviation of body-recursive implementations.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Memory Consumption</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The memory consumption story is much less interesting - body-recursive functions consume less memory and by quite the margin! ~50% of the tail-recursive functions for all but our smallest input size - there it's still 70%.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>This <em>might</em> also be one of the key to seeing less jittery run times - less memory means less garbage produced means fewer garbage collection runs necessary.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">A 60%+ lead - the 10 Million Input</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>What I found interesting looking at the results is that <strong>for our 10 Million input elixir 1.16 @ OTP 26 is 67% faster than the next fastest implementation</strong>. Which is a huge difference.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3698,"sizeSlug":"large","linkDestination":"media"} -->
+<figure class="wp-block-image size-large"><a href="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-9.png"><img src="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-9.png?w=1024" alt="" class="wp-image-3698" /></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"id":3699,"sizeSlug":"large","linkDestination":"media"} -->
+<figure class="wp-block-image size-large"><a href="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-10.png"><img src="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-10.png?w=1024" alt="" class="wp-image-3699" /></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Table with more data</summary><!-- wp:table -->
+<figure class="wp-block-table"><table><thead><tr><th>Name</th><th>Iterations per Second</th><th>Average</th><th>Deviation</th><th>Median</th><th>Mode</th><th>Minimum</th><th>Maximum</th><th>Sample size</th></tr></thead><tbody><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__1_16_0_otp_26_.html">tail (1.16.0-otp-26)</a></td><td>8.59</td><td>116.36 ms</td><td>±24.44%</td><td>111.06 ms</td><td>none</td><td>81.09 ms</td><td>379.73 ms</td><td>343</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__order__1_16_0_otp_26_.html">tail +order (1.16.0-otp-26)</a></td><td>8.07</td><td>123.89 ms</td><td>±39.11%</td><td>103.42 ms</td><td>none</td><td>74.87 ms</td><td>407.68 ms</td><td>322</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__order__1_13_4_otp_23_.html">tail +order (1.13.4-otp-23)</a></td><td>5.15</td><td>194.07 ms</td><td>±28.32%</td><td>171.83 ms</td><td>none</td><td>129.96 ms</td><td>399.67 ms</td><td>206</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__1_13_4_otp_23_.html">tail (1.13.4-otp-23)</a></td><td>5.05</td><td>197.91 ms</td><td>±26.21%</td><td>179.95 ms</td><td>none</td><td>120.60 ms</td><td>429.31 ms</td><td>203</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__1_13_4_otp_24_.html">tail (1.13.4-otp-24)</a></td><td>4.82</td><td>207.47 ms</td><td>±31.62%</td><td>184.35 ms</td><td>none</td><td>85.42 ms</td><td>494.75 ms</td><td>193</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__order__1_13_4_otp_24_.html">tail +order (1.13.4-otp-24)</a></td><td>4.77</td><td>209.59 ms</td><td>±31.01%</td><td>187.04 ms</td><td>none</td><td>86.99 ms</td><td>477.82 ms</td><td>191</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__1_6_6_otp_21_.html">tail (1.6.6-otp-21)</a></td><td>4.76</td><td>210.30 ms</td><td>±26.31%</td><td>189.71 ms</td><td>224.04 ms</td><td>131.60 ms</td><td>450.47 ms</td><td>190</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__order__1_6_6_otp_21_.html">tail +order (1.6.6-otp-21)</a></td><td>4.15</td><td>240.89 ms</td><td>±28.46%</td><td>222.87 ms</td><td>none</td><td>124.69 ms</td><td>513.50 ms</td><td>166</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__body__1_6_6_otp_21_.html">body (1.6.6-otp-21)</a></td><td>2.50</td><td>399.78 ms</td><td>±9.42%</td><td>397.69 ms</td><td>none</td><td>207.61 ms</td><td>486.65 ms</td><td>100</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__body__1_13_4_otp_23_.html">body (1.13.4-otp-23)</a></td><td>2.50</td><td>399.88 ms</td><td>±7.58%</td><td>400.23 ms</td><td>none</td><td>200.16 ms</td><td>471.13 ms</td><td>100</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__body__1_16_0_otp_26_.html">body (1.16.0-otp-26)</a></td><td>2.27</td><td>440.73 ms</td><td>±9.60%</td><td>445.77 ms</td><td>none</td><td>202.63 ms</td><td>511.66 ms</td><td>91</td></tr><tr><td><a href="http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__body__1_13_4_otp_24_.html">body (1.13.4-otp-24)</a></td><td>2.10</td><td>476.77 ms</td><td>±7.72%</td><td>476.57 ms</td><td>none</td><td>200.17 ms</td><td>526.09 ms</td><td>84</td></tr></tbody></table></figure>
+<!-- /wp:table --></details>
+<!-- /wp:details -->
+
+<!-- wp:paragraph -->
+<p>We also see that the tail-recursive solution here is <strong>almost 4 times as fast as the body-recursive version</strong>. Somewhat interestingly the version without the argument order switch seems faster here (but not by much). You can also see that the median is (considerably) in favor of <code>tail +order</code> against its just <code>tail</code> counter part. </p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Let's take another look at our new found friend - the raw run times chart:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3702,"sizeSlug":"large","linkDestination":"media"} -->
+<figure class="wp-block-image size-large"><a href="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-11.png"><img src="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-11.png?w=1024" alt="" class="wp-image-3702" /></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"id":3703,"sizeSlug":"large","linkDestination":"media"} -->
+<figure class="wp-block-image size-large"><a href="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-12.png"><img src="https://pragtob.wordpress.com/wp-content/uploads/2024/01/newplot-12.png?w=1024" alt="" class="wp-image-3703" /></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>We can clearly see that the <code>tail +order</code> version goes into a repeating pattern of taking much longer every couple of runs while the <code>tail</code> version is (mostly) stable. That explains the lower average while it has a higher median for the <code>tail</code> version. It is faster on average by being more consistent - so while its median is slightly worse it is on average faster as it doesn't exhibit these spikes. Why is this happening? I don't know, except that I know I've seen it more than once.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">The body-recursive to tail-recursive reversal</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>As you may remember from the intro, this journey once began with <a href="https://pragtob.wordpress.com/2016/06/16/tail-call-optimization-in-elixir-erlang-not-as-efficient-and-important-as-you-probably-think/">"Tail Call Optimization in Elixir &amp; Erlang – not as efficient and important as you probably&nbsp;think"</a> - claiming that body-recursive version was faster than the tail-recursive version. <a href="https://pragtob.wordpress.com/2019/04/08/revisiting-tail-call-optimization-in-elixir-erlang-with-benchee-1-0/">The last revision showed some difference in what function was faster based on what input was used</a>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>And now? <strong>For Elixir 1.16 on OTP 26.2 the tail-recursive functions are faster than their body-recursive counter part on all tested inputs</strong>! How different depends on the input size - from just 15% to almost 400% we've seen it all.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>This is also a "fairly recent" development - for instance for our 100k input for Elixir 1.13@OTP 24 the body-recursive function is the fastest.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Naturally that still doesn't mean everything should be tail-recursive: This is one benchmark with list sizes you may rarely see. Memory consumption and variance are also points to consider. Also let's remember a quote from <a href="https://www.erlang.org/doc/efficiency_guide/myths.html">"The Seven Myths of Erlang Performance" </a>about this:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><!-- wp:paragraph -->
+<p>It is generally not possible to predict whether the tail-recursive or the body-recursive version will be faster. Therefore, use the version that makes your code cleaner (hint: it is usually the body-recursive version).</p>
+<!-- /wp:paragraph --></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:paragraph -->
+<p>And of course, some use cases absolutely need a tail-recursive function (such as Genservers).</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Finishing Up</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>So, what have we discovered? On our newest Elixir and Erlang versions tail-recursive functions shine more than they did before - outperforming the competition. We have seen some impressive performance improvements over time, presumably thanks to the JIT - and we seem to be getting even more performance improvements.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>As always, <strong>run your own benchmarks</strong> - don't trust some old post on the Internet saying one thing is faster than another. Your compiler, your run time - things may have changed.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Lastly, I'm happy to finally publish these results - it's been a bit of a <a href="https://pragtob.wordpress.com/2023/12/18/careful-what-data-you-send-or-how-to-tank-your-performance-with-task-async/">yak</a> <a href="https://pragtob.wordpress.com/2023/12/22/benchee-1-3-0-published-oh-save-the-memory/">shave</a>. But, a fun one! 😁</p>
+<!-- /wp:paragraph -->

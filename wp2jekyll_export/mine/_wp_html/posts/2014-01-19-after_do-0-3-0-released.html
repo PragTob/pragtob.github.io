@@ -1,0 +1,24 @@
+I just released version 0.3.0 of my little aspect oriented programming/adding callbacks to methods library <a href="https://github.com/PragTob/after_do">after_do</a>! You can find an introduction <a href="http://pragtob.wordpress.com/2013/12/19/introducing-after_do-afterbefore-method-callbacks-in-ruby/">here</a>.
+
+So what is in 0.3.0? Basically 2 things:
+<ul>
+	<li>after_do now <strong>works properly with modules</strong>, meaning you can attach callbacks to the methods of a module and objects of classes including those methods will call them!</li>
+	<li>Fixed bugs around inheritance where it could happen that a block might get called too often or not at all</li>
+</ul>
+At the same time this release was able to delete code and remove complexity while improving functionality. How is that possible? Well thanks to <strong>block scoping</strong> it is!
+
+One problem I always had is to figure out callbacks of which class to execute in combination with inheritance. You know - self is always the current object and callbacks might be defined in super classes. I wanted to have a way to know which class the currently called method is defined in, not what the class of the current object is. Luckily there is one point where I know that - the moment when I add the callbacks (since they are added on that exact class/module). So we just need to save it:
+
+[sourcecode lang="ruby"]
+callback_klazz = self
+define_method method do |*args|
+  callback_klazz.send(:_after_do_execute_callbacks, :before, method, self, *args)
+  return_value = send(alias_name, *args)
+  callback_klazz.send(:_after_do_execute_callbacks, :after, method, self, *args)
+  return_value
+end
+[/sourcecode]
+
+Simple yet powerful.
+
+Enjoy the 0.3 release of after_do :-)

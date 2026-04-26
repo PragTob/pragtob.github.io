@@ -1,0 +1,68 @@
+Yesterday I released <a href="https://github.com/PragTob/benchee">benchee</a> 0.3.0! Benchee is a tool for (micro) benchmarking in elixir focussing on being simple, extensible and to provide you with good statistics. You can refer to the <a href="https://github.com/PragTob/benchee/blob/master/CHANGELOG.md">Changelog</a> for detailed information about the changes. This post will look at the bigger changes and also give a bit of the <em>why</em> for the new features and changes.
+
+<h2>Multiple formatters</h2>
+
+Arguably the biggest feature in Benchee 0.3.0 is that it is now easy and built-in to configure multiple formatters for a benchmarking suite. This means that first the benchmark is run, and then multiple formatters are run on the benchmarking results. This way you can get both the console output and the corresponding csv file using <a href="https://github.com/PragTob/benchee_csv">BencheeCSV</a>. This was a pain point for me before, as you could either get one or the other or you needed to use the <a href="https://github.com/PragTob/elixir_playground/blob/master/bench/tco_blog_post_detailed.exs">more verbose API</a>.
+
+https://gist.github.com/pragtobgists/d6a970e975ea56718eff9c5930171d3d
+
+You can also see the new <em>output/1</em> methods at work, as opposed to <em>format/1</em> they also really do the output themselves. BencheeCSV uses a custom configuration options to know which file to write to. This is also new, as now formatters have access to the full benchmarking suite, including configuration, raw run times and function definitions. This way they can be configured using configuration options they define themselves, or a plugin could graph all run times if it wanted to.
+
+Of course, <em>formatters </em>default to just the built-in console formatter.
+
+<h2>Parallel benchmarking</h2>
+
+Another big addition is <a href="https://github.com/PragTob/benchee/pull/15">parallel benchmarking</a>. In Elixir, this just feels natural to have. You can specify a <em>parallel</em> key in the configuration and that tells Benchee how many tasks should execute any given benchmarking job in parallel.
+
+https://gist.github.com/pragtobgists/39686e4c09cc9cdef4b364847df2b9ce
+
+Of course, if you want to see how a system behaves under load - overloading might be exactly what you want to stress test the system. And this was exactly the reason why L<a href="https://github.com/PragTob/benchee/pull/15#issuecomment-230149595">eon contributed this change back to Benchee</a>:
+
+<blockquote>I needed to benchmark integration tests for a telephony system we wrote - with this system the tests actually interfere with each other (they're using an Ecto repo) and I wanted to see how far I could push the system as a whole. Making this small change to Benchee worked perfectly for what I needed :)</blockquote>
+
+(Of course it makes me extremely happy that people found adjusting Benchee for their use case simple, that's one of the main goals of Benchee. Even better that it was contributed back &lt;3 )
+
+If you want to see more information and detail about "to benchmark in parallel or not" you can <a href="https://github.com/PragTob/benchee/wiki/Parallel-Benchmarking">check the Benchee wiki</a>. Spoiler alert: The more parallel benchmarks run, the slower they get to an acceptable degree until the system is overloaded (more tasks execute in parallel than there are CPU cores to take care of them). Also deviation skyrockets.
+
+While the effect seems not to be very significant for <em>parallel: 2</em> on my system, the default in Benchee remains <em>parallel: 1</em> for the mentioned reasons.
+
+<h2>Print configuration information</h2>
+
+Partly also due to the <em>parallel</em> change, Benchee wil now print a brief summary of the benchmarking suite before executing it.
+
+[code]
+
+tobi@happy ~/github/benchee $ mix run samples/run_parallel.exs
+
+Benchmark suite executing with the following configuration:
+warmup: 2.0s
+time: 3.0s
+parallel: 2
+Estimated total run time: 10.0s
+
+Benchmarking flat_map...
+Benchmarking map.flatten...
+
+Name&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ips&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; average&amp;nbsp;&amp;nbsp;&amp;nbsp; deviation&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; median
+map.flatten&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 1268.15&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 788.55μs&amp;nbsp;&amp;nbsp;&amp;nbsp; (±13.94%)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 759.00μs
+flat_map&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 706.35&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 1415.72μs&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; (±8.56%)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 1419.00μs
+
+Comparison:
+map.flatten&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 1268.15
+flat_map&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 706.35 - 1.80x slower
+
+[/code]
+
+This was done so that when people share their benchmarks online one can easily see the configuration they ran it with. E.g. was there any warmup time? Was the amount of parallel tasks too high and therefore the results are that bad?
+
+It also prints an estimated total run time (<em>number of jobs * (warmup + time)</em>), so you know if there's enough time to go and get a coffee before a benchmark finishes.
+
+<h2>Map instead of a list of tuples</h2>
+
+What is also marked as a <em>"breaking" </em>change in the Changelog is actually not THAT breaking. The main data structure handed to <em>Benchee.run</em> was changed to a map instead of a list of tuples and all corresponding data structures changed as well (important for plugins to know).
+
+It used to be a list of tuples because of the possibility that benchmarks with the same name would override each other. However, having benchmarks with the same name is nonsensical as you can't discern their results in the output any way. So, this now feels like a much more fitting data structure.
+
+The old main data structure of a list of tuples still works and while I might remove it, I don't expect me to right now as all that is required to maintain it is <a href="https://github.com/PragTob/benchee/blob/0.3.0/lib/benchee.ex#L24-L27">4 lines of code</a>. This makes duplicated names no longer working the only real deprecation, although one might even call it a feature ;)
+
+Last, but not least, this release is the first one that got some community contributions in, which makes me extremely happy. So, thanks <a href="https://github.com/alvinlindstam">Alvin</a> and <a href="https://github.com/ldr">Leon</a>! :D

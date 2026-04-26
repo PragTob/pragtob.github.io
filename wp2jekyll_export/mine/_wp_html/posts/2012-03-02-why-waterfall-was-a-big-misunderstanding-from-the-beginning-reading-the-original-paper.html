@@ -1,0 +1,47 @@
+You probably know that there is the Waterfall process - by now feared by most as "the father of the plan driven approach". Some may even know that Waterfall was supposedly "invented" by the paper <a href="http://www.cs.umd.edu/class/spring2003/cmsc838p/Process/waterfall.pdf" target="_blank">"Managing the Development of Large Software Systems"</a> by Dr. Winston W. Royce in 1970. But have you ever read it? Why should you? It's probably just an endless explanation of how great Waterfall is... or is it?
+
+What if I told you that it is the exact opposite? If I told you that it is a paper identifying this pattern (without naming it Waterfall) and describing its deficiencies and proposing enhancements? Don't believe me? Well let's see what Mister Royce writes right after introducing the pattern on page 2:
+<blockquote>I believe in this concept, but the implementation described above is risky and invites failure.</blockquote>
+Doesn't sound so positive, does it? Oh and that's not even the best part! The best part is that the paper actually includes some thoughts that I would classify as agile.
+<h3>Wait what?</h3>
+Yes back in 1970 the paper, that supposedly invented Waterfall was describing its deficiencies and actually contained some agile thoughts. I really recommend you to go ahead and <a title="Water fall paper" href="http://www.cs.umd.edu/class/spring2003/cmsc838p/Process/waterfall.pdf" target="_blank">read this paper</a>. Or stay with me and let me explain it to you - or do both.
+
+The reason why I'm bringing all of this up is that it seems that all of this is a little known fact. I mentioned it to two of my lecturers (both PhDs) during discussions about agile vs. plan driven. The fact that they didn't know this kind of shocked me, so I decided that this probably needs some more exposure - and this is all the exposure I can give.
+
+But all is not lost, I actually learned this fact from a lecturer, Dr. Joachim Schnitter, at my home institute - so thanks to him!
+<h3>The misunderstanding</h3>
+Royce doesn't define the Waterfall model and recommend it, he identifies the pattern and shows one of the major problems of the Waterfall model as the testing phase occurs at the end of the development process:
+<blockquote>The testing phase which occurs at the end of the development cycle is the first event for which timing, storage, input/output transfers, etc., are experienced as distinguished from analyzed.</blockquote>
+He further on states that faults found there will most likely result in a major redesign of the software, he describes the devastating effects of this as:
+<blockquote>The required design changes are likely to be so disruptive that the software requirements upon which the design is based and which provides the rationale for everything are violated. Either the requirements must be modified, or a substantial change in the design is required. In effect the development process has returned to the origin and one can expect up to a 100-percent overrun in schedule and/or costs.</blockquote>
+To me this analysis is pretty much right on target in describing Waterfalls biggest problem, highlighting that he doesn't recommend this approach at all. He is suggesting improvements.
+<h3>So how is this paper agile?</h3>
+It is certainly not totally agile, but it contains thoughts that go in the right direction and really resemble some current agile practices. Winston Royce proposes 5 enhancements to the "Waterfall" model, they are as follows:
+<ol>
+	<li>Program design comes first</li>
+	<li>Document the design</li>
+	<li>Do it twice</li>
+	<li>Plan, control and monitor testing</li>
+	<li>Involve the customer</li>
+</ol>
+Let's focus on the latter 3 as the first 2 aren't pretty agile to my mind (especially not number 2 as it highly emphasizes documentation):
+<h4>Do it twice</h4>
+Royce basically advocates that if your software product is original, the version delivered to your customer should actually be the second version of the product, at least for critical areas. He goes on to explain:
+<blockquote>Note that it is simply the entire process done in miniature, to a time scale that is relatively small with respect to the overall effort.</blockquote>
+He explains that this is done to identify problems early on, so they can be tackled appropriately later on. All of this sounds like a "spike" to me. You go on to build a part of your system, which you have little knowledge about, in order to increase your knowledge about this part of the system . You do so in isolation and throw the code away afterwards. He says that you should do this, but for the whole system.
+<h4>Plan, control and monitor testing</h4>
+In this section he once again argues that it is bad, that the testing comes last. However he does not jump to the conclusion that testing should come first, but he greatly emphasizes the importance of testing for the success of a software project. He also says that code should be checked by a second party, as many errors are easy to spot. I know it's a very far stretch but that reminds me a bit of one of the motivations for Pair Programming, although he doesn't suggest anything like it.
+<h4>Involve the customer</h4>
+This basically stands for itself as it is also one of the four core values of the <a title="Agile Manifesto" href="http://agilemanifesto.org/" target="_blank">Manifesto for Agile Software Development</a>. He more explicitly says:
+<blockquote>Involve the customer - the involvement should be formal, in-depth, and continuing.</blockquote>
+He also states what it is like when the customer is not involved and the development team is basically left alone:
+<blockquote>To give the contractor free rein between requirement definition and operation is inviting trouble.</blockquote>
+He suggests 3 points after the initial requirements generation, where "the insight, judgment, and commitment of the customer can bolster the development effort." These are: Preliminary Software Review (after Prelimnary Software Design), Critical Software Review (after Program Design) and Final Software Acceptance Review (after Testing). Although this is not an on site customer yet, it is much better than "make a contract and then let the contractor work alone in the dark on the system according to the contract" - don't you think?
+<h4>So was Winston Royce agile?</h4>
+Certainly not, but he had some really good ideas on how to improve software development, some of which may be classified as "agile". But why have most of us never heard of this before?
+<h3>So how did Waterfall become so popular if the deficiencies were so well-known?</h3>
+What I write now is just a rumor, nothing more. I've no way of telling whether it is true or not and clearly no reference.
+
+So from what I've heard sometime some guy of the Department of Defense was given the task to look for a software development process to develop a new system. He found the paper of Royce, read the first page (which is quite positive) and saw the figure at the top of page 2 depicting what we now know as the "Waterfall" model. As it was simple and seemed good he went on to propose the depicted process, without ever reading about the deficiencies and proposed enhancements. Maybe it's just an urban legend, maybe it's true - I don't know. Either way I'm sad that Winston Royce has been so misunderstood.
+<h3>Lesson learned</h3>
+It can be very beneficial to go back to the roots and read the original sources, even over 40 years after their initial publication. If some more people would have done this, maybe we would have (mostly) gotten rid of Waterfall as a Software Process by now. However it is still there and going strong. To each his own, but I prefer agile methodologies, practices and associated software development processes. To me they are way more productive, effective and fun. And it is always good to know that a CMMI level 5 company can highly benefit from a switch to Scrum - doubling the productivity and reducing defects by 38% (and many more benefits). I encourage you to go ahead and <a title="The Scrum Papers" href="http://jeffsutherland.com/ScrumPapers.pdf" target="_blank">read about it in the Scrum Papers</a>, the section (paper) is titled "Scrum and CMMI Level 5: A Magic Potion for Code Warriors". Have fun reading it and I hope you enjoyed this read as well!

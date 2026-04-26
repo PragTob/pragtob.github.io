@@ -1,0 +1,37 @@
+---
+layout: post
+permalink: https://pragtob.wordpress.com/2012/06/02/teaching-agile/
+title: Teaching Agile
+description: None
+date: 2012-06-02 19:59:59 -0000
+last_modified_at: 2012-06-02 20:04:24 -0000
+publish: true
+pin: false
+categories:
+- Agile
+tags:
+- agile
+- course
+- games
+- software development
+- theory
+- university
+- XP2012
+---
+![graduation hat](https://pragtob.wordpress.com/wp-content/uploads/2012/06/mp900439409.jpg?w=300) I've been at the [XP 2012 conference](http://xp2012.org/) and I had a great time and a lot of interesting conversations. One topic that particularly intrigued me is how we can teach agile software development at universities. There are, to my knowledge, quite some universities that don't teach agile software development at all or do it very badly. I attended a good talk by [Mark Lainez](http://theotherguys.be/). He, and some of his colleagues, use their spare time in order to give presentations and hold workshops about agile at Belgian universities. This is super awesome. They do this because they saw a lack of "Agile" education at universities in Belgium. However this is not only a problem in Belgium. It is much more widespread than that. This post is mainly aimed at people like Mark and lecturers at universities, who want to introduce "Agile" to universities. I'm lucky to be at a, in my eyes, particularly good university. As I'm a student myself I'd like to share my thoughts on what worked for me, what didn't work and what might work when learning about agile software development.
+
+### Theory is good - but people need practice
+
+Let me tell you something about my studies at the Hasso Plattner Institute: We learn about design patterns in our third bachelor semester! Awesome right? The bad part: Few students care at first. You need a big project in order to understand the benefit of design patterns. It's the same thing with teaching agile, people need to work on something real in order to realize the benefits. People need to practice pair programming in order to see how much it improves their code, their skills and their productivity. I was very skeptical about pair programming at first. However I had a key moment with pair programming. I noticed that I hardly got stuck anymore on hard problems whilst pair programming. When I run out of ideas to solve a difficult problem my partner usually has a good idea to solve the problem. If that does not work then we can discuss and come up with a new approach. You have to experience this in order to really appreciate its value. However it's really hard for external speakers to arrange a course with the development of a whole project at a university. Therefore I recommend, inspired by what Mark did, little workshops where you introduce people to pair programming or other techniques. Furthermore put an extra effort in a really good presentation. Students usually have higher expectations for external speakers than for "normal" lecturers. Try to get them engaged, for example with games. There are lots of little games you may play. These games usually don't take too long, you get people engaged and most importantly you make your lecture memorable. You can find a list of suitable games at [tastycupcakes.org](http://tastycupcakes.org/category/agile/ "Agiel games at tastycupcakes.org"). At my university we had the Lego Scrum exercise. I liked the Lego Scrum exercise very much and I remember that my fellow students mostly felt the same. At the very least it is something that everyone remembers. Here is a little video of us doing the exercise (sorry for no subtitles!): [youtube=http://www.youtube.com/watch?v=H2NXlDoutcY&feature=player_embedded] I highly encourage you to embed those games into teaching agile software development. I believe that they can truly make a difference. But once you got the students engaged and they know about the theory, then it's time for practice! Time for a project! Or more?
+
+### Don't conduct one agile project, conduct 2!
+
+Let me tell you something more about my bachelor studies: We are supposed to develop our first project with agile software development methodologies in our fourth semester. And you know what? It was a disaster. But a disaster that was needed. We were using eXtreme Programming (XP) for the first time. We had enormous problems with estimations, user story slicing, iterations, test driven development (TDD) and probably everything else you can imagine. We did a whole bunch of mistakes. It was not just my group. Nearly every group I remember faced similar problems. For instance nearly everybody wanted to do TDD but ended up with a code (line) coverage between 20% and 50%. When we didn't get our user stories done during our first iteration we simply prolonged the iteration by one week. Yes we really did that. Of course, there were bright spots. We used pair programming and loved it. Our planning went pretty smooth towards the end. However I honestly don't know how I'd feel about agile software development if this would have been our last agile project. Luckily we conducted a second project in another course, [which has already been praised](http://agilewarrior.wordpress.com/2011/03/25/best-software-engineering-course-ever/). There we were using Scrum in a team of 50 people (with sub teams of course). We developed a customer relationship management system in Ruby on Rails. Our planning and retrospective meetings were facilitated by students who took the course in previous years. It was interesting to see how much we all improved as we grasped the concepts better. Moreover it was a good experience in inter team dynamics. It was good but we still had a long way to go. Unfortunately not everyone seemed to like the concepts as much as we did. We were one of few teams to choose an agile development process for our bachelor project, were we were (mostly) free to choose how we want to work.
+
+### Adaptive vs. Innovative
+
+[Clarke Ching](http://www.clarkeching.com/) opened my mind to another important aspect: Adaptive small changes when rolling out agile or the "all at once" package. I believe that some of the problems we had were related to this. If you try to implement so many new and different concepts all at once, you will most likely end up implementing every change just a little. There are just too many new things which you can't possibly really implement the first time around. Therefore I believe that it could be beneficial to run workshops specialized workshops or exercises prior to the project. These exercises could focus on estimation, pair programming, TDD or... you get the idea. This way students get the opportunity to familiarize themselves with a method prior to using it in a project. Or you could tell students to simply focus on a set of changes and not try to implement all of XP all of a sudden. I just had the feeling that it was a bit too much, so maybe these techniques could be used to mitigate the problem.
+
+### The Takeaway
+
+Theory is good and necessary, but practice shall never be underrated. If you give a lecture as an external speaker make sure to make it memorable. Engage them. Share your enthusiasm with them. You won't convince them all. That's alright. But if you give it all, you will successfully plant the idea of "Agile" in their heads. And I'm very thankful for everyone, who does this.

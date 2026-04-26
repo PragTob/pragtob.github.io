@@ -1,0 +1,76 @@
+In software development, and many other disciplines, people strive for mastery - you want to get better to be great something. For some reason failure is often seen as the opposite of mastery - after all masters don't fail - or do they?
+
+We often see talks and read great blog posts about all these great achievements of amazing people but almost never about major failures. But, how are failures important and useful? Well, let me tell you a little story from back when I was teaching an introductory web development course:
+
+We were in the practice stage and I was doing my usual rounds looking at what the students did and helped them to resolve their problems. After glancing at a screen and saying that the problem could be resolved by running the migrations the student looked at me with disbelief and said:
+
+<blockquote>Tobi, how can you just look at the screen and see what's wrong in the matter of seconds? I've been trying to fix this for almost 15 minutes!</blockquote>
+
+My reply was simple:
+
+<blockquote>I've  probably made the same mistake <strong>a thousand times</strong> - I learned to recognize it.</blockquote>
+
+And that's what this post is about and where a lot of mastery comes from in my mind - <strong>from failure</strong>. We learn as we fail. What is one of the biggest differences between a novice and a master? Well, quite simply the master has failed many more times than the novice has ever tried. Through these failures the now master learned and achieved a great level of expertise - but you don't see these past failures now. This is shown quite nicely in this <a href="http://doodlealley.com/2012/10/10/be-friends-with-failure/">excellent web-comic</a>:
+
+[caption id="attachment_1997" align="aligncenter" width="499"]<img class=" size-full wp-image-1997 aligncenter" src="https://pragtob.wordpress.com/wp-content/uploads/2016/12/befriendswithfailure0005.jpg" alt="befriendswithfailure0005" width="499" height="754" /> <a href="http://doodlealley.com/2012/10/10/be-friends-with-failure/">"Be Friends with Failure"</a> taken (with permission) from <a href="http://doodlealley.com/">doodlealley</a>. It focuses on art, but I believe it applies to programming just as much and I recommend reading the whole comic  :)[/caption]
+
+For this to work properly we can't program/work by coincidence though - when something goes wrong we must take the right measurements to determine why it failed and what we could do better the next time around. Post-mortems are relatively popular for bigger failures, in a post-mortem you identify the root cause of a problem, show how it lead to the observed misbehavior of the system and ideally identify steps to prevent such faults in the future. For service providers they are often even shared publicly.
+
+I think we should always do our own little "post-mortems" - there doesn't have to be a big service outage, data leak or whatever. Why did this ticket take longer than expected? Which assumptions we had were wrong? Could we change anything in our process to identify potential problems earlier on in the future? This interaction with my co-worker didn't go as well as it could have been, how could we communicate better and more effectively? This piece of code is hard to deal with - what makes it hard to deal with, how could it be made easier?
+
+Of course, we can't only learn from our own failures (although those tend to work best!) but from mistakes of others as well - as we observe their situation and the impact it had and see what could have been done better, what they learned from it and what we can ultimately learn from it.
+
+Therein lies the crux though - people are often afraid to share their failings. When nobody shares their failures - how are we supposed to learn? Often it seems that admitting to failure is a "<em>sign of weakness</em>" that you are not good enough and you'd rather be silent about it. Maybe you tell your closes friends about it, but no one else should know that YOU made a mistake! Deplorable!
+
+I think we should rather be more open about it, share failures, share learnings and get better as a group.
+
+This was signified for me as a couple of years back a friend asked me if it was ok to give a talk (I organize a local user group) about some mistakes made in a recent project. I thought it was a great idea to share these mistakes along with some learnings with everyone else. My friend seemed concerned what the others might think, after all it is not common to share stories like this. We had the talk at a meetup and it was a great success, it made me wonder though - <em>how many people are out there that have great stories of failures and learnings to share but decide not to share them?</em>
+
+I've heard whispers of some few meetups (or even conferences?!) that focus on failure stories but they don't seem to have reached the mainstream. I'd <strong>love</strong> to hear more failure stories! Tried Microservices/GraphQL/Elm/Elixir/Docker/React/HypeXY in your project and it all blew up? Tell me about it! Your Rails monolith basically exploded? Tell me more! You had an hour long outage due to a simple problem a linter could have detected? You have my attention!
+
+What I'm saying is: <strong>Please go ahead and share your failures!</strong> Sharing them you learn more about them as you need to articulate and analyze, everyone else benefits, learns something and might have some input. Last but not least people see that mistakes happen, it demystifies this image we have of these great people who never make a mistake and who just <em>always were great</em> and instead shows us where they are coming from and what's still happening to them.
+
+<h2>My Failures + Lessons learned</h2>
+
+Of course a blog post like this would feel empty, hollow and wrong without sharing a couple of my own failures or some that I observed and that shaped me. These are not detailed post-mortems but rather short bullet points of a failure/mistake and what I learned from it. Of course, these sound general but are also ultimately situational and more nuanced than this but are kept like this in favor of brevity - so please keep that in mind.
+
+<ul>
+    <li>Reading a whole Ruby book from start to finish without doing any exercise taught me that this won't teach me a programming language and that I can't even write a basic program afterwards so I really should listen to the author and do the exercises</li>
+    <li>Trying to send a secret encryption key as a parameter through GET while working under pressure taught me that this is a bad idea (parameter is in the URL ---&gt; URL is not encrypted --&gt; security FAIL) , that working under pressure indeed makes me worse and that I'd never miss a code review again, as this was thankfully caught during our code review</li>
+    <li>Finally diving into meta programming after regarding the topic as too magic for too long, I learned that I can learn almost anything and getting into it is mostly faster than I think - it's the fear of it that keeps you away for too long</li>
+    <li>Overusing meta programming taught me that I should seek the simplest workable solution first and only reach for meta programming as a last resort as it is easy to build a harder to maintain and understand than necessary code base - sometimes it's even better to have some duplication than that meta programming</li>
+    <li>Overusing meta programming also taught me about the <a href="https://pragtob.wordpress.com/2015/10/20/the-not-so-low-cost-of-calling-dynamically-defined-methods/">negative performance implications especially if methods are called often</a></li>
+    <li>Being lied to in an interview taught me not to ask "Do you do TDD?" but rather "How do you work?"</li>
+    <li>Doing too much in my free time taught me that I should say "No" some times and that a "No" can be a "Yes" to yourself</li>
+    <li>Working on a huge Rails application taught me the dangers of fat models and all their validations, callbacks etc.</li>
+    <li>Letting a client push in more features late in the process of a feature taught me the value of splitting up tickets, finishing smaller work packages and again decisively saying "No!"</li>
+    <li>Feeling very uncomfortable in situations and not speaking up because I thought I was the only one affected taught me that when this is the case, chances are I'm mostly not the only one and others are affected way more so I <em>should</em> speak up</li>
+    <li>Having a Code of Conduct violation at one of my meetups showed me that I should pro actively inform all speakers about the CoC weeks before the talks in our communication and not just have it on the meetup page</li>
+    <li>Blindly sticking to practices and failing with it taught me to always keep an open mind and question what I'm doing and why I'm doing it</li>
+    <li>Doing two talks in the same week (while being wobbly unprepared for the second) taught me that when I do that again none of them can be original</li>
+    <li>Working in a project started with micro services and an inexperienced team showed me the overhead involved and how wrongly sliced services can be worse than any monolith</li>
+    <li>Building my first bigger project (in university, thankfully) in a team and completely messing it up at first showed me the value of design patterns</li>
+    <li>Skipping acceptance testing in a (university) project and then having the live demo error out on something we could have only caught in acceptance/end-to-end testing showed me how important those tests really are</li>
+    <li>Writing too many acceptance/end-to-end tests clarified  to me how tests should really be written on the right level of the testing pyramid in order to save test execution time, test writing time and test refactoring time</li>
+    <li>Seeing how I get less effective when panic strikes during production problems and how panic spreads to the rest of the team highlighted the importance of staying calm and collected <strong>especially during urgent problems</strong></li>
+    <li>Also during urgent problems it is especially important to delegate and trust my co-workers, no single person can handle and fix all that - it's a team effort</li>
+    <li>Accidentally breaking a crucial algorithm in edge cases (while fixing another bug) made me really appreciate our internal and external fallbacks/other algorithms and options so that the system was still operational</li>
+    <li>Working with overly (performance) optimized code showed me that premature optimization truly is the root of all evil, and the enemy of readability - measure and monitor where those performance bottle necks and hot spots are and only then go ahead and look for performance improvements there!</li>
+    <li>Using only variable names like a, b, c, d (wayyy back when I started programming) and then not being able to understand how my program worked a week later and having to completely rewrite it (couple of days before the hand in of the competition...) forever engraved the importance of readable and understandable names into my brain</li>
+    <li>Giving a talk that had a lot of information that I found interesting but ultimately wasn't crucial for the understanding of the main topic taught me to cut down on additional content and streamline the experience towards the learning goals of the presentation</li>
+    <li>Working in a team where people yelled at each other taught me that I don't want to deal with behavior like this and that intervention is hard - often it's best to leave the room and let the situation cool down</li>
+    <li>Being in many different situations failing to act in a good way taught me that every situation is unique and that you can't always act based on your previous experience or advice</li>
+    <li>Trying to contribute to an open source project for the first time and never hearing back from the maintainers and ultimately having my patch rejected half a year after I asked if this was cool to work on showed me the value of timely clear communication especially to support open source newcomers and keep their spirits high</li>
+    <li>Just recently I failed at creating a proper API for my Elixir benchmarking library, used a map for configuration and passed it in as an optional first argument (ouch!) and the main data structure was a list of two-tuples instead of a map as the second argument - gladly fixed in the <a href="https://pragtob.wordpress.com/2016/12/01/released-benchee-0-6-0-benchee_csv-0-5-0-benchee_json-and-benchee_html-html-reports-and-nice-graphs/">latest release</a></li>
+    <li>probably a thousand more but that I can't think of right now ;)</li>
+</ul>
+
+<h2>Closing</h2>
+
+[caption id="attachment_2008" align="aligncenter" width="499"]<img class=" size-full wp-image-2008 aligncenter" src="https://pragtob.wordpress.com/wp-content/uploads/2016/12/befriendswithfailure0010.jpg" alt="befriendswithfailure0010" width="499" height="754" /> <a href="http://doodlealley.com/2012/10/10/be-friends-with-failure/">"Be Friends with Failure"</a> taken (with permission) from <a href="http://doodlealley.com/">doodlealley</a>.[/caption]
+
+We can also look at this from another angle - when we're not failing then we're probably doing things that we're already good at and not something new where we're learning and growing. There's nothing wrong with doing something you're good - but when you venture out to learn something new failure is part of the game, at least in the small.
+
+I guess what I'm saying is - <strong>look at failures as an opportunity to improve</strong>. For you, your team, your friends and potential listeners. Analyze them. What could have prevented this? How could this have been handled better? Could the impact have been smaller? I mean this in the small ("I've been trying to fix this for the past hour, but the fault was over here in this other file"), in the big ("Damn, we just leaked customer secrets") and everywhere in between.
+
+We all make mistakes. Yes, even our idols - we sadly don't talk about them as much. What's important in my opinion is not that we made a mistake, but how we handle it and how <strong>we learn from it</strong>. I'd like us to be more open about it and share these stories so that others can avoid falling into the same trap.

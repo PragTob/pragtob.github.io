@@ -1,0 +1,50 @@
+It is time to secure your Rails apps! I mean it is always time to do that, but (as you <a title="H-online article about the vulnerability" href="http://www.h-online.com/open/news/item/GitHub-security-incident-highlights-Ruby-on-Rails-problem-1463207.html" target="_blank">might have heard</a>) <a href="https://github.com/" target="_blank">github</a> just got hacked. So if you have a public facing Rails app you should really ask yourself "Can I be sure that our security standards are better than the ones of github?"
+<h2>What happened?</h2>
+A russian programmer <a href="https://github.com/rails/rails/issues/5228" target="_blank">started an argument about the mass assignment vulnerability</a> and how Rails could provide better protection against it. However the issue got closed again and again as it was basically argued that securing the app is the responsibility of the programmer. So he took a different approach, demonstrating that the vulnerability is even present in one of the biggest and well-known Rails applications: github itself. He managed to <a title="Hacked commit on Rails master branch" href="https://github.com/rails/rails/commit/b83965785db1eec019edf1fc272b1aa393e6dc57" target="_blank">make a commit to the Rails master branch</a>, which turned into a lengthy discussion including some memes. He also created a ticket which <a title="Ticket from the future" href="https://github.com/rails/rails/issues/5239" target="_blank">appears to be from the future</a> by abusing this vulnerability. For the sake of completeness, he informed github of the presence of these vulnerabilities first. You may also want to checkout <a title="github security incident summary" href="https://github.com/blog/1068-public-key-security-vulnerability-and-mitigation" target="_blank">github's summary about the incident</a>.
+
+I don't want to discuss whether his actions were right or wrong, but in the end Rails <a title="New default for white listing attributes" href="https://github.com/rails/rails/commit/06a3a8a458e70c1b6531ac53c57a302b162fd736" target="_blank">changed the default for new apps</a> to make this vulnerability less common, which is a good thing to my mind.
+<h2>What is this mass assignment vulnerability?</h2>
+The mass assignment vulnerability is described pretty well in the <a title="mass assignment described in the Rails security guide" href="http://guides.rubyonrails.org/security.html#mass-assignment" target="_blank">Rails security guide</a> - which you should absolutely read in its entirety! Basically the problem is the following:
+
+Whenever you scaffold generate code for some resource in Rails, which is pretty common, you can see a snippet like this for creating a resource:
+
+[sourcecode language="ruby"]
+
+@user = User.new(params[:user])
+
+[/sourcecode]
+
+What this does is create a new user, with all the attributes set to the values that got transmitted from a form and are now in the params[:user] hash. This is very concise as here you can <em>mass assign</em> everything the user entered: name, email, description etc. Cool right? This is why it's not only generated but also written pretty often. Yeah so far so good.
+
+The problem starts when you got some attributes in your model, which you don't want your users to have direct access to. For instance the boolean admin, determining if a user is an admin or not. The attacker may use tools to manipulate the html form and hence the transmitted parameters to include the key value pair: admin: true ! So params[:user] may look like this:
+
+[sourcecode language="ruby"]
+params[:user] = { name: 'Evil', email: 'evil@example.com', description: 'I am an admin soon', admin: true}
+[/sourcecode]
+
+And all of a sudden our newly created user is an admin and can do everything he/she wants to do - which was totally unintended by the developer! Of course this also works with updating records and not just with creating them.
+
+This issue is actually pretty damn well-known and was also a big story during the <a title="Diaspora starting vulnerabilities" href="http://www.kalzumeus.com/2010/09/22/security-lessons-learned-from-the-diaspora-launch/" target="_blank">start of the Diaspora social network</a> (among many other vulnerabilities).
+<h2>Holy sh**! What can I do to protect my app?</h2>
+Well in general it is pretty easy to protect against this kind of attack you just have to add <em>attr_accessible</em> to all your rails models. This white lists the attributes, that can be assigned during mass assignments. Everything else can not be assigned during mass assignments. So for our example this would look like this:
+
+[sourcecode language="ruby"]
+class User &lt; ActiveRecord::Base
+  attr_accessible :name, :email, :description
+  # rest of class omitted
+end
+[/sourcecode]
+
+Notice that admin is missing from the attributes after attr_accessible. That's because we don't want to have it mass assigned during creation/update. So now go ahead and secure your Rails applications, or stay for the pro-tip...
+<h2>Pro-tip: Use Brakeman</h2>
+<a title="Brakeman" href="http://brakemanscanner.org/" target="_blank">Brakeman</a> (can also be found <a title="brakeman github repository" href="https://github.com/presidentbeef/brakeman" target="_blank">on github</a>) is a static analysis tool (fancy term for: looks at your code, doesn't execute it), looking for vulnerabilities. So it is a vulnerability scanner for Ruby on Rails. It takes a good look at your source code and informs you of any found security vulnerabilities including the confidence of the scanner that this is indeed a problem (e.g. not a false positive). It seems to find mass assignment vulnerabilities very reliably and it also informed me of a possible Cross-site scripting (XSS) vulnerability in my Rails version (3.2.0) and recommended an update to 3.2.2, as this version fixes the problem. So it is also pretty up to date and I can only recommend it. Now go ahead and <em>gem</em><em> install brakeman</em> or add it to your Gemfile.
+
+However the default output isn't very beautiful on my system and hides many important parts so I'd recommend you to run:
+
+[source]
+brakeman -f html -o brakeman.html path/to/app
+[/source]
+
+For a bit prettier html output. Hope that this helps. And don't forget to add this <em>brakeman.html </em>to your gitignore. Oh by the way: they also have a <a title="Brakeman plugin for Jenkins/Hudson" href="http://brakemanscanner.org/docs/jenkins/" target="_blank">plugin for Jenkins/Hudson</a>.
+
+So now go ahead and make your Rails apps more secure!

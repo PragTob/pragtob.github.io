@@ -1,0 +1,22 @@
+As I just stumbled upon this and I need this: So how do you use ruby gems with shoes? Shoes is kind of a ruby interpreter on it's own, so you got no access to your normal ruby gems there. It's actually pretty easy as described in an <a title="Shoes and ruby gems" href="http://shoesrb.com/_why-archive/clearing-up-the-whole-shoes-and-rubygems-deal" target="_blank">old saved blogpost by why</a>.
+
+What you need to do is something like this:
+
+[sourcecode language="ruby"]
+Shoes.setup do
+ gem 'twitter'
+ gem 'oauth'
+ gem 'launchy'
+end
+
+require 'launchy'
+[/sourcecode]
+
+In the Shoes.setup block you set up all the gems you need. Then you can require them in this file, or in any other file which is required by this file. As you can see, I only require launchy here, the rest is required in other files of my project.
+
+What happens when you next launch the application is the following: Shoes goes on to install the gems:
+
+<a href="http://pragtob.wordpress.com/wp-content/uploads/2011/09/shoes_gem_install1.png"><img class="aligncenter size-full wp-image-80" title="shoes_gem_install" src="http://pragtob.wordpress.com/wp-content/uploads/2011/09/shoes_gem_install1.png" alt="" width="372" height="178" /></a><a href="http://pragtob.wordpress.com/wp-content/uploads/2011/09/shoes_gem_install.png">
+</a>So and there you got it, ready to play with shoes and some ruby gems!
+
+edit: Of course this only applies to red shoes, as green shoes is a gem itself you may use other gems with it exactly like you are used to.

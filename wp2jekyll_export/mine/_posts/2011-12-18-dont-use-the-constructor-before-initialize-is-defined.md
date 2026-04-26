@@ -1,0 +1,26 @@
+---
+layout: post
+permalink: https://pragtob.wordpress.com/2011/12/18/dont-use-the-constructor-before-initialize-is-defined/
+title: Don't use the constructor before initialize is defined
+description: None
+date: 2011-12-18 16:17:29 -0000
+last_modified_at: 2011-12-18 16:17:29 -0000
+publish: true
+pin: false
+categories:
+- Ruby
+- Solution
+tags:
+- ArgumentError
+- class
+- Constant
+- error
+- initialize
+---
+### Problem
+
+If for some reason, most likely convenience, you want to have a constant containing an instance of an object in your class you have to pay attention to where you define this constant. An example might be that instead of City.new(10, 5) you would want to refer to it as the constant CITY_A. (Please be aware that I adjusted the example a bit since I didn't want to give away information about the ThoughtWorks coding test, it made more sense in its original application but just run with it.) Fair enough so let's give it a shot: [sourcecode language="ruby"] class City CITY_A = City.new 10, 5 def initialize x, y @x = x @y = y end # rest of the class omitted end [/sourcecode] Now awkwardly enough when we try to let ruby interpret this code we get the following error (the error looks different depending on your interpreter, this is Ruby 1.9.3 roughly the same happens with JRuby and Rubinius): [sourcecode language="bash"] city.rb:3:in `initialize': wrong number of arguments(2 for 0) (ArgumentError) from city.rb:3:in`new' from city.rb:3:in `<class:City>' from city.rb:1:in`<main>' [/sourcecode] But we have an initialize method and it takes 2 arguments! So why does the Ruby interpreter claim that it doesn't take arguments at all?
+
+### Solution
+
+So what's wrong? Well we have to know how the ruby interpreter works. It starts at the top of the class and there it doesn't yet know that we have an all new initialize method, taking 2 parameters. So fixing this is quite easy, here is the fixed class: [sourcecode language="ruby"] class City def initialize x, y @x = x @y = y end CITY_A = City.new 10, 5 # rest of the class omitted end [/sourcecode] As you can see the constant declaration was moved beneath the declaration of the initialize method. While I prefer to define constants at the very top of my classes, this is the only method (known to me) to make this code work. On a side note, this is a simplified example my actual use for class instances in a constant was a bit more complex and an adjusted version may be seen in my next blog post.

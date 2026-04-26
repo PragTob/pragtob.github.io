@@ -1,0 +1,291 @@
+<!-- wp:paragraph -->
+<p>Last week I found myself at my old RailsGirls/code curious project group the <a href="https://rubycorns.club">rubycorns</a> coaching a beginner through the <a href="https://wiki.c2.com/?FizzBuzzTest">FizzBuzz</a> coding challenge. It was a lot of fun and I found myself itching to implement it again myself as I came up with some ideas about a nice solution given a requirement for arbitrary or changing rules to the game.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>I've also been working on blog posts helping people interview processes, the next of which will be about Technical Challenges/Code challenges (due to be published tomorrow! edit: <a href="https://pragtob.wordpress.com/2023/11/29/interviewing-tips-technical-challenges-coding-more/">Published now!</a>). This is a little extension for that blog post, as an example of going through and improving a coding challenge.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>To be clear, I don’t endorse FizzBuzz as a coding challenge. In my opinion something closer to your domain is much more valuable. However, it is (probably) <strong>the most well known coding challenge</strong> so I wanted to examine it a bit. It is also <strong>deceptively simple</strong>, and so deserves some consideration.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>So, in this blog post let's start with what FizzBuzz is and then let's <strong>iteratively go through writing and improving it.</strong> Towards the end we'll also talk about <strong>possible extensions</strong> of the task and how to deal with them. The examples here will be in Ruby, but are easy to transfer to any other programming language. If you're only here for the code, you can check out the <a href="https://github.com/PragTob/fizz_buzz">repo</a>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">The FizzBuzz Challenge</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The challenge, inspired by a children's game, originated from the blog post <a href="https://imranontech.com/2007/01/24/using-fizzbuzz-to-find-developers-who-grok-coding/">"Using FizzBuzz to Find Developers who Grok&nbsp;Coding"</a> by Imran Ghory back in 2007 - the intent being to come up with a question as simple as possible to check if people can write code. </p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The problem goes as follows:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><!-- wp:paragraph -->
+<p>Write a program that prints the numbers from 1 to 100. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”.</p>
+<!-- /wp:paragraph --></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:paragraph -->
+<p>Simple enough, right? Well, I think it actually checks for some interesting properties and is a good basis for a conversation. To get started, let's check out a basic solution.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Basic Solution</h2>
+<!-- /wp:heading -->
+
+<!-- wp:embed {"url":"https://gist.github.com/PragTob/5c5367c99c1f4dc628a25292e40f140f","type":"rich","providerNameSlug":"embed-handler"} -->
+<figure class="wp-block-embed is-type-rich is-provider-embed-handler wp-block-embed-embed-handler"><div class="wp-block-embed__wrapper">
+https://gist.github.com/PragTob/5c5367c99c1f4dc628a25292e40f140f
+</div></figure>
+<!-- /wp:embed -->
+
+<!-- wp:paragraph -->
+<p>That one does the job perfectly fine. It prints out the numbers as requested. It also helps to illustrate some of the difficulties with the challenge:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>First off, <strong>printing out the results</strong> is interesting as it is notoriously hard to test (while possible given the correct helpers). It should push a good programmer towards separating the output concern from the business logic concern. So, a good solution should usually feature a separate function <code>fizz_buzz(number)</code> that given any number <code>number</code> either returns the number itself or <code>”FizzBuzz”</code> etc. according to the rules. This is wonderfully easy to test, but many struggle initially to make that separation of concerns. We'll get to that in a second.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>What I don’t like about the challenge is that it requires knowledge about the <a href="https://en.wikipedia.org/wiki/Modulo">modulo</a> operator, as it isn’t commonly used, but you need it to check whether a number is actually divisible. Anyhow, there will be a lot of code like: <code>number % 3 == 0</code>. To avoid repetition and instead speak in the language of the domain<strong> it’s much better to extract this functionality into a function <code>divisible_by?(number, divisor)</code></strong>. Makes the code read nicer and removes inherent duplication.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Speaking of the division, the order in which you check the conditions (namely, being divisible by 3 and 5, or 15, before the individual checks) is crucial for the program to work and I’ve seen more than one senior engineer stumble upon this.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>With that in mind, let's improve the challenge!</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">We need to go back</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>First off, while the previous solution is "perfectly" fine, I'd probably never write it as it's hard to test - it's just a script to run and everything is printed to the console. And since I'm a TDD kind of person, that won't do! I usually start, as teased before, by just implementing a function <code>fizz_buzz(number)</code> - that's the core of the business logic. The iteration and printing out are just secondary aspects to me, so let's start there:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>https://gist.github.com/PragTob/8bd3d8aad74c702ce514b8df76ae6b33</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Much better, and it's tested! You may think that the test generation from the hash is overdone, but I love how easy it is to adjust and modify test cases. No ceremony, I just add an input and an expected output. Also, yes - tests. When solving a coding challenge tests should usually be a part of it unless you're explicitly told not to. Testing is an integral skill after all.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Ok, let's make it a full solution.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Full FizzBuzz</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Honestly, all that is required to turn it into a full FizzBuzz solution is a simple loop and output. What is a bit fancier is the integration test I added to go along with it:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:embed {"url":"https://gist.github.com/PragTob/66a7ab89786bf8b265d77226078f873d","type":"rich","providerNameSlug":"embed-handler"} -->
+<figure class="wp-block-embed is-type-rich is-provider-embed-handler wp-block-embed-embed-handler"><div class="wp-block-embed__wrapper">
+https://gist.github.com/PragTob/66a7ab89786bf8b265d77226078f873d
+</div></figure>
+<!-- /wp:embed -->
+
+<!-- wp:paragraph -->
+<p>Simple isn't it? You may argue that the integration test is too much, but when I can write an integration test as easy as this I prefer to do it. When I write code that generates files, like PAIN XML, I also love to have a full test that makes sure when given the same inputs we get the same outputs. This has the helpful side effect that even minor changes become very apparent in the pull request diff.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Anyhow, the other thing that we see is that our <strong>separation of concerns</strong> with the <code>fizz_buzz(number)</code> function pushed us to here is that there is <strong>only a single <code>puts</code> statement</strong>. We separated the output concern from the business logic. Should we want to change the output - perhaps it should be uploaded to an SFTP sever - then there is a single point for us to adjust that in. Of course we could also use <a href="https://en.wikipedia.org/wiki/Dependency_injection">dependency injection</a> to make the method of delivery easier to change, but without a hint that we might need it this is likely overdone. Especially since I'd still want to keep the full integration test we just wrote, programs have a tendency to break in the most unanticipated ways.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Keeping up with the Domain</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The other thing I complained about initially was the usage of the modulo operator. Truth be told, I only wrote the initial version like this for demonstration purposes - that one has to go. I don't want to think about what "modulo a number equals 0" means. Whether or not something is divisible is something I understand and can work with. It also removes a fair bit of duplication:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:embed {"url":"https://gist.github.com/PragTob/f31482c9b0d35158c6933253adc524b4","type":"rich","providerNameSlug":"embed-handler"} -->
+<figure class="wp-block-embed is-type-rich is-provider-embed-handler wp-block-embed-embed-handler"><div class="wp-block-embed__wrapper">
+https://gist.github.com/PragTob/f31482c9b0d35158c6933253adc524b4
+</div></figure>
+<!-- /wp:embed -->
+
+<!-- wp:paragraph -->
+<p>Much better! There is a small optimization here, where we only check the divisibility twice instead of 4 times. It doesn't fully matter, but when I see the exact same code being run twice in a method and I can remove it without impacting readability I love to do it.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>I consider this a good solution. However, now is where the fun of many coding challenges starts - <strong>what extension points are there?</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Extension Points</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Many coding challenges have potential extension points baked in. Some extra features, or, what I almost prefer dealing with, uncertainty and how that might affect software design.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>How certain are we that we need the first 100 numbers? How certain are we that we want to print it out on the console? Is there a possibility that we’ll get a 3rd number like 7 and how would that work? How certain are we that it’s the numbers 3, 5 and the words Fizz and Buzz?</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Depending on the answers to these question you could go, adjust the challenge to make these easier to change.</strong> And with answers I don't mean you making them up, but in case of a live coding challenge you talking to your interviewers to see what they think. A common case for instance would be that the numbers and strings may change while we’re certain it will be 2 numbers and 2 distinct strings - "product is still trying to figure out the exact numbers and text and they might change in the future as we're experimenting in the space".</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Let's run with that for now - we think it will always be 2 numbers but we're not sure what 2 numbers and we're also not sure about Fizz and Buzz. What do we do now?</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Going Constants</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>One of the easiest solutions to this is to extract the relevant values to constants or even into a config. </p>
+<!-- /wp:paragraph -->
+
+<!-- wp:embed {"url":"https://gist.github.com/PragTob/0c5c01e55b14dc1cd96a62af61fb409b","type":"rich","providerNameSlug":"embed-handler"} -->
+<figure class="wp-block-embed is-type-rich is-provider-embed-handler wp-block-embed-embed-handler"><div class="wp-block-embed__wrapper">
+https://gist.github.com/PragTob/0c5c01e55b14dc1cd96a62af61fb409b
+</div></figure>
+<!-- /wp:embed -->
+
+<!-- wp:paragraph -->
+<p>Right, so that got a lot <strong>longer</strong> and frankly also a bit <strong>more confusing</strong>. However, it is now immediately apparent where to change the values. That said, we also kept the "FizzBuzz" naming for the constants which may get extra confusing if we changed the text to something like "Zazz". It's always a <strong>tradeoff</strong>, the <strong>previous version was definitely more readable</strong>. We did get rid of "Magic numbers" and "Magic Strings". Sadly, due to the nature of the challenge, they are also still very magical as there is no inherent reasoning to them 😅</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Something bugs me with this solution though, and that's the reason why I actually went and implemented it myself again (and wrote this post): There is an <strong>obvious relation between <code>FIZZ_NUMBER</code> and <code>FIZZ_TEXT</code> </strong>but from a code point of view <strong>they are completely separate data structures</strong> only held together by naming conventions and their usage together.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Working With Rules</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Ideally we'd want<strong> a data structure to hold both the text to be outputted and the number that triggers it together</strong>. There's a gazillion ways you could go about this. You could simply use maps, arrays or tuples to hold that data together. As we're doing Ruby right now, I decided to create an object that holds the rule and can apply itself to a rule - either returning its configured text or <code>nil</code>.  </p>
+<!-- /wp:paragraph -->
+
+<!-- wp:embed {"url":"https://gist.github.com/PragTob/537bb657dee52ba30e5a81c7333291f2","type":"rich","providerNameSlug":"embed-handler"} -->
+<figure class="wp-block-embed is-type-rich is-provider-embed-handler wp-block-embed-embed-handler"><div class="wp-block-embed__wrapper">
+https://gist.github.com/PragTob/537bb657dee52ba30e5a81c7333291f2
+</div></figure>
+<!-- /wp:embed -->
+
+<!-- wp:paragraph -->
+<p>Now, that's quite different! Does it work? Well, yes - and the beauty of it is that so far we haven't  altered our API at all so all of these were internal refactorings that work with exactly the same set of tests. Yes, technically this adds additional optional parameters, we'll get to these later 😉</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The most interesting thing about this is that <strong>the rule of "if it is divisible by both do X" is gone</strong>. Turns out, that rule isn't really needed:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul><!-- wp:list-item -->
+<li>if it is divisible by 3 add "Fizz" to the output</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>if it is divisible by 5 add "Buzz" to the output</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>if it is divisible by neither, just print out the number itself</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>That works just as well. It means that the order in which we store rules in our <code>DEFAULT_RULES</code> array matters (so we don't end up with "BuzzFizz"). Of course we need to verify this with our stakeholders/interviewers, but let's say they agree here. Now, can we allow for even more flexibility with the rules?</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Flexible Rules</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Now our "stakeholders" might come back and say well, you know what we're not so sure about just having 2 numbers and their respective outputs. It may be more, it may be less! The good news? <strong>This already completely works with our implementation above</strong>. However, we should still <strong>test it</strong>. You can take a look at all the test I wrote over <a href="https://github.com/PragTob/fizz_buzz/blob/main/spec/fizz_buzz_spec.rb">here</a>, I'll just post the tests here for adding a 3rd rule: 7 and Zazz!</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:embed {"url":"https://gist.github.com/PragTob/95a22ffcc9a3ff8c0813e90804e906a5","type":"rich","providerNameSlug":"embed-handler"} -->
+<figure class="wp-block-embed is-type-rich is-provider-embed-handler wp-block-embed-embed-handler"><div class="wp-block-embed__wrapper">
+https://gist.github.com/PragTob/95a22ffcc9a3ff8c0813e90804e906a5
+</div></figure>
+<!-- /wp:embed -->
+
+<!-- wp:paragraph -->
+<p>As per usual, testing all the different edge cases here is a fun exercise:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul><!-- wp:list-item -->
+<li>What is the behavior if no rules are passed?</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>What happens if the exact same rule is applied twice?</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Can I change the order to make it "BuzzFizz"?</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>What I also like about this solution is that the rules aren't actually hard coded but are injected from the outside. That allows us to easily test our system against many different rule configurations. It also allows us to run many different rule configurations in the same system - each user of our FizzBuzz platform could have their own settings for FizzBuzz!</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Closing Out</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>That's quite a bit of changes we went through here. I want to stress, that you shouldn't start with the more complex solution as it is definitely harder to understand. <strong>Y</strong>ou <strong>A</strong>in't <strong>G</strong>onna <strong>N</strong>eed <strong>I</strong>t.However, if there are actual additional requirements or credible uncertainty it might be worth it. I ended up implementing it because I wanted to translate that relationship between "3" and "Fizz" <strong>explicitly into a data structure</strong>, as it feels like an inherent part of the domain. The other properties of it were almost just a by-product.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>You can check out the whole code on <a href="https://github.com/PragTob/fizz_buzz">github</a> and let me know what you think.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Of course, we haven't handled all extension points here:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul><!-- wp:list-item -->
+<li>The range of 1 to 100 is still hard coded, however that is easily remedied if necessary (by passing the range in as a parameter)</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Our choice of the implementation of <code>Rule</code> hard coded the assumption that rules only ever check the divisibility by a number. We couldn't easily produce a rule that says "for every odd number output 'Odd'". Instead of providing <code>Rule</code> with just a number, we could instead use an anonymous function to make it even more configurable. However, don't ever forget you ain't gonna need it - even in a coding challenge. Overengineering  is also often bad, hence the conversation with your stakeholders/interviewers is important as for what are "sensible" extension points.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>The output mechanism is still just <code>puts</code>, as mentioned earlier dependency injecting an object with a specific output method instead would make that more configurable and quite easily so.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>Naturally, naming is important and could see some improvement here. However, with completely made up challenges having good naming becomes nigh impossible.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Anyhow, I hope you enjoyed this little journey through FizzBuzz and that it may have been helpful to you. I certainly enjoyed writing that solution 😁</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Edit: Earlier versions of the code samples featured bitwise-and (<code>&amp;</code>) instead of the proper and operator (<code>&amp;&amp;</code>) - both work in this context (hence the tests passed) but you should definitely be using <code>&amp;&amp;</code>. Thanks to my friend <a href="https://github.com/JesseHerrick">Jesse Herrick</a> for pointing that out. Yes the featured image is still wrong. I won't fix it.</p>
+<!-- /wp:paragraph -->

@@ -1,0 +1,151 @@
+<!-- wp:paragraph -->
+<p><a href="https://github.com/bencheeorg/benchee">Benchee</a> 1.1.0 has finally hit hex.pm. After, well, almost 3 years. So, in this blog post we'll dive into:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list {"ordered":true} -->
+<ol><li>What are the changes</li><li>Why did it take so long, with some (significant) musings on Open Source and bugs as well as my approach to it</li></ol>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2>What does Benchee 1.1.0 Bring to the table</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The star of the show certainly are the two new major features: reduction measurements and profiling! Then there is also a nasty bug that was squashed. Check out the <a href="https://github.com/bencheeorg/benchee/blob/main/CHANGELOG.md#110-2022-03-08">Changelog</a> for all.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3>Reduction Counting</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Reductions joins execution time and memory consumption as the third measure Benchee can take. This one was kicked off way back when someone asked in our #benchee channel about adding this feature. What reductions are, is hard to explain. In short, it's not very well defined but a "unit of work". The BEAM uses them to keep track of how long a process has run. As the <a href="https://blog.stenmans.org/theBeamBook/#_scheduling_non_preemptive_reduction_counting">Beam Book puts it as follows</a>:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><p>BEAM solves this by keeping track of how long a process has been running. This is done by counting reductions. The term originally comes from the mathematical term beta-reduction used in lambda calculus.</p><p>The definition of a reduction in BEAM is not very specific, but we can see it as a small piece of work, which shouldn’t take too long. Each function call is counted as a reduction. BEAM does a test upon entry to each function to check whether the process has used up all its reductions or not. If there are reductions left the function is executed otherwise the process is suspended.</p><cite><a href="https://blog.stenmans.org/theBeamBook/#_scheduling_non_preemptive_reduction_counting">Beam Book, Chapter 5.3</a></cite></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:paragraph -->
+<p>This can help you, as it's not affected by system load so you could make assumptions in your CI about performance. It's not 1:1 but it helps. Of course, check out Benchee's <a href="https://github.com/bencheeorg/benchee#measuring-reductions">docs</a> about it. Biggest shout out goes to <a href="https://twitter.com/devoncestes">Devon</a> for <a href="https://github.com/bencheeorg/benchee/pull/307">implementing it</a>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>You can simply specify <code>reduction_time</code> and there you go:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:embed {"url":"https://gist.github.com/PragTob/37ea85a6d984714a63cc4d7e8c195b52","type":"rich","providerNameSlug":"embed-handler"} -->
+<figure class="wp-block-embed is-type-rich is-provider-embed-handler wp-block-embed-embed-handler"><div class="wp-block-embed__wrapper">
+https://gist.github.com/PragTob/37ea85a6d984714a63cc4d7e8c195b52
+</div></figure>
+<!-- /wp:embed -->
+
+<!-- wp:paragraph -->
+<p>It's worth noting that reduction counts will differ between different elixir and erlang versions - as we often noticed in our own CI setup.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3>Profile after benchmarking</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Another feature that I'd never imagined having in Benchee, but thanks to community suggestions (and implementation!) it came to be. This one in particular was even suggested by José Valim himself - chatting with him he asked if there were plans to include something like this as his workflow would often be:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>1. benchmark to see results</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>2. profile to find improvement opportunities</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>3. improve code</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>4. Start again at 1.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Makes perfect sense, I just never thought of it. So, you can now say <code>profile_after: true</code> or even specify a specific profiler + options.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:embed {"url":"https://gist.github.com/PragTob/d723d6c8eab930d28e8937d92a1eade3","type":"rich","providerNameSlug":"embed-handler"} -->
+<figure class="wp-block-embed is-type-rich is-provider-embed-handler wp-block-embed-embed-handler"><div class="wp-block-embed__wrapper">
+https://gist.github.com/PragTob/d723d6c8eab930d28e8937d92a1eade3
+</div></figure>
+<!-- /wp:embed -->
+
+<!-- wp:paragraph -->
+<p>We didn't implement the profiling ourselves, but instead we rely on the builtin profiling tasks like <a href="https://hexdocs.pm/mix/1.13/Mix.Tasks.Profile.Eprof.html#profile/2">this one</a>. To make the feature fully compatible with hooks, I also had to send a <a href="https://github.com/elixir-lang/elixir/pull/11657">small patch to elixir</a> and so <code>after_each</code> hooks won't work with profiling until it's released. But, nobody uses hooks anyhow so, who cares? 😛</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>This feature made it in thanks to <a href="https://twitter.com/pablocostass">Pablo Costas</a>, and his <a href="https://github.com/bencheeorg/benchee/pull/317">great work</a>. I'm happy to highlight that not only did this contribution give us all a great Benchee feature, but also a friendship to boot. Oh, the wonders of Open Source. 💚</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3>Measurement accuracy on Mac</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Now to the least fun part about this release. There is a bugfix, a quite important one at that. Basically on Mac OS previous Benchee versions might report inaccurate results for very fast benchmarks (&lt; 10 microseconds). There are many more musings in <a href="https://github.com/bencheeorg/benchee/issues/313">this issue</a>, but basically we relied on the operating system clock returning times in a value that it can accurately measure in. Alas, OSX reports in nanoseconds but only has microsecond accuracy (leading to measurements being multiples of 1000). However, even the operating system clock reported nanosecond accuracy - so I even <a href="https://github.com/erlang/otp/issues/3911">reported a bug on erlang/otp</a> that was thankfully fixed in 22.2.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Fixing this was hard and stressful, which leads nicely into the next major section...</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2>Why it took so long, perfectionism and open source</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>So, why did it take so long? I blogged earlier today about some of the things that held me back the past 1.5 years in <a href="https://pragtob.wordpress.com/2022/03/08/the-silence-between/">"The Silence Between"</a>. However, you can see that a lot of these features already landed in early 2020, so what gives?</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The short answer is the bug above was hard to fix and I needed to fix it. The long answer is... well, long.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>I think I could describe myself as a pragmatic perfectionist. I'm happy to implement an MVP, I constantly ask "Do we really need this?" or "Can we make this simpler and deliver it faster?", but what I end up shipping I want to... well, almost need to be great for what we decided to ship. I don't want to release with bugs, constant error notifications or barely anything tested. I can make lots of tradeoffs, as long as I decide on them like: Ok we'll duplicate this code now, as we have no idea what a good abstraction might be and we don't wanna lock ourselves in. But something misbehaving that I thought was sublime? Oh, the pain.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Why am I highlighting this? Well, Benchee reporting <strong>wrong results</strong> <strong>is frightening to me. Benchee has one core promise, and that promise is to measure your functions as accurately as possible.</strong> Also, in my opinion fixing critical bugs such as this one should have the highest priority. I can't, for myself, justify working on Benchee while not working on that bug. I know, it's not a great attitude and I should have released the features on main and just released the bug fix later. I do. But I felt like, all energy had to be spent on fixing that bug.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>And working on that bug was <strong>hard</strong>. It's a Mac only bug and I famously do not own or want to own a Mac. My partner owns one, but when I'm doing Open Source chances are she's at her computer as well. And then, to investigate something like this, I need a couple of hours of interrupted time with no distractions on my mind as well. I might as well not even start otherwise. It certainly didn't help that the <a href="https://github.com/bencheeorg/benchee/issues/313#issuecomment-778835256">bug randomly disappeared</a>, when trying to look at it.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The problem that I did not have a Mac to fix this was finally solved when I started a new job, but then first the stress was too high and then my arms were injured (as mentioned in the other blog post). My arms finally got better and I had a good 4h+ to set aside to fix this bug. It can be kind of hard, to get that dedicated time but it's absolutely needed for an intricate bug such as this one.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>So, that's the major reason it took so long. I mean, it involved finding a bug in Erlang <em>itself</em>. And, me working around that bug which is <a href="https://github.com/bencheeorg/benchee/blob/main/lib/benchee/utility/erlang_version.ex">some code</a> that well... was almost harder to write than the actual fix.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>I would be amiss not to mention something else: <strong>It's perfectly fine for Open Source project not to update!</strong> Sometimes, they are just done. Or the maintainers have more important things to do. I certainly consider Benchee "done" since 1.0 as it has all features I really wanted it to have. You see, reduction counting and profiler after are great features, but they are hardly essential.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Still, Benchee having a rather important bug for so long really made me feel guilty and bad. Even worse, because I didn't fix the bug those great contributions from Devon and Pablo were never released. That's another thing, that's very important to me: <strong>Whoever takes the time to contribute should have a great experience and their contribution should be valued.</strong> The ultimate show of appreciation is releasing the feature they worked on is getting it released into people's hands.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>At times those negative feelings ("Oh no there is a bug" &amp; "Oh no these great features lie around unreleased") paradoxically lead me to stay away from Benchee even more since I felt bad about this state. Yes, it was only on mac and only affected benchmarks where individual function invocations took less than 10 microseconds. But still, that's the perfectionist in me. This should be fixed within weeks, not 2.5 years. Most certainly, ready to ship features shouldn't just chill on main for <em>years</em>. Release early, release often.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Anyhow, thanks for reading my musings on Open Source, responsibility, pragmatism and perfectionism. The bug is fixed now, the features are released and I'm happy. Who knows what's next for Benchee.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Happy benchmarking!</p>
+<!-- /wp:paragraph -->

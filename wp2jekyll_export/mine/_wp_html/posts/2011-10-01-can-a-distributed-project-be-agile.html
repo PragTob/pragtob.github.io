@@ -1,0 +1,165 @@
+<div class="navigation"><!--Navigation Panel-->In my course Global Software Engineering, I wrote a paper about the topic whether a distributed project can be agile. It's just a 3 pages essay (maximum allowed size, I'd have liked to write much more - about conways law and using teleboard- but well another time).</div>
+<div class="navigation">As the topic is really interesting I thought I might share it with you. In the end I have an idea to combine the agile inception deck with distributed development, ideas might as well be discussed ;-)</div>
+<div class="navigation">
+
+So I used latex2html to convert the paper to html but you may also download the PDF if you like: <strong><a href="http://pragtob.wordpress.com/wp-content/uploads/2011/10/can_distributed_be_agile.pdf">Can a distributed project be agile? (PDF)</a></strong>
+
+edit: It just got graded with an A - so I hope it really is worth the read =)<strong></strong>
+<h1 align="CENTER">Can a distributed project be agile?</h1>
+<div class="author_info">
+<p align="CENTER"><strong>Tobias Pfeiffer -
+Blekinge Institute of Technology</strong></p>
+<p align="CENTER"><em>Email: (see <a title="About" href="http://pragtob.wordpress.com/about/" target="_blank">About</a>)
+</em></p>
+
+</div>
+<h3>Abstract:</h3>
+<div class="ABSTRACT">Both agile software development and distributed software development are recent trends in software engineering. Both approaches essentially aim at a shorter time to market, more quality and less costs. The question, which remains to be answered, is whether these two approaches can be effectively combined to research an even greater benefit. In this paper ideas and facts of current research will be presented .</div>
+<h1><a name="SECTION00010000000000000000"></a>
+Introduction</h1>
+Agile and distributed development are two of the most recent developments in software engineering. Both are perceived to achieve great benefits, so the desire to combine both approaches in order to gain even greater benefits exists.
+
+Agile and distributed projects are not just a theoretical concept but rather reality. In the annual ''The State of Agile survey``, conducted by VersionOne<a name="tex2html1" href="#foot111"></a>[*], the percentage of companies reporting that teams in their company are working distributed rose from around 57% in 2007 and 2008 [<a href="#AGILE_2">1</a>,<a href="#AGILE_3">2</a>] to 58% in 2009 [<a href="#AGILE_4">3</a>] and finally to 65% in 2010 [<a href="#AGILE_5">4</a>].
+
+At first this paper will briefly introduce agile development and distributed development. Afterwards the challenges of combining the two methodologies will be elaborated. Then the current approaches to distributed agile software development will be analysed. Then a new idea for starting an agile distributed project will be presented. The findings of this paper will then be concluded in the last section.
+<h1><a name="SECTION00020000000000000000"></a>
+Agile Software Development</h1>
+Agile Software Development is a development philosophy driven by the thought that requirements always change and that huge upfront specifications (as practised in the waterfall model<a name="tex2html3" href="#foot112"></a>[*]) are therefore wrong. Agile development processes aim at being lighter processes in order to respond to change much faster and better than traditional development processes. Agile comes in many flavours, the most well known ones are Scrum [<a href="#SCRUM">5</a>], Extreme Programming [<a href="#XP">6</a>] and Lean. The core principles of these development methodologies were summarized and defined during a famous gathering in 2001 in a document known as ''The Agile Manifesto``<a name="tex2html5" href="#foot113"></a>[*], where the following values are emphasized:
+<ul>
+	<li>Individuals and interactions over processes and tools</li>
+	<li>Working software over comprehensive documentation</li>
+	<li>Customer collaboration over contract negotiation</li>
+	<li>Responding to change over following a plan</li>
+</ul>
+The agile manifesto also highly emphasizes the value of face-to-face communication and co-location. So it is stated in the agile manifesto, that ''The most efficient and effective method of conveying information to and within a development team is face-to-face conversation.`` Moreover in order to realize the value of customer collaboration a customer should always be nearby, the so called on-site customer.
+
+Agile stresses the value of fast feedback. The development principles of agile development processes also include developing software in iterations (usually one week to four weeks) and delivering incremental value. Therefore they are also often referred to as iterative and incremental development, however those principles are not as young as many think, they date back to at least 1968 [<a href="#oldAgile">7</a>].
+<h1><a name="SECTION00030000000000000000"></a>
+Distributed Software Development</h1>
+Distributed Software Development refers to the development of a software on more than one site. Usually there is on-shoring, where the all teams still work in the same country, and off-shoring, where teams work together across country boundaries. The latter is usually referred to as ''Global Software Development'', which will be analysed in more detail here.
+
+Global Software Development (GSD) is an effect of globalization as a whole. Companies are looking to outsource (working with a subcontractor) or insource (working with/founding a subsidiary) software development activities to other countries for a multitude of reasons. Mostly the following perceived advantages of GSD are named [<a href="#GSD">8</a>]:
+<ul>
+	<li>Reduced Development Costs</li>
+	<li>Cross-site modularization of Development Work</li>
+	<li>Access to large skilled labor pool</li>
+	<li>Closer proximity to market and customer</li>
+	<li>Innovation and shared best practice</li>
+	<li>Leveraging Time-zone Effectiveness</li>
+</ul>
+Whereas the last two are assumed to be mythical benefits, the others are perceived as just being partially realized [<a href="#GSD">8</a>]. A big reason for this are communication problems, mostly emerging from the distance between the teams. Distance in this context not only means the geographical distance but also the temporal distance (time zone difference) and the socio-cultural distance [<a href="#GSD">8</a>]. Of course this also results in a greater effort for coordination, as delivering messages in this environment is much more difficult than in a face-to-face communication. This can especially be observed with modification requests, where research has found that modification requests, that are spread across more than one site, take more than 2.5 times the time to complete compared to a single site modification request [<a href="#MR">9</a>].
+
+Of course one of the main issues for distributed development lies in its very nature, as the team is not co-located. Co-location has been proven to be a major success factors for software development [<a href="#massiveCoLocation">10</a>]. The top issues in distributed development were identified as follows [<a href="#EvolvingDistributed">11</a>]:
+<ul>
+	<li><span class="textit">Communication</span> Lack of effective communication mechanisms</li>
+	<li><span class="textit">Cultural</span> Conflicting behaviours, processes, and technologies</li>
+	<li><span class="textit">Project and process management</span> Difficulty synchronizing work between distributed sites.</li>
+	<li><span class="textit">Security</span> Ensuring electronic transmissions confidentiality
+and privacy.</li>
+	<li><span class="textit">Strategic</span> Difficulty leveraging available resources</li>
+	<li><span class="textit">Technical</span> Incompatible data formats and exchanges.</li>
+</ul>
+<h1><a name="SECTION00040000000000000000"></a>
+Challenges of Combining Agile and Global Software Development</h1>
+Agile methodologies heavily rely on co-location, shown with practices like pair programming and the daily stand-up meeting (also called ''Daily Scrum``), which is one of the most widely adopted techniques. It is a short meeting where everyone in the team answers three simple questions [<a href="#SCRUM">5</a>]:
+<ul>
+	<li>What did I do yesterday?</li>
+	<li>What will I do today?</li>
+	<li>What impediments are in my way?</li>
+</ul>
+This practice is difficult in a distributed team setup, as not everybody can be physically present and also the time difference is a big problem.
+
+Moreover the focus is turned towards working software and informal communication with co-workers rather than documentation. This lack of documentation can be a handicap when working in a distributed environment as information has to be made accessible to all team members [<a href="#Microsoft">12</a>,<a href="#CanDSDAgile">13</a>,<a href="#CouldGSDBenefitFromAgile">14</a>].
+
+At least when outsourcing there is another problem: Some practices require all the teams to use the same tools. For instance the practice of a shared code base requires all teams to use the same version control system and the practice of continuous integration requires all teams to use the same build tool [<a href="#CouldGSDBenefitFromAgile">14</a>]. Furthermore these systems have to be set up in a way that they are accessible fast and easy for every developer, in order not to restrain their work flow. Additionally the temporal distance may impose the challenge of a twenty-four hour availability, complicating maintenance[<a href="#Fowler">15</a>].
+<h1><a name="SECTION00050000000000000000"></a>
+Current approaches for combining Agile and Global Software Development</h1>
+However there are not just challenges when trying to combine the two approaches. Some agile practices can greatly help with problems in GSD. It has been found that the most commonly used practices in a distributed agile environment are Continuous Integration, daily stand up meetings and pair programming [<a href="#DSDAgileSecondary">16</a>].
+
+The practice of continuous integration for instance can help with the problem of the ''Big Bang`` at the end of the project. By continuously integrating the code of all sites it can be made sure that no major issues occur [<a href="#Fowler">15</a>,<a href="#CouldGSDBenefitFromAgile">14</a>]. Furthermore the practice of Test Driven Development (TDD, also called Test First Development) can ensure a high test coverage of the code instantly notifying everybody of a problem in the form of a failing test [<a href="#CouldGSDBenefitFromAgile">14</a>]. Both technologies give a fast feedback on changes, TDD for instance makes it apparent when expectations, that were set by the stakeholders or a developer, were broken by a recent change.
+
+Furthermore it is suggested, that agile methodologies increase the quality of communication at least inside of a team [<a href="#AgileCommunication">17</a>,<a href="#AgileStats">18</a>]. A key aspect of agile methodologies is reflecting about the work. It is common to have such reflections at the end of a meeting and at the end of an iteration (often called ''retrospective``). These reflections help the team to identify problems in the way they work and allow them to adjust accordingly.
+
+The short iterations of agile development processes make the progress apparent. This benefit makes it obvious when a project isn't progressing as expected and measures can be taken [<a href="#CouldGSDBenefitFromAgile">14</a>]. As such the daily stand up meetings have been proven effective[<a href="#DSDAgileSecondary">16</a>], however this often comes at the price of shifting working times so all sites can attend [<a href="#CanDSDAgile">13</a>].
+
+It is recommended for loosely coupled teams to have one or more ambassadors from the remote team at the home site and from the home site at the remote site [<a href="#Fowler">15</a>,<a href="#AdoptingDistributedAgile">19</a>]. These ambassadors are there to facilitate communication and also to establish trust between the remote team and the home team. Ambassadors however should be exchanged every few months, so that one person does not have to stay away from his family for too long and does not loose the connection to his home team.
+
+It is apparent that the level of documentation of an agile development process has to be increased in order to fully work in a distributed team set-up. The informal information exchange emphasized by agile processes normally just works for the people at one site, it is rarely shared with the other sites. As a result of this, practices that facilitate knowledge sharing are emphasized and official communication channels become more important [<a href="#CanDSDAgile">13</a>]. Therefore Fowler recommends a wiki as its unstructured nature allows the teams to apply a structure of their liking for sharing information [<a href="#Fowler">15</a>].
+
+As mentioned before, communication is crucial in a setup with distributed teams. Therefore communication channels should be plentiful, ranging from instant messaging, over a phone at every work place to good video conferencing tools [<a href="#Fowler">15</a>,<a href="#CanDSDAgile">13</a>]. There should not be a significant overhead in setting up a meeting across all locations [<a href="#Microsoft">12</a>]. This of course is another additional cost distributed software development often introduces.
+
+<a name="travel"></a>Travelling so that teams can meet and engage in face-to-face communication has been proven significant for the success of distributed projects, so it is suggested to travel often [<a href="#Microsoft">12</a>,<a href="#Fowler">15</a>]. Especially important phases are the start of the project, in order to get to know each other, and the end of the project in order to smoothly finish it. However visits every few months are also encouraged.
+
+The following two subsections will shortly present the findings of two case studies, that employed a successful distributed agile set up while employing approaches not found to be very common in the reviewed research papers.
+<h2><a name="SECTION00051000000000000000"></a>
+Distributed Scrum Type C</h2>
+Sutherland et al. describe a project which they describe as: ''For a globally dispersed team, it is one of the most productive projects ever documented at a run rate of five times industry average.`` [<a href="#Sutherland">20</a>]. This was accomplished using a distributed Scrum Type C, which means that unlike most implementations of Scrum in a distributed environment the distributed teams weren't loosely coupled teams but rather virtual teams.
+
+Each team consisted of members from almost all remote sites. However the people mainly responsible for coordination were co-located or close. All Product Owners were based in Utah whereas all Scrum Masters were based in Utah, Colorado or Canada [<a href="#Sutherland">20</a>]. This way they could conduct Scrum of Scrums [<a href="#SCRUM">5</a>] and other planning activities in a face-to-face manner. The teams had stand up meetings every day. However these were modified, the team members in the remote location had a local stand up meeting at the start of the day and a global meeting at the end of the day. For communication purposes however they found it to be necessary, to write their answers to the questions down before the meeting and distribute them.
+<h2><a name="SECTION00052000000000000000"></a>
+The Distributed Agile Transition Model</h2>
+A four-stage model towards adapting Agile in a distributed environment has been proposed [<a href="#AdoptingDistributedAgile">19</a>]:
+<ol>
+	<li><span class="textit">Evaluation</span>, different aspects of the project are analysed in order to determine whether to distribute the project and if so how.</li>
+	<li><span class="textit">Inception</span>, infrastructure is set up and training on agile and the problem domain is provided. Many representatives from the remote teams are at the home location and the remote team has a low degree of self-organization.</li>
+	<li><span class="textit">Transition</span>, some remote team members move back from the home location to the remote location. They are now familiar with the customer and the home location team, which facilitates communication. The degree of self-organization of the remote team increases.</li>
+	<li><span class="textit">Steady State</span>, more team members move back to the remote location, which is now completely self-organizing.</li>
+</ol>
+At Wipro, this approach has shown to lead to less schedule derivation and more overall quality, whereas other metrics haven't been impacted, compared to conventional plan-driven methods [<a href="#AdoptingDistributedAgile">19</a>].
+<h1><a name="SECTION00060000000000000000"></a>
+A new take: The agile inception deck</h1>
+Looking at the current approaches I found that it seems to be a common practice to bring the team together at least for the start of the project. Remembering my favourite technique for beginning a project, the agile inception deck, I thought that it might be very well combined with GSD.
+<h2><a name="SECTION00061000000000000000"></a>
+What is the agile inception deck?</h2>
+The agile inception deck is ''a collection of ten tough questions and
+exercises you'd be crazy not to do and ask before starting any project.``, as described by Jonathan Rasmusson in his book ''The agile Samurai`` [<a href="#samurai">21</a>, part II].
+
+It is designed for anyone directly involved in the project (like the stakeholders and the development team) to get together and define the core characteristics of a project to ensure that everybody has the same idea of what the project is like, why the project is done and what to expect from the project. Creating an agile inception deck can take from a couple of days to two weeks [<a href="#samurai">21</a>]. Some of the exercises conducted are the following:
+<ul>
+	<li><span class="textit">Ask: Why are we here?</span> Define clearly why the project is done and what the main drive that lead to a need for this system was.</li>
+	<li><span class="textit">Create a NOT list</span> Be clear on what is in scope, and be even clearer on what is not in scope and therefore will not be developed.</li>
+	<li><span class="textit">Size it up</span> Give a rough estimate of how long the project is going to need to be completed. This is not a commitment, just a guess so that everybody has an idea of how complex the project will be.</li>
+	<li><span class="textit">Ask what keeps us up at night</span> The goal of this exercise is to identify major project risks early on and talk about it, getting to know your co-workers better.</li>
+	<li><span class="textit">Design a product box</span> If the product you built could be bought in a store, what would it look like? This helps identifying the main features of the product.</li>
+</ul>
+<h2><a name="SECTION00062000000000000000"></a>
+How to combine the agile inception deck and global software development</h2>
+I imagine that the agile inception deck could be conducted during the first weeks of the project when the teams are co-located. The exercises not only helps everybody to get the same understanding of the project but it can also be a great technique to get to know each other much better. Some of the exercises, like ''Design a product box``, are rather informal and allow the team to creatively work together, having fun in the meantime.
+
+Once the inception deck is completed it represents a set of shared goals and information which should be available to everybody and updated when needed. Ideally it should also be part of a visible workspace [<a href="#samurai">21</a>, chapter 11], a workspace where everybody can see the most important information like shared values, story board, burn down chart and of course the inception deck.
+<h1><a name="SECTION00070000000000000000"></a>
+Conclusion</h1>
+In a review of empirical research papers it has been found that over 80% of the examined agile distributed projects have been a success, whereas under 5% have been a failure (the success of the other projects is listed as NA)[<a href="#DSDAgileSecondary">16</a>]. This statistic certainly suggests that distributed development can be done agile. Also other sources document a successful incorporation of agile distributed development in a multitude of different companies like Microsoft [<a href="#Microsoft">12</a>,<a href="#AgileStats">18</a>], Thoughtworks [<a href="#Fowler">15</a>] and many other companies [<a href="#Sutherland">20</a>,<a href="#AdoptingDistributedAgile">19</a>,<a href="#CanDSDAgile">13</a>].
+
+In those studies it was said that an agile approach showed an improvement over traditional plan driven methods. However agile methods have to be adopted in order to be successful in a distributed environment, these adjustments work but are not always easy to achieve. For instance the recommended high amount of travelling (see <a href="#travel">V</a>) comes with major costs, although it is said that these efforts are really worth their cost.
+
+Personally I highly believe that agile methodologies can be effective in distributed environments and I think that distributed agile projects can still do better, as agility is all about adopting to change. I would like to see some new ideas and approaches being explored, like the incorporation of the agile inception deck or the highly loosely coupled ''2-Pizza``-teams at Amazon<a name="tex2html7" href="#foot114"></a><sup>[*]</sup>.
+
+All in all I think that agile distributed projects may be conducted effectively in many environments. However more research in this sector is needed and there is still much room for improvements and new ideas.
+<h2><a name="SECTION00080000000000000000"></a>
+Bibliography</h2>
+<dl><dt><a name="AGILE_2"></a>1</dt><dd>VersionOne.2nd annual survey the state of agile development.2007.</dd><dt><a name="AGILE_3"></a>2</dt><dd>VersionOne.3rd annual survey : The state of agile development.2008.</dd><dt><a name="AGILE_4"></a>3</dt><dd>VersionOne.4th annual state of agile development survey final summary report.2009.</dd><dt><a name="AGILE_5"></a>4</dt><dd>VersionOne.5th annual state of agile development survey final summary report.2010.</dd><dt><a name="SCRUM"></a>5</dt><dd>Jeff Sutherland and Ken Schwaber.The scrum papers.2007.</dd><dt><a name="XP"></a>6</dt><dd>Kent Beck.<em>Extreme Programming Explained: Embrace Change</em>.Addison-Wesley Professional, us ed edition, October 1999.</dd><dt><a name="oldAgile"></a>7</dt><dd>Craig Larman and Victor R. Basili.Iterative and incremental development: A brief history.<em>IEEE Computer</em>, 36(6):47-56, June 2003.</dd><dt><a name="GSD"></a>8</dt><dd>Pär J. Ågerfalk Eoin ÓConchúir, Helena Holmström Olsson and
+Brian Fitzgerald.
+Global software development: where are the benefits?<em>Commun. ACM</em>, 52(8):127-131, 2009.</dd><dt><a name="MR"></a>9</dt><dd>James D. Herbsleb, Audris Mockus, Thomas A. Finholt, and Rebecca E. Grinter.Distance, dependencies, and delay in a global collaboration.In <em>CSCW</em>, pages 319-328, 2000.</dd><dt><a name="massiveCoLocation"></a>10</dt><dd>Stephanie D. Teasley, Lisa Covi, Mayuram S. Krishnan, and Judith S. Olson.How does radical collocation help a team succeed?In <em>CSCW</em>, pages 339-346, 2000.</dd><dt><a name="EvolvingDistributed"></a>11</dt><dd>Kenneth E. Nidiffer and Dana Dolan.Evolving distributed project management.<em>IEEE Software</em>, 22(5):63-72, 2005.</dd><dt><a name="Microsoft"></a>12</dt><dd>Ade Miller.Distributed agile development at microsoft patterns &amp; practices.2008.</dd><dt><a name="CanDSDAgile"></a>13</dt><dd>Balasubramaniam Ramesh, lan Cao, Kannan Mohan, and Peng Xu.Can distributed software development be agile?<em>Communications of the ACM</em>, 49(10):41-46, October 2006.</dd><dt><a name="CouldGSDBenefitFromAgile"></a>14</dt><dd>M Paasivaara and C Lassenius.
+Could global software development benefit from agile methods?<em>2006 IEEE International Conference on Global Software
+Engineering ICGSE06</em>, pages 109-113, 2006.</dd><dt><a name="Fowler"></a>15</dt><dd>Martin Fowler.Using an agile software process with offshore development.Last updated on 18th July 2006, retrieved 19th September 2011 from
+<tt><a name="tex2html9" href="http://martinfowler.com/articles/agileOffshore.html"></a>http://martinfowler.com/articles/agileOffshore.html</tt>.</dd><dt><a name="DSDAgileSecondary"></a>16</dt><dd>Samireh Jalali and Claes Wohlin.<em>Agile Practices in Global Software Engineering - A Systematic
+Map</em>, pages 45-54.
+IEEE, 2010.</dd><dt><a name="AgileCommunication"></a>17</dt><dd>Minna Pikkarainen, Jukka Haikara, Outi Salo, Pekka Abrahamsson, and Jari Still.The impact of agile practices on communication in software
+development.<em>Empirical Software Engineering</em>, 13(3):303-337, 2008.</dd><dt><a name="AgileStats"></a>18</dt><dd>Andrew Begel and Nachiappan Nagappan.Usage and perceptions of agile software development in an industrial
+context: An exploratory study.In <em>ESEM</em>, pages 255-264. IEEE Computer Society, 2007.</dd><dt><a name="AdoptingDistributedAgile"></a>19</dt><dd>Kalpana Sureshchandra and Jagadish Shrinivasavadhani.Adopting agile in distributed development.<em>2008 IEEE International Conference on Global Software
+Engineering</em>, pages 217-221, 2008.</dd><dt><a name="Sutherland"></a>20</dt><dd>Jeff Sutherland, Anton Viktorov, Jack Blount, and Nikolai Puntikov.Distributed scrum: Agile project management with outsourced
+development teams.2007.</dd><dt><a name="samurai"></a>21</dt><dd>Jonathan Rasmusson.<em>The Agile Samurai: How Agile Masters Deliver Great Software</em>.
+Pragmatic Programmers, 2010.</dd></dl>
+<h4>Footnotes</h4>
+<dl><dt><a name="foot111"></a>VersionOne<a href="#tex2html1">[*]</a><tt> <a href="http://www.versionone.com" target="_blank">http://www.versionone.com</a></tt></dt></dl><a name="foot112"></a>Waterfall model<a href="#tex2html3">[*] </a><a href="http://www.waterfall2006.com" target="_blank"><tt>http://www.waterfall2006.com</tt></a>
+
+<a name="foot113"></a>Agile Manifesto<a href="#tex2html5">[*]</a><a href="http://agilemanifesto.org" target="_blank"><tt>http://agilemanifesto.org</tt></a><a name="foot114" href="http://agilemanifesto.org" target="_blank"></a>
+
+Amazon 2 Pizza Teams<a href="#tex2html7">[*]</a><tt><a name="tex2html8" href="http://tech.groups.yahoo.com/group/leanagile/message/2908"></a><a href="http://tech.groups.yahoo.com/group/leanagile/message/2908" target="_blank">http://tech.groups.yahoo.com/group/leanagile/message/2908</a></tt>
+<div class="navigation">
+
+<hr />
+
+</div>
+</div>

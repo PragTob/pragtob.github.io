@@ -1,0 +1,79 @@
+As I just happened upon it again, I gotta take a moment to talk about one my most despised ruby code patterns: <code>Struct.new(...).new</code> - ever since I happened upon it <a href="https://github.com/PragTob/shoes4/commit/1869209254124b4cf2d8c26df2b9df60f6b553ce">for the first time</a>.
+
+<h2>Struct.new?</h2>
+
+<a href="http://ruby-doc.org/core-2.3.0/Struct.html">Struct.new</a> is a convenient way to create a class with accessors:
+
+<pre>2.2.2 :001 &gt; Extend = Struct.new(:start, :length)
+ =&gt; Extend 
+2.2.2 :002 &gt; instance = Extend.new(10, 20)
+ =&gt; #&lt;struct Extend start=10, length=20&gt; 
+2.2.2 :003 &gt; instance.start
+ =&gt; 10 
+2.2.2 :004 &gt; instance.length
+ =&gt; 20</pre>
+
+That's neat, isn't it? It is, but like much of Ruby's power it needs to be wielded with caution.
+
+<h2>Where Struct.new goes wrong - the second new</h2>
+
+When you do <code>Struct.new</code> you create an anonymous class, another new on it creates an instance of that class. Therefore, <code>Struct.new(...).new(...)</code> creates an anonymous class and creates an instance of it at the same time. This is bad as we create a whole class to <strong>create only one instance of it!</strong> That is a capital waste.
+
+As a one-off use it might be okay, for instance when you <a href="https://github.com/rails/rails/blob/cb4f6875b6a27894f3456cda79cb929f7243a1ac/activerecord/lib/active_record/associations/preloader.rb#L57">put it in a constant</a>. The sad part is, that this is not the only case I've seen it used. As in the first case where I encountered it, I see it used inside of code that is invoked frequently. Some sort of <em>hot loop</em> with calculations where more than one value is needed to represent some result of the calculation. Here programmers sometimes seem to reach for <code>Struct.new(...).new(...)</code>.
+
+<h2>Why is that bad?</h2>
+
+Well it incurs an unnecessary overhead, creating the class every time is unnecessary. Not only that, as far as I understand it also creates new independent entries in the method cache. For JITed implementations (like JRuby) the methods would also be JITed independently. And it gets in the way of profiling, as you see lots of anonymous classes with only 1 to 10 method calls each.
+
+But how bad is that performance hit? I wrote a little benchmark where an instance is created with 2 values and then those 2 values are read one time each. Once with <code>Struct.new(...).new(...)</code>, once where the <code>Struct.new(...)</code> is saved in an intermediary constant. For fun and learning I threw in a similar usage with Array and Hash.
+
+[code language="ruby"]
+Benchmark.ips do |bm|
+  bm.report &quot;Struct.new(...).new&quot; do
+    value = Struct.new(:start, :end).new(10, 20)
+    value.start
+    value.end
+  end
+
+  SavedStruct = Struct.new(:start, :end)
+  bm.report &quot;SavedStruct.new&quot; do
+    value = SavedStruct.new(10, 20)
+    value.start
+    value.end
+  end
+
+  bm.report &quot;2 element array&quot; do
+    value = [10, 20]
+    value.first
+    value.last
+  end
+
+  bm.report &quot;Hash with 2 keys&quot; do
+    value = {start: 10, end: 20}
+    value[:start]
+    value[:end]
+  end
+
+  bm.compare!
+end
+[/code]
+
+I ran those benchmarks with CRuby 2.3. And the results, well I was surprised how huge the impact really is. The <em>"new-new"</em> implementation is over <strong>33 times slower</strong> than the <em>SavedStruct</em> equivalent. And over 60 times slower than the fastest solution (Array), although that's also not my preferred solution.
+
+<pre>Struct.new(...).new    137.801k (± 3.0%) i/s -    694.375k
+SavedStruct.new      4.592M (± 1.7%) i/s -     22.968M
+2 element array      7.465M (± 1.4%) i/s -     37.463M
+Hash with 2 keys      2.666M (± 1.6%) i/s -     13.418M
+Comparison:
+2 element array:  7464662.6 i/s
+SavedStruct.new:  4592490.5 i/s - 1.63x slower
+Hash with 2 keys:  2665601.5 i/s - 2.80x slower
+Struct.new(...).new:   137801.1 i/s - 54.17x slower</pre>
+
+[caption id="attachment_1412" align="aligncenter" width="605"]<a href="https://pragtob.wordpress.com/2016/04/12/dont-you-struct-new-new/struct_new_benchmark-3/" rel="attachment wp-att-1412"><img class="size-full wp-image-1412" src="https://pragtob.wordpress.com/wp-content/uploads/2016/04/struct_new_benchmark2.png" alt="Benchmark in iterations per second (higher is better)" width="605" height="340" /></a> Benchmark in iterations per second (higher is better)[/caption]
+
+<h2>But that's not all...</h2>
+
+This is not just about performance, though. When people take this "shortcut" they also circumvent one of the hardest problems in programming - <strong>Naming</strong>. What is that Struct with those values? Do they have any connection at all or were they just smashed together because it seemed convenient at the time. What's missing is the identification of the <em>core concept</em> that these values represent. Anything that says that this is more than a clump of data with these two values, that performs very poorly.
+
+So, please avoid using <code>Struct.new(...).new(...)</code> - use a better alternative. Don't recreate a class over and over - give it a name, put it into a constant and enjoy a better understanding of the concepts and increased performance.

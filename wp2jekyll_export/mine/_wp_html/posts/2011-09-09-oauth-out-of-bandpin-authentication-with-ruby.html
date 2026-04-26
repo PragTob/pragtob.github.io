@@ -1,0 +1,40 @@
+<a title="OAuth" href="http://oauth.net/" target="_blank">OAuth</a> is a protocol used to authenticate an application in order to use the API of a service. Here we'll use <a title="Twitter" href="https://twitter.com/" target="_blank">Twitter</a> as an example. The <a title="developer documentation" href="https://dev.twitter.com/docs" target="_blank">developer documentation</a> of Twitter is a really good resource, when you look for general information or even specific libraries.
+
+It is quite common to authenticate with such services using a callback URL, so this case is pretty easy and well covered. Take for instance the <a title="Ruby oauth gem" href="http://github.com/oauth/oauth-ruby" target="_blank">ruby oauth gem</a>, authentication using callback URL is described pretty well in their documentation. But this just works for web applications. If you want to do OAuth with a desktop application or a mobile application you mostly can't handle callback URLs. So if you are unsure about which authentication to choose, Twitter has an excellent help page called <a title="Which authentication path should I use?" href="https://dev.twitter.com/docs/auth" target="_blank">"Which authentication path should I choose?"</a>.
+
+So I realised I needed to do authentication using OAuth out of band/PIN. I found very few resources on how to exactly do that, so here is my solution.
+<h1>Solution</h1>
+Of course first you need the oauth gem.
+
+[sourcecode language="bash"]
+gem install oauth
+[/sourcecode]
+
+Now you have got to <a title="register application at Twitter" href="https://dev.twitter.com/apps" target="_blank">register your application at Twitter</a>. You may then get your consumer key and your consumer secret from the page of your application. Then you can go ahead and I'll just show you a little script for doing that kind of authentication:
+
+[sourcecode language="ruby"]
+# this makes oauth pretty easy
+require 'oauth'
+# used to launch the web browser with the authorization page
+# gem install launchy
+require 'launchy'
+
+consumer = OAuth::Consumer.new(YOUR_CONSUMER_KEY, YOUR_CONSUMER_SECRET, :site =&gt; &quot;https://api.twitter.com&quot; )
+request_token = consumer.get_request_token
+
+# open browser for authorization
+Launchy.open request_token.authorize_url
+puts &quot;Please authorize the app to have access to your Twitter account. A pincode will be displayed to you, please enter it here:&quot;
+pincode = gets.chomp
+# last step of the authentication
+access_token = request_token.get_access_token :pin =&gt; pincode
+
+access_token.token # user token
+access_token.secret # user oauth secret
+[/sourcecode]
+
+Be aware of the fact, that you need to (securely) save the token and secret somewhere. But now that you got those you may use the <strong><a title="Twitter gem" href="https://github.com/jnunemaker/twitter" target="_blank">twitter gem</a></strong>, to do whatever your app aims to do with Twitter! So have fun with out of band OAuth authentication!
+
+<em>Sidenote: Where to save your consumer secret is a quite hard problem, you might want to check out <a title="How to secure consumer secret" href="http://stackoverflow.com/questions/1934187/oauth-secrets-in-mobile-apps" target="_blank">this stackoverflow discussion</a>. If you got better ideas please leave a comment ;-)</em>
+
+Question or feedback? Please leave a comment!

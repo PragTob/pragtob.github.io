@@ -1,0 +1,150 @@
+There are a couple of mantras that exist across programming communities, one of them is to avoid duplication or to keep it <a href="https://en.wikipedia.org/wiki/Don't_repeat_yourself">DRY</a>. Programming languages equip us with different tools to avoid duplication. In Ruby a popular way to achieve this is <a href="https://en.wikipedia.org/wiki/Metaprogramming">Metaprogramming</a>. Methods are dynamically defined to get rid off all duplication and we rejoice - yay! There might be other problems with metaprogrammed solutions, but at least we are sure that the performance is the same as if we'd had written that duplicated code. Or are we?
+
+As the title suggests this post examines the performance of these meta programmed methods<em>. </em>If you are looking for method definition performance or pure call overhead you'll find this information in <a href="http://tenderlovemaking.com/2013/03/03/dynamic_method_definitions.html">this post by Aaron Patterson</a>.
+
+Before we get into the details I want to quickly highlight that this is not some theoretical micro benchmark I pulled out of thin air. These examples are derived from performance improvements on an actual project. That work was done by my friend <a href="http://jasonrclark.com/">Jason R. Clark</a> on <a href="https://github.com/shoes/shoes4/pull/1080">this pull request</a> over at <a href="https://github.com/shoes/shoes4">Shoes 4</a>. As he doesn't have time to write it up - I get to, so let's get to it!
+<h3>Let's look at some methods!</h3>
+(Please be aware that this example is simplified, of course the real code has varying parts most importantly the name of the instance_variable which is the reason why the code was meta programmed in the first place)
+
+[code lang="ruby"]
+class FakeDimension
+  def initialize(margin_start)
+    @margin_start = margin_start
+    @margin_start_relative = relative? @margin_start
+  end
+
+  def relative?(result)
+    result.is_a?(Float) &amp;&amp; result &lt;= 1
+  end
+
+  def calculate_relative(result)
+    (result * 100).to_i
+  end
+
+  define_method :full_meta do
+    instance_variable_name = '@' + :margin_start.to_s
+    value = instance_variable_get(instance_variable_name)
+    value = calculate_relative value if relative? value
+    value
+  end
+
+  IVAR_NAME = &quot;@margin_start&quot;
+  define_method :hoist_ivar_name do
+    value = instance_variable_get(IVAR_NAME)
+    value = calculate_relative value if relative? value
+    value
+  end
+
+  define_method :direct_ivar do
+    value = @margin_start
+    value = calculate_relative value if relative? value
+    value
+  end
+
+  eval &lt;&lt;-CODE
+  def full_string
+    value = @margin_start
+    value = calculate_relative value if relative? value
+    value
+  end
+  CODE
+
+  def full_direct
+    value = @margin_start
+    value = calculate_relative value if relative? value
+    value
+  end
+end
+[/code]
+
+Starting at the first <em>define_method</em> these are all more or less the same method. We start at a fully meta programmed version, that even converts a symbol to an instance variable name, and end with the directly defined method without any meta programming. Now with all these methods being so similar you'd expect them all to have roughly the same performance characteristics, right? Well, such is not the case as demonstrated by the following benchmark. I benchmarked these methods both for the case where the value is relative and for when it is not. The results are not too different - <a href="https://gist.github.com/PragTob/17f7dcab51ad98a3f064">see the gist for details</a>. Running the non relative version on CRuby 2.2.2 with <a href="https://github.com/evanphx/benchmark-ips">benchmark-ips</a> I get the following results (higher is better):
+
+[code]
+           full_meta      1.840M (± 3.0%) i/s -      9.243M
+     hoist_ivar_name      3.147M (± 3.3%) i/s -     15.813M
+         direct_ivar      5.288M (± 3.1%) i/s -     26.553M
+         full_string      6.034M (± 3.2%) i/s -     30.179M
+         full_direct      5.955M (± 3.2%) i/s -     29.807M
+
+Comparison:
+         full_string:  6033829.1 i/s
+         full_direct:  5954626.6 i/s - 1.01x slower
+         direct_ivar:  5288105.5 i/s - 1.14x slower
+     hoist_ivar_name:  3146595.7 i/s - 1.92x slower
+           full_meta:  1840087.6 i/s - 3.28x slower
+[/code]
+
+And look at that, the <em>full_meta</em> version is <strong>over 3 times slower</strong> than the directly defined method! Of course <em>direct_ivar</em> is also pretty close, but it's an unrealistic scenario as the instance variable name is what is really changing. You can interpolate the string of the method definition in the <em>full_string</em> version, though. This achieves results as if the method had been directly defined. But what's happening here?
+
+It seems that there is a higher than expected cost associated with calling <em>instance_variable_get</em>, creating the necessary string and calling methods defined by <em>define_method</em> overall. If you want to keep the full performance but still alter the code you have to resort to the <em>evil eval</em> and stitch your code together in string interpolation. Yay.
+<h3>So what, do we all have to eval method definitions for metaprogramming now?</h3>
+Thankfully <strong>no</strong>. The performance overhead is constant - if your method does more expensive calculations the overhead diminishes. This is the somewhat rare case of a method that doesn't do much (even the slowest version can be executed almost 2 Million times per second) but <a href="https://github.com/shoes/shoes4/pull/1080#issuecomment-85768978">is called a lot</a>. It is one of the core methods when positioning UI objects in Shoes. Obviously we should also do the hard work and try not to call that method that often, we're working on that and already made some nice progress. But, to quote Jason, <em>"regardless what we do I think that <code>Dimension</code> is bound to always be in our hot path."</em>.
+
+What about methods that do more though? Let's take a look at an example where we have an object that has an array set as an instance variable and has a method that concatenates another array and sorts the result (<a href="https://gist.github.com/PragTob/c843d4f5aca6113d94e9">full gist</a>):
+
+[code lang="ruby"]
+class Try
+
+  def initialize(array)
+    @array = array
+  end
+
+  define_method :meta_concat_sort do |array|
+    value = instance_variable_get '@' + :array.to_s
+    new_array = value + array
+    new_array.sort
+  end
+
+  def concat_sort(array)
+    new_array = @array + array
+    new_array.sort
+  end
+end
+[/code]
+
+We then benchmark those two methods with the same base array but two differently sized input arrays:
+
+[code lang="ruby"]
+BASE_ARRAY        = [8, 2, 400, -4, 77]
+SMALL_INPUT_ARRAY = [1, 88, -7, 2, 133]
+BIG_INPUT_ARRAY   = (1..100).to_a.shuffle
+[/code]
+
+What's the result?
+
+[code]
+Small input array
+Calculating -------------------------------------
+    meta_concat_sort    62.808k i/100ms
+         concat_sort    86.143k i/100ms
+-------------------------------------------------
+    meta_concat_sort    869.940k (± 1.4%) i/s -      4.397M
+         concat_sort      1.349M (± 2.6%) i/s -      6.805M
+
+Comparison:
+         concat_sort:  1348894.9 i/s
+    meta_concat_sort:   869940.1 i/s - 1.55x slower
+
+Big input array
+Calculating -------------------------------------
+    meta_concat_sort    18.872k i/100ms
+         concat_sort    20.745k i/100ms
+-------------------------------------------------
+    meta_concat_sort    205.402k (± 2.7%) i/s -      1.038M
+         concat_sort    231.637k (± 2.5%) i/s -      1.162M
+
+Comparison:
+         concat_sort:   231636.7 i/s
+    meta_concat_sort:   205402.2 i/s - 1.13x slower
+
+[/code]
+
+With the small input array the dynamically defined method is still over 50% slower than the non meta programmed method! When we have the big input array (100 elements) the meta programmed method is still 13% slower, which I still consider very significant.
+
+I ran these with CRuby 2.2.2, in case you are wondering if this is implementation specific. I ran the same benchmark with JRuby and got comparable results, albeit the fact that JRuby is usually 1.2 to 2 times faster than CRuby, but the slowdowns were about the same.
+
+So in the end, what does it mean? <strong>Always benchmark.</strong> Don't blindly optimize calls like these as in the grand scheme of things they might not make a difference. This will only be really important for you if a method gets called <strong>a lot</strong>. If it is in your library/application, then replacing the meta programmed method definitions might yield surprising performance improvements.
+
+<strong>UPDATE 1: </strong>Shortly after this post was published coincidentally <a href="http://blog.jruby.org/2015/10/performance_improvements_in_jruby_9030/">JRuby 9.0.0.3.0 was released with improvements to the call speed of methods defined by <em>define_method</em></a>. I added the <a href="https://gist.github.com/PragTob/17f7dcab51ad98a3f064#gistcomment-1603236">benchmarks to the comments of the gist</a>. It is 7-15% faster for <em>full_meta</em> and <em>hoist_ivar_name</em> but now the <em>direct_ivar</em> is about as fast as its <em>full_meta</em> and <em>full_string</em> counterparts thanks to the optimizations!
+
+<strong>UPDATE 2:</strong> I wrote a <a href="https://gist.github.com/PragTob/fdeb46356702bf9943ca">small benchmark</a> about what I think is the bottle neck here - <em>instance_variable_get</em>. It is missing the slowest case but is still up to 3 times slower than the direct access.
