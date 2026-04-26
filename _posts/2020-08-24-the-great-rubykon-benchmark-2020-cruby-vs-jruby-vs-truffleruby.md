@@ -69,7 +69,43 @@ This is still running on the same Desktop PC that I did the first version of the
 
 The machine has 16 GB of RAM, runs Linux Mint 19.3 (based on Ubuntu 18.04 LTS) and most importantly an [i7-4790 (3.6 GHz, 4 GHz boost)](https://ark.intel.com/products/80806/Intel-Core-i7-4790-Processor-8M-Cache-up-to-4_00-GHz) (which is more than 6 years old now).
 
-https://gist.github.com/PragTob/2f522e4b59db3dc16a64f63132c81a80
+
+
+Source: [https://gist.github.com/PragTob/2f522e4b59db3dc16a64f63132c81a80](https://gist.github.com/PragTob/2f522e4b59db3dc16a64f63132c81a80)
+
+**File: `system_info`**
+```
+tobi@speedy:~$ uname -a
+Linux speedy 5.4.0-42-generic #46~18.04.1-Ubuntu SMP Fri Jul 10 07:21:24 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+tobi@speedy:~$ lscpu
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              8
+On-line CPU(s) list: 0-7
+Thread(s) per core:  2
+Core(s) per socket:  4
+Socket(s):           1
+NUMA node(s):        1
+Vendor ID:           GenuineIntel
+CPU family:          6
+Model:               60
+Model name:          Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz
+Stepping:            3
+CPU MHz:             3568.176
+CPU max MHz:         4000,0000
+CPU min MHz:         800,0000
+BogoMIPS:            7200.47
+Virtualization:      VT-x
+L1d cache:           32K
+L1i cache:           32K
+L2 cache:            256K
+L3 cache:            8192K
+NUMA node0 CPU(s):   0-7
+Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm ida arat pln pts md_clear flush_l1d
+```
+
+
 
 All background applications were closed and while the benchmarks were running no GUI was active. They were run on hot Berlin evenings ;)
 

@@ -16,7 +16,22 @@ tags:
 - Rails
 - transactions
 ---
-Lately I acquired a new hobby. I went around and asked experience Rails developers, whom I respect and value a lot, how many users the following script would create: https://gist.github.com/pragtobgists/0ab874d6e707c85d95f7e27cb2e8ee64 The result should be the same on pretty much any database and any Rails version. For the sake of argument you can assume Rails 5.1 and Postgres 9.6 (what I tested it with). So, how many users _does_ it create? No one from more than a hand full of people I asked got the answer right (including myself). **The answer is 2**.
+Lately I acquired a new hobby. I went around and asked experience Rails developers, whom I respect and value a lot, how many users the following script would create: 
+
+Source: [https://gist.github.com/pragtobgists/0ab874d6e707c85d95f7e27cb2e8ee64](https://gist.github.com/pragtobgists/0ab874d6e707c85d95f7e27cb2e8ee64)
+
+**File: `nested_transactions.rb`**
+```ruby
+User.transaction do
+  User.create(name: 'Kotori')
+  User.transaction do
+    User.create(name: 'Nemu')
+    raise ActiveRecord::Rollback
+  end
+end
+```
+
+ The result should be the same on pretty much any database and any Rails version. For the sake of argument you can assume Rails 5.1 and Postgres 9.6 (what I tested it with). So, how many users _does_ it create? No one from more than a hand full of people I asked got the answer right (including myself). **The answer is 2**.
 
 ## Wait, WHAT?
 
@@ -24,11 +39,51 @@ Yup you read that right. It creates 2 users, the rollback is effectively useless
 
 ## A fix
 
-So, what can we do? When opening a transaction, we can pass `requires_new: true` to the transaction which will emulate a "real" nested transaction using savepoints: https://gist.github.com/pragtobgists/70fb6eb60eaf4f421b4088ca5ac2b0b2 As you'd expect this creates just **one** user.
+So, what can we do? When opening a transaction, we can pass `requires_new: true` to the transaction which will emulate a "real" nested transaction using savepoints: 
+
+Source: [https://gist.github.com/pragtobgists/70fb6eb60eaf4f421b4088ca5ac2b0b2](https://gist.github.com/pragtobgists/70fb6eb60eaf4f421b4088ca5ac2b0b2)
+
+**File: `nested_transaction_requires_new.rb`**
+```ruby
+User.transaction do
+  User.create(name: 'Kotori')
+  User.transaction(requires_new: true) do
+    User.create(name: 'Nemu')
+    raise ActiveRecord::Rollback
+  end
+end
+```
+
+ As you'd expect this creates just **one** user.
 
 ## Nah, doesn't concern me I'd never write code like this!
 
-Sure, you probably straight up won't write code like this in a file. However, split across multiple files - I think so. You have one unit of business logic that you want to run in a transaction and then you start reusing it in another method that's also wrapped in another transaction. Happens more often than you think. Plus it can happen even more often than that as **every save operation is wrapped in its own transaction** (for good reasons). That means, as soon as you save anything inside a transaction or you save/update records as part of a callback **you might run into this problem**. Here's a small example highlighting the problem: https://gist.github.com/pragtobgists/d680bbf6fe7aa2ec96d488ce73c7016b As you probably expect by now this creates 2 users. And yes, I checked - if you run create with `rollback: true` outside of the transaction no user is created. Of course, you shouldn't raise rollbacks in callbacks but I'm sure that _someone somewhere does it_. In case you want to play with this, all of these examples (+ more) are up at my [rails playground](https://github.com/PragTob/rails_playground/tree/master/scripts).
+Sure, you probably straight up won't write code like this in a file. However, split across multiple files - I think so. You have one unit of business logic that you want to run in a transaction and then you start reusing it in another method that's also wrapped in another transaction. Happens more often than you think. Plus it can happen even more often than that as **every save operation is wrapped in its own transaction** (for good reasons). That means, as soon as you save anything inside a transaction or you save/update records as part of a callback **you might run into this problem**. Here's a small example highlighting the problem: 
+
+Source: [https://gist.github.com/pragtobgists/d680bbf6fe7aa2ec96d488ce73c7016b](https://gist.github.com/pragtobgists/d680bbf6fe7aa2ec96d488ce73c7016b)
+
+**File: `my_user.rb`**
+```ruby
+class User < ApplicationRecord
+  attr_accessor :rollback
+
+  after_save :potentially_rollback
+
+  def potentially_rollback
+    raise ActiveRecord::Rollback if rollback
+  end
+end
+```
+
+**File: `rollback_in_save_in_nested.rb`**
+```ruby
+User.transaction do
+  User.create(name: 'Kotori')
+  User.create(name: "someone", rollback: true)
+end
+```
+
+ As you probably expect by now this creates 2 users. And yes, I checked - if you run create with `rollback: true` outside of the transaction no user is created. Of course, you shouldn't raise rollbacks in callbacks but I'm sure that _someone somewhere does it_. In case you want to play with this, all of these examples (+ more) are up at my [rails playground](https://github.com/PragTob/rails_playground/tree/master/scripts).
 
 ## The saddest part of this surprise...
 

@@ -46,11 +46,62 @@ I like to think of comments in 2 categories:
 * **WHAT** comments describe _what_ the code does, these can be high level but sometimes they also tell you every little thing the code does ("iterates over, then... uses result to")
 * **WHY** comments clarify _why_ some code is like it is giving you a peek into the past why a decision was made
 
-Let's start with the **WHAT** \- what comments can almost always be replaced by more expressive code. Most of this has to do with proper naming and concepts, which is why it isn't uncommon for me to spend an extended period of time on these. Hell, (coincidentally) [Devon and I even spent hours on defining "Scenarios" in benchee.](https://pragtob.wordpress.com/2017/10/25/released-benchee-0-10-html-csv-and-json-plugins/) Variables, methods, classes, modules... all of these communicate through their name. So spending a good time naming them helps a lot. Often it is also the right call to extract one of these to keep the line count small and manageable while **naming the concept you just extracted** to help the understanding of the overall code. Let's take a look at one of my favorite examples: https://gist.github.com/pragtobgists/052de512b4a9dee1503924b3870fd944 Let this stand in for every long method you ever came across where the method body was broken into sections by comments. Extract 3 methods, name them somewhat like the comments. Enjoy shorter methods, meaningful names, concepts and reusability. I've even seen [people advocating for this style of long methods with comments](https://dev.to/bugfenderapp/the-importance-of-quality-comments). Easy to say, I'm not a fan. The article says _"The more complex the code, the more comments it_ _should have."_ and my colleague [Tiago](https://twitter.com/tiagotex) probably responded best to that:
+Let's start with the **WHAT** \- what comments can almost always be replaced by more expressive code. Most of this has to do with proper naming and concepts, which is why it isn't uncommon for me to spend an extended period of time on these. Hell, (coincidentally) [Devon and I even spent hours on defining "Scenarios" in benchee.](https://pragtob.wordpress.com/2017/10/25/released-benchee-0-10-html-csv-and-json-plugins/) Variables, methods, classes, modules... all of these communicate through their name. So spending a good time naming them helps a lot. Often it is also the right call to extract one of these to keep the line count small and manageable while **naming the concept you just extracted** to help the understanding of the overall code. Let's take a look at one of my favorite examples: 
+
+Source: [https://gist.github.com/pragtobgists/052de512b4a9dee1503924b3870fd944](https://gist.github.com/pragtobgists/052de512b4a9dee1503924b3870fd944)
+
+**File: `separating_comments.rb`**
+```ruby
+# do one thing
+...
+...
+...
+...
+
+# do another thing
+...
+...
+...
+...
+
+# do something more
+...
+...
+```
+
+ Let this stand in for every long method you ever came across where the method body was broken into sections by comments. Extract 3 methods, name them somewhat like the comments. Enjoy shorter methods, meaningful names, concepts and reusability. I've even seen [people advocating for this style of long methods with comments](https://dev.to/bugfenderapp/the-importance-of-quality-comments). Easy to say, I'm not a fan. The article says _"The more complex the code, the more comments it_ _should have."_ and my colleague [Tiago](https://twitter.com/tiagotex) probably responded best to that:
 
 > You should make the code less complex not add more comments.
 
-Another example I wish I made up, but it's real (I only ported it from JavaScript to Ruby): https://gist.github.com/pragtobgists/399bfd4369f514a44bb091e95b3444c5 As a first step just rename your parameters to whatever understandable name was commented above (also how does _l_ translate to _time per step_?). Afterwards, look for a bigger concept you might be missing and aggregate the needed data into it so you trim the number of parameters down. All in all, a _WHAT_ style comment to my mind is a declaration of _defeat_ \- it's an "I tried everything but I can't make this code be readable by itself" You can be sure, if I get there I first consult a colleague about it and if we can't come up with something I'll isolate the complexity and then be sad about my defeat. With all of that about what comments, how about **WHY** comments? They can help us with things that can hardly be expressed in code. Let's take a little example from the great [shoes](https://github.com/shoes/shoes4) project: https://gist.github.com/pragtobgists/0d24edc25f5e3892d586ea3a05e173b1 While the _puts_ statements communicates some of it, it is important to emphasize how dangerous not rescuing here is. The comment also helps establish context and points to where one could find more information about this. This is an excellent use case for a comment and thankfully Kent Beck and Martin Fowler agree (again from the Refactoring book):
+Another example I wish I made up, but it's real (I only ported it from JavaScript to Ruby): 
+
+Source: [https://gist.github.com/pragtobgists/399bfd4369f514a44bb091e95b3444c5](https://gist.github.com/pragtobgists/399bfd4369f514a44bb091e95b3444c5)
+
+**File: `parameters.rb`**
+```ruby
+# context, outlet, times, time per step, state, data
+def pattern(c, o, t, l, s, d)
+  # ...
+end
+```
+
+ As a first step just rename your parameters to whatever understandable name was commented above (also how does _l_ translate to _time per step_?). Afterwards, look for a bigger concept you might be missing and aggregate the needed data into it so you trim the number of parameters down. All in all, a _WHAT_ style comment to my mind is a declaration of _defeat_ \- it's an "I tried everything but I can't make this code be readable by itself" You can be sure, if I get there I first consult a colleague about it and if we can't come up with something I'll isolate the complexity and then be sad about my defeat. With all of that about what comments, how about **WHY** comments? They can help us with things that can hardly be expressed in code. Let's take a little example from the great [shoes](https://github.com/shoes/shoes4) project: 
+
+Source: [https://gist.github.com/pragtobgists/0d24edc25f5e3892d586ea3a05e173b1](https://gist.github.com/pragtobgists/0d24edc25f5e3892d586ea3a05e173b1)
+
+**File: `why_comment.rb`**
+```ruby
+def paint_control(event)
+  # some painting code
+rescue => e
+  # Really important to rescue here. Failures that escape this method
+  # cause odd-ball hangs with no stacktraces. See #559 for an example.
+  puts "SWALLOWED PAINT EXCEPTION ON #{@obj} - go take care of it: " + e.to_s
+  puts 'Unfortunately we have to swallow it because it causes odd failures :('
+end
+```
+
+ While the _puts_ statements communicates some of it, it is important to emphasize how dangerous not rescuing here is. The comment also helps establish context and points to where one could find more information about this. This is an excellent use case for a comment and thankfully Kent Beck and Martin Fowler agree (again from the Refactoring book):
 
 > A comment is a good place to say why you did something. This kind of information helps future modifiers, especially forgetful ones.
 

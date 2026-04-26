@@ -22,11 +22,55 @@ I struggled with this question. I don't want to split the eco system unnecessari
 
 ## statistics/2 - Give me everything!
 
-As mentioned before, statistex was extracted and the way it was used in benchee is just "give me all the statistics so that formatters can display them!" - so there's a function that does exactly this: https://gist.github.com/PragTob/ed815974d54bb3adf547aef9e43ea879 What's cool about this? Well, little effort, big result! This is quite nice to explore data sets in iex for instance. Behind the scenes **statistex reuses previously calculated values so that no value is calculated twice**. For instance first you get the `sampe_size` and the `total`, both are then used to calculate the `average`. The `average` and `sample_size` are then passed on to calculate the `variance` and so forth. This way statistex is fast by not duplicating work if you want a bunch of statistical values (and benchee wants most of them). But you don't want all of these values but would still like to reuse previously calculated values? Got you covered!
+As mentioned before, statistex was extracted and the way it was used in benchee is just "give me all the statistics so that formatters can display them!" - so there's a function that does exactly this: 
+
+Source: [https://gist.github.com/PragTob/ed815974d54bb3adf547aef9e43ea879](https://gist.github.com/PragTob/ed815974d54bb3adf547aef9e43ea879)
+
+**File: `statistex.exs`**
+```elixir
+iex> samples = [1, 3.0, 2.35, 11.0, 1.37, 35, 5.5, 10, 0, 2.35]
+iex> Statistex.statistics(samples)
+%Statistex{
+  average: 7.156999999999999,
+  frequency_distribution: %{
+    0 => 1,
+    1 => 1,
+    10 => 1,
+    35 => 1,
+    1.37 => 1,
+    2.35 => 2,
+    3.0 => 1,
+    5.5 => 1,
+    11.0 => 1
+  },
+  maximum: 35,
+  median: 2.675,
+  minimum: 0,
+  mode: 2.35,
+  percentiles: %{50 => 2.675},
+  sample_size: 10,
+  standard_deviation: 10.47189577445799,
+  standard_deviation_ratio: 1.46316833512058,
+  total: 71.57,
+  variance: 109.6606011111111
+}
+```
+
+ What's cool about this? Well, little effort, big result! This is quite nice to explore data sets in iex for instance. Behind the scenes **statistex reuses previously calculated values so that no value is calculated twice**. For instance first you get the `sampe_size` and the `total`, both are then used to calculate the `average`. The `average` and `sample_size` are then passed on to calculate the `variance` and so forth. This way statistex is fast by not duplicating work if you want a bunch of statistical values (and benchee wants most of them). But you don't want all of these values but would still like to reuse previously calculated values? Got you covered!
 
 ## Manually reuse previously calculated values
 
-Say you want to calculate the variance but have already calculated the average and sample_size. Easy: https://gist.github.com/PragTob/a015648fbf2200ec8a81531c13c687e6 Like `variance/2` a lot of function take an optional keyword list as arguments where you can provide previously calculated values (options are of course documented).
+Say you want to calculate the variance but have already calculated the average and sample_size. Easy: 
+
+Source: [https://gist.github.com/PragTob/a015648fbf2200ec8a81531c13c687e6](https://gist.github.com/PragTob/a015648fbf2200ec8a81531c13c687e6)
+
+**File: `reuse.ex`**
+```elixir
+iex> Statistex.variance([4, 9, 11, 12, 17, 5, 8, 12, 12], sample_size: 9, average: 10.0)
+16.0
+```
+
+ Like `variance/2` a lot of function take an optional keyword list as arguments where you can provide previously calculated values (options are of course documented).
 
 ## Raising on empty list input
 

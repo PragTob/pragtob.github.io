@@ -41,17 +41,89 @@ The design is influenced by my favourite ruby benchmarking library: [benchmark-i
   4. Format the statistics to be suitable for output
   5. Put out the formatted statistics to the console, a file or whatever
 
-So what do you now, that's exactly what the API of Benchee looks like! [code] list = Enum.to_list(1..10_000) map_fun = fn(i) -> [i, i *i] end Benchee.init(%{time: 3}) |> Benchee.benchmark("flat_map", fn -> Enum.flat_map(list, map_fun) end) |> Benchee.benchmark("map.flatten", fn -> list |> Enum.map(map_fun) |> List.flatten end) |> Benchee.statistics |> Benchee.Formatters.Console.format |> IO.puts [/code] What's great about this? Well it's super flexible and flows nicely with the beloved elixir pipe operator. Why is this flexible and extensible? Well, don't like how Benchee runs the benchmarks? Sub in your own benchmarking function! Want more/different statistics? Go use your own function and compute your own! Want results to be displayed in a different format? Roll you own formatter! Or you just want to write the results to a file? Well, go ahead! This is more than just cosmetics. It'd be **easy** to write a plugin that converts the results to some JSON format and then post them to a web service to gather benchmarking results or let it generate fancy graphs for you. Of course, not everybody needs that flexibility. Some people might be scared away by the verboseness above. So there's also a higher level interface that uses all the options you see above and condenses them down to one function call to efficiently define your benchmarks: [code] list = Enum.to_list(1..10_000) map_fun = fn(i) -> [i, i* i] end Benchee.run(%{time: 3}, [{"flat_map", fn -> Enum.flat_map(list, map_fun) end}, {"map.flatten", fn -> list |> Enum.map(map_fun) |> List.flatten end}]) [/code]
+So what do you now, that's exactly what the API of Benchee looks like! 
+
+```
+ list = Enum.to_list(1..10_000) map_fun = fn(i) -> [i, i *i] end Benchee.init(%{time: 3}) |> Benchee.benchmark("flat_map", fn -> Enum.flat_map(list, map_fun) end) |> Benchee.benchmark("map.flatten", fn -> list |> Enum.map(map_fun) |> List.flatten end) |> Benchee.statistics |> Benchee.Formatters.Console.format |> IO.puts 
+```
+
+ What's great about this? Well it's super flexible and flows nicely with the beloved elixir pipe operator. Why is this flexible and extensible? Well, don't like how Benchee runs the benchmarks? Sub in your own benchmarking function! Want more/different statistics? Go use your own function and compute your own! Want results to be displayed in a different format? Roll you own formatter! Or you just want to write the results to a file? Well, go ahead! This is more than just cosmetics. It'd be **easy** to write a plugin that converts the results to some JSON format and then post them to a web service to gather benchmarking results or let it generate fancy graphs for you. Of course, not everybody needs that flexibility. Some people might be scared away by the verboseness above. So there's also a higher level interface that uses all the options you see above and condenses them down to one function call to efficiently define your benchmarks: 
+
+```
+ list = Enum.to_list(1..10_000) map_fun = fn(i) -> [i, i* i] end Benchee.run(%{time: 3}, [{"flat_map", fn -> Enum.flat_map(list, map_fun) end}, {"map.flatten", fn -> list |> Enum.map(map_fun) |> List.flatten end}]) 
+```
+
+
 
 ### Let's see some results!
 
-You've seen two different ways to run the same benchmark with Benchee now, so what's the result and what does it look like? Well here you go: [code language="bash"]tobi@happy ~/github/benchee $ mix run samples/run.exs Benchmarking flat_map... Benchmarking map.flatten... Name ips average deviation median map.flatten 1311.84 762.29μs (±13.77%) 747.0μs flat_map 896.17 1115.86μs (±9.54%) 1136.0μs Comparison: map.flatten 1311.84 flat_map 896.17 - 1.46x slower [/code] So what do you know, much to my own surprise calling map first and then flattening the result is significantly faster than a one pass flat_map. Which is unlike ruby, where [flat_map is over two times fast in the same scenario](https://gist.github.com/PragTob/8f037b6cab4bffca411063aced6a7917). So what does that tell us? Well, what we think about performance from other programming languages might not hold true. Also, that there might be a bug in flat_map - it _should_ be faster for all that I know. Need some time to investigate :) All that aside, wouldn't a graph be nice? That's a feature I envy [benchfella](https://github.com/alco/benchfella) for. But wait, we got this whole extensible architecture right? Generating the whole graph myself with error margins etc. might be a bit tough, though. But I got LibreOffice on my machine. A way to quickly feed my results into it would be great. Meet [**BencheeCSV**](https://github.com/PragTob/benchee_csv)(the first and so far only Benchee plugin)! With it we can substitute the formatting and output steps to generate a CSV file to be consumed by a spreadsheet tool of our choice: [code]file = File.open!("test.csv", [:write]) list = Enum.to_list(1..10_000) map_fun = fn(i) -> [i, i * i] end Benchee.init |> Benchee.benchmark("flat_map", fn -> Enum.flat_map(list, map_fun) end) |> Benchee.benchmark("map.flatten", fn -> list |> Enum.map(map_fun) |> List.flatten end) |> Benchee.statistics |> Benchee.Formatters.CSV.format |> Enum.each(fn(row) -> IO.write(file, row) end) [/code] And a couple of clicks later there is a graph including error margins:
+You've seen two different ways to run the same benchmark with Benchee now, so what's the result and what does it look like? Well here you go: 
+
+```bash
+tobi@happy ~/github/benchee $ mix run samples/run.exs Benchmarking flat_map... Benchmarking map.flatten... Name ips average deviation median map.flatten 1311.84 762.29μs (±13.77%) 747.0μs flat_map 896.17 1115.86μs (±9.54%) 1136.0μs Comparison: map.flatten 1311.84 flat_map 896.17 - 1.46x slower 
+```
+
+ So what do you know, much to my own surprise calling map first and then flattening the result is significantly faster than a one pass flat_map. Which is unlike ruby, where 
+
+Source: [https://gist.github.com/PragTob/8f037b6cab4bffca411063aced6a7917](https://gist.github.com/PragTob/8f037b6cab4bffca411063aced6a7917)
+
+**File: `benchmark.rb`**
+```ruby
+require 'benchmark/ips'
+
+Benchmark.ips do |bm|
+  list = (0..10_000).to_a
+
+  bm.report "flat_map" do
+    list.flat_map do |x|
+      [x, x * x]
+    end
+  end
+
+  bm.report "map.flatten" do
+    list.map do |x|
+      [x, x * x]
+    end.flatten
+  end
+
+  bm.compare!
+end
+```
+
+**File: `results`**
+```
+tobi@happy ~/github/ruby_playground $ ruby benchmark/flat_map.rb 
+Warming up --------------------------------------
+            flat_map    95.000  i/100ms
+         map.flatten    42.000  i/100ms
+Calculating -------------------------------------
+            flat_map    972.133  (± 5.1%) i/s -      4.845k in   5.002625s
+         map.flatten    423.280  (± 2.4%) i/s -      2.142k in   5.063801s
+
+Comparison:
+            flat_map:      972.1 i/s
+         map.flatten:      423.3 i/s - 2.30x slower
+```
+
+. So what does that tell us? Well, what we think about performance from other programming languages might not hold true. Also, that there might be a bug in flat_map - it _should_ be faster for all that I know. Need some time to investigate :) All that aside, wouldn't a graph be nice? That's a feature I envy [benchfella](https://github.com/alco/benchfella) for. But wait, we got this whole extensible architecture right? Generating the whole graph myself with error margins etc. might be a bit tough, though. But I got LibreOffice on my machine. A way to quickly feed my results into it would be great. Meet [**BencheeCSV**](https://github.com/PragTob/benchee_csv)(the first and so far only Benchee plugin)! With it we can substitute the formatting and output steps to generate a CSV file to be consumed by a spreadsheet tool of our choice: 
+
+```
+file = File.open!("test.csv", [:write]) list = Enum.to_list(1..10_000) map_fun = fn(i) -> [i, i * i] end Benchee.init |> Benchee.benchmark("flat_map", fn -> Enum.flat_map(list, map_fun) end) |> Benchee.benchmark("map.flatten", fn -> list |> Enum.map(map_fun) |> List.flatten end) |> Benchee.statistics |> Benchee.Formatters.CSV.format |> Enum.each(fn(row) -> IO.write(file, row) end) 
+```
+
+ And a couple of clicks later there is a graph including error margins:
 
 ### ![benchee_csv](https://pragtob.wordpress.com/wp-content/uploads/2016/06/benchee_csv1.png)
 
 ### How do I get it?
 
-Well, just add [_benchee_](https://hex.pm/packages/benchee) or [_benchee_csv_](https://hex.pm/packages/benchee_csv) to the deps of your mix.exs! [code] def deps do [{:benchee, "~> 0.1.0", only: :dev}] end [/code] Then run _mix deps.get_ , create a  _benchmarking_ folder and create your new  _my_benchmark.exs_! More information can be found in [the online documentation](https://hexdocs.pm/benchee/api-reference.html) or at the [github repository](https://github.com/PragTob/benchee).
+Well, just add [_benchee_](https://hex.pm/packages/benchee) or [_benchee_csv_](https://hex.pm/packages/benchee_csv) to the deps of your mix.exs! 
+
+```
+ def deps do [{:benchee, "~> 0.1.0", only: :dev}] end 
+```
+
+ Then run _mix deps.get_ , create a  _benchmarking_ folder and create your new  _my_benchmark.exs_! More information can be found in [the online documentation](https://hexdocs.pm/benchee/api-reference.html) or at the [github repository](https://github.com/PragTob/benchee).
 
 ### Anything else?
 

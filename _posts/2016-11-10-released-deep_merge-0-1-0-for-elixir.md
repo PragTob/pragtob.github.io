@@ -22,7 +22,17 @@ As you might have guessed from the blog post title, this PR didn't get through a
 
 > Using protocols seems to be the most correct but it feels a very niche feature to justify adding a new protocol to the language.
 
-While I'd have liked to see it in Elixir core I gotta commend the elixir maintainers on rejecting features - I know it can sometimes be hard but in the end it's for the better keeping the language focused and maintenance low. And one can always write a library so one can pick and choose to get the functionality in. So what do you do? Well, implement it as a library of course! Meet [deep_merge 0.1.0](https://github.com/PragTob/deep_merge)! https://gist.github.com/pragtobgists/13210711d3cb7416173ded2c2a4f6d75 Why would you want to use deep_merge?
+While I'd have liked to see it in Elixir core I gotta commend the elixir maintainers on rejecting features - I know it can sometimes be hard but in the end it's for the better keeping the language focused and maintenance low. And one can always write a library so one can pick and choose to get the functionality in. So what do you do? Well, implement it as a library of course! Meet [deep_merge 0.1.0](https://github.com/PragTob/deep_merge)! 
+
+Source: [https://gist.github.com/pragtobgists/13210711d3cb7416173ded2c2a4f6d75](https://gist.github.com/pragtobgists/13210711d3cb7416173ded2c2a4f6d75)
+
+**File: `deep_merge.exs`**
+```elixir
+DeepMerge.deep_merge(%{a: 1, b: [x: 10, y: 9]}, %{b: [y: 20, z: 30], c: 4})
+# => %{a: 1, b: [x: 10, y: 20, z: 30], c: 4}
+```
+
+ Why would you want to use deep_merge?
 
 * It handles both maps and keyword lists
 * It does not merge structs or maps with structs...

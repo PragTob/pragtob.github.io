@@ -26,7 +26,20 @@ My Google Summer of Code has been going on for one month now. The first commit o
 
 ## Shoes?
 
-[Shoes](http://shoesrb.com/) is a multi-platform gui toolkit for Ruby aimed at simplicity. The probably most well-known Shoes program is [Hacketyhack](http://www.hackety.com/), a tool to teach programming to beginners. Shoes truly is one of a kind, for instance with its very own layout mechanisms "stack" and "flow". Personally I always wanted to write little GUI applications but always found it to be too cumbersome and frustrating. Until I met shoes. See how simple it is: [code language="ruby"] Shoes. app title: 'Hello Shoes' do background gradient limegreen..blue para 'This is just a very basic app' button 'Click me' do alert 'Hello there!' end image 'http://shoesrb.com/img/shoes-icon.png' end [/code]
+[Shoes](http://shoesrb.com/) is a multi-platform gui toolkit for Ruby aimed at simplicity. The probably most well-known Shoes program is [Hacketyhack](http://www.hackety.com/), a tool to teach programming to beginners. Shoes truly is one of a kind, for instance with its very own layout mechanisms "stack" and "flow". Personally I always wanted to write little GUI applications but always found it to be too cumbersome and frustrating. Until I met shoes. See how simple it is: 
+
+```ruby
+Shoes.app title: 'Hello Shoes' do
+  background gradient(limegreen..blue)
+  para 'This is just a very basic app'
+  button 'Click me' do
+    alert 'Hello there!'
+  end
+  image 'http://shoesrb.com/img/shoes-icon.png'
+end
+```
+
+
 
 ## [![Screenshot from 2013-07-17 21:14:29](http://pragtob.wordpress.com/wp-content/uploads/2013/07/screenshot-from-2013-07-17-211429.png)](http://pragtob.wordpress.com/wp-content/uploads/2013/07/screenshot-from-2013-07-17-211429.png)
 

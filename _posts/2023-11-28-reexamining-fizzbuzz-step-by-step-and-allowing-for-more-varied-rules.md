@@ -40,7 +40,26 @@ Simple enough, right? Well, I think it actually checks for some interesting prop
 
 ## Basic Solution
 
-https://gist.github.com/PragTob/5c5367c99c1f4dc628a25292e40f140f
+
+
+Source: [https://gist.github.com/PragTob/5c5367c99c1f4dc628a25292e40f140f](https://gist.github.com/PragTob/5c5367c99c1f4dc628a25292e40f140f)
+
+**File: `basic_fizz_buzz.rb`**
+```ruby
+1.upto(100) do |number|
+  if (number % 3 == 0) && (number % 5 == 0)
+    puts "FizzBuzz"
+  elsif number % 3 == 0
+    puts "Fizz"
+  elsif number % 5 == 0
+    puts "Buzz"
+  else
+    puts number
+  end
+end
+```
+
+
 
 That one does the job perfectly fine. It prints out the numbers as requested. It also helps to illustrate some of the difficulties with the challenge:
 
@@ -56,7 +75,59 @@ With that in mind, let's improve the challenge!
 
 First off, while the previous solution is "perfectly" fine, I'd probably never write it as it's hard to test - it's just a script to run and everything is printed to the console. And since I'm a TDD kind of person, that won't do! I usually start, as teased before, by just implementing a function `fizz_buzz(number)` \- that's the core of the business logic. The iteration and printing out are just secondary aspects to me, so let's start there:
 
-https://gist.github.com/PragTob/8bd3d8aad74c702ce514b8df76ae6b33
+
+
+Source: [https://gist.github.com/PragTob/8bd3d8aad74c702ce514b8df76ae6b33](https://gist.github.com/PragTob/8bd3d8aad74c702ce514b8df76ae6b33)
+
+**File: `fizz_buzz.rb`**
+```ruby
+module FizzBuzz
+  module_function
+
+  def fizz_buzz(number)
+    if (number % 3 == 0) && (number % 5 == 0)
+      "FizzBuzz"
+    elsif number % 3 == 0
+      "Fizz"
+    elsif number % 5 == 0
+      "Buzz"
+    else
+      number
+    end
+  end
+end
+```
+
+**File: `fizz_buzz_spec.rb`**
+```ruby
+RSpec.describe FizzBuzz do
+  describe ".fizz_buzz" do
+    expected = {
+      1 => 1,
+      2 => 2,
+      3 => "Fizz",
+      4 => 4,
+      5 => "Buzz",
+      6 => "Fizz",
+      11 => 11,
+      15 => "FizzBuzz",
+      20 => "Buzz",
+      60 => "FizzBuzz",
+      98 => 98,
+      99 => "Fizz",
+      100 => "Buzz"
+    }
+
+    expected.each do |input, output|
+      it "for #{input} expect #{output}" do
+        expect(FizzBuzz.fizz_buzz(input)).to eq output
+      end
+    end
+  end
+end
+```
+
+
 
 Much better, and it's tested! You may think that the test generation from the hash is overdone, but I love how easy it is to adjust and modify test cases. No ceremony, I just add an input and an expected output. Also, yes - tests. When solving a coding challenge tests should usually be a part of it unless you're explicitly told not to. Testing is an integral skill after all.
 
@@ -66,7 +137,44 @@ Ok, let's make it a full solution.
 
 Honestly, all that is required to turn it into a full FizzBuzz solution is a simple loop and output. What is a bit fancier is the integration test I added to go along with it:
 
-https://gist.github.com/PragTob/66a7ab89786bf8b265d77226078f873d
+
+
+Source: [https://gist.github.com/PragTob/66a7ab89786bf8b265d77226078f873d](https://gist.github.com/PragTob/66a7ab89786bf8b265d77226078f873d)
+
+**File: `runner.rb`**
+```ruby
+module FizzBuzz
+  
+  # ...
+
+  def run
+    1.upto(100) do |number|
+      puts fizz_buzz(number)
+    end
+  end
+end
+```
+
+**File: `runner_spec.rb`**
+```ruby
+  describe ".run" do
+    full_fizz_buzz = <<~FIZZY 
+    1
+    2
+    Fizz
+    .. much more ...
+    98
+    Fizz
+    Buzz
+    FIZZY
+
+    it "does a full run integration style" do
+      expect { FizzBuzz.run() }.to output(full_fizz_buzz).to_stdout
+    end
+  end
+```
+
+
 
 Simple isn't it? You may argue that the integration test is too much, but when I can write an integration test as easy as this I prefer to do it. When I write code that generates files, like PAIN XML, I also love to have a full test that makes sure when given the same inputs we get the same outputs. This has the helpful side effect that even minor changes become very apparent in the pull request diff.
 
@@ -76,7 +184,43 @@ Anyhow, the other thing that we see is that our **separation of concerns** with 
 
 The other thing I complained about initially was the usage of the modulo operator. Truth be told, I only wrote the initial version like this for demonstration purposes - that one has to go. I don't want to think about what "modulo a number equals 0" means. Whether or not something is divisible is something I understand and can work with. It also removes a fair bit of duplication:
 
-https://gist.github.com/PragTob/f31482c9b0d35158c6933253adc524b4
+
+
+Source: [https://gist.github.com/PragTob/f31482c9b0d35158c6933253adc524b4](https://gist.github.com/PragTob/f31482c9b0d35158c6933253adc524b4)
+
+**File: `fizz_buzz.rb`**
+```ruby
+module FizzBuzz
+  module_function
+
+  def fizz_buzz(number)
+    fizz = divisible_by?(number, 3)
+    buzz = divisible_by?(number, 5)
+
+    if fizz && buzz
+      "FizzBuzz"
+    elsif fizz
+      "Fizz"
+    elsif buzz
+      "Buzz"
+    else
+      number
+    end
+  end
+
+  def run
+    1.upto(100) do |number|
+      puts fizz_buzz(number)
+    end
+  end
+
+  def divisible_by?(number, divisor)
+    number % divisor == 0
+  end
+end
+```
+
+
 
 Much better! There is a small optimization here, where we only check the divisibility twice instead of 4 times. It doesn't fully matter, but when I see the exact same code being run twice in a method and I can remove it without impacting readability I love to do it.
 
@@ -96,7 +240,51 @@ Let's run with that for now - we think it will always be 2 numbers but we're not
 
 One of the easiest solutions to this is to extract the relevant values to constants or even into a config.
 
-https://gist.github.com/PragTob/0c5c01e55b14dc1cd96a62af61fb409b
+
+
+Source: [https://gist.github.com/PragTob/0c5c01e55b14dc1cd96a62af61fb409b](https://gist.github.com/PragTob/0c5c01e55b14dc1cd96a62af61fb409b)
+
+**File: `fizz_buzz.rb`**
+```ruby
+module FizzBuzz
+  module_function
+
+  FIZZ_NUMBER = 3
+  FIZZ_TEXT = "Fizz"
+
+  BUZZ_NUMBER = 5
+  BUZZ_TEXT = "Buzz"
+
+  FIZZ_BUZZ_TEXT = FIZZ_TEXT + BUZZ_TEXT
+
+  def fizz_buzz(number)
+    fizz = divisible_by?(number, FIZZ_NUMBER)
+    buzz = divisible_by?(number, BUZZ_NUMBER)
+
+    if fizz && buzz
+      FIZZ_BUZZ_TEXT
+    elsif fizz
+      FIZZ_TEXT
+    elsif buzz
+      BUZZ_TEXT
+    else
+      number
+    end
+  end
+
+  def run
+    1.upto(100) do |number|
+      puts fizz_buzz(number)
+    end
+  end
+
+  def divisible_by?(number, divisor)
+    number % divisor == 0
+  end
+end
+```
+
+
 
 Right, so that got a lot **longer** and frankly also a bit **more confusing**. However, it is now immediately apparent where to change the values. That said, we also kept the "FizzBuzz" naming for the constants which may get extra confusing if we changed the text to something like "Zazz". It's always a **tradeoff** , the **previous version was definitely more readable**. We did get rid of "Magic numbers" and "Magic Strings". Sadly, due to the nature of the challenge, they are also still very magical as there is no inherent reasoning to them 😅
 
@@ -106,7 +294,54 @@ Something bugs me with this solution though, and that's the reason why I actuall
 
 Ideally we'd want**a data structure to hold both the text to be outputted and the number that triggers it together**. There's a gazillion ways you could go about this. You could simply use maps, arrays or tuples to hold that data together. As we're doing Ruby right now, I decided to create an object that holds the rule and can apply itself to a rule - either returning its configured text or `nil`.
 
-https://gist.github.com/PragTob/537bb657dee52ba30e5a81c7333291f2
+
+
+Source: [https://gist.github.com/PragTob/537bb657dee52ba30e5a81c7333291f2](https://gist.github.com/PragTob/537bb657dee52ba30e5a81c7333291f2)
+
+**File: `fizz_buzz.rb`**
+```ruby
+module FizzBuzz
+  module_function
+
+  class Rule
+    def initialize(output, applicalbe_divisible_by)
+      @output = output
+      @applicalbe_divisible_by = applicalbe_divisible_by
+    end
+
+    def apply(number)
+      @output if divisible_by?(number, @applicalbe_divisible_by)
+    end
+
+    def divisible_by?(number, divisor)
+      number % divisor == 0
+    end
+  end
+
+  DEFAULT_RULES = [
+    Rule.new("Fizz", 3),
+    Rule.new("Buzz", 5)
+  ].freeze
+
+  def fizz_buzz(number, rules = DEFAULT_RULES)
+    applied_rules = rules.filter_map { |rule| rule.apply(number) }
+
+    if applied_rules.any?
+      applied_rules.join
+    else
+      number
+    end
+  end
+
+  def run(rules = DEFAULT_RULES)
+    1.upto(100) do |number|
+      puts fizz_buzz(number, rules)
+    end
+  end
+end
+```
+
+
 
 Now, that's quite different! Does it work? Well, yes - and the beauty of it is that so far we haven't altered our API at all so all of these were internal refactorings that work with exactly the same set of tests. Yes, technically this adds additional optional parameters, we'll get to these later 😉
 
@@ -122,7 +357,39 @@ That works just as well. It means that the order in which we store rules in our 
 
 Now our "stakeholders" might come back and say well, you know what we're not so sure about just having 2 numbers and their respective outputs. It may be more, it may be less! The good news? **This already completely works with our implementation above**. However, we should still **test it**. You can take a look at all the test I wrote over [here](https://github.com/PragTob/fizz_buzz/blob/main/spec/fizz_buzz_spec.rb), I'll just post the tests here for adding a 3rd rule: 7 and Zazz!
 
-https://gist.github.com/PragTob/95a22ffcc9a3ff8c0813e90804e906a5
+
+
+Source: [https://gist.github.com/PragTob/95a22ffcc9a3ff8c0813e90804e906a5](https://gist.github.com/PragTob/95a22ffcc9a3ff8c0813e90804e906a5)
+
+**File: `zazz_spec.rb`**
+```ruby
+context "with Zazz into the equation" do
+  zazz_rules = [
+    FizzBuzz::Rule.new("Fizz", 3),
+    FizzBuzz::Rule.new("Buzz", 5),
+    FizzBuzz::Rule.new("Zazz", 7)
+  ]
+
+  expected = {
+    1 => 1,
+    3 => "Fizz",
+    5 => "Buzz",
+    7 => "Zazz",
+    15 => "FizzBuzz",
+    21 => "FizzZazz",
+    35 => "BuzzZazz",
+    105 => "FizzBuzzZazz"
+  }
+
+  expected.each do |input, output|
+    it "for #{input} expect #{output}" do
+      expect(described_class.fizz_buzz(input, zazz_rules)).to eq output
+    end
+  end
+end
+```
+
+
 
 As per usual, testing all the different edge cases here is a fun exercise:
 

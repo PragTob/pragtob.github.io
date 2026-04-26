@@ -26,11 +26,89 @@ The 0.6.0 is probably the biggest release of the "core" benchee library with som
 
 ### New run API - options last as keyword list
 
-The "old" way you'd optionally pass in options as the first argument into run as a map and then define the jobs to benchmark in another map. I did this because in my mind the configuration comes first and maps are much easier to work with through pattern matching as opposed to keyword lists. However, having an optional first argument already felt kind of weird... Thing is, that's not the most elixir way to do this. It is rather conventional to pass in options as the last argument and as a keyword list. After voicing my concerns in the [elixirforum](https://elixirforum.com/t/passing-in-options-maps-vs-keyword-lists/1963), the solution was to allow passing in options as keyword lists but convert to maps internally to still have the advantage of good pattern matching among other advantages. https://gist.github.com/pragtobgists/d3cd52cb68c935c39f6ca6b3c9cf1511 The old style still works (thanks to pattern matching!) - but it might get deprecated in the future. In this process though the run interface of the very first version of run, which used a list of tuples, doesn't work anymore :(
+The "old" way you'd optionally pass in options as the first argument into run as a map and then define the jobs to benchmark in another map. I did this because in my mind the configuration comes first and maps are much easier to work with through pattern matching as opposed to keyword lists. However, having an optional first argument already felt kind of weird... Thing is, that's not the most elixir way to do this. It is rather conventional to pass in options as the last argument and as a keyword list. After voicing my concerns in the [elixirforum](https://elixirforum.com/t/passing-in-options-maps-vs-keyword-lists/1963), the solution was to allow passing in options as keyword lists but convert to maps internally to still have the advantage of good pattern matching among other advantages. 
+
+Source: [https://gist.github.com/pragtobgists/d3cd52cb68c935c39f6ca6b3c9cf1511](https://gist.github.com/pragtobgists/d3cd52cb68c935c39f6ca6b3c9cf1511)
+
+**File: `new_run.exs`**
+```elixir
+list = Enum.to_list(1..10_000)
+map_fun = fn(i) -> [i, i * i] end
+
+Benchee.run(%{
+  "flat_map"    => fn -> Enum.flat_map(list, map_fun) end,
+  "map.flatten" => fn -> list |> Enum.map(map_fun) |> List.flatten end
+},
+  formatters: [
+    &Benchee.Formatters.HTML.output/1,
+    &Benchee.Formatters.Console.output/1
+  ],
+  html: [file: "samples_output/flat_map.html"],
+)
+```
+
+ The old style still works (thanks to pattern matching!) - but it might get deprecated in the future. In this process though the run interface of the very first version of run, which used a list of tuples, doesn't work anymore :(
 
 ### Multiple inputs
 
-The great new feature is that benchee now supports multiple inputs - so that in one suite you can run the same functions against multiple different inputs. That is important as functions can behave very differently on inputs of different sizes or a different structure. Therefore it's good to check the functions against multiple inputs. The feature was [inspired by a discussion on an elixir issue with José Valim](https://github.com/elixir-lang/elixir/issues/5082). So what does this look like? Here it goes: https://gist.github.com/pragtobgists/81adfbdc0d54760666a6887650e26d9f The hard thing about it was that it changed how benchmarking results had to be represented internally, as another level to represent the different inputs was needed. This lead to quite some work both in benchee and in plugins - but in the end it was all worth it :)
+The great new feature is that benchee now supports multiple inputs - so that in one suite you can run the same functions against multiple different inputs. That is important as functions can behave very differently on inputs of different sizes or a different structure. Therefore it's good to check the functions against multiple inputs. The feature was [inspired by a discussion on an elixir issue with José Valim](https://github.com/elixir-lang/elixir/issues/5082). So what does this look like? Here it goes: 
+
+Source: [https://gist.github.com/pragtobgists/81adfbdc0d54760666a6887650e26d9f](https://gist.github.com/pragtobgists/81adfbdc0d54760666a6887650e26d9f)
+
+**File: `multiple_inputs.exs`**
+```elixir
+map_fun = fn(i) -> [i, i * i] end
+
+Benchee.run(%{
+  "flat_map"    => fn(input) -> Enum.flat_map(input, map_fun) end,
+  "map.flatten" => fn(input) -> input |> Enum.map(map_fun) |> List.flatten end
+},
+inputs: %{
+  "Small" => Enum.to_list(1..1000),
+  "Bigger" => Enum.to_list(1..100_000)
+})
+```
+
+**File: `result`**
+```
+Erlang/OTP 19 [erts-8.1] [source] [64-bit] [smp:8:8] [async-threads:10] [hipe] [kernel-poll:false]
+Elixir 1.3.4
+Benchmark suite executing with the following configuration:
+warmup: 2.0s
+time: 5.0s
+parallel: 1
+inputs: Bigger, Small
+Estimated total run time: 28.0s
+
+
+Benchmarking with input Bigger:
+Benchmarking flat_map...
+Benchmarking map.flatten...
+
+Benchmarking with input Small:
+Benchmarking flat_map...
+Benchmarking map.flatten...
+
+##### With input Bigger #####
+Name                  ips        average  deviation         median
+map.flatten        139.35        7.18 ms     ±8.86%        7.06 ms
+flat_map            70.91       14.10 ms    ±18.04%       14.37 ms
+
+Comparison:
+map.flatten        139.35
+flat_map            70.91 - 1.97x slower
+
+##### With input Small #####
+Name                  ips        average  deviation         median
+map.flatten       18.14 K       55.13 μs     ±9.31%       54.00 μs
+flat_map          10.65 K       93.91 μs     ±8.70%       94.00 μs
+
+Comparison:
+map.flatten       18.14 K
+flat_map          10.65 K - 1.70x slower
+```
+
+ The hard thing about it was that it changed how benchmarking results had to be represented internally, as another level to represent the different inputs was needed. This lead to quite some work both in benchee and in plugins - but in the end it was all worth it :)
 
 ## benchee_html
 

@@ -56,7 +56,18 @@ He also has a fairly extensive blog post on the topic of when to reach for these
 
 ## Abstractions
 
-But you came to Elixir for the parallelism! So you need GenServers right? No. Elixir core and the community have been very good at providing easy to use solutions to write fully parallel programs without having to write your own GenServers and supervision trees. There are [gen_stage](https://github.com/elixir-lang/gen_stage), [flow](https://github.com/plataformatec/flow) and [broadway](https://github.com/plataformatec/broadway), but somewhat more importantly a couple of these are built-ins like [Task](https://hexdocs.pm/elixir/Task.html) (do something in parallel easily) and [Agent](https://hexdocs.pm/elixir/Agent.html#content) (share state through a process). Want to geocode the pick up and drop off addresses of a shipment in parallel and then wait until both have finished? Say no more: https://gist.github.com/PragTob/36aae079055dfcc2af523f8644f0b018
+But you came to Elixir for the parallelism! So you need GenServers right? No. Elixir core and the community have been very good at providing easy to use solutions to write fully parallel programs without having to write your own GenServers and supervision trees. There are [gen_stage](https://github.com/elixir-lang/gen_stage), [flow](https://github.com/plataformatec/flow) and [broadway](https://github.com/plataformatec/broadway), but somewhat more importantly a couple of these are built-ins like [Task](https://hexdocs.pm/elixir/Task.html) (do something in parallel easily) and [Agent](https://hexdocs.pm/elixir/Agent.html#content) (share state through a process). Want to geocode the pick up and drop off addresses of a shipment in parallel and then wait until both have finished? Say no more: 
+
+Source: [https://gist.github.com/PragTob/36aae079055dfcc2af523f8644f0b018](https://gist.github.com/PragTob/36aae079055dfcc2af523f8644f0b018)
+
+**File: `task.ex`**
+```elixir
+pick_up_task = Task.async(fn -> geocode(pick_up_address) end)
+drop_off_task = Task.async(fn -> geocode(drop_off_address) end)
+geocoded_addresses = Enum.map([pick_up_task, drop_off_task], fn task -> Task.await(task) end)
+```
+
+
 
 ## Learning
 

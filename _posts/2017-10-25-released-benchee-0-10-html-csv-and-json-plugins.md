@@ -27,7 +27,41 @@ Before we take a look at the exciting new features, here's a small summary of ma
 
 ### Scenarios
 
-In benchee each processing step used to have its own main key in the main data structure (suite): run_times, statistics, jobs etc. Philosophically, that was great. However, it got more cumbersome in the formatters especially after the introduction of inputs as access now required an additional level of indirection (namely, the input). As a result, to get all the data for a combination of job and input you want to format you have got to merge the data of multiple different sources. Not exactly ideal. To make matters worse, we want to add memory measurements in the future... even more to merge. Long story short, [Devon](https://duckduckgo.com/?q=devon+c+estes+&t=lm&atb=v78-2&ia=web) and I sat down in person for 2 hours to discuss how to best deal with this, how to name it and all accompanying fields. We decided to keep all the data together from now on - for every entry of the result. That means each combination of a job you defined and an input. The data structure now keeps that along with its raw run times, statistics etc. After some research we settled on calling it a **scenario**. https://gist.github.com/pragtobgists/23969003bb3ad86d4dacaddfb6d3807d This was a huge refactoring but we really like the improvements it yielded. Devon [wrote about the refactoring process](https://duckduckgo.com/?q=devon+c+estes+&t=lm&atb=v78-2&ia=web) in more detail. It took a long time, but it didn't add any new features - so no reason for a release yet. Plus, of course all formatters also needed to get updated.
+In benchee each processing step used to have its own main key in the main data structure (suite): run_times, statistics, jobs etc. Philosophically, that was great. However, it got more cumbersome in the formatters especially after the introduction of inputs as access now required an additional level of indirection (namely, the input). As a result, to get all the data for a combination of job and input you want to format you have got to merge the data of multiple different sources. Not exactly ideal. To make matters worse, we want to add memory measurements in the future... even more to merge. Long story short, [Devon](https://duckduckgo.com/?q=devon+c+estes+&t=lm&atb=v78-2&ia=web) and I sat down in person for 2 hours to discuss how to best deal with this, how to name it and all accompanying fields. We decided to keep all the data together from now on - for every entry of the result. That means each combination of a job you defined and an input. The data structure now keeps that along with its raw run times, statistics etc. After some research we settled on calling it a **scenario**. 
+
+Source: [https://gist.github.com/pragtobgists/23969003bb3ad86d4dacaddfb6d3807d](https://gist.github.com/pragtobgists/23969003bb3ad86d4dacaddfb6d3807d)
+
+**File: `benchee_scenario.ex`**
+```elixir
+defmodule Benchee.Benchmark.Scenario do
+  @moduledoc """
+  A Scenario in Benchee is a particular case of a whole benchmarking suite. That
+  is the combination of a particular function to benchmark (`job_name` and
+  `function`) in combination with a specific input (`input_name` and `input`).
+  It then gathers all data measured for this particular combination during
+  `Benchee.Benchmark.measure/3` (`run_times` and `memory_usages`),
+  which are then used later in the process by `Benchee.Statistics` to compute
+  the relevant statistics (`run_time_statistics` and `memory_usage_statistics`).
+  """
+
+  @type t :: %__MODULE__{
+    job_name: binary,
+    function: fun,
+    input_name: binary | nil,
+    input: any | nil,
+    run_times: [float] | [],
+    run_time_statistics: Benchee.Statistics.t | nil,
+    memory_usages: [non_neg_integer] | [],
+    memory_usage_statistics: Benchee.Statistics.t | nil,
+    before_each: fun | nil,
+    after_each: fun | nil,
+    before_scenario: fun | nil,
+    after_scenario: fun | nil
+  }
+end
+```
+
+ This was a huge refactoring but we really like the improvements it yielded. Devon [wrote about the refactoring process](https://duckduckgo.com/?q=devon+c+estes+&t=lm&atb=v78-2&ia=web) in more detail. It took a long time, but it didn't add any new features - so no reason for a release yet. Plus, of course all formatters also needed to get updated.
 
 ### **Hooks**
 
@@ -40,7 +74,50 @@ Another huge chunk of work went into a hooks system that is pretty fully feature
 * after_each is also passed the return value of the benchmarking function so you can run assertions on it - for instance for all the jobs to see if they are truly doing the same thing
 * before_each could also be used to randomize the input a bit to benchmark a more diverse set of inputs without the randomizing counting towards the measured times
 
-All of these hooks can be configured either globally so that they run for all the benchmarking jobs or they can be configured on a per job basis. The [documentation for hooks over at the repo](https://github.com/PragTob/benchee#hooks-setup-teardown-etc) is a little blog post by itself and I won't repeat it here ;) As a little example, here is me benchmarking hound: https://gist.github.com/pragtobgists/b9b1ec129d19a734d50f619933400cf5 Hound needs to start before we can benchmark it. Howeer, hound seems to remember the started process by the pid of self() at that time. That's a problem because each benchee scenario runs in its own process, so you couldn't just start it before invoking Benchee.run. I found no way to make the benchmark work with good old benchee 0.9.0, which is also what finally brought me to implement this feature. Now in benchee 0.10.0 with before_scenario and after_scenario it is perfectly feasible!
+All of these hooks can be configured either globally so that they run for all the benchmarking jobs or they can be configured on a per job basis. The [documentation for hooks over at the repo](https://github.com/PragTob/benchee#hooks-setup-teardown-etc) is a little blog post by itself and I won't repeat it here ;) As a little example, here is me benchmarking hound: 
+
+Source: [https://gist.github.com/pragtobgists/b9b1ec129d19a734d50f619933400cf5](https://gist.github.com/pragtobgists/b9b1ec129d19a734d50f619933400cf5)
+
+**File: `benchee_hound.exs`**
+```elixir
+# ATTENTION: gotta start phantomjs via `phantomjs --wd` first..
+Application.ensure_all_started(:hound)
+{:ok, server} = SimpleServer.start
+
+Application.put_env(:hound, :app_host, "http://localhost")
+Application.put_env(:hound, :app_port, SimpleServer.port(server))
+
+
+use Hound.Helpers
+
+Benchee.run(%{
+  "fill_in text_field" => fn ->
+    fill_field({:name, "user[name]"}, "Chris")
+  end,
+  "visit forms" => fn ->
+    navigate_to("#{server.base_url}/forms.html")
+  end,
+  "find by css #id" => fn ->
+    find_element(:id, "button-no-type-id")
+  end
+},
+time: 18,
+formatters: [
+  Benchee.Formatters.HTML,
+  Benchee.Formatters.Console
+],
+html: [file: "benchmarks/html/hound.html"],
+before_scenario: fn(input) ->
+  Hound.start_session()
+  navigate_to("#{server.base_url}/forms.html")
+  input
+end,
+after_scenario: fn(_return) ->
+  Hound.end_session
+end)
+```
+
+ Hound needs to start before we can benchmark it. Howeer, hound seems to remember the started process by the pid of self() at that time. That's a problem because each benchee scenario runs in its own process, so you couldn't just start it before invoking Benchee.run. I found no way to make the benchmark work with good old benchee 0.9.0, which is also what finally brought me to implement this feature. Now in benchee 0.10.0 with before_scenario and after_scenario it is perfectly feasible!
 
 ### Why no 1.0?
 

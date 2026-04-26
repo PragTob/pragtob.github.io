@@ -20,11 +20,49 @@ Yesterday I released [benchee](https://github.com/PragTob/benchee) 0.3.0! Benche
 
 ## Multiple formatters
 
-Arguably the biggest feature in Benchee 0.3.0 is that it is now easy and built-in to configure multiple formatters for a benchmarking suite. This means that first the benchmark is run, and then multiple formatters are run on the benchmarking results. This way you can get both the console output and the corresponding csv file using [BencheeCSV](https://github.com/PragTob/benchee_csv). This was a pain point for me before, as you could either get one or the other or you needed to use the [more verbose API](https://github.com/PragTob/elixir_playground/blob/master/bench/tco_blog_post_detailed.exs). https://gist.github.com/pragtobgists/d6a970e975ea56718eff9c5930171d3d You can also see the new _output/1_ methods at work, as opposed to _format/1_ they also really do the output themselves. BencheeCSV uses a custom configuration options to know which file to write to. This is also new, as now formatters have access to the full benchmarking suite, including configuration, raw run times and function definitions. This way they can be configured using configuration options they define themselves, or a plugin could graph all run times if it wanted to. Of course, _formatters_ default to just the built-in console formatter.
+Arguably the biggest feature in Benchee 0.3.0 is that it is now easy and built-in to configure multiple formatters for a benchmarking suite. This means that first the benchmark is run, and then multiple formatters are run on the benchmarking results. This way you can get both the console output and the corresponding csv file using [BencheeCSV](https://github.com/PragTob/benchee_csv). This was a pain point for me before, as you could either get one or the other or you needed to use the [more verbose API](https://github.com/PragTob/elixir_playground/blob/master/bench/tco_blog_post_detailed.exs). 
+
+Source: [https://gist.github.com/pragtobgists/d6a970e975ea56718eff9c5930171d3d](https://gist.github.com/pragtobgists/d6a970e975ea56718eff9c5930171d3d)
+
+**File: `multiple_formatters.exs`**
+```elixir
+list = Enum.to_list(1..10_000)
+map_fun = fn(i) -> [i, i * i] end
+
+Benchee.run(
+  %{
+    formatters: [
+      &Benchee.Formatters.CSV.output/1,
+      &Benchee.Formatters.Console.output/1
+    ],
+    csv: %{file: "my.csv"}
+  },
+  %{
+    "flat_map"    => fn -> Enum.flat_map(list, map_fun) end,
+    "map.flatten" => fn -> list |> Enum.map(map_fun) |> List.flatten end
+})
+```
+
+ You can also see the new _output/1_ methods at work, as opposed to _format/1_ they also really do the output themselves. BencheeCSV uses a custom configuration options to know which file to write to. This is also new, as now formatters have access to the full benchmarking suite, including configuration, raw run times and function definitions. This way they can be configured using configuration options they define themselves, or a plugin could graph all run times if it wanted to. Of course, _formatters_ default to just the built-in console formatter.
 
 ## Parallel benchmarking
 
-Another big addition is [parallel benchmarking](https://github.com/PragTob/benchee/pull/15). In Elixir, this just feels natural to have. You can specify a _parallel_ key in the configuration and that tells Benchee how many tasks should execute any given benchmarking job in parallel. https://gist.github.com/pragtobgists/39686e4c09cc9cdef4b364847df2b9ce Of course, if you want to see how a system behaves under load - overloading might be exactly what you want to stress test the system. And this was exactly the reason why L[eon contributed this change back to Benchee](https://github.com/PragTob/benchee/pull/15#issuecomment-230149595):
+Another big addition is [parallel benchmarking](https://github.com/PragTob/benchee/pull/15). In Elixir, this just feels natural to have. You can specify a _parallel_ key in the configuration and that tells Benchee how many tasks should execute any given benchmarking job in parallel. 
+
+Source: [https://gist.github.com/pragtobgists/39686e4c09cc9cdef4b364847df2b9ce](https://gist.github.com/pragtobgists/39686e4c09cc9cdef4b364847df2b9ce)
+
+**File: `run_parallel.exs`**
+```elixir
+list = Enum.to_list(1..10_000)
+map_fun = fn(i) -> [i, i * i] end
+
+Benchee.run(%{time: 3, parallel: 2}, %{
+  "flat_map"    => fn -> Enum.flat_map(list, map_fun) end,
+  "map.flatten" => fn -> list |> Enum.map(map_fun) |> List.flatten end
+})
+```
+
+ Of course, if you want to see how a system behaves under load - overloading might be exactly what you want to stress test the system. And this was exactly the reason why L[eon contributed this change back to Benchee](https://github.com/PragTob/benchee/pull/15#issuecomment-230149595):
 
 > I needed to benchmark integration tests for a telephony system we wrote - with this system the tests actually interfere with each other (they're using an Ecto repo) and I wanted to see how far I could push the system as a whole. Making this small change to Benchee worked perfectly for what I needed :)
 
@@ -32,7 +70,31 @@ Another big addition is [parallel benchmarking](https://github.com/PragTob/bench
 
 ## Print configuration information
 
-Partly also due to the _parallel_ change, Benchee wil now print a brief summary of the benchmarking suite before executing it. [code] tobi@happy ~/github/benchee $ mix run samples/run_parallel.exs Benchmark suite executing with the following configuration: warmup: 2.0s time: 3.0s parallel: 2 Estimated total run time: 10.0s Benchmarking flat_map... Benchmarking map.flatten... Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ips&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; average&nbsp;&nbsp;&nbsp; deviation&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; median map.flatten&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1268.15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 788.55μs&nbsp;&nbsp;&nbsp; (±13.94%)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 759.00μs flat_map&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 706.35&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1415.72μs&nbsp;&nbsp;&nbsp;&nbsp; (±8.56%)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1419.00μs Comparison: map.flatten&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1268.15 flat_map&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 706.35 - 1.80x slower [/code] This was done so that when people share their benchmarks online one can easily see the configuration they ran it with. E.g. was there any warmup time? Was the amount of parallel tasks too high and therefore the results are that bad? It also prints an estimated total run time (_number of jobs * (warmup + time)_), so you know if there's enough time to go and get a coffee before a benchmark finishes.
+Partly also due to the _parallel_ change, Benchee wil now print a brief summary of the benchmarking suite before executing it. 
+
+```
+tobi@happy ~/github/benchee $ mix run samples/run_parallel.exs
+
+Benchmark suite executing with the following configuration:
+warmup: 2.0s
+time: 3.0s
+parallel: 2
+
+Estimated total run time: 10.0s
+
+Benchmarking flat_map...
+Benchmarking map.flatten...
+
+Name                 ips      average  deviation      median
+map.flatten       1268.15      788.55us   (±13.94%)   759.00us
+flat_map           706.35     1415.72us    (±8.56%)  1419.00us
+
+Comparison:
+map.flatten       1268.15
+flat_map           706.35 - 1.80x slower
+```
+
+ This was done so that when people share their benchmarks online one can easily see the configuration they ran it with. E.g. was there any warmup time? Was the amount of parallel tasks too high and therefore the results are that bad? It also prints an estimated total run time (_number of jobs * (warmup + time)_), so you know if there's enough time to go and get a coffee before a benchmark finishes.
 
 ## Map instead of a list of tuples
 

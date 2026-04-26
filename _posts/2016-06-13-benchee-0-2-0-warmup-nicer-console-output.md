@@ -24,7 +24,25 @@ Arguably the biggest change is introduction of a warmup phase to the benchmarks.
 
 ### Nicer console output
 
-[code] Name ips average deviation median bodyrecusrive map 40047.87 24.97μs (±32.55%) 25.00μs stdlib map 39724.07 25.17μs (±61.41%) 25.00μs map tco no reverse 36388.50 27.48μs (±23.22%) 27.00μs map with TCO and reverse 33309.43 30.02μs (±45.39%) 29.00μs map with TCO and ++ 465.25 2149.40μs (±4.84%) 2138.00μs Comparison: bodyrecusrive map 40047.87 stdlib map 39724.07 - 1.01x slower map tco no reverse 36388.50 - 1.10x slower map with TCO and reverse 33309.43 - 1.20x slower map with TCO and ++ 465.25 - 86.08x slower [/code] The ouput of numbers is now aligned right, which makes them easier to read and compare, as you can see orders of magnitude differences much more easily. Also the ugly empty line at the end of the output has been removed :)
+
+
+```
+Name                        ips      average  deviation      median
+bodyrecusrive map      40047.87      24.97us   (±32.55%)    25.00us
+stdlib map             39724.07      25.17us   (±61.41%)    25.00us
+map tco no reverse     36388.50      27.48us   (±23.22%)    27.00us
+map with TCO and reverse 33309.43    30.02us   (±45.39%)    29.00us
+map with TCO and ++      465.25    2149.40us    (±4.84%)  2138.00us
+
+Comparison:
+bodyrecusrive map      40047.87
+stdlib map             39724.07 - 1.01x slower
+map tco no reverse     36388.50 - 1.10x slower
+map with TCO and reverse 33309.43 - 1.20x slower
+map with TCO and ++      465.25 - 86.08x slower
+```
+
+ The ouput of numbers is now aligned right, which makes them easier to read and compare, as you can see orders of magnitude differences much more easily. Also the ugly empty line at the end of the output has been removed :)
 
 ### Benchee.measure
 

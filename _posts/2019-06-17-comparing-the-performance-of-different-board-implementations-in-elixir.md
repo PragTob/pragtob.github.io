@@ -38,7 +38,24 @@ Something that is notably not benchmarked is the creation of boards. For (almost
 
 ## Contenders
 
-All boards need to implement a simple [Board behaviour](https://github.com/PragTob/elixir_boards_benchmark/blob/master/lib/board.ex): https://gist.github.com/PragTob/c38269e5e1b9eb7b8f6c3bf46d0b9e0c All boards are built so that accessing a previously unset field will return nil. No assumptions about the data stored in the board have been made, which rules out String as an implementation type. In the benchmarks atoms are used as values. In the descriptions of the data types below `(x, y)` is used to mark where what value is stored.
+All boards need to implement a simple [Board behaviour](https://github.com/PragTob/elixir_boards_benchmark/blob/master/lib/board.ex): 
+
+Source: [https://gist.github.com/PragTob/c38269e5e1b9eb7b8f6c3bf46d0b9e0c](https://gist.github.com/PragTob/c38269e5e1b9eb7b8f6c3bf46d0b9e0c)
+
+**File: `board.ex`**
+```elixir
+defmodule Board do
+  # can't be more specific witht types as each implementation has its own representation
+  @type board :: any
+  @type field :: any
+
+  @callback new() :: board
+  @callback get(board, non_neg_integer, non_neg_integer) :: field
+  @callback set(board, non_neg_integer, non_neg_integer, field) :: board
+end
+```
+
+ All boards are built so that accessing a previously unset field will return nil. No assumptions about the data stored in the board have been made, which rules out String as an implementation type. In the benchmarks atoms are used as values. In the descriptions of the data types below `(x, y)` is used to mark where what value is stored.
 
 * **[List2D](https://github.com/PragTob/elixir_boards_benchmark/blob/master/lib/board/list2d.ex): **A 2 dimensional list representing rows and columns: `[[(0, 0), (0, 1), (0, 2), ...], [(1, 0), (1, 1), ..], ..., [..., (8, 8)]]`
 * **[List1D](https://github.com/PragTob/elixir_boards_benchmark/blob/master/lib/board/list1d.ex): **Using the knowledge of a constant board size you can encode it into a one-dimensional list resolving the index as `dimension * x + y`: `[(0, 0), (0, 1), (0, 2), ..., (1, 0), (1, 1), ..., (8, 8)]`

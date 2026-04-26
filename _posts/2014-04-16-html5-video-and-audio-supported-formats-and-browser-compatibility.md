@@ -28,4 +28,10 @@ Support **mp3** and **Ogg Vorbis** \- you can use other formats in place of ogg 
 
 ### **Video**
 
-Support **H.264 (.mp4)** \+ **Theora (.ogv)** or **VP8****(WebM)** should do the trick. On a last not, if you want to convert video files you can use ffmpeg, e.g. for instance theora/.ogv to H.264/WebM: [code lang="bash"] ffmpeg -i demo.ogv -f mp4 demo.mp4 [/code] Hope that this helped :-)    
+Support **H.264 (.mp4)** \+ **Theora (.ogv)** or **VP8****(WebM)** should do the trick. On a last not, if you want to convert video files you can use ffmpeg, e.g. for instance theora/.ogv to H.264/WebM: 
+
+```bash
+ ffmpeg -i demo.ogv -f mp4 demo.mp4 
+```
+
+ Hope that this helped :-)    

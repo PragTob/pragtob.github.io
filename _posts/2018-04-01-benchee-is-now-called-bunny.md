@@ -19,4 +19,60 @@ tags:
 
 ## But why?
 
-We think this is an abstraction that’s really going to offer us all the flexibility that we’re going to need for future development. As we approach 1.0, we wanted to get the API just right. This is **true** **courage**. We also haven't been exactly subtle dropping hints that this naming change was coming. For once I have described benchmarking as bunnies [eating](https://youtu.be/polavOwhYRE?t=9m35s) [food](https://youtu.be/KSrImdsfjL4?t=7m20s) on [numerous](https://youtu.be/sDg4G7Tec0o?t=7m35s) [occasions](https://youtu.be/C4hqcLwxs3A?t=5m32s) (each bunny is a function that tries to eat it's input as fast as it can!). Other than that, the [frequently](https://github.com/PragTob/benchee/pull/200#pullrequestreview-106694405) [occurring](https://github.com/PragTob/benchee/pull/185#issuecomment-368822917) [bunny](https://github.com/PragTob/benchee/pull/178#pullrequestreview-92332697) [pictures](https://github.com/PragTob/benchee/pull/176#issuecomment-359088677) (or even [gifs](https://github.com/PragTob/benchee/pull/180#issuecomment-367407809)) in [benchee](https://github.com/PragTob/benchee/pull/168#issuecomment-362700236) [Pull](https://github.com/PragTob/benchee/pull/161#issuecomment-350572725) [Requests](https://github.com/PragTob/benchee/pull/159#issue-149384453) [could](https://github.com/PragTob/benchee/pull/145#pullrequestreview-69421965) [have](https://github.com/PragTob/benchee/pull/137#pullrequestreview-68428327) [been](https://github.com/PragTob/benchee/pull/131#pullrequestreview-67833729) a [hint](https://github.com/PragTob/benchee/pull/153#pullrequestreview-71016539). Also, eating is what they do best: [caption id="attachment_3262" align="alignnone" width="808"]![IMG_20180120_094003_Bokeh-ANIMATION](https://pragtob.wordpress.com/wp-content/uploads/2018/04/img_20180120_094003_bokeh-animation.gif) Yum yum we like benchmarking[/caption] For now bunny still works a lot like benchee. However, it exposes a better and more expressive API for your pleasure. You know, bunny can't only _run_ like the good old benchee. No! Bunny can also _sleep_ , _hop_ , _eat_ and _jump_! This all comes with your own **personal** bunny assistant that helps you benchmark: https://gist.github.com/pragtobgists/5feeb1c19d535519c58994ccb8192490 After all this hard work, the bunny needs to sleep a bit though: ![IMG_20180216_102445-ANIMATION.gif](https://pragtob.wordpress.com/wp-content/uploads/2018/04/img_20180216_102445-animation.gif) This is clearly better than any other (benchmarking) library out there. What are you waiting for? Go and get bunny now. Also, I mean... just **LOOK AT THEM**! ![IMG_20180120_103418.jpg](https://pragtob.wordpress.com/wp-content/uploads/2018/04/img_20180120_103418.jpg) ![IMG_20171221_144500.jpg](https://pragtob.wordpress.com/wp-content/uploads/2018/04/img_20171221_144500.jpg) ![IMG_20171221_144657_Bokeh\(1\).jpg](https://pragtob.wordpress.com/wp-content/uploads/2018/04/img_20171221_144657_bokeh1.jpg)
+We think this is an abstraction that’s really going to offer us all the flexibility that we’re going to need for future development. As we approach 1.0, we wanted to get the API just right. This is **true** **courage**. We also haven't been exactly subtle dropping hints that this naming change was coming. For once I have described benchmarking as bunnies [eating](https://youtu.be/polavOwhYRE?t=9m35s) [food](https://youtu.be/KSrImdsfjL4?t=7m20s) on [numerous](https://youtu.be/sDg4G7Tec0o?t=7m35s) [occasions](https://youtu.be/C4hqcLwxs3A?t=5m32s) (each bunny is a function that tries to eat it's input as fast as it can!). Other than that, the [frequently](https://github.com/PragTob/benchee/pull/200#pullrequestreview-106694405) [occurring](https://github.com/PragTob/benchee/pull/185#issuecomment-368822917) [bunny](https://github.com/PragTob/benchee/pull/178#pullrequestreview-92332697) [pictures](https://github.com/PragTob/benchee/pull/176#issuecomment-359088677) (or even [gifs](https://github.com/PragTob/benchee/pull/180#issuecomment-367407809)) in [benchee](https://github.com/PragTob/benchee/pull/168#issuecomment-362700236) [Pull](https://github.com/PragTob/benchee/pull/161#issuecomment-350572725) [Requests](https://github.com/PragTob/benchee/pull/159#issue-149384453) [could](https://github.com/PragTob/benchee/pull/145#pullrequestreview-69421965) [have](https://github.com/PragTob/benchee/pull/137#pullrequestreview-68428327) [been](https://github.com/PragTob/benchee/pull/131#pullrequestreview-67833729) a [hint](https://github.com/PragTob/benchee/pull/153#pullrequestreview-71016539). Also, eating is what they do best: [caption id="attachment_3262" align="alignnone" width="808"]![IMG_20180120_094003_Bokeh-ANIMATION](https://pragtob.wordpress.com/wp-content/uploads/2018/04/img_20180120_094003_bokeh-animation.gif) Yum yum we like benchmarking[/caption] For now bunny still works a lot like benchee. However, it exposes a better and more expressive API for your pleasure. You know, bunny can't only _run_ like the good old benchee. No! Bunny can also _sleep_ , _hop_ , _eat_ and _jump_! This all comes with your own **personal** bunny assistant that helps you benchmark: 
+
+Source: [https://gist.github.com/pragtobgists/5feeb1c19d535519c58994ccb8192490](https://gist.github.com/pragtobgists/5feeb1c19d535519c58994ccb8192490)
+
+**File: `eat.exs`**
+```elixir
+list = Enum.to_list(1..10_000)
+map_fun = fn(i) -> [i, i * i] end
+
+Bunny.eat(%{
+  "flat_map"    => fn -> Enum.flat_map(list, map_fun) end,
+  "map.flatten" => fn -> list |> Enum.map(map_fun) |> List.flatten end
+})
+```
+
+**File: `output`**
+```
+tobi@speedy ~/github/bunny $ mix run samples/eat.exs 
+Bunny will take care of that for you!
+
+   ( Y)
+  ( . .)
+ o(") (")
+
+Operating System: Linux
+CPU Information: Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz
+Number of Available Cores: 8
+Available memory: 15.61 GB
+Elixir 1.6.3
+Erlang 20.2
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+parallel: 1
+inputs: none specified
+Estimated total run time: 14 s
+
+
+Benchmarking flat_map...
+Benchmarking map.flatten...
+
+Name                  ips        average  deviation         median         99th %
+flat_map           2.23 K      448.25 μs    ±14.33%         430 μs         790 μs
+map.flatten        1.17 K      857.84 μs    ±21.57%         796 μs     1426.98 μs
+
+Comparison: 
+flat_map           2.23 K
+map.flatten        1.17 K - 1.91x slower
+
+Bunny is done!
+
+ () ()
+ (* *)
+o( 0 )
+```
+
+ After all this hard work, the bunny needs to sleep a bit though: ![IMG_20180216_102445-ANIMATION.gif](https://pragtob.wordpress.com/wp-content/uploads/2018/04/img_20180216_102445-animation.gif) This is clearly better than any other (benchmarking) library out there. What are you waiting for? Go and get bunny now. Also, I mean... just **LOOK AT THEM**! ![IMG_20180120_103418.jpg](https://pragtob.wordpress.com/wp-content/uploads/2018/04/img_20180120_103418.jpg) ![IMG_20171221_144500.jpg](https://pragtob.wordpress.com/wp-content/uploads/2018/04/img_20171221_144500.jpg) ![IMG_20171221_144657_Bokeh\(1\).jpg](https://pragtob.wordpress.com/wp-content/uploads/2018/04/img_20171221_144657_bokeh1.jpg)

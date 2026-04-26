@@ -38,7 +38,175 @@ I think that these are all great steps forward of which I'm really proud.
 
 ## Show me the new benchmark!
 
-Here you go, careful it's long ([implementation of MyMap for reference](https://github.com/PragTob/elixir_playground/blob/master/lib/my_map.ex)): https://gist.github.com/PragTob/f4ff9e4dc01bd0271effbdd8402fc244 We can easily see that the tail recursive functions seem to always consume more memory. Also that our tail recursive implementation with the switched argument order is mostly faster than its sibling (always when we look at the median which is worthwhile if we want to limit the impact of outliers). Such an (informative) wall of text! How do we spice that up a bit? How about the [HTML report generated from this](http://www.pragtob.info/benchee/tco//tco_focussed_detailed_inputs.html)? It contains about the same data but is enhanced with some nice graphs for comparisons sake: ![newplot\(4\).png](https://pragtob.wordpress.com/wp-content/uploads/2019/04/newplot4.png) ![newplot\(5\).png](https://pragtob.wordpress.com/wp-content/uploads/2019/04/newplot5.png) It doesn't stop there though, some of my favourite graphs are the once looking at individual scenarios: ![newplot\(6\).png](https://pragtob.wordpress.com/wp-content/uploads/2019/04/newplot6.png) This Histogram shows us the distribution of the values pretty handily. We can easily see that most samples are in a 100Million - 150 Million Nanoseconds range (100-150 Milliseconds in more digestible units, scaling values in the graphs is somewhere on the road map ;)) ![newplot\(7\).png](https://pragtob.wordpress.com/wp-content/uploads/2019/04/newplot7.png) Here we can just see the raw run times in order as they were recorded. This is helpful to potentially spot patterns like gradually increasing/decreasing run times or sudden spikes.
+Here you go, careful it's long ([implementation of MyMap for reference](https://github.com/PragTob/elixir_playground/blob/master/lib/my_map.ex)): 
+
+Source: [https://gist.github.com/PragTob/f4ff9e4dc01bd0271effbdd8402fc244](https://gist.github.com/PragTob/f4ff9e4dc01bd0271effbdd8402fc244)
+
+**File: `bench.exs`**
+```elixir
+map_fun = fn i -> i + 1 end
+
+inputs = [
+  {"Small (10 Thousand)", Enum.to_list(1..10_000)},
+  {"Middle (100 Thousand)", Enum.to_list(1..100_000)},
+  {"Big (1 Million)", Enum.to_list(1..1_000_000)},
+  {"Bigger (5 Million)", Enum.to_list(1..5_000_000)},
+  {"Giant (25 Million)", Enum.to_list(1..25_000_000)}
+]
+
+Benchee.run(
+  %{
+    "tail-recursive" => fn list -> MyMap.map_tco(list, map_fun) end,
+    "stdlib map" => fn list -> Enum.map(list, map_fun) end,
+    "body-recursive" => fn list -> MyMap.map_body(list, map_fun) end,
+    "tail-rec arg-order" => fn list -> MyMap.map_tco_arg_order(list, map_fun) end
+  },
+  memory_time: 2,
+  inputs: inputs,
+  formatters: [
+    Benchee.Formatters.Console,
+    {Benchee.Formatters.HTML, file: "bench/output/tco_focussed_detailed_inputs.html", auto_open: false}
+  ]
+)
+```
+
+**File: `output.txt`**
+```
+Operating System: Linux
+CPU Information: Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz
+Number of Available Cores: 8
+Available memory: 15.61 GB
+Elixir 1.8.1
+Erlang 21.3.2
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 2 s
+parallel: 1
+inputs: Small (10 Thousand), Middle (100 Thousand), Big (1 Million), Bigger (5 Million), Giant (25 Million)
+Estimated total run time: 3 min
+
+# ... Different ways of telling your progress ...
+
+##### With input Small (10 Thousand) #####
+Name                         ips        average  deviation         median         99th %
+tail-recursive            5.55 K      180.08 μs   ±623.13%      167.78 μs      239.14 μs
+body-recursive            5.01 K      199.75 μs   ±480.63%      190.76 μs      211.24 μs
+stdlib map                4.89 K      204.56 μs   ±854.99%      190.86 μs      219.19 μs
+tail-rec arg-order        4.88 K      205.07 μs   ±691.94%      163.95 μs      258.95 μs
+
+Comparison: 
+tail-recursive            5.55 K
+body-recursive            5.01 K - 1.11x slower +19.67 μs
+stdlib map                4.89 K - 1.14x slower +24.48 μs
+tail-rec arg-order        4.88 K - 1.14x slower +24.99 μs
+
+Memory usage statistics:
+
+Name                  Memory usage
+tail-recursive           224.03 KB
+body-recursive           156.25 KB - 0.70x memory usage -67.78125 KB
+stdlib map               156.25 KB - 0.70x memory usage -67.78125 KB
+tail-rec arg-order       224.03 KB - 1.00x memory usage +0 KB
+
+**All measurements for memory usage were the same**
+
+##### With input Middle (100 Thousand) #####
+Name                         ips        average  deviation         median         99th %
+body-recursive            473.16        2.11 ms   ±145.33%        1.94 ms        6.18 ms
+stdlib map                459.88        2.17 ms   ±174.13%        2.05 ms        6.53 ms
+tail-rec arg-order        453.26        2.21 ms   ±245.66%        1.81 ms        6.83 ms
+tail-recursive            431.01        2.32 ms   ±257.76%        1.95 ms        6.44 ms
+
+Comparison: 
+body-recursive            473.16
+stdlib map                459.88 - 1.03x slower +0.0610 ms
+tail-rec arg-order        453.26 - 1.04x slower +0.0928 ms
+tail-recursive            431.01 - 1.10x slower +0.21 ms
+
+Memory usage statistics:
+
+Name                  Memory usage
+body-recursive             1.53 MB
+stdlib map                 1.53 MB - 1.00x memory usage +0 MB
+tail-rec arg-order         2.89 MB - 1.89x memory usage +1.36 MB
+tail-recursive             2.89 MB - 1.89x memory usage +1.36 MB
+
+**All measurements for memory usage were the same**
+
+##### With input Big (1 Million) #####
+Name                         ips        average  deviation         median         99th %
+stdlib map                 43.63       22.92 ms    ±59.63%       20.78 ms       38.76 ms
+body-recursive             42.54       23.51 ms    ±58.73%       21.11 ms       50.95 ms
+tail-rec arg-order         41.68       23.99 ms    ±83.11%       22.36 ms       35.93 ms
+tail-recursive             40.02       24.99 ms    ±82.12%       23.33 ms       55.25 ms
+
+Comparison: 
+stdlib map                 43.63
+body-recursive             42.54 - 1.03x slower +0.59 ms
+tail-rec arg-order         41.68 - 1.05x slower +1.07 ms
+tail-recursive             40.02 - 1.09x slower +2.07 ms
+
+Memory usage statistics:
+
+Name                  Memory usage
+stdlib map                15.26 MB
+body-recursive            15.26 MB - 1.00x memory usage +0 MB
+tail-rec arg-order        26.95 MB - 1.77x memory usage +11.70 MB
+tail-recursive            26.95 MB - 1.77x memory usage +11.70 MB
+
+**All measurements for memory usage were the same**
+
+##### With input Bigger (5 Million) #####
+Name                         ips        average  deviation         median         99th %
+stdlib map                  8.89      112.49 ms    ±44.68%      105.73 ms      421.33 ms
+body-recursive              8.87      112.72 ms    ±44.97%      104.66 ms      423.24 ms
+tail-rec arg-order          8.01      124.79 ms    ±40.27%      114.70 ms      425.68 ms
+tail-recursive              7.59      131.75 ms    ±40.89%      121.18 ms      439.39 ms
+
+Comparison: 
+stdlib map                  8.89
+body-recursive              8.87 - 1.00x slower +0.23 ms
+tail-rec arg-order          8.01 - 1.11x slower +12.30 ms
+tail-recursive              7.59 - 1.17x slower +19.26 ms
+
+Memory usage statistics:
+
+Name                  Memory usage
+stdlib map                76.29 MB
+body-recursive            76.29 MB - 1.00x memory usage +0 MB
+tail-rec arg-order       149.82 MB - 1.96x memory usage +73.53 MB
+tail-recursive           149.82 MB - 1.96x memory usage +73.53 MB
+
+**All measurements for memory usage were the same**
+
+##### With input Giant (25 Million) #####
+Name                         ips        average  deviation         median         99th %
+tail-rec arg-order          1.36      733.10 ms    ±25.65%      657.07 ms     1099.94 ms
+tail-recursive              1.28      780.13 ms    ±23.89%      741.42 ms     1113.52 ms
+stdlib map                  1.25      800.63 ms    ±27.17%      779.22 ms     1185.27 ms
+body-recursive              1.23      813.35 ms    ±28.45%      790.23 ms     1224.44 ms
+
+Comparison: 
+tail-rec arg-order          1.36
+tail-recursive              1.28 - 1.06x slower +47.03 ms
+stdlib map                  1.25 - 1.09x slower +67.53 ms
+body-recursive              1.23 - 1.11x slower +80.25 ms
+
+Memory usage statistics:
+
+Name                  Memory usage
+tail-rec arg-order       758.55 MB
+tail-recursive           758.55 MB - 1.00x memory usage +0 MB
+stdlib map               381.47 MB - 0.50x memory usage -377.08060 MB
+body-recursive           381.47 MB - 0.50x memory usage -377.08060 MB
+
+**All measurements for memory usage were the same**
+# where did benchee write all the files
+```
+
+ We can easily see that the tail recursive functions seem to always consume more memory. Also that our tail recursive implementation with the switched argument order is mostly faster than its sibling (always when we look at the median which is worthwhile if we want to limit the impact of outliers). Such an (informative) wall of text! How do we spice that up a bit? How about the [HTML report generated from this](http://www.pragtob.info/benchee/tco//tco_focussed_detailed_inputs.html)? It contains about the same data but is enhanced with some nice graphs for comparisons sake: ![newplot\(4\).png](https://pragtob.wordpress.com/wp-content/uploads/2019/04/newplot4.png) ![newplot\(5\).png](https://pragtob.wordpress.com/wp-content/uploads/2019/04/newplot5.png) It doesn't stop there though, some of my favourite graphs are the once looking at individual scenarios: ![newplot\(6\).png](https://pragtob.wordpress.com/wp-content/uploads/2019/04/newplot6.png) This Histogram shows us the distribution of the values pretty handily. We can easily see that most samples are in a 100Million - 150 Million Nanoseconds range (100-150 Milliseconds in more digestible units, scaling values in the graphs is somewhere on the road map ;)) ![newplot\(7\).png](https://pragtob.wordpress.com/wp-content/uploads/2019/04/newplot7.png) Here we can just see the raw run times in order as they were recorded. This is helpful to potentially spot patterns like gradually increasing/decreasing run times or sudden spikes.
 
 ## Something seems odd?
 

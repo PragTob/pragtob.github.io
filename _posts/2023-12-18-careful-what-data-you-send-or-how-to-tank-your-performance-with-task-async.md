@@ -24,7 +24,52 @@ In Elixir and on the BEAM (Erlang Virtual Machine) in general we love our proces
 
 Functions like `[Task.async/1](https://hexdocs.pm/elixir/Task.html#async/1)` make parallelism effortless and can feel almost magical. Cool, let's use it in a simple benchmark! Let's create some random lists, and then let's run some non trivial `Enum` functions on them: `uniq`, `frequencies` and `shuffle` and let's compare doing them sequentially (one after the other) and running them all in parallel. This kind of work is super easy to parallelize, so we can just fire off the tasks and then await them:
 
-https://gist.github.com/PragTob/65a7abbded3360fa071cee665643ceb2
+
+
+Source: [https://gist.github.com/PragTob/65a7abbded3360fa071cee665643ceb2](https://gist.github.com/PragTob/65a7abbded3360fa071cee665643ceb2)
+
+**File: `benchmark.exs`**
+```elixir
+random_list = fn size, spread ->
+  for _i <- 1..size, do: :rand.uniform(spread)
+end
+
+inputs = [
+  {"10k", random_list.(10_000, 100)},
+  {"1M", random_list.(1_000_000, 1_000)},
+  {"10M", random_list.(10_000_000, 10_000)}
+]
+
+Benchee.run(
+  %{
+    "sequential" => fn big_list ->
+      uniques = Enum.uniq(big_list)
+      frequencies = Enum.frequencies(big_list)
+      shuffled = Enum.shuffle(big_list)
+
+      [uniques, frequencies, shuffled]
+    end,
+    "parallel" => fn big_list ->
+      tasks = [
+        Task.async(fn -> Enum.uniq(big_list) end),
+        Task.async(fn -> Enum.frequencies(big_list) end),
+        Task.async(fn -> Enum.shuffle(big_list) end)
+      ]
+
+      Task.await_many(tasks, :infinity)
+    end
+  },
+  inputs: inputs,
+  warmup: 15,
+  time: 60,
+  formatters: [
+    {Benchee.Formatters.Console, extended_statistics: true},
+    {Benchee.Formatters.HTML, file: "bench/output/task_no_task/index.html", auto_open: false}
+  ]
+)
+```
+
+
 
 Cool, let's check out the results! You can check the [HTML report online](https://www.pragtob.info/benchee/task-no-task/) here, uncollapse for the console formatter version or just check out the pictures.
 

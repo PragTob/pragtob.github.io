@@ -39,7 +39,40 @@ When you do `Struct.new` you create an anonymous class, another new on it create
 
 ## Why is that bad?
 
-Well it incurs an unnecessary overhead, creating the class every time is unnecessary. Not only that, as far as I understand it also creates new independent entries in the method cache. For JITed implementations (like JRuby) the methods would also be JITed independently. And it gets in the way of profiling, as you see lots of anonymous classes with only 1 to 10 method calls each. But how bad is that performance hit? I wrote a little benchmark where an instance is created with 2 values and then those 2 values are read one time each. Once with `Struct.new(...).new(...)`, once where the `Struct.new(...)` is saved in an intermediary constant. For fun and learning I threw in a similar usage with Array and Hash. [code language="ruby"] Benchmark.ips do |bm| bm.report "Struct.new(...).new" do value = Struct.new(:start, :end).new(10, 20) value.start value.end end SavedStruct = Struct.new(:start, :end) bm.report "SavedStruct.new" do value = SavedStruct.new(10, 20) value.start value.end end bm.report "2 element array" do value = [10, 20] value.first value.last end bm.report "Hash with 2 keys" do value = {start: 10, end: 20} value[:start] value[:end] end bm.compare! end [/code] I ran those benchmarks with CRuby 2.3. And the results, well I was surprised how huge the impact really is. The _"new-new"_ implementation is over **33 times slower** than the _SavedStruct_ equivalent. And over 60 times slower than the fastest solution (Array), although that's also not my preferred solution.
+Well it incurs an unnecessary overhead, creating the class every time is unnecessary. Not only that, as far as I understand it also creates new independent entries in the method cache. For JITed implementations (like JRuby) the methods would also be JITed independently. And it gets in the way of profiling, as you see lots of anonymous classes with only 1 to 10 method calls each. But how bad is that performance hit? I wrote a little benchmark where an instance is created with 2 values and then those 2 values are read one time each. Once with `Struct.new(...).new(...)`, once where the `Struct.new(...)` is saved in an intermediary constant. For fun and learning I threw in a similar usage with Array and Hash. 
+
+```ruby
+Benchmark.ips do |bm|
+  bm.report "Struct.new(...).new" do
+    value = Struct.new(:start, :end).new(10, 20)
+    value.start
+    value.end
+  end
+
+  SavedStruct = Struct.new(:start, :end)
+  bm.report "SavedStruct.new" do
+    value = SavedStruct.new(10, 20)
+    value.start
+    value.end
+  end
+
+  bm.report "2 element array" do
+    value = [10, 20]
+    value.first
+    value.last
+  end
+
+  bm.report "Hash with 2 keys" do
+    value = {start: 10, end: 20}
+    value[:start]
+    value[:end]
+  end
+
+  bm.compare!
+end
+```
+
+ I ran those benchmarks with CRuby 2.3. And the results, well I was surprised how huge the impact really is. The _"new-new"_ implementation is over **33 times slower** than the _SavedStruct_ equivalent. And over 60 times slower than the fastest solution (Array), although that's also not my preferred solution.
   
     Struct.new(...).new    137.801k (± 3.0%) i/s -    694.375k
     SavedStruct.new      4.592M (± 1.7%) i/s -     22.968M

@@ -44,7 +44,42 @@ The benchmarks were run pre the 0.3.0 rubykon version on the 8th of November (so
 * JRuby 9.0.3.0 run in server mode and with invoke dynamic enabled (denoted as + id)
 * JRuby + Truffle Graal with master from 2015-11-08 and commit hash fd2c179, running on graalvm-jdk1.8.0
 
-You can find the raw data (performance numbers, concrete version outputs, benchmark results for different board sizes and historic benchmark results) in [this file](https://github.com/PragTob/rubykon/blob/master/benchmark/results/HISTORY.md). This was run on my pretty dated desktop PC (i7 870): [code] tobi@tobi-desktop ~ $ uname -a Linux tobi-desktop 3.16.0-38-generic #52~14.04.1-Ubuntu SMP Fri May 8 09:43:57 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux tobi@tobi-desktop ~ $ java -version openjdk version "1.8.0_45-internal" OpenJDK Runtime Environment (build 1.8.0_45-internal-b14) OpenJDK 64-Bit Server VM (build 25.45-b02, mixed mode) tobi@tobi-desktop ~ $ lscpu Architecture:          x86_64 CPU op-mode(s):        32-bit, 64-bit Byte Order:            Little Endian CPU(s):                8 On-line CPU(s) list:   0-7 Thread(s) per core:    2 Core(s) per socket:    4 Socket(s):             1 NUMA node(s):          1 Vendor ID:             GenuineIntel CPU family:            6 Model:                 30 Stepping:              5 CPU MHz:               1200.000 BogoMIPS:              5887.87 Virtualization:        VT-x L1d cache:             32K L1i cache:             32K L2 cache:              256K L3 cache:              8192K NUMA node0 CPU(s):     0-7 [/code]
+You can find the raw data (performance numbers, concrete version outputs, benchmark results for different board sizes and historic benchmark results) in [this file](https://github.com/PragTob/rubykon/blob/master/benchmark/results/HISTORY.md). This was run on my pretty dated desktop PC (i7 870): 
+
+```
+tobi@tobi-desktop ~ $ uname -a
+Linux tobi-desktop 3.16.0-38-generic #52~14.04.1-Ubuntu SMP Fri May 8 09:43:57 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
+
+tobi@tobi-desktop ~ $ java -version
+openjdk version "1.8.0_45-internal"
+OpenJDK Runtime Environment (build 1.8.0_45-internal-b14)
+OpenJDK 64-Bit Server VM (build 25.45-b02, mixed mode)
+
+tobi@tobi-desktop ~ $ lscpu
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                8
+On-line CPU(s) list:   0-7
+Thread(s) per core:    2
+Core(s) per socket:    4
+Socket(s):             1
+NUMA node(s):          1
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 30
+Stepping:              5
+CPU MHz:               1200.000
+BogoMIPS:              5887.87
+Virtualization:        VT-x
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              8192K
+NUMA node0 CPU(s):     0-7
+```
+
+
 
 ### First benchmark: Simulation + Scoring on 19x19
 

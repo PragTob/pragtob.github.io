@@ -52,7 +52,43 @@ As per usual, these benchmarks were run on an idle system with no other necessar
 
 Without further ado the benchmarking script itself:
 
-https://gist.github.com/PragTob/245539b511ff74c1c76ea2a3a009206f
+
+
+Source: [https://gist.github.com/PragTob/245539b511ff74c1c76ea2a3a009206f](https://gist.github.com/PragTob/245539b511ff74c1c76ea2a3a009206f)
+
+**File: `bench_script.exs`**
+```elixir
+map_fun = fn i -> i + 1 end
+
+inputs = [
+  {"Small (10 Thousand)", Enum.to_list(1..10_000)},
+  {"Middle (100 Thousand)", Enum.to_list(1..100_000)},
+  {"Big (1 Million)", Enum.to_list(1..1_000_000)},
+  {"Giant (10 Million)", Enum.to_list(1..10_000_000)},
+  {"Titanic (50 Million)", Enum.to_list(1..50_000_000)}
+]
+
+tag = System.get_env("TAG")
+
+Benchee.run(
+  %{
+    "tail" => fn list -> MyMap.map_tco(list, map_fun) end,
+    "body" => fn list -> MyMap.map_body(list, map_fun) end,
+    "tail +order" => fn list -> MyMap.map_tco_arg_order(list, map_fun) end
+  },
+  warmup: 5,
+  time: 40,
+  # memory measurements are stable/all the same
+  memory_time: 0.1,
+  inputs: inputs,
+  formatters: [
+    {Benchee.Formatters.Console, extended_statistics: true}
+  ],
+  save: [tag: tag, path: "benchmarks/saves/tco_#{tag}.benchee"]
+)
+```
+
+
 
 The script is fairly standard, except for long benchmarking times and a lot of inputs. The `TAG` environment variable has to do with the [script that runs the benchmark across the different elixir & OTP versions](https://github.com/PragTob/tco_elixir/blob/main/run_bench.sh). I might dig into that in a later blog post - but it's just there to save them into different files and tag them with the respective version.
 

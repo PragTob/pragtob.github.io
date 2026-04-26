@@ -22,7 +22,34 @@ I always loved the idea of [Property Based Testing](https://propertesting.com/bo
 
 ## The first property based tests
 
-If nothing else, I wanted to make sure no matter what numbers you throw at my statistics module it won't blow up. To implement it I used [stream_data](https://github.com/whatyouhide/stream_data): https://gist.github.com/PragTob/092da503ae227d00977cccf50e3a2bbf This is what I came up with - our samples are any non empty list of floats and there are a bunch of checks that make sure the values are somewhere between minimum and maximum or bigger than 0. No way the tests are failing...
+If nothing else, I wanted to make sure no matter what numbers you throw at my statistics module it won't blow up. To implement it I used [stream_data](https://github.com/whatyouhide/stream_data): 
+
+Source: [https://gist.github.com/PragTob/092da503ae227d00977cccf50e3a2bbf](https://gist.github.com/PragTob/092da503ae227d00977cccf50e3a2bbf)
+
+**File: `statistex_test.exs`**
+```elixir
+check all samples <- list_of(float(), min_length: 1) do
+  stats = statistics(samples)
+
+  assert stats.sample_size >= 1
+  assert stats.minimum <= stats.maximum
+
+  assert stats.minimum <= stats.average
+  assert stats.average <= stats.maximum
+
+  assert stats.minimum <= stats.median
+  assert stats.median <= stats.maximum
+
+  assert stats.median == stats.percentiles[50]
+
+  assert stats.standard_deviation >= 0
+  assert stats.standard_deviation_ratio >= 0
+
+  # property that mode occurs in the sample omitted for brevity
+end
+```
+
+ This is what I came up with - our samples are any non empty list of floats and there are a bunch of checks that make sure the values are somewhere between minimum and maximum or bigger than 0. No way the tests are failing...
 
 ## Wait, the tests are failing?!
   
@@ -37,7 +64,23 @@ Honestly, I was shocked. On closer inspection, the standard deviation ratio was 
 
 ## Another property
 
-Thinking more I came up with another property: https://gist.github.com/PragTob/a803ce4acfee5ce2b35f784eb4ef656d It's much like the first properties, just making sure the percentile values are in order as they should there is absolutely no possibility that this will fail, absolutely none, well tested code... no chance it will fail ... **IT FAILED AGAIN?!?!?!**
+Thinking more I came up with another property: 
+
+Source: [https://gist.github.com/PragTob/a803ce4acfee5ce2b35f784eb4ef656d](https://gist.github.com/PragTob/a803ce4acfee5ce2b35f784eb4ef656d)
+
+**File: `percentiles_prop.exs`**
+```elixir
+check all samples <- list_of(float(), min_length: 1) do
+  percies = percentiles(samples, [25, 50, 75, 90, 99])
+
+  assert percies[25] <= percies[50]
+  assert percies[50] <= percies[75]
+  assert percies[75] <= percies[90]
+  assert percies[90] <= percies[99]
+end
+```
+
+ It's much like the first properties, just making sure the percentile values are in order as they should there is absolutely no possibility that this will fail, absolutely none, well tested code... no chance it will fail ... **IT FAILED AGAIN?!?!?!**
   
      Failed with generated values (after 4 successful runs):
     

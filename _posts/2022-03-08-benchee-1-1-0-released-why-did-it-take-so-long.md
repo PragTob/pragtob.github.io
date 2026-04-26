@@ -36,7 +36,63 @@ This can help you, as it's not affected by system load so you could make assumpt
 
 You can simply specify `reduction_time` and there you go:
 
-https://gist.github.com/PragTob/37ea85a6d984714a63cc4d7e8c195b52
+
+
+Source: [https://gist.github.com/PragTob/37ea85a6d984714a63cc4d7e8c195b52](https://gist.github.com/PragTob/37ea85a6d984714a63cc4d7e8c195b52)
+
+**File: `bench.exs`**
+```elixir
+list = Enum.to_list(1..10_000)
+map_fun = fn i -> [i, i * i] end
+
+Benchee.run(
+  %{
+    "flat_map" => fn -> Enum.flat_map(list, map_fun) end,
+    "map.flatten" => fn -> list |> Enum.map(map_fun) |> List.flatten() end
+  },
+  reduction_time: 2
+)
+```
+
+**File: `output`**
+```
+Operating System: Linux
+CPU Information: AMD Ryzen 9 5900X 12-Core Processor
+Number of Available Cores: 24
+Available memory: 31.27 GB
+Elixir 1.13.3
+Erlang 24.2.1
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 0 ns
+reduction time: 2 s
+parallel: 1
+inputs: none specified
+Estimated total run time: 18 s
+
+Benchmarking flat_map ...
+Benchmarking map.flatten ...
+
+Name                  ips        average  deviation         median         99th %
+flat_map           3.52 K      283.95 μs    ±10.98%      279.09 μs      500.28 μs
+map.flatten        2.26 K      441.58 μs    ±20.43%      410.51 μs      680.60 μs
+
+Comparison: 
+flat_map           3.52 K
+map.flatten        2.26 K - 1.56x slower +157.64 μs
+
+Reduction count statistics:
+
+Name        Reduction count
+flat_map            65.01 K
+map.flatten        124.52 K - 1.92x reduction count +59.51 K
+
+**All measurements for reduction count were the same**
+```
+
+
 
 It's worth noting that reduction counts will differ between different elixir and erlang versions - as we often noticed in our own CI setup.
 
@@ -54,7 +110,85 @@ Another feature that I'd never imagined having in Benchee, but thanks to communi
 
 Makes perfect sense, I just never thought of it. So, you can now say `profile_after: true` or even specify a specific profiler + options.
 
-https://gist.github.com/PragTob/d723d6c8eab930d28e8937d92a1eade3
+
+
+Source: [https://gist.github.com/PragTob/d723d6c8eab930d28e8937d92a1eade3](https://gist.github.com/PragTob/d723d6c8eab930d28e8937d92a1eade3)
+
+**File: `benchmark.exs`**
+```elixir
+list = Enum.to_list(1..10_000)
+map_fun = fn i -> [i, i * i] end
+
+Benchee.run(
+  %{
+    "flat_map" => fn -> Enum.flat_map(list, map_fun) end,
+    "map.flatten" => fn -> list |> Enum.map(map_fun) |> List.flatten() end
+  },
+  profile_after: true
+)
+```
+
+**File: `output`**
+```
+Operating System: Linux
+CPU Information: AMD Ryzen 9 5900X 12-Core Processor
+Number of Available Cores: 24
+Available memory: 31.27 GB
+Elixir 1.13.3
+Erlang 24.2.1
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 0 ns
+reduction time: 0 ns
+parallel: 1
+inputs: none specified
+Estimated total run time: 14 s
+
+Benchmarking flat_map ...
+Benchmarking map.flatten ...
+
+Name                  ips        average  deviation         median         99th %
+flat_map           3.51 K      284.55 μs    ±13.79%      277.29 μs      557.14 μs
+map.flatten        2.09 K      477.46 μs    ±30.97%      410.71 μs      871.02 μs
+
+Comparison: 
+flat_map           3.51 K
+map.flatten        2.09 K - 1.68x slower +192.91 μs
+
+Profiling flat_map with eprof...
+
+Profile results of #PID<0.237.0>
+#                                               CALLS     % TIME µS/CALL
+Total                                           30004 100.0 6864    0.23
+Enum.flat_map/2                                     1  0.00    0    0.00
+anonymous fn/2 in :elixir_compiler_1.__FILE__/1     1  0.00    0    0.00
+:erlang.apply/2                                     1  0.03    2    2.00
+:erlang.++/2                                    10000 17.35 1191    0.12
+anonymous fn/1 in :elixir_compiler_1.__FILE__/1 10000 30.29 2079    0.21
+Enum.flat_map_list/2                            10001 52.33 3592    0.36
+
+Profile done over 6 matching functions
+
+Profiling map.flatten with eprof...
+
+Profile results of #PID<0.239.0>
+#                                               CALLS     % TIME µS/CALL
+Total                                           60007 100.0 9204    0.15
+Enum.map/2                                          1  0.00    0    0.00
+:lists.flatten/1                                    1  0.00    0    0.00
+anonymous fn/2 in :elixir_compiler_1.__FILE__/1     1  0.01    1    1.00
+List.flatten/1                                      1  0.01    1    1.00
+:erlang.apply/2                                     1  0.02    2    2.00
+anonymous fn/1 in :elixir_compiler_1.__FILE__/1 10000 16.17 1488    0.15
+Enum."-map/2-lists^map/1-0-"/2                  10001 26.81 2468    0.25
+:lists.do_flatten/2                             40001 56.98 5244    0.13
+
+Profile done over 8 matching functions
+```
+
+
 
 We didn't implement the profiling ourselves, but instead we rely on the builtin profiling tasks like [this one](https://hexdocs.pm/mix/1.13/Mix.Tasks.Profile.Eprof.html#profile/2). To make the feature fully compatible with hooks, I also had to send a [small patch to elixir](https://github.com/elixir-lang/elixir/pull/11657) and so `after_each` hooks won't work with profiling until it's released. But, nobody uses hooks anyhow so, who cares? 😛
 
