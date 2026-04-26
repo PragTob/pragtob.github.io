@@ -1,33 +1,51 @@
 {% assign talk = include.talk %}
 
-<article class="longform__section">
-  <h2 {% if talk.id %}id="{{talk.id}}" {% endif %}class="longofrm__heading">
-    {{talk.title}}
+<article class="talk-card longform__section">
+  <header class="talk-card__header">
+    <h2 {% if talk.id %}id="{{talk.id}}" {% endif %}class="talk-card__title">
+      {{talk.title}}
+    </h2>
     {% if talk.events and talk.events.size > 0 %}
-      ({{talk.events | join: ", "}})
+      <ul class="talk-card__events" aria-label="Events where this talk was given">
+        {% for event in talk.events %}
+          <li class="talk-card__event">{{event}}</li>
+        {% endfor %}
+      </ul>
     {% endif %}
-  </h2>
+  </header>
 
   {% if talk.abstract %}
-    {{talk.abstract | markdownify}}
+    <div class="talk-card__abstract">
+      {{talk.abstract | markdownify}}
+    </div>
   {% endif %}
 
-  {% if talk.youtube_embed_url %}
-    <iframe width="560" height="315" src="{{talk.youtube_embed_url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  {% endif %}
+  {% if talk.youtube_embed_url or talk.speakerdeck_id %}
+    <section class="talk-card__media" aria-label="Embedded talk media">
+      {% if talk.youtube_embed_url %}
+        <div class="talk-embed talk-embed--youtube">
+          <iframe src="{{talk.youtube_embed_url}}" title="YouTube video player for {{talk.title}}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      {% endif %}
 
-  {% if talk.speakerdeck_id %}
-    <script defer class="speakerdeck-embed" data-id="{{talk.speakerdeck_id}}" data-ratio="{{talk.speakerdeck_ratio}}" src="//speakerdeck.com/assets/embed.js"></script>
+      {% if talk.speakerdeck_id %}
+        <div class="talk-embed talk-embed--speakerdeck" {% if talk.speakerdeck_ratio %}style="aspect-ratio: {{talk.speakerdeck_ratio}};"{% endif %}>
+          <iframe src="https://speakerdeck.com/player/{{talk.speakerdeck_id}}" title="SpeakerDeck slides for {{talk.title}}" loading="lazy" allowfullscreen></iframe>
+        </div>
+      {% endif %}
+    </section>
   {% endif %}
 
   {% if talk.resources %}
-    <h3>Resources</h3>
-    <ul>
-      {% for resource in talk.resources %}
-        <li>
-          <a href="{{resource.url}}">{{resource.label}}</a>{% if resource.suffix_html %}{{resource.suffix_html}}{% endif %}
-        </li>
-      {% endfor %}
-    </ul>
+    <section class="talk-card__resources">
+      <h3 class="talk-card__resources-heading">Resources</h3>
+      <ul class="talk-card__resources-list">
+        {% for resource in talk.resources %}
+          <li class="talk-card__resource">
+            <a href="{{resource.url}}">{{resource.label}}</a>{% if resource.suffix_html %}{{resource.suffix_html}}{% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
   {% endif %}
 </article>

@@ -249,3 +249,161 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   border: 0;
 }
+
+.talks-page {
+  margin-bottom: 2rem;
+}
+
+.talks-hero {
+  background: linear-gradient(135deg, rgba(66, 190, 101, 0.14), rgba(66, 190, 101, 0.03));
+  border: 1px solid rgba(66, 190, 101, 0.3);
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  padding: 1.4rem 1.5rem;
+}
+
+.talks-hero__heading {
+  margin-bottom: 0.45rem;
+}
+
+.talks-hero__intro {
+  color: #4a4a4a;
+  font-size: 1.06rem;
+  margin-bottom: 0.55rem;
+  max-width: 52rem;
+}
+
+.talks-hero__links {
+  color: #5a5a5a;
+  margin-bottom: 0.7rem;
+}
+
+.talks-hero__stats {
+  color: #355a40;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+  font-weight: 600;
+  gap: 0.75rem;
+  margin-bottom: 0;
+}
+
+.talks-list {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.talk-card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  margin-top: 0;
+  overflow: hidden;
+  padding: 1.2rem 1.25rem;
+}
+
+.talk-card__header {
+  margin-bottom: 0.9rem;
+}
+
+.talk-card__title {
+  font-size: 1.45rem;
+  margin-bottom: 0.55rem;
+}
+
+.talk-card__events {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.talk-card__event {
+  background: rgba(66, 190, 101, 0.11);
+  border: 1px solid rgba(66, 190, 101, 0.3);
+  border-radius: 999px;
+  color: #2f6a42;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+  padding: 0.3rem 0.6rem;
+}
+
+.talk-card__abstract {
+  color: #434343;
+  margin-bottom: 1rem;
+}
+
+.talk-card__media {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.talk-embed {
+  border: 1px solid #ebebeb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.talk-embed--youtube {
+  aspect-ratio: 16 / 9;
+}
+
+.talk-embed--youtube iframe {
+  border: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.talk-embed--speakerdeck .speakerdeck-embed {
+  display: block;
+  width: 100%;
+}
+
+.talk-embed--speakerdeck iframe {
+  aspect-ratio: 16 / 9;
+  border: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.talk-card__resources {
+  border-top: 1px solid #ededed;
+  padding-top: 0.8rem;
+}
+
+.talk-card__resources-heading {
+  font-size: 1rem;
+  margin-bottom: 0.45rem;
+}
+
+.talk-card__resources-list {
+  margin-bottom: 0;
+  padding-left: 1.1rem;
+}
+
+.talk-card__resource {
+  margin-bottom: 0.25rem;
+}
+
+@media (max-width: 767.98px) {
+  .talks-hero {
+    border-radius: 12px;
+    padding: 1.1rem 1rem;
+  }
+
+  .talk-card {
+    border-radius: 12px;
+    padding: 1rem 0.9rem;
+  }
+
+  .talk-card__title {
+    font-size: 1.22rem;
+  }
+}

@@ -3,15 +3,29 @@ layout: default
 title: My Talks
 ---
 
-<h1 class="longofrm__heading">Talks</h1>
-<p>
-  I like to give talks at numerous occasions. More specifically: conferences, user groups and workshops. In this list
-  you'll find talks I gave with the abstract and links to the slides - in general you find most of my slides at <a
-    href="https://speakerdeck.com/pragtob" title="Speaker Deck">Speaker Deck</a> and <a
-    href="http://www.slideshare.net/PragTob" title="slideshare">Slides (Slideshare)
-  </a>.
-</p>
 {% assign talks = site.data.talks.talks %}
-{% for talk in talks %}
-  {% include talk.html talk=talk %}
-{% endfor %}
+<section class="talks-page">
+  <header class="talks-hero longform__section">
+    <h1 class="talks-hero__heading">Talks</h1>
+    <p class="talks-hero__intro">
+      I love giving talks at conferences, user groups, and workshops. This page collects the abstracts, videos, and
+      slides from recent years, with embeds where available.
+    </p>
+    <p class="talks-hero__links">
+      Most slide decks are on
+      <a href="https://speakerdeck.com/pragtob" title="Speaker Deck">Speaker Deck</a>
+      and
+      <a href="http://www.slideshare.net/PragTob" title="Slideshare">Slideshare</a>.
+    </p>
+    <p class="talks-hero__stats">
+      <span>{{ talks.size }} talks</span>
+      <span>across conferences, user groups, and workshops</span>
+    </p>
+  </header>
+
+  <div class="talks-list">
+    {% for talk in talks %}
+      {% include talk.html talk=talk %}
+    {% endfor %}
+  </div>
+</section>
