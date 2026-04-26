@@ -1,0 +1,21 @@
+---
+layout: default
+title: Blog – Tobias Pfeiffer
+---
+
+<section class="blog-index">
+  <h1>Blog</h1>
+
+  <ul class="post-list">
+    {% assign published_posts = site.posts | where: "publish", true %}
+    {% for post in published_posts %}
+    <li class="post-item">
+      <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+      <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      {% if post.excerpt %}
+      <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>

@@ -1,0 +1,85 @@
+---
+layout: post
+title: 'Benchmarking a Go AI in Ruby: CRuby vs. Rubinius vs. JRuby vs. Truffle - a
+  year later'
+description: None
+date: 2017-01-24 15:00:43 -0000
+last_modified_at: 2020-08-29 07:46:03 -0000
+publish: true
+pin: false
+image:
+  path: https://pragtob.wordpress.com/wp-content/uploads/2017/01/rubykon_2_speedup1.png
+categories:
+- Ruby
+tags:
+- benchmark
+- CRuby
+- JRuby
+- performance
+- ruby
+- rubykon
+- TruffleRuby
+---
+A little more than a year ago [I published a blog post benchmarking different ruby implementations against a bot that plays Go which I wrote](https://pragtob.wordpress.com/2015/11/30/benchmarking-a-go-ai-in-ruby-cruby-vs-rubinius-vs-jruby-vs-trufflegraal/). Now a little than a year later (~13.5 months) let's see how the different contestants have improved in the time passed. This question becomes increasingly interesting as **[Ruby 3.0 aims to be 3 times as fast as Ruby 2.0](https://blog.heroku.com/ruby-3-by-3).** As last time the benchmarks will be run on my [Go bot rubykon](https://github.com/PragTob/rubykon), which has barely changed since then. The important question for Monte Carlo Tree Search (MCTS) bots is how many simulations can I run, as this improves quality of play. You can [check out the old blog post](https://pragtob.wordpress.com/2015/11/30/benchmarking-a-go-ai-in-ruby-cruby-vs-rubinius-vs-jruby-vs-trufflegraal/) for more rationale on this.
+
+## Setup
+
+The benchmarks were run on the 16th of January 2017 with the following concrete Ruby versions (versions slightly abbreviated in the rest of the post):
+
+* CRuby 2.0.0p648
+* CRuby 2.2.3p173
+* Rubinius 2.5.8
+* JRuby 9.0.3.0
+* JRuby 9.0.3.0 in server mode and with invoke dynamic enabled (denoted as + id)
+* Truffleruby with master from 2015-11-08 and commit hash fd2c179, running on graalvm-jdk1.8.0
+* CRuby 2.4.0p0
+* Rubinius 3.69
+* JRuby 9.1.7.0
+* JRuby 9.1.7.0 in server mode and with invoke dynamic enabled (denoted as + id)
+* Truffleruby on truffle-head from 2016-01-16 with commit hash 4ad402a54cf, running on graal-core master from 2016-01-16 with commit hash 8f1ad406d78f2f built with a JVMCI enabled jdk8 (check out the [install script](https://github.com/graalvm/truffleruby/commit/d70323eae0973f9d9dbd552e1604796305fb5bb2))
+
+As you might notice I prefer to say CRuby over MRI and very old versions are gone - e.g. I dropped benchmarking CRuby 1.9.x and JRuby 1.7.x. I also added CRuby 2.0 - as it is the comparison standard for Ruby 3.0. The next 5 versions are the remaining rubies from the original benchmark, the other five are their most up to date versions. All of this is run on my Desktop PC running Linux Mint 18 (based on Ubuntu 16.04 LTS) with 16 GB of memory and an [i7-4790 (3.6 GHz, 4 GHz boost)](https://ark.intel.com/products/80806/Intel-Core-i7-4790-Processor-8M-Cache-up-to-4_00-GHz). Also running on openjdk 8. [code] tobi@speedy ~ $ uname -a Linux speedy 4.4.0-59-generic #80-Ubuntu SMP Fri Jan 6 17:47:47 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux tobi@speedy ~ $ java -version openjdk version "1.8.0_111" OpenJDK Runtime Environment (build 1.8.0_111-8u111-b14-2ubuntu0.16.04.2-b14) OpenJDK 64-Bit Server VM (build 25.111-b14, mixed mode) [/code]
+
+## Full Monte Carlo Tree Search with 1000 playouts
+
+I cut out the first benchmark from last years edition due to some trouble of getting benchmark-ips running - so we'll stick with the more macro benchmark that performs a full Monte Carlo Tree Search using UCT on a 19x19 board doing 1000 playouts and see how fast we can get here. This is really the whole package of what we need to make fast for the Go-Bot to be fast! Th benchmark uses [benchmark-avg](https://github.com/PragTob/rubykon/tree/master/lib/benchmark), which I wrote to support more macro benchmarks than bencmark-ips. The benchmarking code is quite simple: [code lang="ruby"] Benchmark.avg do |benchmark| game_state_19 = Rubykon::GameState.new Rubykon::Game.new(19) mcts = MCTS::MCTS.new benchmark.config warmup: 180, time: 180 benchmark.report "19x19 1_000 iterations" do mcts.start game_state_19, 1_000 end end [/code] As you can see we run plenty of warmup - 3 minutes of it - and then 3 minutes of benchmarking time. So let's see how many iterations per minute our contestants manage here: [caption id="attachment_2048" align="aligncenter" width="797"][![Iterations per minute - higher is better](https://pragtob.wordpress.com/wp-content/uploads/2017/01/rubykon_ipm_new1.png)](https://pragtob.wordpress.com/wp-content/uploads/2017/01/rubykon_ipm_new1.png) Iterations per minute - higher is better[/caption] As one can see, truffleruby is leading the pack by quite a margin,  followed by JRuby (but still over 2 times faster than it). Truffleruby is also an impressive 7 times faster than CRuby 2.4.0. Of course, as the new benchmark was inspired by Ruby 3.0 aiming to be 3 times as fast as Ruby 2.0 - how are we doing? Do we maybe already have a 3 times faster Ruby? Well, there is a graph for that! [![rubykon_2_speedup](https://pragtob.wordpress.com/wp-content/uploads/2017/01/rubykon_2_speedup1.png)](https://pragtob.wordpress.com/wp-content/uploads/2017/01/rubykon_2_speedup1.png) As we can see JRuby 9.1.7.0 run in server mode and with invoke dynamic enabled is the first one to be 3 times faster than CRuby 2.0. Also, both the old version of truffleruby and the newest are 3 times faster than our baseline - the new one even 9 times faster! CRuby 2.4 on the other hand is at about a 14% improvement as compared to 2.0. Another metric that intrigues me is how did the implementation improve in the time in between benchmarks, to gauge where the journey is going. Therefore, the next chart compares the newest version of a Ruby implementation benchmarked here against their older sibling from last time (Ruby 2.4.0 against 2.2.3, JRuby 9.1.7.0 vs. 9.0.3.0 etc.): [caption id="attachment_2061" align="aligncenter" width="822"][![Speedup against older version \(higher is better\)](https://pragtob.wordpress.com/wp-content/uploads/2017/01/rubykon_speedup_against_old1.png)](https://pragtob.wordpress.com/wp-content/uploads/2017/01/rubykon_speedup_against_old1.png) Speedup against older version (higher is better)[/caption] CRuby improved by about 11%, JRuby with invokedynamic about 18% while truffleruby, already leading the pack last time, managed another 2x performance improvement! The odd one out clearly is Rubinius that only manages bout 20% of the performance of its former version (or a 5x decrease, if you will). This seemed like a setup error on my part at first, but it is not as [Rubinius removed their JIT](https://github.com/rubinius/rubinius/issues/3718#issuecomment-268347165). As this benchmark is a prime example of a pretty hot loop running, the hit of removing the JIT naturally is pretty hard. The slight decrease in JRuby performance without invokedynamic is slightly weird but it's so small that it might as well be measurement inaccuracies. Of course, for the data fans here is the raw table:  Ruby | ipm | average time (s) | standard deviation | Speedup to 2.0  
+---|---|---|---|---  
+2.0.0p648 | 4.54 | 13.22 | 0.44% | 1  
+2.2.3p173 | 4.68 | 12.83 | 1.87% | 1.0308370044  
+rbx-2.5.8 | 4.67 | 12.84 | 1.91% | 1.0286343612  
+JRuby 9.0.3.0 | 7.75 | 7.74 | 0.47% | 1.7070484581  
+JRuby 9.0.3.0 + id | 12.81 | 4.68 | 0.80% | 2.8215859031  
+truffleruby old | 16.93 | 3.54 | 10.70% | 3.7290748899  
+2.4.0p0 | 5.2 | 11.53 | 2.18% | 1.1453744493  
+rbx-3.69 | 1.01 | 59.4 | 0.30% | 0.2224669604  
+JRuby 9.1.7.0 | 7.34 | 8.17 | 2.12% | 1.6167400881  
+JRuby 9.1.7.0 + id | 15.12 | 3.97 | 0.62% | 3.3303964758  
+truffleruby | 36.65 | 1.64 | 1.25% | 8.0726872247  
+  
+## Thoughts on different Ruby implementations
+
+Let's wrap this up with a couple of thoughts on the different implementations:
+
+### TruffleRuby
+
+TruffleRuby is making steady and great progress, which I'm thoroughly impressed with. To be honest, I was wondering if its performance increased since the last benchmark as I was worried that implementing new Ruby features would lead to decreased performance. Seeing that it still managed a 2x performance improvement is mind boggling. Raw speed is one thing, but if you're familiar with TruffleRuby, one of the more noticable downsides is the big warmup time that it needs to do all of its fancy optimizations - so the peak performance you see here is only achieved after a certain time where it is much slower. Still, I'm happy to say that **warmup also improved since last time**! Where the old truffleruby, in my benchmarks, took about 101 seconds or 13 iterations to reach peak performance (hence the very long warmup time, to make sure every implementation is warm) the new one took around 52 seconds or 7 iterations. Still - the first of those warmup iterations took 27 seconds, so if you can't deal with some warmup time to start with this might be a deal breaker. Warmup is an important topic here - rubykon has no external dependencies so there's not much code that needs to be JITed and also TruffleRuby can probably do its type optimizations of specific methods rather efficiently. Of course, the team is working on that - there is a really noteworthy post about the [state of TruffleRuby in early 2017](http://lists.ruby-lang.org/pipermail/jruby/2017-January/000511.html). There further plans are detailed, e.g. C-extension support, improving startup time (**drastically!**) and running Rails. It shall also be mentioned here, that setting up TruffleRuby took by far the most time and some bugs had crept in that needed fixing for Rubykon to run again. But after all this is a pre 1.0 project so these problems are to be expected. And with that in mind I want to explicitly thank [Chris Seaton](https://github.com/chrisseaton) and [Benoit Daloze](https://github.com/eregon) for helping me with my setup troubles, fixing bugs and being woefully nice and responsive in general. Benoit even[wrote a script to install the current graal-core master](https://github.com/graalvm/truffleruby/commit/d70323eae0973f9d9dbd552e1604796305fb5bb2) to run TruffleRuby with, which I was struggling with and which is needed at the moment to run rubykon on TruffleRuby without optfails.
+
+### JRuby
+
+JRuby is coming along nicely, it's the only Ruby implementation that runs this benchmark at a 3x speed of Ruby 2.0 while able to run whole Rails applications at the same time. It's still my little personal favorite that I'd love to see more adoption of in the general ruby scene. Any time I see a talk or blog post about "Moving from ruby to the JVM for performance/Java interop" that doesn't mention JRuby but goes straight to Java/Clojure/Scala & friends it makes me sad (nothing against those technologies though, they're great!). JRuby at the moment also sits sort of in the middle of CRuby and TruffleRuby in other concerns - it takes more warmup time than CRuby but a lot less than TRuffleRuby while still reaching nice peak performance. The latest release also brought along some nice performance improvements and we can only expect more of those in the future.
+
+### CRuby/MRI
+
+CRuby is coming along nicely and steadily - we get nice improvements to the language and a 14% performance improvement over 2.0 isn't negligible as well. It's still a long shot from the targeted 3x. To be fair though, the team is still in the process of defining the benchmarks for which ["Ruby 3x3"](https://blog.heroku.com/ruby-3-by-3) will be measured (current plan afaik is to have 9 of those cause 3x3 = 9). This is the ground work to start optimization work, and Ruby 3 is still far in the future with the estimated release in 2020.
+
+### Rubinius
+
+Sadly, this is my bummer of this benchmarking round. A 5x performance decrase as compared to the previous version of this benchmark was quite surprising, as noted before this is due to the removed JIT. Comment courtesy of Brian (maintainer of Rubinus) from the [issue I opened](https://github.com/rubinius/rubinius/issues/3718#issuecomment-268347165):
+
+> [@PragTob](https://github.com/PragTob) the just-in-time compiler (JIT) has been removed to make way for a new interpreter and JIT infrastructure. That is the reason you're seeing the performance degradation (and illustrates how important JIT is to making Ruby fast). The JIT was removed because it had a number of bugs and was too complicated, resulting in almost no contributors making improvements.
+
+If I do a next version of these benchmarks and Rubinius by then doesn't have a JIT again or some other performance improvements, then I'll probably drop benchmarking it. It's far behind the others as of now and if Rubinius's goal isn't speed but developer experience or whatever then there also isn't much sense in benchmarking it :)
+
+### Final Thoughts
+
+CRuby and JRuby did mostly what I expect them to - improve at a steady and good pace. TruffleRuby truly surprised me with 2x improvements in run time and warmup. Still a bit skeptic about warmup time when it's running a full fledged Rails application but happy to try that out once they get there :) It makes me wonder though, if I ported Rubykon to [Crystal](https://crystal-lang.org/) how would the performance compare to Truffle? Ah, time... Almost forgot the usual disclaimer so here it goes: **Always run your own benchmarks!** This is a very CPU intensive AI problem typically solved by much more performant languages. I did it for fun and to see how far I could get. Also **this benchmark most certainly isn't indicative for performance of running a Rails application** \- the parts heavily used by Rails are most likely way different than what this does. E.g. we have no I/O here and little to no String operations, which play a bigger role in Rails. It might point in the right direction and speed improvements might be the same, but they don't have to be. Finally, this took me _WAY longer than I expected to_. I started this over a month ago while I still had time off. Compilation/running problems with old and very shine new rubies mostly to blame. So not sure if I'll do this again in a year's time - so if you'd like to see this and like this sort of thing please let me know :)  

@@ -1,6 +1,7 @@
 name: Tobias Pfeiffer
 markdown: kramdown
 highlighter: rouge
+permalink: /:year/:month/:day/:title/
 
 # This repo contains a WordPress->Jekyll export snapshot that includes content
 # incompatible with Liquid parsing (e.g. `{{ ... }}` snippets). Exclude it from builds.
