@@ -16,7 +16,9 @@ tags:
 - Neural Networks
 - slides
 ---
-A talk about AlphGo and techniques it used with no prior knowledge required. Second talk of the Codemotion Berlin series, mostly the same talk I gave at Full Stack Fest. Something was cut/adjusted. A full recording from the Full Stack Fest version is available [here](/2016/09/15/video-what-did-alphago-do-to-beat-the-strongest-human-go-player/). You can get the slides via [PDF](/assets/slides/2016/10/codemotion_berlin1.pdf), [Speakerdeck](https://speakerdeck.com/pragtob/what-did-alphago-do-to-beat-the-strongest-human-go-player-2) and [Slideshare](http://www.slideshare.net/PragTob/what-did-alphago-do-to-beat-the-strongest-human-go-player-67741458). [slideshare id=67741458&doc=codemotionberlin-161027171110]
+A talk about AlphGo and techniques it used with no prior knowledge required. Second talk of the Codemotion Berlin series, mostly the same talk I gave at Full Stack Fest. Something was cut/adjusted. A full recording from the Full Stack Fest version is available [here](/2016/09/15/video-what-did-alphago-do-to-beat-the-strongest-human-go-player/). You can get the slides via [PDF](/assets/slides/2016/10/codemotion_berlin1.pdf), [Speakerdeck](https://speakerdeck.com/pragtob/what-did-alphago-do-to-beat-the-strongest-human-go-player-2) and [Slideshare](http://www.slideshare.net/PragTob/what-did-alphago-do-to-beat-the-strongest-human-go-player-67741458).
+
+{% include embed-speakerdeck.html player_id="ebf193f663474ae08708120be98a7821" ratio="710/532" title="What did AlphaGo do to beat the strongest human Go player? slides" %}
 
 ## Abstract
 

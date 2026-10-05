@@ -17,7 +17,9 @@ tags:
 - rubyconfpt
 - slides
 ---
-And here go the slides for my elixir and phoenix talk focusing on the great features that both bring to the table and make your development experience nicer. It is similar to the version presented at Codemotion Berlin, save for some minor tweaks and a hopefully more readable and stronger shade of green :D So you can get the slides as [PDF](/assets/slides/2016/10/rubyconf_portugal_black_try.pdf), [speakerdeck](https://speakerdeck.com/pragtob/elixir-and-phoenix-fast-concurrent-and-explicit-2) and [slideshare](http://www.slideshare.net/PragTob/elixir-phoenix-fast-concurrent-and-explicit-67742331). [slideshare id=67742331&doc=rubyconfportugalblacktry-161027173345]
+And here go the slides for my elixir and phoenix talk focusing on the great features that both bring to the table and make your development experience nicer. It is similar to the version presented at Codemotion Berlin, save for some minor tweaks and a hopefully more readable and stronger shade of green :D So you can get the slides as [PDF](/assets/slides/2016/10/rubyconf_portugal_black_try.pdf), [speakerdeck](https://speakerdeck.com/pragtob/elixir-and-phoenix-fast-concurrent-and-explicit-2) and [slideshare](http://www.slideshare.net/PragTob/elixir-phoenix-fast-concurrent-and-explicit-67742331).
+
+{% include embed-speakerdeck.html player_id="9ffab99bb3c34610a99c098778989445" ratio="710/532" title="Elixir & Phoenix – fast, concurrent and explicit slides" %}
 
 ## Abstract
 

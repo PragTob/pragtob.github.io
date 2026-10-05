@@ -18,7 +18,9 @@ tags:
 - slides
 - story
 ---
-Yesterday at RUG::B I tried something I'd never done before: a more personal, story driven talk. And in order to adequately illustrate it and how different Open Source feel to me I also opted paint some very special drawings. Open Source is something I've been doing for longer than people pay me to do programming. I'm immensely passionate about it and it felt like it was some kind of blind spot that I never gave a talk about it so far. If you know of a conference this talk would be a good fit for, please let me know. Anyhow, here are the slides to enjoy: [Speaker Deck](https://speakerdeck.com/pragtob/stories-in-open-source), [SlideShare](https://www.slideshare.net/PragTob/stories-in-open-source) or [PDF](/assets/slides/2020/03/rug_b.pdf "rug_b") [slideshare id=229796122&doc=rugb-200306090835]
+Yesterday at RUG::B I tried something I'd never done before: a more personal, story driven talk. And in order to adequately illustrate it and how different Open Source feel to me I also opted paint some very special drawings. Open Source is something I've been doing for longer than people pay me to do programming. I'm immensely passionate about it and it felt like it was some kind of blind spot that I never gave a talk about it so far. If you know of a conference this talk would be a good fit for, please let me know. Anyhow, here are the slides to enjoy: [Speaker Deck](https://speakerdeck.com/pragtob/stories-in-open-source), [SlideShare](https://www.slideshare.net/PragTob/stories-in-open-source) or [PDF](/assets/slides/2020/03/rug_b.pdf "rug_b")
+
+{% include embed-speakerdeck.html player_id="a6e2ef29a92541bab94d3f6b65c4dc3d" ratio="710/399" title="Stories in Open Source slides" %}
 
 ### Abstract
 

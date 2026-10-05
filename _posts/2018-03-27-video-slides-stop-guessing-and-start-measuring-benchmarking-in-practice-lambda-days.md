@@ -11,7 +11,9 @@ categories:
 - Uncategorized
 tags: []
 ---
-I managed to get into [Lambda days](http://www.lambdadays.org/lambdadays2018) this year and got a chance to present my benchmarking talk. You can watch the video here and check out the slides. Sadly the bunny video isn't working in the recording :'( https://www.youtube.com/watch?v=KSrImdsfjL4&utm_source=dlvr.it&utm_medium=twitter You can see the slides here or at [speakerdeck](https://speakerdeck.com/pragtob/stop-guessing-and-start-measuring-benchmarking-in-practice-lambdadays), [slideshare](https://www.slideshare.net/PragTob/stop-guessing-and-start-measuring-benchmarking-in-practice-lambdadays) or [PDF.](/assets/slides/2018/03/lambdadays.pdf "lambdadays") [slideshare id=91683988&doc=lambdadays-180323140834]
+I managed to get into [Lambda days](http://www.lambdadays.org/lambdadays2018) this year and got a chance to present my benchmarking talk. You can watch the video here and check out the slides. Sadly the bunny video isn't working in the recording :'( https://www.youtube.com/watch?v=KSrImdsfjL4&utm_source=dlvr.it&utm_medium=twitter You can see the slides here or at [speakerdeck](https://speakerdeck.com/pragtob/stop-guessing-and-start-measuring-benchmarking-in-practice-lambdadays), [slideshare](https://www.slideshare.net/PragTob/stop-guessing-and-start-measuring-benchmarking-in-practice-lambdadays) or [PDF.](/assets/slides/2018/03/lambdadays.pdf "lambdadays")
+
+{% include embed-speakerdeck.html player_id="3d75063b8058418f8a1e0d5b347590bb" ratio="710/398" title="Stop Guessing and Start Measuring - Benchmarking in Practice (Lambdadays) slides" %}
 
 ## Abstract
 

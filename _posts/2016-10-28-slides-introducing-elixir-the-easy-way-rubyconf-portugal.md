@@ -10,7 +10,9 @@ categories:
 - Uncategorized
 tags: []
 ---
-A small lightning talk I gave at Rubyconf Portugal that is complementary to my "[elixir & phoenix - fast, concurrent and explicit](/2016/10/27/slides-elixir-phoenix-fast-concurrent-and-explicit-rubyconf-portugal/)" talk in that it goes into how we integrated a Phoenix application into with our existing Rails application and clients. Slides are available as [PDF](/assets/slides/2016/10/rubyconf_portugal_wide.pdf), [speakerdeck](https://speakerdeck.com/pragtob/introducing-elixir-the-easy-way) and [slideshare](http://www.slideshare.net/PragTob/introducing-elixir-the-easy-way). [slideshare id=67789754&doc=rubyconfportugalwide-161028140813]
+A small lightning talk I gave at Rubyconf Portugal that is complementary to my "[elixir & phoenix - fast, concurrent and explicit](/2016/10/27/slides-elixir-phoenix-fast-concurrent-and-explicit-rubyconf-portugal/)" talk in that it goes into how we integrated a Phoenix application into with our existing Rails application and clients. Slides are available as [PDF](/assets/slides/2016/10/rubyconf_portugal_wide.pdf), [speakerdeck](https://speakerdeck.com/pragtob/introducing-elixir-the-easy-way) and [slideshare](http://www.slideshare.net/PragTob/introducing-elixir-the-easy-way).
+
+{% include embed-speakerdeck.html player_id="b30ffd40c2c64ff181a51de6babe4f87" ratio="710/398" title="Introducing Elixir the easy way slides" %}
 
 ## Abstract
 

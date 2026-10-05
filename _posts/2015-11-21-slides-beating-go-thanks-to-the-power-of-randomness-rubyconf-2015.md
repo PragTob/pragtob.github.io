@@ -21,7 +21,7 @@ I was happy enough to present at [rubyconf](http://rubyconf.org/) this year. Her
 
 ##### Video
 
-[youtube https://www.youtube.com/watch?v=fFGB3VFuSFU]
+{% include embed-youtube.html id="fFGB3VFuSFU" title="RubyConf 2015 - Beating Go thanks to the power of randomness by Tobias Pfeiffer" %}
 
 ##### Slides
 

@@ -23,9 +23,7 @@ Slides can be viewed here, on [speaker deck](https://speakerdeck.com/pragtob/fun
 
 {% include embed-youtube.html id="S_fRwGY4SAU" title="Functioning Among Humans talk recording" %}
 
- 
-
-[slideshare id=180717727&doc=heartofclojure-191010153401]
+{% include embed-speakerdeck.html player_id="cf8fe3940f394b66a73c1f7fd14b5ace" ratio="710/399" title="Functioning Among Humans slides" %}
 
 ![sketchnotes](/assets/uploads/2019/10/sketchnotes.jpeg) sketch notes by my friend [@malweene](https://twitter.com/malweene/status/1157674342022561792)
 

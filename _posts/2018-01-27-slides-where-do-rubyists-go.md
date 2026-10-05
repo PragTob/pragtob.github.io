@@ -16,7 +16,9 @@ tags:
 - ruby
 - slides
 ---
-I gave my first ever keynote yesterday at [Ruby on Ice](https://rubyonice.com/2018), which was a lot of fun. A lot of the talk is based on my "Where do Rubyists go?"-survey but also researching and looking into languages. The talk looks into what programming languages Ruby developers learn for work or in their free time, what the major features of those languages are and how that compares to Ruby. What does it tell us about Ruby and our community? Slides can be viewed here or on [speakerdeck](https://speakerdeck.com/pragtob/where-do-rubyists-go), [slideshare](https://www.slideshare.net/PragTob/where-do-rubyists-go) or [PDF](/assets/slides/2018/01/rubyonice.pdf "rubyonice") [slideshare id=86779279&doc=rubyonice-180127101329]
+I gave my first ever keynote yesterday at [Ruby on Ice](https://rubyonice.com/2018), which was a lot of fun. A lot of the talk is based on my "Where do Rubyists go?"-survey but also researching and looking into languages. The talk looks into what programming languages Ruby developers learn for work or in their free time, what the major features of those languages are and how that compares to Ruby. What does it tell us about Ruby and our community? Slides can be viewed here or on [speakerdeck](https://speakerdeck.com/pragtob/where-do-rubyists-go), [slideshare](https://www.slideshare.net/PragTob/where-do-rubyists-go) or [PDF](/assets/slides/2018/01/rubyonice.pdf "rubyonice")
+
+{% include embed-speakerdeck.html player_id="e1168bdea6f24f71900636ea1a8ca4e0" ratio="710/398" title=" Where do Rubyists go?  slides" %}
 
 ### Abstract
 

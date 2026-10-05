@@ -15,7 +15,9 @@ tags:
 - monolith
 - slides
 ---
-I was supposed to give this talk at ElixirConf.Eu, but sadly fell ill. These are the slides (still titled alpha-1) that I used to give it [Elixir Berlin](http://elixir.berlin/) which was met with a great reception. Which is also why I was so looking forward to give it again and have it recorded... Anyhow, if you saw the talk and want to go through the slides again or you were looking forward to the slides - here they are. Slides can be viewed here or on [speakerdeck](https://speakerdeck.com/pragtob/elixir-your-monolith-and-you), [slideshare](https://www.slideshare.net/PragTob/elixir-your-monolith-and-you) or [PDF](/assets/slides/2018/04/your_monolith_elixir_and_you.pdf "your_monolith_elixir_and_you") [slideshare id=94120745&doc=yourmonolithelixirandyou-180417172537]
+I was supposed to give this talk at ElixirConf.Eu, but sadly fell ill. These are the slides (still titled alpha-1) that I used to give it [Elixir Berlin](http://elixir.berlin/) which was met with a great reception. Which is also why I was so looking forward to give it again and have it recorded... Anyhow, if you saw the talk and want to go through the slides again or you were looking forward to the slides - here they are. Slides can be viewed here or on [speakerdeck](https://speakerdeck.com/pragtob/elixir-your-monolith-and-you), [slideshare](https://www.slideshare.net/PragTob/elixir-your-monolith-and-you) or [PDF](/assets/slides/2018/04/your_monolith_elixir_and_you.pdf "your_monolith_elixir_and_you")
+
+{% include embed-speakerdeck.html player_id="8c77971c444f4af2a1ff74b7af45798e" ratio="710/398" title="Elixir, your Monolith and You slides" %}
 
 ## Abstract
 

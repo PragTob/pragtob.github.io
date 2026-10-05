@@ -1,4 +1,4 @@
-<div class="embed-container">
+<div class="embed-container"{% if include.ratio %} style="aspect-ratio: {{ include.ratio }};"{% endif %}>
   <iframe
     src="https://speakerdeck.com/player/{{ include.player_id }}"
     title="{{ include.title | default: 'Speaker Deck slides' }}"
