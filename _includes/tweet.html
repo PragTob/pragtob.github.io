@@ -1,0 +1,18 @@
+{%- assign handle = include.url | split: '/' | slice: 3 | first -%}
+<blockquote class="tweet">
+  {%- if include.text %}
+  <p class="tweet__text">{{ include.text | escape }}</p>
+  {%- else %}
+  <p class="tweet__text tweet__text--missing">This post is no longer available.</p>
+  {%- endif %}
+  {%- if include.image %}
+  <a class="tweet__media" href="{{ include.image }}"><img src="{{ include.image }}" alt="{{ include.image_alt | default: 'Photo attached to the post' | escape }}" loading="lazy"></a>
+  {%- endif %}
+  <footer class="tweet__meta">
+    {%- if include.author %}&mdash; {{ include.author | escape }} ({% endif -%}
+    <a href="https://x.com/{{ handle }}">@{{ handle }}</a>
+    {%- if include.author %}){% endif -%}
+    {%- if include.date %}, {{ include.date | escape }}{% endif %}
+    &middot; <a href="{{ include.url }}" rel="noopener">View original</a>
+  </footer>
+</blockquote>

@@ -29,7 +29,11 @@ As you might have noticed during the first two posts, most of the work done for 
 
 ## Arrival
 
-For Arrival I like to be the first person at the venue, so I get there 30 to 45 minutes before the official meetup start. If the meetup involves presentations of any kind, be sure to bring your own laptop. The laptop of a speaker might break down, they don't have their adapter with them... lots of things can happen, so it's good to have a backup on your side. [embed]https://twitter.com/DajanaGuenther/status/662321418433073157[/embed] Then it's time to make sure everything is set:
+For Arrival I like to be the first person at the venue, so I get there 30 to 45 minutes before the official meetup start. If the meetup involves presentations of any kind, be sure to bring your own laptop. The laptop of a speaker might break down, they don't have their adapter with them... lots of things can happen, so it's good to have a backup on your side.
+
+{% include tweet.html url="https://twitter.com/DajanaGuenther/status/662321418433073157" author="Dajana" date="Nov 5, 2015" text="Yeah!!! @fnordfish to the rescue \o/ @rug_b will have audio <3" image="/assets/uploads/2016/04/tweet-662321418433073157.jpg" image_alt="A man crouching next to a table with audio equipment and cables, in front of a speaker and event banners" %}
+
+Then it's time to make sure everything is set:
 
 * Who is the responsible person from the venue in case we need anything?
 * Is there something special we gotta pay attention to (for instance, keep windows closed so neighbours aren't disturbed)?
@@ -43,7 +47,7 @@ For Arrival I like to be the first person at the venue, so I get there 30 to 45 
 * Where are my speakers? Do they have any preference when to speak? (I usually let them choose on a "first come first served" basis)
 * Check that the laptop of the speakers works OK with the projector (Adapter etc.), before the meetup starts to prevent bad srprises
 
-[embed]https://twitter.com/rug_b/status/253892882300284928[/embed]
+{% include tweet.html url="https://twitter.com/rug_b/status/253892882300284928" author="rug_b" date="Oct 4, 2012" text="look for these signs to find us tonight: RT @betterplace_org: .@rug_b Have fun!" %}
 
 ## Main
 
@@ -58,7 +62,11 @@ For the Main part I'll make sure I found enough speakers to fill the content bef
 * mention general rules such as the CoC
 * host & sponsors (if you have some), I usually give them maximum 5 minutes to introduce themselves while advising for a shorter time - people get bored easily
 
-Then it goes on to announcing talks, as well as different parts of the meetup (break, lightning talks) and tell people that we are always looking for talks and encourage them to approach me to bounce talk ideas around. [embed]https://twitter.com/polarblau/status/553264835979649024[/embed] If there are small pauses in between speakers (while connecting to the projector) I like to share some related news (new version of major library X released, security vulnerability in Y, conferences) and ask the audience if they also have any news to share. I just don't like sustained periods of silence while the meetup is supposed to be running. To get the attention of people and have them be silent a long extended "Shhhhhhh" while standing on the stage usually works best in my experience. Sometimes it's just enough to stand there, wait and look like you are going to say something. Holding up one hand (maybe with a balloon) also has worked pretty well for me. [![Trying to get some attention at a Rails Girls Berlin workshop](/assets/uploads/2016/03/8732453470_1b804d7f25_b.jpg)](https://pragtob.wordpress.com/?attachment_id=1374) Trying to get some attention at a Rails Girls Berlin workshop
+Then it goes on to announcing talks, as well as different parts of the meetup (break, lightning talks) and tell people that we are always looking for talks and encourage them to approach me to bounce talk ideas around.
+
+{% include tweet.html url="https://twitter.com/polarblau/status/553264835979649024" %}
+
+If there are small pauses in between speakers (while connecting to the projector) I like to share some related news (new version of major library X released, security vulnerability in Y, conferences) and ask the audience if they also have any news to share. I just don't like sustained periods of silence while the meetup is supposed to be running. To get the attention of people and have them be silent a long extended "Shhhhhhh" while standing on the stage usually works best in my experience. Sometimes it's just enough to stand there, wait and look like you are going to say something. Holding up one hand (maybe with a balloon) also has worked pretty well for me. [![Trying to get some attention at a Rails Girls Berlin workshop](/assets/uploads/2016/03/8732453470_1b804d7f25_b.jpg)](https://pragtob.wordpress.com/?attachment_id=1374) Trying to get some attention at a Rails Girls Berlin workshop
 
 ## Goodbye
 
