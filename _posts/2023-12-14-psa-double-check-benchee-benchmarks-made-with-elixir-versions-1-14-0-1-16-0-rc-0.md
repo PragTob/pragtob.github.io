@@ -67,7 +67,7 @@ Also note that even if all your examples are top level functions you should stil
 
 ## The Fun with Optimizations
 
-A natural question here is _"why would anyone disable optimizations?"_ , which is fair. The thing with many optimizations is - they don't come for free! They might be better in the majority of the cases, but there is often still that part where they are slower. Think of the JVM and its great JIT - it gives you a great performance after a warmup period but during warmup it's usually slower than without a JIT (as it needs to perform the additional JIT work). If you want to read more on warmup times I have an [extensive blog post covering the topic](https://pragtob.wordpress.com/2017/08/29/careful-what-you-measure-2-1-times-slower-to-4-2-times-faster-mjit-versus-truffle-ruby/).
+A natural question here is _"why would anyone disable optimizations?"_ , which is fair. The thing with many optimizations is - they don't come for free! They might be better in the majority of the cases, but there is often still that part where they are slower. Think of the JVM and its great JIT - it gives you a great performance after a warmup period but during warmup it's usually slower than without a JIT (as it needs to perform the additional JIT work). If you want to read more on warmup times I have an [extensive blog post covering the topic](/2017/08/29/careful-what-you-measure-2-1-times-slower-to-4-2-times-faster-mjit-versus-truffle-ruby/).
 
 So, what was the goal here? As the [original PR](https://github.com/elixir-lang/elixir/pull/11420) states:
 

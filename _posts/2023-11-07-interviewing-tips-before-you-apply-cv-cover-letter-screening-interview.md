@@ -32,8 +32,8 @@ Allegedly this post should have been split up as it is gargantuan in size, but a
 This part of a blog post series I’m writing covering:
 
 * CV, cover letter & screening interview ←**you are here**
-* [Technical challenges - Coding & More](https://pragtob.wordpress.com/2023/11/29/interviewing-tips-technical-challenges-coding-more/) (Bonus: [Reexamining FizzBuzz Step by Step – and allowing for more varied rules](https://pragtob.wordpress.com/2023/11/28/reexamining-fizzbuzz-step-by-step-and-allowing-for-more-varied-rules/))
-* [Interviews](https://pragtob.wordpress.com/2024/03/21/interviewing-tips-the-interview/)
+* [Technical challenges - Coding & More](/2023/11/29/interviewing-tips-technical-challenges-coding-more/) (Bonus: [Reexamining FizzBuzz Step by Step – and allowing for more varied rules](/2023/11/28/reexamining-fizzbuzz-step-by-step-and-allowing-for-more-varied-rules/))
+* [Interviews](/2024/03/21/interviewing-tips-the-interview/)
 
 # Mindset
 
@@ -78,7 +78,7 @@ Surely the news section is an exaggeration though, right? I mean… _maybe_. How
 
 [![](/assets/uploads/2023/11/img20231107140755.jpg?w=1024)](/assets/uploads/2023/11/img20231107140755.jpg)
 
-Alright, you now know the company and what they do. It’s time to prepare your CV! Again, think about what’s most interesting to them. Keep in mind that sometimes, sadly, interviewers stumble into an interview without having read the CV beforehand. **Make it easy for them to see what’s most relevant**. My CV is by no means perfect but you can check it out [here](https://www.pragtob.info/resume) for some inspiration.
+Alright, you now know the company and what they do. It’s time to prepare your CV! Again, think about what’s most interesting to them. Keep in mind that sometimes, sadly, interviewers stumble into an interview without having read the CV beforehand. **Make it easy for them to see what’s most relevant**. My CV is by no means perfect but you can check it out [here](/resume) for some inspiration.
 
 I'll break down some tips and guidelines in the following sections.
 

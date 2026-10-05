@@ -88,14 +88,14 @@ Erlang Version | 22.0
 
 Benchmarks of course were run with [benchee](https://github.com/bencheeorg/benchee) and the benchmarking script is [here](https://github.com/PragTob/elixir_boards_benchmark/blob/master/benchmark.exs) (nothing too fancy). You can check them out in the [repo](https://github.com/PragTob/elixir_boards_benchmark) as markdown (thanks to [benchee_markdown](https://github.com/hrzndhrn/benchee_markdown)) or HTML reports ([benchee_html](https://github.com/bencheeorg/benchee_html)). Careful though if you're on mobile some of the HTML reports contain the raw measurements and hence **go up to 9MB in size and can take a while to load** also due to the JS drawing graphs!
 
-* [getting and setting full board](http://www.pragtob.info/benchee/board9x9/getting_and_setting_full_board.html)
-* [mixed bag](http://www.pragtob.info/benchee/board9x9/mixed_bag.html)
-* [get(0, 0)](http://www.pragtob.info/benchee/board9x9/get_0_0.html)
-* [get(4, 4)](http://www.pragtob.info/benchee/board9x9/get_4_4.html)
-* [get(8, 8)](http://www.pragtob.info/benchee/board9x9/get_8_8.html)
-* [set(0, 0)](http://www.pragtob.info/benchee/board9x9/set_0_0.html)
-* [set(4, 4)](http://www.pragtob.info/benchee/board9x9/set_4_4.html)
-* [set(8, 8)](http://www.pragtob.info/benchee/board9x9/set_8_8.html)
+* [getting and setting full board](/benchee/board9x9/getting_and_setting_full_board.html)
+* [mixed bag](/benchee/board9x9/mixed_bag.html)
+* [get(0, 0)](/benchee/board9x9/get_0_0.html)
+* [get(4, 4)](/benchee/board9x9/get_4_4.html)
+* [get(8, 8)](/benchee/board9x9/get_8_8.html)
+* [set(0, 0)](/benchee/board9x9/set_0_0.html)
+* [set(4, 4)](/benchee/board9x9/set_4_4.html)
+* [set(8, 8)](/benchee/board9x9/set_8_8.html)
 
 The results of getting and setting full board: ![runtime_final.png](/assets/uploads/2019/06/runtime_final.png) getting and setting full board iterations per second (higher is better) It's a tight race at the top when it comes to run time! **Tupl1D** , **Tuple2D** and **MapTuple** are all within striking range of each other and then there's a sharp fall off. Also there is a fair bit of variance involved as shown by the black "whiskers" (this is usual for benchmarks that finish in nanoseconds or microseconds because of garbage collection, interference etc.). Which one of these is best? To get a better picture let's look at the whole table of results:  Name | IPS | Average | Deviation | Median | Mode | Minimum | Maximum  
 ---|---|---|---|---|---|---|---  

@@ -29,7 +29,7 @@ It’s that time: I’m looking for a job! I know y’all ain’t got much time,
 
 # The short version
 
-I'm an experienced leader & product-minded engineer deeply interested in **collaboratively building useful products.** With a background spanning **small startups to scaling unicorns** , I bring a wealth of experience in **Elixir, Ruby, SQL** and some JavaScript. I love[Open Source](https://www.pragtob.info/projects#oss), participating in the[community](https://www.pragtob.info/projects#community) and giving[talks](https://www.pragtob.info/talks). My passion for **performance optimization** and benchmarking led me to create[benchee](https://github.com/bencheeorg/benchee).
+I'm an experienced leader & product-minded engineer deeply interested in **collaboratively building useful products.** With a background spanning **small startups to scaling unicorns** , I bring a wealth of experience in **Elixir, Ruby, SQL** and some JavaScript. I love[Open Source](/projects#oss), participating in the[community](/projects#community) and giving[talks](/talks). My passion for **performance optimization** and benchmarking led me to create[benchee](https://github.com/bencheeorg/benchee).
 
 In my most recent role as a **Senior Staff Engineer** @ [Remote](https://remote.com/), I led teams to success by **removing obstacles** , fostering a culture of **collaboration** and **filling the gaps**. Whether managing a product department of 15 or mentoring junior developers, my greatest joy comes from **empowering others**. I am fascinated by the **human side of software development** and continually strive for the **optimal balance** between immediate value delivery and long-term sustainability.
 
@@ -39,8 +39,8 @@ I’m considering both**full time** positions as well as **freelancing** opportu
 
 You can find out more about me here:
 
-* [CV](https://www.pragtob.info/resume) ([PDF](https://www.pragtob.info/tobias_pfeiffer_resume.pdf))
-* [Website](https://www.pragtob.info/)
+* [CV](/resume) ([PDF](/tobias_pfeiffer_resume.pdf))
+* [Website](/)
 * [Github](https://github.com/PragTob)
 * [Blog](https://pragtob.wordpress.com/)
 * [LinkedIn](https://www.linkedin.com/in/tobiaspfeiffer/)
@@ -93,7 +93,7 @@ Beyond that I believe that some of the most important skills are **people and or
 * Getting people on the same page to make sure we ship what is needed
 * Continuously learning
 
-Beyond that I’ve been running the [Ruby User Group Berlin](https://www.rug-b.de/) for the past 11+ years. I [speak at conferences and meetups](https://www.pragtob.info/talks) (and even used to run conferences) about a wide variety of topics: from Communication & Collaboration over Benchmarking best practices all the way to Application Architecture. My most recent talk details my [journey through Open Source](https://pragtob.wordpress.com/2024/02/13/videos-slides-stories-in-open-source/).
+Beyond that I’ve been running the [Ruby User Group Berlin](https://www.rug-b.de/) for the past 11+ years. I [speak at conferences and meetups](/talks) (and even used to run conferences) about a wide variety of topics: from Communication & Collaboration over Benchmarking best practices all the way to Application Architecture. My most recent talk details my [journey through Open Source](/2024/02/13/videos-slides-stories-in-open-source/).
 
 Speaking of which, the 3 major open source projects I contributed to in major ways are:
 
@@ -109,7 +109,7 @@ Much like a job ad, it’s unlikely for a job to tick all of the boxes and that�
 
 **Position:** There are _too many_ positions I can envision myself doing depending on the circumstances. I want to be somewhere**where my impact can go beyond code** as I love to help people and improve processes. What that means is up to the situation: One day it’s shipping a feature, then it’s fixing a bug, the other day it’s mentoring someone, the next it’s hiring, then it’s talking to a customer to understand what they need - I’m flexible. A rough overlook of what I can imagine:
 
-* **Staff+ Engineer** \- this has been my 2 most recent roles, it’s ambiguous, it’s hard and I love it. The technical leadership, the flexibility, the potential impact on an organization - it can be so rewarding. I love it so much, I [gave a talk about what it is](https://pragtob.wordpress.com/2024/02/14/slides-going-staff/). Sadly, the position isn’t common everywhere and especially not in smaller companies.
+* **Staff+ Engineer** \- this has been my 2 most recent roles, it’s ambiguous, it’s hard and I love it. The technical leadership, the flexibility, the potential impact on an organization - it can be so rewarding. I love it so much, I [gave a talk about what it is](/2024/02/14/slides-going-staff/). Sadly, the position isn’t common everywhere and especially not in smaller companies.
 * **Founding Engineer/Early CTO/Head of Engineering** \- I believe my combination of technical skills, product understanding as well as ability to grow and manage teams positions me perfectly for this. I can build the product and be hands-on while ramping up the team. It’s a role I wanted to work in for a long time.
 * **Manager/Team Lead/Head of Engineering/CTO** \- the difference to the above being a more mature company here. I’ve run a department of 15 and have since also gathered a lot more leadership experience, albeit as a Staff Engineer in huge companies but the technical leadership required there isn’t too different. I can help teams & products flourish.
 * **Senior Software Engineer** \- in the right circumstances I could be “just” a Software Engineer again.
@@ -131,7 +131,7 @@ I hope this gives you a good overview.
 
 # Getting in touch
 
-Piqued your interest? You can check out my [CV](https://www.pragtob.info/resume) again. Feel free to send me an email to get in touch with me at [pragtob@gmail.com](mailto:pragtob@gmail.com)!
+Piqued your interest? You can check out my [CV](/resume) again. Feel free to send me an email to get in touch with me at [pragtob@gmail.com](mailto:pragtob@gmail.com)!
 
 Also, if you spread this in your network, I’d really appreciate it!
 

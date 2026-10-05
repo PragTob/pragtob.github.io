@@ -22,7 +22,7 @@ tags:
 ---
 Last week I found myself at my old RailsGirls/code curious project group the [rubycorns](https://rubycorns.club) coaching a beginner through the [FizzBuzz](https://wiki.c2.com/?FizzBuzzTest) coding challenge. It was a lot of fun and I found myself itching to implement it again myself as I came up with some ideas about a nice solution given a requirement for arbitrary or changing rules to the game.
 
-I've also been working on blog posts helping people interview processes, the next of which will be about Technical Challenges/Code challenges (due to be published tomorrow! edit: [Published now!](https://pragtob.wordpress.com/2023/11/29/interviewing-tips-technical-challenges-coding-more/)). This is a little extension for that blog post, as an example of going through and improving a coding challenge.
+I've also been working on blog posts helping people interview processes, the next of which will be about Technical Challenges/Code challenges (due to be published tomorrow! edit: [Published now!](/2023/11/29/interviewing-tips-technical-challenges-coding-more/)). This is a little extension for that blog post, as an example of going through and improving a coding challenge.
 
 To be clear, I don’t endorse FizzBuzz as a coding challenge. In my opinion something closer to your domain is much more valuable. However, it is (probably) **the most well known coding challenge** so I wanted to examine it a bit. It is also **deceptively simple** , and so deserves some consideration.
 

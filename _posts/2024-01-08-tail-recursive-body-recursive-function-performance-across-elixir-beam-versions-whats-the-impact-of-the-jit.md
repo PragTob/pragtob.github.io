@@ -18,7 +18,7 @@ tags:
 - tail call optimization
 - tail-recursive
 ---
-I've wanted to revisit ["Tail Call Optimization in Elixir & Erlang – not as efficient and important as you probably think"](https://pragtob.wordpress.com/2016/06/16/tail-call-optimization-in-elixir-erlang-not-as-efficient-and-important-as-you-probably-think/) (2016) for a while - so much so that I already [revisited it once ~5 years ago](https://pragtob.wordpress.com/2019/04/08/revisiting-tail-call-optimization-in-elixir-erlang-with-benchee-1-0/) to show off some benchee 1.0 features. As a reminder, in these the results were:
+I've wanted to revisit ["Tail Call Optimization in Elixir & Erlang – not as efficient and important as you probably think"](/2016/06/16/tail-call-optimization-in-elixir-erlang-not-as-efficient-and-important-as-you-probably-think/) (2016) for a while - so much so that I already [revisited it once ~5 years ago](/2019/04/08/revisiting-tail-call-optimization-in-elixir-erlang-with-benchee-1-0/) to show off some benchee 1.0 features. As a reminder, in these the results were:
 
 * body-recursive was fastest on input sizes of lists the size of 100k and 5M, but slower on the smallest input (10k list) and the biggest input (25M list). The difference either way was usually in the ~5% to 20% range.
 * tail-recursive functions consumed significantly more memory
@@ -96,7 +96,7 @@ Also `tail + order` denotes the version that switched the order of the arguments
 
 ## Results
 
-As usual you can peruse the full benchmarking results in the [HTML reports](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs.html) or the console output here:
+As usual you can peruse the full benchmarking results in the [HTML reports](/benchee/re-re-map/tco_focussed_detailed_inputs.html) or the console output here:
 
 Console Output of the benchmark
   
@@ -425,18 +425,18 @@ Is that **the impact of the JIT** you may ask? It can certainly seem so - when w
 
 Table with more detailed data Name| Iterations per Second| Average| Deviation| Median| Mode| Minimum| Maximum| Sample size  
 ---|---|---|---|---|---|---|---|---  
-[tail +order (1.16.0-otp-26)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__order__1_16_0_otp_26_.html)| 11.48 K| 87.10 μs| ±368.22%| 72.35 μs| 71.78 μs| 68.68 μs| 200466.90 μs| 457086  
-[tail (1.16.0-otp-26)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__1_16_0_otp_26_.html)| 10.56 K| 94.70 μs| ±126.50%| 79.80 μs| 79.35 μs, 79.36 μs| 75.70 μs| 64483.82 μs| 420519  
-[tail +order (1.13.4-otp-24)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__order__1_13_4_otp_24_.html)| 10.20 K| 98.01 μs| ±236.80%| 84.80 μs| 81.91 μs| 79.22 μs| 123986.92 μs| 405920  
-[tail (1.13.4-otp-24)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__1_13_4_otp_24_.html)| 10.17 K| 98.37 μs| ±70.24%| 85.55 μs| 82.62 μs| 81.05 μs| 41801.49 μs| 404374  
-[body (1.16.0-otp-26)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__body__1_16_0_otp_26_.html)| 8.61 K| 116.19 μs| ±18.37%| 118.16 μs| 86.39 μs| 83.71 μs| 5156.24 μs| 343072  
-[body (1.13.4-otp-24)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__body__1_13_4_otp_24_.html)| 7.60 K| 131.50 μs| ±13.94%| 129.71 μs| 125.90 μs, 125.72 μs, 125.91 μs| 106.46 μs| 5935.86 μs| 302924  
-[tail +order (1.13.4-otp-23)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__order__1_13_4_otp_23_.html)| 7.34 K| 136.32 μs| ±232.24%| 120.61 μs| 109.26 μs| 106.66 μs| 168040.73 μs| 292044  
-[body (1.13.4-otp-23)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__body__1_13_4_otp_23_.html)| 6.51 K| 153.55 μs| ±9.75%| 153.70 μs| 147.51 μs| 139.84 μs| 5164.72 μs| 259470  
-[tail +order (1.6.6-otp-21)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__order__1_6_6_otp_21_.html)| 6.36 K| 157.14 μs| ±175.28%| 142.99 μs| 138.40 μs| 122.31 μs| 101605.07 μs| 253459  
-[tail (1.13.4-otp-23)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__1_13_4_otp_23_.html)| 6.25 K| 159.92 μs| ±116.12%| 154.20 μs| 125.40 μs| 115.74 μs| 47040.19 μs| 249144  
-[body (1.6.6-otp-21)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__body__1_6_6_otp_21_.html)| 6.23 K| 160.49 μs| ±9.88%| 159.88 μs| 159.82 μs| 109.67 μs| 4938.61 μs| 248259  
-[tail (1.6.6-otp-21)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__1_6_6_otp_21_.html)| 5.83 K| 171.54 μs| ±71.94%| 158.44 μs| 157.72 μs| 121.83 μs| 40861.21 μs| 232243  
+[tail +order (1.16.0-otp-26)](/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__order__1_16_0_otp_26_.html)| 11.48 K| 87.10 μs| ±368.22%| 72.35 μs| 71.78 μs| 68.68 μs| 200466.90 μs| 457086  
+[tail (1.16.0-otp-26)](/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__1_16_0_otp_26_.html)| 10.56 K| 94.70 μs| ±126.50%| 79.80 μs| 79.35 μs, 79.36 μs| 75.70 μs| 64483.82 μs| 420519  
+[tail +order (1.13.4-otp-24)](/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__order__1_13_4_otp_24_.html)| 10.20 K| 98.01 μs| ±236.80%| 84.80 μs| 81.91 μs| 79.22 μs| 123986.92 μs| 405920  
+[tail (1.13.4-otp-24)](/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__1_13_4_otp_24_.html)| 10.17 K| 98.37 μs| ±70.24%| 85.55 μs| 82.62 μs| 81.05 μs| 41801.49 μs| 404374  
+[body (1.16.0-otp-26)](/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__body__1_16_0_otp_26_.html)| 8.61 K| 116.19 μs| ±18.37%| 118.16 μs| 86.39 μs| 83.71 μs| 5156.24 μs| 343072  
+[body (1.13.4-otp-24)](/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__body__1_13_4_otp_24_.html)| 7.60 K| 131.50 μs| ±13.94%| 129.71 μs| 125.90 μs, 125.72 μs, 125.91 μs| 106.46 μs| 5935.86 μs| 302924  
+[tail +order (1.13.4-otp-23)](/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__order__1_13_4_otp_23_.html)| 7.34 K| 136.32 μs| ±232.24%| 120.61 μs| 109.26 μs| 106.66 μs| 168040.73 μs| 292044  
+[body (1.13.4-otp-23)](/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__body__1_13_4_otp_23_.html)| 6.51 K| 153.55 μs| ±9.75%| 153.70 μs| 147.51 μs| 139.84 μs| 5164.72 μs| 259470  
+[tail +order (1.6.6-otp-21)](/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__order__1_6_6_otp_21_.html)| 6.36 K| 157.14 μs| ±175.28%| 142.99 μs| 138.40 μs| 122.31 μs| 101605.07 μs| 253459  
+[tail (1.13.4-otp-23)](/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__1_13_4_otp_23_.html)| 6.25 K| 159.92 μs| ±116.12%| 154.20 μs| 125.40 μs| 115.74 μs| 47040.19 μs| 249144  
+[body (1.6.6-otp-21)](/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__body__1_6_6_otp_21_.html)| 6.23 K| 160.49 μs| ±9.88%| 159.88 μs| 159.82 μs| 109.67 μs| 4938.61 μs| 248259  
+[tail (1.6.6-otp-21)](/benchee/re-re-map/tco_focussed_detailed_inputs_small__10_thousand__tail__1_6_6_otp_21_.html)| 5.83 K| 171.54 μs| ±71.94%| 158.44 μs| 157.72 μs| 121.83 μs| 40861.21 μs| 232243  
   
 You can see the standard deviation here can be quite high, which is "thanks" to a few outliers that make the boxplot almost unreadable. Noise from Garbage Collection is often a bit of a problem with micro-benchmarks, but the results are stable and the sample size big enough. Here is a highly zoomed in boxplot to make it readable:
 
@@ -450,18 +450,18 @@ The **performance uplift of Elixir 1.16 running on OTP 26.2 is even more impress
 
 Table with more detailed data Name| Iterations per Second| Average| Deviation| Median| Mode| Minimum| Maximum| Sample size  
 ---|---|---|---|---|---|---|---|---  
-[tail +order (1.16.0-otp-26)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__order__1_16_0_otp_26_.html)| 823.46| 1.21 ms| ±33.74%| 1.17 ms| 0.71 ms| 0.70 ms| 5.88 ms| 32921  
-[tail (1.16.0-otp-26)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__1_16_0_otp_26_.html)| 765.87| 1.31 ms| ±32.35%| 1.25 ms| 0.78 ms| 0.77 ms| 5.91 ms| 30619  
-[body (1.16.0-otp-26)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__body__1_16_0_otp_26_.html)| 715.86| 1.40 ms| ±10.19%| 1.35 ms| 1.51 ms, 1.28 ms| 0.90 ms| 3.82 ms| 28623  
-[body (1.13.4-otp-24)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__body__1_13_4_otp_24_.html)| 690.92| 1.45 ms| ±10.57%| 1.56 ms| 1.30 ms, 1.31 ms| 1.29 ms| 3.77 ms| 27623  
-[tail +order (1.13.4-otp-24)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__order__1_13_4_otp_24_.html)| 636.45| 1.57 ms| ±42.91%| 1.33 ms| 1.32 ms, 1.32 ms, 1.32 ms, 1.32 ms, 1.32 ms, 1.32 ms| 0.79 ms| 6.21 ms| 25444  
-[tail (1.13.4-otp-24)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__1_13_4_otp_24_.html)| 629.78| 1.59 ms| ±42.61%| 1.36 ms| 1.36 ms| 0.80 ms| 6.20 ms| 25178  
-[body (1.13.4-otp-23)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__body__1_13_4_otp_23_.html)| 625.42| 1.60 ms| ±9.95%| 1.68 ms| 1.45 ms, 1.45 ms| 1.44 ms| 4.77 ms| 25004  
-[body (1.6.6-otp-21)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__body__1_6_6_otp_21_.html)| 589.10| 1.70 ms| ±9.69%| 1.65 ms| 1.64 ms| 1.39 ms| 5.06 ms| 23553  
-[tail +order (1.6.6-otp-21)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__order__1_6_6_otp_21_.html)| 534.56| 1.87 ms| ±25.30%| 2.22 ms| 1.42 ms| 1.28 ms| 4.67 ms| 21373  
-[tail (1.13.4-otp-23)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__1_13_4_otp_23_.html)| 514.88| 1.94 ms| ±23.90%| 2.31 ms| 1.44 ms, 1.44 ms| 1.43 ms| 4.65 ms| 20586  
-[tail (1.6.6-otp-21)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__1_6_6_otp_21_.html)| 514.64| 1.94 ms| ±24.51%| 2.21 ms| 1.40 ms| 1.11 ms| 4.33 ms| 20577  
-[tail +order (1.13.4-otp-23)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__order__1_13_4_otp_23_.html)| 513.89| 1.95 ms| ±23.73%| 2.23 ms| 1.52 ms| 1.26 ms| 4.67 ms| 20547  
+[tail +order (1.16.0-otp-26)](/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__order__1_16_0_otp_26_.html)| 823.46| 1.21 ms| ±33.74%| 1.17 ms| 0.71 ms| 0.70 ms| 5.88 ms| 32921  
+[tail (1.16.0-otp-26)](/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__1_16_0_otp_26_.html)| 765.87| 1.31 ms| ±32.35%| 1.25 ms| 0.78 ms| 0.77 ms| 5.91 ms| 30619  
+[body (1.16.0-otp-26)](/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__body__1_16_0_otp_26_.html)| 715.86| 1.40 ms| ±10.19%| 1.35 ms| 1.51 ms, 1.28 ms| 0.90 ms| 3.82 ms| 28623  
+[body (1.13.4-otp-24)](/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__body__1_13_4_otp_24_.html)| 690.92| 1.45 ms| ±10.57%| 1.56 ms| 1.30 ms, 1.31 ms| 1.29 ms| 3.77 ms| 27623  
+[tail +order (1.13.4-otp-24)](/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__order__1_13_4_otp_24_.html)| 636.45| 1.57 ms| ±42.91%| 1.33 ms| 1.32 ms, 1.32 ms, 1.32 ms, 1.32 ms, 1.32 ms, 1.32 ms| 0.79 ms| 6.21 ms| 25444  
+[tail (1.13.4-otp-24)](/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__1_13_4_otp_24_.html)| 629.78| 1.59 ms| ±42.61%| 1.36 ms| 1.36 ms| 0.80 ms| 6.20 ms| 25178  
+[body (1.13.4-otp-23)](/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__body__1_13_4_otp_23_.html)| 625.42| 1.60 ms| ±9.95%| 1.68 ms| 1.45 ms, 1.45 ms| 1.44 ms| 4.77 ms| 25004  
+[body (1.6.6-otp-21)](/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__body__1_6_6_otp_21_.html)| 589.10| 1.70 ms| ±9.69%| 1.65 ms| 1.64 ms| 1.39 ms| 5.06 ms| 23553  
+[tail +order (1.6.6-otp-21)](/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__order__1_6_6_otp_21_.html)| 534.56| 1.87 ms| ±25.30%| 2.22 ms| 1.42 ms| 1.28 ms| 4.67 ms| 21373  
+[tail (1.13.4-otp-23)](/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__1_13_4_otp_23_.html)| 514.88| 1.94 ms| ±23.90%| 2.31 ms| 1.44 ms, 1.44 ms| 1.43 ms| 4.65 ms| 20586  
+[tail (1.6.6-otp-21)](/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__1_6_6_otp_21_.html)| 514.64| 1.94 ms| ±24.51%| 2.21 ms| 1.40 ms| 1.11 ms| 4.33 ms| 20577  
+[tail +order (1.13.4-otp-23)](/benchee/re-re-map/tco_focussed_detailed_inputs_middle__100_thousand__tail__order__1_13_4_otp_23_.html)| 513.89| 1.95 ms| ±23.73%| 2.23 ms| 1.52 ms| 1.26 ms| 4.67 ms| 20547  
   
 Here the speedup of "fastest JIT vs. fastest non JIT" is still a great 40%. Interestingly here though, for all versions except for Elixir 1.16.0 on OTP 26.2 the body-recursive functions are faster than their tail-recursive counter parts. Hold that thought for later, let's first take a look a weird outlier - the input list with 1 Million elements.
 
@@ -473,18 +473,18 @@ So, why is that the outlier? Well, here **Elixir 1.13 on OTP 24.3 is faster than
 
 Table with more data Name| Iterations per Second| Average| Deviation| Median| Mode| Minimum| Maximum| Sample size  
 ---|---|---|---|---|---|---|---|---  
-[tail (1.13.4-otp-24)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__1_13_4_otp_24_.html)| 41.07| 24.35 ms| ±33.92%| 24.44 ms| none| 8.31 ms| 68.32 ms| 1643  
-[tail +order (1.13.4-otp-24)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__order__1_13_4_otp_24_.html)| 40.37| 24.77 ms| ±34.43%| 24.40 ms| 33.33 ms, 15.15 ms| 8.36 ms| 72.16 ms| 1615  
-[tail +order (1.16.0-otp-26)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__order__1_16_0_otp_26_.html)| 37.60| 26.60 ms| ±34.40%| 24.86 ms| 26.92 ms| 7.25 ms| 61.46 ms| 1504  
-[tail (1.16.0-otp-26)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__1_16_0_otp_26_.html)| 37.59| 26.60 ms| ±36.56%| 24.57 ms| none| 8.04 ms| 56.17 ms| 1503  
-[tail +order (1.6.6-otp-21)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__order__1_6_6_otp_21_.html)| 34.05| 29.37 ms| ±27.14%| 30.79 ms| 37.39 ms| 11.20 ms| 69.86 ms| 1362  
-[tail (1.13.4-otp-23)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__1_13_4_otp_23_.html)| 33.41| 29.93 ms| ±24.80%| 31.17 ms| none| 12.47 ms| 60.67 ms| 1336  
-[tail +order (1.13.4-otp-23)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__order__1_13_4_otp_23_.html)| 32.01| 31.24 ms| ±24.13%| 32.78 ms| 23.27 ms| 13.06 ms| 74.43 ms| 1280  
-[tail (1.6.6-otp-21)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__1_6_6_otp_21_.html)| 30.59| 32.69 ms| ±23.49%| 33.78 ms| none| 15.17 ms| 73.09 ms| 1224  
-[body (1.13.4-otp-23)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__body__1_13_4_otp_23_.html)| 26.93| 37.13 ms| ±4.54%| 37.51 ms| 38.11 ms| 20.90 ms| 56.89 ms| 1077  
-[body (1.16.0-otp-26)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__body__1_16_0_otp_26_.html)| 26.65| 37.52 ms| ±7.09%| 38.36 ms| none| 19.23 ms| 57.76 ms| 1066  
-[body (1.6.6-otp-21)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__body__1_6_6_otp_21_.html)| 26.32| 38.00 ms| ±4.56%| 38.02 ms| none| 19.81 ms| 55.04 ms| 1052  
-[body (1.13.4-otp-24)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__body__1_13_4_otp_24_.html)| 17.90| 55.86 ms| ±3.63%| 55.74 ms| none| 19.36 ms| 72.21 ms| 716  
+[tail (1.13.4-otp-24)](/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__1_13_4_otp_24_.html)| 41.07| 24.35 ms| ±33.92%| 24.44 ms| none| 8.31 ms| 68.32 ms| 1643  
+[tail +order (1.13.4-otp-24)](/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__order__1_13_4_otp_24_.html)| 40.37| 24.77 ms| ±34.43%| 24.40 ms| 33.33 ms, 15.15 ms| 8.36 ms| 72.16 ms| 1615  
+[tail +order (1.16.0-otp-26)](/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__order__1_16_0_otp_26_.html)| 37.60| 26.60 ms| ±34.40%| 24.86 ms| 26.92 ms| 7.25 ms| 61.46 ms| 1504  
+[tail (1.16.0-otp-26)](/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__1_16_0_otp_26_.html)| 37.59| 26.60 ms| ±36.56%| 24.57 ms| none| 8.04 ms| 56.17 ms| 1503  
+[tail +order (1.6.6-otp-21)](/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__order__1_6_6_otp_21_.html)| 34.05| 29.37 ms| ±27.14%| 30.79 ms| 37.39 ms| 11.20 ms| 69.86 ms| 1362  
+[tail (1.13.4-otp-23)](/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__1_13_4_otp_23_.html)| 33.41| 29.93 ms| ±24.80%| 31.17 ms| none| 12.47 ms| 60.67 ms| 1336  
+[tail +order (1.13.4-otp-23)](/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__order__1_13_4_otp_23_.html)| 32.01| 31.24 ms| ±24.13%| 32.78 ms| 23.27 ms| 13.06 ms| 74.43 ms| 1280  
+[tail (1.6.6-otp-21)](/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__tail__1_6_6_otp_21_.html)| 30.59| 32.69 ms| ±23.49%| 33.78 ms| none| 15.17 ms| 73.09 ms| 1224  
+[body (1.13.4-otp-23)](/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__body__1_13_4_otp_23_.html)| 26.93| 37.13 ms| ±4.54%| 37.51 ms| 38.11 ms| 20.90 ms| 56.89 ms| 1077  
+[body (1.16.0-otp-26)](/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__body__1_16_0_otp_26_.html)| 26.65| 37.52 ms| ±7.09%| 38.36 ms| none| 19.23 ms| 57.76 ms| 1066  
+[body (1.6.6-otp-21)](/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__body__1_6_6_otp_21_.html)| 26.32| 38.00 ms| ±4.56%| 38.02 ms| none| 19.81 ms| 55.04 ms| 1052  
+[body (1.13.4-otp-24)](/benchee/re-re-map/tco_focussed_detailed_inputs_big__1_million__body__1_13_4_otp_24_.html)| 17.90| 55.86 ms| ±3.63%| 55.74 ms| none| 19.36 ms| 72.21 ms| 716  
   
 Before we dig in, it's interesting to notice that at the 1 Million inputs mark, the body-recursive functions together occupy the last 4 spots of our ranking. It stays like this for all bigger inputs.
 
@@ -516,18 +516,18 @@ What I found interesting looking at the results is that **for our 10 Million inp
 
 Table with more data Name| Iterations per Second| Average| Deviation| Median| Mode| Minimum| Maximum| Sample size  
 ---|---|---|---|---|---|---|---|---  
-[tail (1.16.0-otp-26)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__1_16_0_otp_26_.html)| 8.59| 116.36 ms| ±24.44%| 111.06 ms| none| 81.09 ms| 379.73 ms| 343  
-[tail +order (1.16.0-otp-26)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__order__1_16_0_otp_26_.html)| 8.07| 123.89 ms| ±39.11%| 103.42 ms| none| 74.87 ms| 407.68 ms| 322  
-[tail +order (1.13.4-otp-23)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__order__1_13_4_otp_23_.html)| 5.15| 194.07 ms| ±28.32%| 171.83 ms| none| 129.96 ms| 399.67 ms| 206  
-[tail (1.13.4-otp-23)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__1_13_4_otp_23_.html)| 5.05| 197.91 ms| ±26.21%| 179.95 ms| none| 120.60 ms| 429.31 ms| 203  
-[tail (1.13.4-otp-24)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__1_13_4_otp_24_.html)| 4.82| 207.47 ms| ±31.62%| 184.35 ms| none| 85.42 ms| 494.75 ms| 193  
-[tail +order (1.13.4-otp-24)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__order__1_13_4_otp_24_.html)| 4.77| 209.59 ms| ±31.01%| 187.04 ms| none| 86.99 ms| 477.82 ms| 191  
-[tail (1.6.6-otp-21)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__1_6_6_otp_21_.html)| 4.76| 210.30 ms| ±26.31%| 189.71 ms| 224.04 ms| 131.60 ms| 450.47 ms| 190  
-[tail +order (1.6.6-otp-21)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__order__1_6_6_otp_21_.html)| 4.15| 240.89 ms| ±28.46%| 222.87 ms| none| 124.69 ms| 513.50 ms| 166  
-[body (1.6.6-otp-21)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__body__1_6_6_otp_21_.html)| 2.50| 399.78 ms| ±9.42%| 397.69 ms| none| 207.61 ms| 486.65 ms| 100  
-[body (1.13.4-otp-23)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__body__1_13_4_otp_23_.html)| 2.50| 399.88 ms| ±7.58%| 400.23 ms| none| 200.16 ms| 471.13 ms| 100  
-[body (1.16.0-otp-26)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__body__1_16_0_otp_26_.html)| 2.27| 440.73 ms| ±9.60%| 445.77 ms| none| 202.63 ms| 511.66 ms| 91  
-[body (1.13.4-otp-24)](http://www.pragtob.info/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__body__1_13_4_otp_24_.html)| 2.10| 476.77 ms| ±7.72%| 476.57 ms| none| 200.17 ms| 526.09 ms| 84  
+[tail (1.16.0-otp-26)](/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__1_16_0_otp_26_.html)| 8.59| 116.36 ms| ±24.44%| 111.06 ms| none| 81.09 ms| 379.73 ms| 343  
+[tail +order (1.16.0-otp-26)](/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__order__1_16_0_otp_26_.html)| 8.07| 123.89 ms| ±39.11%| 103.42 ms| none| 74.87 ms| 407.68 ms| 322  
+[tail +order (1.13.4-otp-23)](/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__order__1_13_4_otp_23_.html)| 5.15| 194.07 ms| ±28.32%| 171.83 ms| none| 129.96 ms| 399.67 ms| 206  
+[tail (1.13.4-otp-23)](/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__1_13_4_otp_23_.html)| 5.05| 197.91 ms| ±26.21%| 179.95 ms| none| 120.60 ms| 429.31 ms| 203  
+[tail (1.13.4-otp-24)](/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__1_13_4_otp_24_.html)| 4.82| 207.47 ms| ±31.62%| 184.35 ms| none| 85.42 ms| 494.75 ms| 193  
+[tail +order (1.13.4-otp-24)](/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__order__1_13_4_otp_24_.html)| 4.77| 209.59 ms| ±31.01%| 187.04 ms| none| 86.99 ms| 477.82 ms| 191  
+[tail (1.6.6-otp-21)](/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__1_6_6_otp_21_.html)| 4.76| 210.30 ms| ±26.31%| 189.71 ms| 224.04 ms| 131.60 ms| 450.47 ms| 190  
+[tail +order (1.6.6-otp-21)](/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__tail__order__1_6_6_otp_21_.html)| 4.15| 240.89 ms| ±28.46%| 222.87 ms| none| 124.69 ms| 513.50 ms| 166  
+[body (1.6.6-otp-21)](/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__body__1_6_6_otp_21_.html)| 2.50| 399.78 ms| ±9.42%| 397.69 ms| none| 207.61 ms| 486.65 ms| 100  
+[body (1.13.4-otp-23)](/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__body__1_13_4_otp_23_.html)| 2.50| 399.88 ms| ±7.58%| 400.23 ms| none| 200.16 ms| 471.13 ms| 100  
+[body (1.16.0-otp-26)](/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__body__1_16_0_otp_26_.html)| 2.27| 440.73 ms| ±9.60%| 445.77 ms| none| 202.63 ms| 511.66 ms| 91  
+[body (1.13.4-otp-24)](/benchee/re-re-map/tco_focussed_detailed_inputs_giant__10_million__body__1_13_4_otp_24_.html)| 2.10| 476.77 ms| ±7.72%| 476.57 ms| none| 200.17 ms| 526.09 ms| 84  
   
 We also see that the tail-recursive solution here is **almost 4 times as fast as the body-recursive version**. Somewhat interestingly the version without the argument order switch seems faster here (but not by much). You can also see that the median is (considerably) in favor of `tail +order` against its just `tail` counter part.
 
@@ -539,7 +539,7 @@ We can clearly see that the `tail +order` version goes into a repeating pattern 
 
 ### The body-recursive to tail-recursive reversal
 
-As you may remember from the intro, this journey once began with ["Tail Call Optimization in Elixir & Erlang – not as efficient and important as you probably think"](https://pragtob.wordpress.com/2016/06/16/tail-call-optimization-in-elixir-erlang-not-as-efficient-and-important-as-you-probably-think/) \- claiming that body-recursive version was faster than the tail-recursive version. [The last revision showed some difference in what function was faster based on what input was used](https://pragtob.wordpress.com/2019/04/08/revisiting-tail-call-optimization-in-elixir-erlang-with-benchee-1-0/).
+As you may remember from the intro, this journey once began with ["Tail Call Optimization in Elixir & Erlang – not as efficient and important as you probably think"](/2016/06/16/tail-call-optimization-in-elixir-erlang-not-as-efficient-and-important-as-you-probably-think/) \- claiming that body-recursive version was faster than the tail-recursive version. [The last revision showed some difference in what function was faster based on what input was used](/2019/04/08/revisiting-tail-call-optimization-in-elixir-erlang-with-benchee-1-0/).
 
 And now? **For Elixir 1.16 on OTP 26.2 the tail-recursive functions are faster than their body-recursive counter part on all tested inputs**! How different depends on the input size - from just 15% to almost 400% we've seen it all.
 
@@ -557,4 +557,4 @@ So, what have we discovered? On our newest Elixir and Erlang versions tail-recur
 
 As always, **run your own benchmarks** \- don't trust some old post on the Internet saying one thing is faster than another. Your compiler, your run time - things may have changed.
 
-Lastly, I'm happy to finally publish these results - it's been a bit of a [yak](https://pragtob.wordpress.com/2023/12/18/careful-what-data-you-send-or-how-to-tank-your-performance-with-task-async/) [shave](https://pragtob.wordpress.com/2023/12/22/benchee-1-3-0-published-oh-save-the-memory/). But, a fun one! 😁
+Lastly, I'm happy to finally publish these results - it's been a bit of a [yak](/2023/12/18/careful-what-data-you-send-or-how-to-tank-your-performance-with-task-async/) [shave](/2023/12/22/benchee-1-3-0-published-oh-save-the-memory/). But, a fun one! 😁

@@ -376,7 +376,7 @@ Hope you enjoyed these gotchas and they helped you! What gotchas are missing? Le
 
 It's also worth mentioning that Elixir is well aware of a lot of these - if you follow the links I posted, they will frequently send you to Elixir's own documentation explaining these. From the early days, there have also already been quite some improvements and more warnings emitted to help you. As **Elixir is amazing, and cares a lot about the developer experience**.
 
-If you enjoyed this post and think "Working with Tobi may be cool!" - you're in luck as [**I'm still looking for a job**](https://pragtob.wordpress.com/2024/04/08/looking-for-a-job-2/) \- so give me a shout, will ya? 💚
+If you enjoyed this post and think "Working with Tobi may be cool!" - you're in luck as [**I'm still looking for a job**](/2024/04/08/looking-for-a-job-2/) \- so give me a shout, will ya? 💚
 
 Update 1 (2024-05-02):
 

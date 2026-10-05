@@ -16,11 +16,11 @@ tags:
 - ruby
 - web development
 ---
-Hello everyone - it's finally that time. After finishing my Master's and a bit of a break I'm finally looking for a job. For the impatient, my CV/resume: [online](http://www.pragtob.info/resume.html) [PDF](http://www.pragtob.info/tobias_pfeiffer_resume.pdf)
+Hello everyone - it's finally that time. After finishing my Master's and a bit of a break I'm finally looking for a job. For the impatient, my CV/resume: [online](/resume.html) [PDF](/tobias_pfeiffer_resume.pdf)
 
 ### Who are you?
 
-I'm Tobi, online I'm better known as PragTob. I'm a Berlin based full-stack engineer (with a bit of a tendency towards the backend) and deeply interested in agile methodologies, web technologies, software craftsmanship and teaching. I contribute to a variety of open source projects (e.g. Shoes, Hackety Hack and after_do), engage in a multitude of community events (e.g. Ruby User Group Berlin), enjoy attending and speaking at conferences. My favorite programming language at the moment is Ruby and it's the one I'm most experienced with, along with my favorite implementation [JRuby](http://jruby.org/). Naturally I'm also interested in other programming languages, these days mostly Clojure. As for frameworks, I've done quite some work with Ruby on Rails, writing applications and teaching it at workshops and courses. You can check me out more online, including profiles etc., at my [website](http://www.pragtob.info/). Of course, looking around this blog can also give you a pretty good idea of what I'm like.
+I'm Tobi, online I'm better known as PragTob. I'm a Berlin based full-stack engineer (with a bit of a tendency towards the backend) and deeply interested in agile methodologies, web technologies, software craftsmanship and teaching. I contribute to a variety of open source projects (e.g. Shoes, Hackety Hack and after_do), engage in a multitude of community events (e.g. Ruby User Group Berlin), enjoy attending and speaking at conferences. My favorite programming language at the moment is Ruby and it's the one I'm most experienced with, along with my favorite implementation [JRuby](http://jruby.org/). Naturally I'm also interested in other programming languages, these days mostly Clojure. As for frameworks, I've done quite some work with Ruby on Rails, writing applications and teaching it at workshops and courses. You can check me out more online, including profiles etc., at my [website](/). Of course, looking around this blog can also give you a pretty good idea of what I'm like.
 
 ### What are you looking for?
 
@@ -28,4 +28,4 @@ A great job of course! Working on interesting problems with nice colleagues in a
 
 ### What now?
 
-Well if I sound like someone you want to work with or if you want to figure out if you want to work with me, please go ahead and get in touch :) You can shoot me an email at pragtob@gmail.com As a reminder, since you made it this far, you can find my CV [here](http://www.pragtob.info/resume.html)
+Well if I sound like someone you want to work with or if you want to figure out if you want to work with me, please go ahead and get in touch :) You can shoot me an email at pragtob@gmail.com As a reminder, since you made it this far, you can find my CV [here](/resume.html)

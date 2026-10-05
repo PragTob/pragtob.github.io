@@ -202,7 +202,7 @@ Fixing this was hard and stressful, which leads nicely into the next major secti
 
 ## Why it took so long, perfectionism and open source
 
-So, why did it take so long? I blogged earlier today about some of the things that held me back the past 1.5 years in ["The Silence Between"](https://pragtob.wordpress.com/2022/03/08/the-silence-between/). However, you can see that a lot of these features already landed in early 2020, so what gives?
+So, why did it take so long? I blogged earlier today about some of the things that held me back the past 1.5 years in ["The Silence Between"](/2022/03/08/the-silence-between/). However, you can see that a lot of these features already landed in early 2020, so what gives?
 
 The short answer is the bug above was hard to fix and I needed to fix it. The long answer is... well, long.
 

@@ -24,7 +24,7 @@ tags:
 ---
 The world of Artificial Intelligences is often full of performance questions. How fast can I compute a value? How far can I look ahead in a tree? How many nodes can I traverse?
 
-In Monte Carlo Tree Search one of the most defining questions is "How many simulations can I run per second?". If you want to learn more about Monte Carlo Tree Search and its application to the board game Go I recommend you [the video and slides of my talk about that topic from Rubyconf 2015](https://pragtob.wordpress.com/2015/11/21/slides-beating-go-thanks-to-the-power-of-randomness-rubyconf-2015/).
+In Monte Carlo Tree Search one of the most defining questions is "How many simulations can I run per second?". If you want to learn more about Monte Carlo Tree Search and its application to the board game Go I recommend you [the video and slides of my talk about that topic from Rubyconf 2015](/2015/11/21/slides-beating-go-thanks-to-the-power-of-randomness-rubyconf-2015/).
 
 Implementing my own AI - [rubykon](https://github.com/PragTob/rubykon) \- in ruby of course isn't going to get me the fastest implementation ever. It forces you to really do less and therefore make nice performance optimization, though. This isn't about that either. Here I want to take a look at another question: **"How fast can Ruby go?"** Ruby is a language with surprisingly many well maintained implementations. Most prominently [CRuby](https://www.ruby-lang.org/en/), [Rubinius](http://rubini.us/), [JRuby](http://jruby.org/) and the newcomer [JRuby + Truffle](https://github.com/jruby/jruby/wiki/Truffle). How do they perform in this task?
 

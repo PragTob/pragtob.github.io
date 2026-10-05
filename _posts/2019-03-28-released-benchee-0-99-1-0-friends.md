@@ -38,7 +38,7 @@ I found it nice how rspec did their 2.99 --> 3.0 switch - get it to run on 2.99 
 
 ## Features
 
-As mentioned before 0.99/1.0 don't actually include many features - [the previous 0.14.0 release from about a month ago was very feature packed](https://pragtob.wordpress.com/2019/02/11/benchee-0-14-0-micro-benchmarks-pah-how-about-nano-benchmarks/). These releases are a lot about **polish**. Redoing the documenation, updating names, fixing typespecs, being more careful about what is and isn't exposed in the public interface. A small but important feature made it in though - displaying the **absolute difference between measurements:**
+As mentioned before 0.99/1.0 don't actually include many features - [the previous 0.14.0 release from about a month ago was very feature packed](/2019/02/11/benchee-0-14-0-micro-benchmarks-pah-how-about-nano-benchmarks/). These releases are a lot about **polish**. Redoing the documenation, updating names, fixing typespecs, being more careful about what is and isn't exposed in the public interface. A small but important feature made it in though - displaying the **absolute difference between measurements:**
   
     Comparison:
     flat_map           2.34 K

@@ -32,7 +32,7 @@ Of course a blog post like this would feel empty, hollow and wrong without shari
 * Trying to send a secret encryption key as a parameter through GET while working under pressure taught me that this is a bad idea (parameter is in the URL ---> URL is not encrypted --> security FAIL) , that working under pressure indeed makes me worse and that I'd never miss a code review again, as this was thankfully caught during our code review
 * Finally diving into meta programming after regarding the topic as too magic for too long, I learned that I can learn almost anything and getting into it is mostly faster than I think - it's the fear of it that keeps you away for too long
 * Overusing meta programming taught me that I should seek the simplest workable solution first and only reach for meta programming as a last resort as it is easy to build a harder to maintain and understand than necessary code base - sometimes it's even better to have some duplication than that meta programming
-* Overusing meta programming also taught me about the [negative performance implications especially if methods are called often](https://pragtob.wordpress.com/2015/10/20/the-not-so-low-cost-of-calling-dynamically-defined-methods/)
+* Overusing meta programming also taught me about the [negative performance implications especially if methods are called often](/2015/10/20/the-not-so-low-cost-of-calling-dynamically-defined-methods/)
 * Being lied to in an interview taught me not to ask "Do you do TDD?" but rather "How do you work?"
 * Doing too much in my free time taught me that I should say "No" some times and that a "No" can be a "Yes" to yourself
 * Working on a huge Rails application taught me the dangers of fat models and all their validations, callbacks etc.
@@ -54,7 +54,7 @@ Of course a blog post like this would feel empty, hollow and wrong without shari
 * Working in a team where people yelled at each other taught me that I don't want to deal with behavior like this and that intervention is hard - often it's best to leave the room and let the situation cool down
 * Being in many different situations failing to act in a good way taught me that every situation is unique and that you can't always act based on your previous experience or advice
 * Trying to contribute to an open source project for the first time and never hearing back from the maintainers and ultimately having my patch rejected half a year after I asked if this was cool to work on showed me the value of timely clear communication especially to support open source newcomers and keep their spirits high
-* Just recently I failed at creating a proper API for my Elixir benchmarking library, used a map for configuration and passed it in as an optional first argument (ouch!) and the main data structure was a list of two-tuples instead of a map as the second argument - gladly fixed in the [latest release](https://pragtob.wordpress.com/2016/12/01/released-benchee-0-6-0-benchee_csv-0-5-0-benchee_json-and-benchee_html-html-reports-and-nice-graphs/)
+* Just recently I failed at creating a proper API for my Elixir benchmarking library, used a map for configuration and passed it in as an optional first argument (ouch!) and the main data structure was a list of two-tuples instead of a map as the second argument - gladly fixed in the [latest release](/2016/12/01/released-benchee-0-6-0-benchee_csv-0-5-0-benchee_json-and-benchee_html-html-reports-and-nice-graphs/)
 * probably a thousand more but that I can't think of right now ;)
 
 ## Closing

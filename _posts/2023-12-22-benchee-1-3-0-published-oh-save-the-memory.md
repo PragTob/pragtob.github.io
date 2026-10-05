@@ -33,7 +33,7 @@ I didn't want to release a new benchee version so soon. What happened is I sat d
 4\. Implement new feature as fix  
 5\. Realize it was the wrong fix, worked by accident  
 6\. Fix real issue  
-7\. Blog about issue cos 🤦‍♂️ (see [post](https://pragtob.wordpress.com/2023/12/18/careful-what-data-you-send-or-how-to-tank-your-performance-with-task-async/))  
+7\. Blog about issue cos 🤦‍♂️ (see [post](/2023/12/18/careful-what-data-you-send-or-how-to-tank-your-performance-with-task-async/))  
 8\. Remove now unneeded feature as it doesn't fix it  
 9\. Release new benchee version** <\--- we are here**  
 10\. Write actual benchmark
@@ -53,7 +53,7 @@ The changes on the 1.3 branch had the following impact:
 * Before the change creating the report (all 48 scenarios) took between **12.8 GB and 18.6GB (average ~15.3 GB). Afterwards? 1.8 GB - a reduction down to ~12%.**
 * The time it takes to create the report also **went from ~18 seconds to ~3.4 seconds, more than 5 times as fast.**
 
-So, while I'm still 🤦‍♂ that this was ever an issue, I'm also happy about the fix and shipping those changes to you. I go more into what the actual issue was and how it was fixed in my [previous post](https://pragtob.wordpress.com/2023/12/18/careful-what-data-you-send-or-how-to-tank-your-performance-with-task-async/).
+So, while I'm still 🤦‍♂ that this was ever an issue, I'm also happy about the fix and shipping those changes to you. I go more into what the actual issue was and how it was fixed in my [previous post](/2023/12/18/careful-what-data-you-send-or-how-to-tank-your-performance-with-task-async/).
 
 ## Downsides of the change
 

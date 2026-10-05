@@ -16,7 +16,7 @@ tags:
 - Running
 - Talks
 ---
-So far in this post series I covered what you should be aware of [before you start organizing a meetup](https://pragtob.wordpress.com/2016/03/31/before-you-start-to-organize-a-meetup/) and the [5 basics defining your meetup](https://pragtob.wordpress.com/2016/03/31/before-you-start-to-organize-a-meetup/). I saved one of the most important parts, how to actually run the meetup, for last. A meetup is usually divided into a couple of phases: Before, Arrival, Main and Goodbye. To easily see what there's to do, the format of this post is slightly different than the others. It's not so much discussions but more of a check list for each of the phases, so you don't forget anything.
+So far in this post series I covered what you should be aware of [before you start organizing a meetup](/2016/03/31/before-you-start-to-organize-a-meetup/) and the [5 basics defining your meetup](/2016/03/31/before-you-start-to-organize-a-meetup/). I saved one of the most important parts, how to actually run the meetup, for last. A meetup is usually divided into a couple of phases: Before, Arrival, Main and Goodbye. To easily see what there's to do, the format of this post is slightly different than the others. It's not so much discussions but more of a check list for each of the phases, so you don't forget anything.
 
 ## Before
 

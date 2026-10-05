@@ -17,7 +17,7 @@ tags:
 - technical challenge
 - tips &amp; tricks
 ---
-After making it [through the initial application selection and conquering a first set of introductory interviews](https://pragtob.wordpress.com/2023/11/07/interviewing-tips-before-you-apply-cv-cover-letter-screening-interview/) the interview process often moves on to some form of “technical challenges”. The goal here is to check your skills on a practical task in the area you will be working in. Oftentimes they are used to sort out people that can just talk “nicely” about doing things vs. actually doing them. The challenges will often be a basis for further conversation. Challenges can take many forms, and so this post will first give some general tips and then dive into the different forms they can take and what to look out for.
+After making it [through the initial application selection and conquering a first set of introductory interviews](/2023/11/07/interviewing-tips-before-you-apply-cv-cover-letter-screening-interview/) the interview process often moves on to some form of “technical challenges”. The goal here is to check your skills on a practical task in the area you will be working in. Oftentimes they are used to sort out people that can just talk “nicely” about doing things vs. actually doing them. The challenges will often be a basis for further conversation. Challenges can take many forms, and so this post will first give some general tips and then dive into the different forms they can take and what to look out for.
 
 The focus of this post will be **engineering** , as that’s what I know best, but a lot of the general tips should be generally applicable. We’ll first look at a good mindset and some general tips. Then we move on to different challenge setups - namely, is it **take-home challenge or a live challenge**. To round things out we’ll examine different challenge topics: **Coding, Pull Request Review, Architecture & People Manager**. 
 
@@ -27,10 +27,10 @@ As a small disclaimer, of course these tips are biased towards how I grade chall
 
 This part of a blog post series I’m writing covering:
 
-* [CV, cover letter & screening interview](https://pragtob.wordpress.com/2023/11/07/interviewing-tips-before-you-apply-cv-cover-letter-screening-interview/)
+* [CV, cover letter & screening interview](/2023/11/07/interviewing-tips-before-you-apply-cv-cover-letter-screening-interview/)
 * Technical challenges ←**you are here**
-  * Bonus: [Reexamining FizzBuzz Step by Step – and allowing for more varied rules](https://pragtob.wordpress.com/2023/11/28/reexamining-fizzbuzz-step-by-step-and-allowing-for-more-varied-rules/)
-* [Interviews](https://pragtob.wordpress.com/2024/03/21/interviewing-tips-the-interview/)
+  * Bonus: [Reexamining FizzBuzz Step by Step – and allowing for more varied rules](/2023/11/28/reexamining-fizzbuzz-step-by-step-and-allowing-for-more-varied-rules/)
+* [Interviews](/2024/03/21/interviewing-tips-the-interview/)
 
 Let’s get into it!
 
@@ -133,7 +133,7 @@ Let me expand on “**document things** ” a bit more. I remember a peculiar co
 
 Some coding challenges you will encounter aren’t truly coding challenges but _puzzles_. I’ve seen coding challenges that just directed you to an URL and from there you need to figure out the format, get links to CSV files, a text file and then try to figure out what your task is. I can just say that I think these are terrible, try your best to solve them, but also think about what kind of skills the company may be valuing if they choose to test engineers like that.
 
-Lastly the aforementioned FizzBuzz is a well known challenge and well suited to demonstrate what I mean by “taking it seriously” as well as showing how complex a “toy” problem can get. So, I wrote an [**entire blog post about it and its different evolutionary stages**](https://pragtob.wordpress.com/2023/11/28/reexamining-fizzbuzz-step-by-step-and-allowing-for-more-varied-rules/). If you want to dive more into coding challenges, that’s a good next spot to check out.
+Lastly the aforementioned FizzBuzz is a well known challenge and well suited to demonstrate what I mean by “taking it seriously” as well as showing how complex a “toy” problem can get. So, I wrote an [**entire blog post about it and its different evolutionary stages**](/2023/11/28/reexamining-fizzbuzz-step-by-step-and-allowing-for-more-varied-rules/). If you want to dive more into coding challenges, that’s a good next spot to check out.
 
 ## Pull Request Review
 

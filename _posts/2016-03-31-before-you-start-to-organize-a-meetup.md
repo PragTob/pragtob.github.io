@@ -20,8 +20,8 @@ tags:
 I've been running the[Ruby User Group Berlin](http://www.rug-b.de/) for over 3 years now. Additionally, I've been running the [React.js Berlin](http://reactjs.berlin/) meetup for about a year now. These are meetups with 60 to 90 attendees per meetup right now (ruby used to be 100+) and rather well known. Also I run the lovely rails girls project group "rubycorns" together with Til, bringing you [rorganize.it](https://www.rorganize.it/). As a result I regularly get asked "Tobi, how do I organize a meetup?". So instead of repeating myself I'll write up some basic thoughts on organizing meetups of different sizes. This is my own opinion based on my experience, so other advice may vary. As this came out to be rather large on the first writeup I decided to split it up into three posts as follows:
 
 * Before you start to organize a meetup
-* [Defining the 5 basics for your meetup](https://pragtob.wordpress.com/2016/04/04/defining-the-5-basics-of-your-meetup/)
-* [Running a meetup](https://pragtob.wordpress.com/2016/04/06/running-a-meetup/)
+* [Defining the 5 basics for your meetup](/2016/04/04/defining-the-5-basics-of-your-meetup/)
+* [Running a meetup](/2016/04/06/running-a-meetup/)
 
 [![First meetup I moderated. Photo by @wikimatze \(link\)](/assets/uploads/2016/03/8253190020_d56183f1d7_b.jpg)](https://pragtob.wordpress.com/?attachment_id=1377) First meetup I organized and moderated (back in 2012). Photo by [@wikimatze](https://twitter.com/wikimatze) [(link)](https://www.flickr.com/photos/wikimatze/8253190020/in/album-72157632194048668/) So let's get started with the first one:
 

@@ -71,7 +71,7 @@ Benchee.run(
 
 
 
-Cool, let's check out the results! You can check the [HTML report online](https://www.pragtob.info/benchee/task-no-task/) here, uncollapse for the console formatter version or just check out the pictures.
+Cool, let's check out the results! You can check the [HTML report online](/benchee/task-no-task/) here, uncollapse for the console formatter version or just check out the pictures.
 
 Console formatter output
   
@@ -193,9 +193,9 @@ As teased above, the most common and easiest solution is just to pass along the 
 
 The results are quite astounding, for a benchmark I'm working on (blog post coming _soon (tm)_) this change got it from practically being unable to run the benchmark due to memory constraints (on a 32GB RAM system) to easily running the benchmark - maximum resident size set size got almost halfed.
 
-The magnitude of this can also be shown perhaps by the size of the files I [saved](https://github.com/bencheeorg/benchee#saving-loading-and-comparing-previous-runs) for this benchmark. Saving is actually implemented as a formatter, and so automatically benefits from these changes - **the file size for this benchmark went down from ~200MB per file to 1MB aka a reduction to 0.5% in size.** You can read more about how it improved in the [benchee 1.3.0 release notes](https://pragtob.wordpress.com/2023/12/22/benchee-1-3-0-published-oh-save-the-memory/).
+The magnitude of this can also be shown perhaps by the size of the files I [saved](https://github.com/bencheeorg/benchee#saving-loading-and-comparing-previous-runs) for this benchmark. Saving is actually implemented as a formatter, and so automatically benefits from these changes - **the file size for this benchmark went down from ~200MB per file to 1MB aka a reduction to 0.5% in size.** You can read more about how it improved in the [benchee 1.3.0 release notes](/2023/12/22/benchee-1-3-0-published-oh-save-the-memory/).
 
-Naturally this change will also make its way to you all as benchee 1.3.0 soon (edit: [out now!](https://pragtob.wordpress.com/2023/12/22/benchee-1-3-0-published-oh-save-the-memory/)).
+Naturally this change will also make its way to you all as benchee 1.3.0 soon (edit: [out now!](/2023/12/22/benchee-1-3-0-published-oh-save-the-memory/)).
 
 Also when pursuing to fix this **be mindful that you need to completely remove the variable from the closure**. You can't just go: `Task.async(fn -> magic(suite.configuration) end)` \- the entire `suite` will still be sent along.
   

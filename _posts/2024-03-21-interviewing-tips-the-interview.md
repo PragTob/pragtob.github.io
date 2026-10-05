@@ -31,8 +31,8 @@ Now, what qualifies me to dish out tips & tricks on interviewing? Most recently 
 
 Speaking of which, this the final part of an interviewing tips series, you can find the other posts here:
 
-* [CV, cover letter & screening interview](https://pragtob.wordpress.com/2023/11/07/interviewing-tips-before-you-apply-cv-cover-letter-screening-interview/)
-* [Technical challenges - Coding & More](https://pragtob.wordpress.com/2023/11/29/interviewing-tips-technical-challenges-coding-more/) (Bonus: [Reexamining FizzBuzz Step by Step – and allowing for more varied rules](https://pragtob.wordpress.com/2023/11/28/reexamining-fizzbuzz-step-by-step-and-allowing-for-more-varied-rules/))
+* [CV, cover letter & screening interview](/2023/11/07/interviewing-tips-before-you-apply-cv-cover-letter-screening-interview/)
+* [Technical challenges - Coding & More](/2023/11/29/interviewing-tips-technical-challenges-coding-more/) (Bonus: [Reexamining FizzBuzz Step by Step – and allowing for more varied rules](/2023/11/28/reexamining-fizzbuzz-step-by-step-and-allowing-for-more-varied-rules/))
 * Interviews ←**you are here**
 
 ## Mindset
@@ -49,7 +49,7 @@ Interviewing can be extremely challenging but don’t stress it. Do your best. *
 
 ### Before the Interview
 
-**Don’t forget your research we talked about in the**[**first blog post**](https://pragtob.wordpress.com/2023/11/07/interviewing-tips-before-you-apply-cv-cover-letter-screening-interview/). Many companies use their company values to evaluate interviews: Make sure you’re aware of them, and highlight how you may relate to them in your answers. Knowing the domain of the company and the challenges they are facing right now might help you anticipate questions. If they have blog posts on their transition from a monolith to microservices, that topic is likely to come up!
+**Don’t forget your research we talked about in the**[**first blog post**](/2023/11/07/interviewing-tips-before-you-apply-cv-cover-letter-screening-interview/). Many companies use their company values to evaluate interviews: Make sure you’re aware of them, and highlight how you may relate to them in your answers. Knowing the domain of the company and the challenges they are facing right now might help you anticipate questions. If they have blog posts on their transition from a monolith to microservices, that topic is likely to come up!
 
 **Remember what the interviewers may be looking for**. Generally that means taking the context into account. Especially on the higher career ladder levels there’s rarely a definitive answer – the answers are often some approximation of **“it depends”**. When someone asks you for your opinion on “Microservices vs. Monoliths”, even if you are firmly in one camp, it behooves you well to highlight that you know the limitations of both approaches. Show them that you can identify when your favorite approach might not be a good choice. Essentially, people often don’t look for someone who only knows their hammer but someone who may have some preferred tools while knowing when the other tools may be more useful – even if they aren’t experts in those tools.
 
@@ -63,7 +63,7 @@ This separation into sub-areas isn’t only made for convenience. For a “gener
 
 ## Introduce yourself
 
-A classic of interviews – which I underestimated for the longest time. Until my friend Pedro Homero pointed out to me, in the[first article of this series](https://pragtob.wordpress.com/2023/11/07/interviewing-tips-before-you-apply-cv-cover-letter-screening-interview/), that **it’s essentially an elevator pitch for yourself answering the question “Why should we hire you?”**. It also gives you the opportunity to guide the conversation – if you mention something that piques the interviewers’ interest, chances are they’ll ask you about it. So, use it to shine the lights on your strengths.
+A classic of interviews – which I underestimated for the longest time. Until my friend Pedro Homero pointed out to me, in the[first article of this series](/2023/11/07/interviewing-tips-before-you-apply-cv-cover-letter-screening-interview/), that **it’s essentially an elevator pitch for yourself answering the question “Why should we hire you?”**. It also gives you the opportunity to guide the conversation – if you mention something that piques the interviewers’ interest, chances are they’ll ask you about it. So, use it to shine the lights on your strengths.
 
 Recently I had an interviewing experience that was a bit too free-form. “Tell me about yourself” was essentially the only question I was answering – for an entire hour. I struggled a bit and only realized late into the interview that I forgot to mention some important facts, like my open source work or my presentations at conferences. This led to me creating a mind map of my biggest “selling points” that I then broke down into a couple of bullet points suitable for a ~2 minute introduction. These cover the breadth of my experience as well as some of the “special” things I did. You don’t need to go that far, but I’ve gotta say – it was a worthwhile experience for me.
 
